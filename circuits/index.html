@@ -1,0 +1,1510 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#177CB0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#177CB0" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.2.0">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#177CB0">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,300italic,400,400italic,700,700italic%7CNoto+Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"sghuang.com","root":"/","images":"/images","scheme":"Gemini","darkmode":"auto","version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="This document is intended for the reviewing of the course Fundamentals of Electric Circuits. Preface Current Current is the rate of charge flow past a given point in a given direction. $$ i &#x3D; \frac{\">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Fundamentals of Electric Circuits Review">
+<meta property="og:url" content="https://sghuang.com/circuits/index.html">
+<meta property="og:site_name" content="Samuel Huang&#39;s Portfolio">
+<meta property="og:description" content="This document is intended for the reviewing of the course Fundamentals of Electric Circuits. Preface Current Current is the rate of charge flow past a given point in a given direction. $$ i &#x3D; \frac{\">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200829165144-Wye-Delta-Transformation.png">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200829205418-finding-Thevenin-equivalent-circuit.png">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200829222710-op-amp.png">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200829223112-op-amp.png">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200829223959-inverting-amp.png">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200829224120-trans-resistance-amplifier.png">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200829224216-summing-amplifier.png">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200829225047-Non-Inverting-Amplifier.png">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200829234048-voltage-follower.png">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200829234310-difference-amplifier.png">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200830103010-source-free-RC-circuit.png">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/202008301036020-source-free-RL-circuit.png">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200830104007-step-response-of-RC-circuit.png">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200830104444-step-response-of-RL-circuit.png">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200830142143-%20Source-Free-Series-RLC-Circuits.png">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200830144807-Source-Free-Parallel-RLC-Circuits.png">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200830160927-Step-Response-of-Series-RLC-Circuit.png">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200830161016-Step-Response-of-Parallel-RLC-Circuit.png">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200830174000-dot-convention.png">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200830174229-series-aiding.png">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200830174249-series-aiding.png">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200830174804-coefficient-of-coupling.png">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200830175402-transformer.png">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200830203826-operational-transforms.png">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200830203858-functional-transforms.png">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200830204925-inverse-Laplace-transform.png">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200830205313-convolution-properties.png">
+<meta property="og:image" content="https://img-blog.csdn.net/20151204210049091">
+<meta property="article:published_time" content="2020-08-31T04:00:00.000Z">
+<meta property="article:modified_time" content="2024-06-23T01:14:29.644Z">
+<meta property="article:author" content="Samuel Huang">
+<meta property="article:tag" content="ee">
+<meta property="article:tag" content="circuits">
+<meta property="article:tag" content="physics">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200829165144-Wye-Delta-Transformation.png">
+
+
+<link rel="canonical" href="https://sghuang.com/circuits/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://sghuang.com/circuits/","path":"/circuits/","title":"Fundamentals of Electric Circuits Review"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Fundamentals of Electric Circuits Review | Samuel Huang's Portfolio</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Samuel Huang's Portfolio</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-posts"><a href="/posts" rel="section"><i class="fa fa-signs-post fa-fw"></i>Posts</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">64</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">61</span></a></li><li class="menu-item menu-item-projects"><a href="/tags/project" rel="section"><i class="fa fa-cogs fa-fw"></i>Projects</a></li><li class="menu-item menu-item-experience"><a href="/experience/" rel="section"><i class="fa fa-briefcase fa-fw"></i>Experience</a></li><li class="menu-item menu-item-education"><a href="/education" rel="section"><i class="fa fa-graduation-cap fa-fw"></i>Education</a></li><li class="menu-item menu-item-courses"><a href="https://sghuang.notion.site/e242d6a39cf74dada55828ffe7cdb83f" rel="section" target="_blank"><i class="fa fa-book fa-fw"></i>Courses</a></li><li class="menu-item menu-item-notes"><a href="https://notes.sghuang.com/" rel="section" target="_blank"><i class="fa fa-file-pen fa-fw"></i>Notes</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Preface"><span class="nav-number">1.</span> <span class="nav-text">Preface</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Current"><span class="nav-number">1.1.</span> <span class="nav-text">Current</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Voltage"><span class="nav-number">1.2.</span> <span class="nav-text">Voltage</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Power"><span class="nav-number">1.3.</span> <span class="nav-text">Power</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Passive-Sign-Convention"><span class="nav-number">1.4.</span> <span class="nav-text">Passive Sign Convention</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Law-of-Energy-Conservation"><span class="nav-number">1.5.</span> <span class="nav-text">Law of Energy Conservation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sources"><span class="nav-number">1.6.</span> <span class="nav-text">Sources</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Basic-Laws"><span class="nav-number">2.</span> <span class="nav-text">Basic Laws</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Ohm%E2%80%99s-Law"><span class="nav-number">2.1.</span> <span class="nav-text">Ohm’s Law</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Topology"><span class="nav-number">2.2.</span> <span class="nav-text">Topology</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Kirchhoff%E2%80%99s-Law"><span class="nav-number">2.3.</span> <span class="nav-text">Kirchhoff’s Law</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Kirchhoff%E2%80%99s-Current-Law-KCL"><span class="nav-number">2.3.1.</span> <span class="nav-text">Kirchhoff’s Current Law (KCL)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Kirchhoff%E2%80%99s-Voltage-Law-KVL"><span class="nav-number">2.3.2.</span> <span class="nav-text">Kirchhoff’s Voltage Law (KVL)</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Equivalent-Circuits-Sources"><span class="nav-number">2.4.</span> <span class="nav-text">Equivalent Circuits&#x2F;Sources</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Resistance"><span class="nav-number">2.4.1.</span> <span class="nav-text">Resistance</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-Principle-of-Voltage-Division"><span class="nav-number">2.4.2.</span> <span class="nav-text">The Principle of Voltage Division</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#The-Principle-of-Current-Division"><span class="nav-number">2.4.3.</span> <span class="nav-text">The Principle of Current Division</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Wye-Delta-Transformation"><span class="nav-number">2.4.4.</span> <span class="nav-text">Wye-Delta Transformation</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Systematic-Methods-for-Circuit-Analysis"><span class="nav-number">3.</span> <span class="nav-text">Systematic Methods for Circuit Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Nodal-Voltage-Analysis"><span class="nav-number">3.1.</span> <span class="nav-text">Nodal Voltage Analysis</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mesh-Current-Analysis"><span class="nav-number">3.2.</span> <span class="nav-text">Mesh Current Analysis</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Circuit-Theorems"><span class="nav-number">4.</span> <span class="nav-text">Circuit Theorems</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Linear-Circuits"><span class="nav-number">4.1.</span> <span class="nav-text">Linear Circuits</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Superposition-Theorem"><span class="nav-number">4.2.</span> <span class="nav-text">Superposition Theorem</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Source-Transformation"><span class="nav-number">4.3.</span> <span class="nav-text">Source Transformation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Thevenin%E2%80%99s-Theorem"><span class="nav-number">4.4.</span> <span class="nav-text">Thevenin’s Theorem</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Norton%E2%80%99s-Theorem"><span class="nav-number">4.5.</span> <span class="nav-text">Norton’s Theorem</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Operational-Amplifiers"><span class="nav-number">5.</span> <span class="nav-text">Operational Amplifiers</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Basics-of-Op-Amp"><span class="nav-number">5.1.</span> <span class="nav-text">Basics of Op-Amp</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Inverting-Amplifier"><span class="nav-number">5.2.</span> <span class="nav-text">Inverting Amplifier</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Trans-Resistance-Amplifier"><span class="nav-number">5.3.</span> <span class="nav-text">Trans-Resistance Amplifier</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Summing-Amplifier-Summer"><span class="nav-number">5.4.</span> <span class="nav-text">Summing Amplifier&#x2F;Summer</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Non-Inverting-Amplifier"><span class="nav-number">5.5.</span> <span class="nav-text">Non-Inverting Amplifier</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Voltage-Follower"><span class="nav-number">5.6.</span> <span class="nav-text">Voltage Follower</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Difference-Amplifier"><span class="nav-number">5.7.</span> <span class="nav-text">Difference Amplifier</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Capacitors-and-Inductors"><span class="nav-number">6.</span> <span class="nav-text">Capacitors and Inductors</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Capacitor"><span class="nav-number">6.1.</span> <span class="nav-text">Capacitor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Inductor"><span class="nav-number">6.2.</span> <span class="nav-text">Inductor</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Singularity-Functions"><span class="nav-number">7.</span> <span class="nav-text">Singularity Functions</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Step-Function"><span class="nav-number">7.1.</span> <span class="nav-text">Step Function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Impulse-Delta-Function"><span class="nav-number">7.2.</span> <span class="nav-text">Impulse&#x2F;Delta Function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Unit-Ramp-Function"><span class="nav-number">7.3.</span> <span class="nav-text">Unit Ramp Function</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Relationship"><span class="nav-number">7.4.</span> <span class="nav-text">Relationship</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#First-Order-Circuits"><span class="nav-number">8.</span> <span class="nav-text">First Order Circuits</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Source-Free-RC-Circuit"><span class="nav-number">8.1.</span> <span class="nav-text">Source-Free $RC$ Circuit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Source-Free-RL-Circuit"><span class="nav-number">8.2.</span> <span class="nav-text">Source-Free $RL$ Circuit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step-Response-of-RC-Circuit"><span class="nav-number">8.3.</span> <span class="nav-text">Step Response of $RC$ Circuit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step-Response-of-RL-Circuit"><span class="nav-number">8.4.</span> <span class="nav-text">Step Response of $RL$ Circuit</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Second-Order-Circuits"><span class="nav-number">9.</span> <span class="nav-text">Second Order Circuits</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Source-Free-Series-RLC-Circuits"><span class="nav-number">9.1.</span> <span class="nav-text">Source-Free Series $RLC$ Circuits</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Source-Free-Parallel-RLC-Circuits"><span class="nav-number">9.2.</span> <span class="nav-text">Source-Free Parallel $RLC$ Circuits</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step-Response-of-Series-RLC-Circuit"><span class="nav-number">9.3.</span> <span class="nav-text">Step Response of Series $RLC$ Circuit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Step-Response-pf-Parallel-RLC-Circuit"><span class="nav-number">9.4.</span> <span class="nav-text">Step Response pf Parallel $RLC$ Circuit</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Sinusoids-and-Phasors"><span class="nav-number">10.</span> <span class="nav-text">Sinusoids and Phasors</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Sinusoids"><span class="nav-number">10.1.</span> <span class="nav-text">Sinusoids</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Complex-Number"><span class="nav-number">10.2.</span> <span class="nav-text">Complex Number</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Phasors"><span class="nav-number">10.3.</span> <span class="nav-text">Phasors</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generalized-Ohm%E2%80%99s-Law"><span class="nav-number">10.4.</span> <span class="nav-text">Generalized Ohm’s Law</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sinusoid-Steady-State-Analysis"><span class="nav-number">10.5.</span> <span class="nav-text">Sinusoid Steady State Analysis</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#AC-Power-Analysis"><span class="nav-number">11.</span> <span class="nav-text">AC Power Analysis</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Instantaneous-Power"><span class="nav-number">11.1.</span> <span class="nav-text">Instantaneous Power</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Average-Power"><span class="nav-number">11.2.</span> <span class="nav-text">Average Power</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Maximum-Average-Power-Transfer"><span class="nav-number">11.3.</span> <span class="nav-text">Maximum Average Power Transfer</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Magnetically-Coupled-Circuits"><span class="nav-number">12.</span> <span class="nav-text">Magnetically Coupled Circuits</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Faraday%E2%80%99s-Law-pf-electromagnetic-induction"><span class="nav-number">12.1.</span> <span class="nav-text">Faraday’s Law pf electromagnetic induction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Self-Inductance"><span class="nav-number">12.2.</span> <span class="nav-text">Self Inductance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mutual-Inductance"><span class="nav-number">12.3.</span> <span class="nav-text">Mutual Inductance</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Dot-Convention"><span class="nav-number">12.3.1.</span> <span class="nav-text">Dot Convention</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Cascade-Connection"><span class="nav-number">12.3.2.</span> <span class="nav-text">Cascade Connection</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Coefficient-of-Coupling"><span class="nav-number">12.3.3.</span> <span class="nav-text">Coefficient of Coupling</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Transformers"><span class="nav-number">12.4.</span> <span class="nav-text">Transformers</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Linear-Air-Core-Transformers"><span class="nav-number">12.4.1.</span> <span class="nav-text">Linear &#x2F; Air-Core Transformers</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Ideal-Transformers"><span class="nav-number">12.4.2.</span> <span class="nav-text">Ideal Transformers</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Frequency-Response"><span class="nav-number">13.</span> <span class="nav-text">Frequency Response</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Laplace-Transform"><span class="nav-number">14.</span> <span class="nav-text">Laplace Transform</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Properties"><span class="nav-number">14.1.</span> <span class="nav-text">Properties</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Method-of-Partial-Expansion"><span class="nav-number">14.2.</span> <span class="nav-text">Method of Partial Expansion</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Residue-Method"><span class="nav-number">14.2.1.</span> <span class="nav-text">Residue Method</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Method-of-Algebra"><span class="nav-number">14.2.2.</span> <span class="nav-text">Method of Algebra</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Solving-Equations-at-Specific-Values"><span class="nav-number">14.2.3.</span> <span class="nav-text">Solving Equations at Specific Values</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Inverse-Laplace-Transform"><span class="nav-number">14.3.</span> <span class="nav-text">Inverse Laplace Transform</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Convolution-Integral"><span class="nav-number">14.4.</span> <span class="nav-text">Convolution Integral</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Circuit-Analysis-in-s-Domain"><span class="nav-number">15.</span> <span class="nav-text">Circuit Analysis in $s$-Domain</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Samuel Huang"
+      src="/uploads/avatar.png">
+  <p class="site-author-name" itemprop="name">Samuel Huang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">64</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/sghuang19" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;sghuang19" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:samuel.g.huang@outlook.com" title="E-Mail → mailto:samuel.g.huang@outlook.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/SamuelGHuang" title="X → https:&#x2F;&#x2F;twitter.com&#x2F;SamuelGHuang" rel="noopener me" target="_blank"><i class="fab fa-x-twitter fa-fw"></i>X</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/samuel-g-huang/" title="LinkedIn → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;samuel-g-huang&#x2F;" rel="noopener me" target="_blank"><i class="fab fa-linkedin fa-fw"></i>LinkedIn</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://calendly.com/sghuang" title="Calendly → https:&#x2F;&#x2F;calendly.com&#x2F;sghuang" rel="noopener me" target="_blank"><i class="fa fa-calendar fa-fw"></i>Calendly</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/" title="微信 → &#x2F;" rel="noopener me"><i class="fab fa-weixin fa-fw"></i>微信</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by.svg" alt="Creative Commons"></a>
+  </div>
+
+<hr style="margin: 0" />
+<div class="cc-license animated" itemprop="sponsor">
+  Built with<br />
+  <span
+    style="text-decoration: none"
+    class="exturl cc-opacity"
+    title="A fast, simple & powerful blog framework"
+  >
+    <a target="_blank" rel="noopener" href="https://hexo.io" style="text-decoration: none">
+      <img
+        width="160"
+        src="https://github.com/hexojs/logo/blob/master/hexo-logo.png?raw=true"
+        alt="Hexo"
+      />
+    </a>
+  </span>
+</div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+        <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/16.2%20Vector%20Fields%20and%20Line%20Integrals%20Work,%20Circulation,%20and%20Flux/" rel="bookmark">
+        <time class="popular-posts-time">2020-08-10</time>
+        <br>
+      高等数学（下）期末复习：16.2 矢量场与线积分：功、环流和通量
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/16.5%20Surfaces%20and%20Area/" rel="bookmark">
+        <time class="popular-posts-time">2020-08-11</time>
+        <br>
+      高等数学（下）期末复习：16.5 曲面与面积
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/16.3%20Path%20Independence,%20Conservative%20Fields,%20and%20Potential%20Functions/" rel="bookmark">
+        <time class="popular-posts-time">2020-08-11</time>
+        <br>
+      高等数学（下）期末复习：16.3 Path Independence、保守场与势函数
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/physics/" rel="bookmark">
+        <time class="popular-posts-time">2020-08-25</time>
+        <br>
+      General Physics II Review
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/16.1%20Line%20Integral/" rel="bookmark">
+        <time class="popular-posts-time">2020-08-09</time>
+        <br>
+      高等数学（下）期末复习：16.1 线积分
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sghuang.com/circuits/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="Samuel Huang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Samuel Huang's Portfolio">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Fundamentals of Electric Circuits Review | Samuel Huang's Portfolio">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Fundamentals of Electric Circuits Review<a href="https://github.com/sghuang19/sghuang19.github.io/tree/main/source/_posts/old/Fundamentals%20of%20Electric%20Circuits.md" class="post-edit-link" title="Edit this post" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-08-31 00:00:00" itemprop="dateCreated datePublished" datetime="2020-08-31T00:00:00-04:00">2020-08-31</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-06-22 21:14:29" itemprop="dateModified" datetime="2024-06-22T21:14:29-04:00">2024-06-22</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>2.9k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>10 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><!-- cSpell:words supernode supermesh Thevenin Thevenin's subtractor -->
+<p>This document is intended for the reviewing of the course Fundamentals of
+Electric Circuits.</p>
+<h2 id="Preface">Preface</h2>
+<h3 id="Current">Current</h3>
+<p>Current is the rate of charge flow past a given point in a given direction.</p>
+<p>$$
+i = \frac{\mathop{dq}}{\mathop{dt}}
+$$</p>
+<h3 id="Voltage">Voltage</h3>
+<p>Voltage is the energy required to move 1 C of charge through an element.</p>
+<p>$$
+v = \frac{dw}{dq}
+$$</p>
+<h3 id="Power">Power</h3>
+<p>Power is the energy supplied or absorbed per unit time.</p>
+<p>$$
+p = \frac{dw}{dt} = vi
+$$</p>
+<h3 id="Passive-Sign-Convention">Passive Sign Convention</h3>
+<blockquote>
+<p>Passive sign convention is satisfied if the direction of current is selected
+such that current <strong>enters</strong> through the terminal that is more <strong>positively</strong>
+biased.</p>
+</blockquote>
+<h3 id="Law-of-Energy-Conservation">Law of Energy Conservation</h3>
+<p>$$
+\sum p = 0
+$$</p>
+<h3 id="Sources">Sources</h3>
+<ul>
+<li>An ideal voltage source has <strong>zero internal resistance</strong> and is capable of
+producing <strong>any amount of current</strong>.</li>
+<li>An ideal current source has <strong>infinite resistance</strong>. It is able to generate
+<strong>any voltage</strong> to establish the desired current through it.</li>
+<li>Ideal dependent source</li>
+</ul>
+<span id="more"></span>
+<h2 id="Basic-Laws">Basic Laws</h2>
+<h3 id="Ohm’s-Law">Ohm’s Law</h3>
+<p>$$
+v = Ri
+$$</p>
+<p>$$
+i = Gv
+$$</p>
+<p>$$
+p = vi = i^2R = v^2G = \frac{v^2}{R} = \frac{i^2}{G}
+$$</p>
+<p>$$
+R = \rho\frac{l}{A}
+$$</p>
+<ul>
+<li>open circuit and short circuit</li>
+</ul>
+<h3 id="Topology">Topology</h3>
+<ul>
+<li>A branch represents any <strong>single element</strong> in a circuit.</li>
+<li>A node is the <strong>point of connection</strong> between two or more branches.</li>
+<li>A loop is any <strong>closed path</strong> in a circuit.</li>
+<li>A set of loops is said <strong>independent</strong> when any of them contains at least one
+<strong>new branch</strong> in addition to all others.</li>
+<li>A mesh is a loop which does not contain any other loops within it.</li>
+</ul>
+<p>$$
+b = m + n - 1
+$$</p>
+<h3 id="Kirchhoff’s-Law">Kirchhoff’s Law</h3>
+<ul>
+<li>Principle of the Conservation of Charge</li>
+</ul>
+<h4 id="Kirchhoff’s-Current-Law-KCL">Kirchhoff’s Current Law (KCL)</h4>
+<p>The algebraic sum of currents entering a node (or a closed boundary) is zero. In
+other words, the sum of the currents entering a node is equal to that leaving
+the node.</p>
+<p>$$
+0 = \frac{dq}{dt} = \sum_{n = 1}^N i_n
+$$</p>
+<h4 id="Kirchhoff’s-Voltage-Law-KVL">Kirchhoff’s Voltage Law (KVL)</h4>
+<ul>
+<li>The algebraic sum of all voltages around a loop is zero.</li>
+<li>Sum of voltage drops = Sum of voltage rises.</li>
+</ul>
+<p>$$
+\sum_{m=1}^M w_m = 0 = \sum_{m=1}^M qv_m
+\Rightarrow \sum_{m=1}^M v_m = 0
+$$</p>
+<h3 id="Equivalent-Circuits-Sources">Equivalent Circuits/Sources</h3>
+<p>Two circuits (or sources) are said to be equivalent if they have the same
+$V\text{-}I$ relationship at their terminals.</p>
+<h4 id="Resistance">Resistance</h4>
+<p>$$
+R_\text{eq} = \frac{R_1R_2}{R_1 + R_2}, \quad
+G_\text{eq} = G_1 + G_2
+$$</p>
+<h4 id="The-Principle-of-Voltage-Division">The Principle of Voltage Division</h4>
+<p>Resistors in series</p>
+<p>$$
+v_n = \frac{R_n}{\sum_{n=1}^N R_n} v
+$$</p>
+<h4 id="The-Principle-of-Current-Division">The Principle of Current Division</h4>
+<p>Resistors in parallel</p>
+<p>$$
+i_n = \frac{G_n}{\sum_{n=1}^N G_n}
+$$</p>
+<h4 id="Wye-Delta-Transformation">Wye-Delta Transformation</h4>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200829165144-Wye-Delta-Transformation.png" alt="Wye Delta Transformation"></p>
+<ul>
+<li>Delta to Wye</li>
+</ul>
+<p>$$
+\left{
+\begin{aligned}
+R_1 = \frac{R_bR_c}{R_a + R_b +R_c} &amp;\
+R_2 = \frac{R_cR_a}{R_a + R_b +R_c} &amp;\
+R_3 = \frac{R_aR_b}{R_a + R_b +R_c} &amp;\
+\end{aligned}
+\right.
+$$</p>
+<ul>
+<li>Wye to Delta</li>
+</ul>
+<p>$$
+\left{
+\begin{aligned}
+R_a = R_2 + R_3 + \frac{R_2R_3}{R_1} &amp;\
+R_b = R_1 + R_3 + \frac{R_1R_3}{R_2} &amp;\
+R_c = R_1 + R_2 + \frac{R_1R_2}{R_3} &amp;\
+\end{aligned}
+\right.
+$$</p>
+<p>Y-networks is more like a serial connection, and Δ network is more like a
+parallel connection.</p>
+<p>$$
+R_Y &lt; R_\Delta
+$$</p>
+<p>When the Y and Δ network is <strong>balanced</strong></p>
+<p>$$
+\left{
+\begin{aligned}
+R_1 = R_2 =  R_3 = R_Y \
+R_a = R_b = R_c = R_\Delta
+\end{aligned}
+\right.\Rightarrow\left{
+\begin{aligned}
+&amp; R_Y = \frac{R_\Delta}{3}\
+&amp; R_\Delta = 3R_Y\
+\end{aligned}
+\right.
+$$</p>
+<h2 id="Systematic-Methods-for-Circuit-Analysis">Systematic Methods for Circuit Analysis</h2>
+<h3 id="Nodal-Voltage-Analysis">Nodal Voltage Analysis</h3>
+<ol>
+<li>Choose one node as the <strong>reference node</strong>, then <strong>label</strong> the voltage on the
+remaining nodes</li>
+<li>Apply <strong>KCL</strong> to each non-reference nodes, branch currents represented <strong>in
+terms of node voltages</strong> according to <strong>Ohm’s Law</strong></li>
+<li>Solve the $n-1$ simultaneous equations</li>
+</ol>
+<ul>
+<li>
+<p>Nodal analysis with voltage sources</p>
+</li>
+<li>
+<p>Case 1 - the V-source connects to the reference node</p>
+</li>
+<li>
+<p>Case 2 - the V-source connects to two non-reference nodes</p>
+<ul>
+<li>Treat these two nodes as one <strong>supernode</strong></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Nodal analysis is good for</p>
+<ul>
+<li>The network contains many elements connected in <strong>parallel</strong></li>
+<li>The network contains many <strong>current sources</strong></li>
+<li>The circuit has fewer nodes than meshes</li>
+<li>Node voltages are what being solved for</li>
+</ul>
+</blockquote>
+<h3 id="Mesh-Current-Analysis">Mesh Current Analysis</h3>
+<ol>
+<li><strong>Label</strong> the mesh currents</li>
+<li>Apply <strong>KVL</strong> to each of the $n$ meshes, write the voltages across each
+elements <strong>in terms of the mesh currents</strong> according to the <strong>Ohm’s Law</strong></li>
+<li>Solve the $n$ simultaneous equations</li>
+</ol>
+<blockquote>
+<p>Always consider the circuit in <strong>clockwise</strong> direction</p>
+</blockquote>
+<ul>
+<li>Mesh analysis with current sources</li>
+<li>Case 1 - the current source is <strong>NOT</strong> shared by multiple meshes</li>
+<li>Case 2 - the current source <strong>IS</strong> shared by multiple meshes
+<ul>
+<li>Treat the two sharing meshes as one <strong>supermesh</strong></li>
+</ul>
+</li>
+</ul>
+<blockquote>
+<p>Mesh analysis is applicable for <strong>planar</strong> circuits Mesh analysis is good for</p>
+<ul>
+<li>The network contains many <strong>serially</strong> connected elements</li>
+<li>The network contains many <strong>voltage sources</strong></li>
+<li>The circuit has fewer meshes than nodes</li>
+<li>Branch or mesh currents are what being solved for</li>
+</ul>
+</blockquote>
+<h2 id="Circuit-Theorems">Circuit Theorems</h2>
+<h3 id="Linear-Circuits">Linear Circuits</h3>
+<ul>
+<li>Homogeneity\Scaling Property</li>
+</ul>
+<p>$$
+f(\alpha x) = \alpha f(x) = \alpha y
+$$</p>
+<ul>
+<li>Additivity Property</li>
+</ul>
+<p>$$
+\left{\begin{aligned}
+y_1 = f(x_1) \
+y_2 = f(x_2)
+\end{aligned}\right.\Rightarrow
+f(x_1 + x_2) = y_1 + y_2
+$$</p>
+<ul>
+<li>Linearity</li>
+</ul>
+<p>$$
+f(\alpha x_1 + \beta x_2) = \alpha y_1 + \beta y_2
+$$</p>
+<h3 id="Superposition-Theorem">Superposition Theorem</h3>
+<p>In a linear system, the voltage across (or current through) an element is the
+<strong>algebraic sum</strong> of those caused by <strong>each independent source</strong> acting alone</p>
+<ol>
+<li><strong>Turn off</strong> all independent source except one, find the output</li>
+<li>Repeat Step 1 for other sources</li>
+<li><strong>Adding up</strong></li>
+</ol>
+<h3 id="Source-Transformation">Source Transformation</h3>
+<blockquote>
+<p>two circuits are <strong>equivalent</strong> if their <strong>voltage versus current</strong>
+($v\text{-}i$) <strong>relations</strong> at <strong>port</strong> are identical</p>
+</blockquote>
+<h3 id="Thevenin’s-Theorem">Thevenin’s Theorem</h3>
+<blockquote>
+<p>A <strong>linear two terminal circuit</strong> can be replaced by an equivalent circuit
+consisting of a <strong>voltage source</strong> $V_\text{Th}$ in <strong>series</strong> with a
+<strong>resistor</strong> $R_\text{Th}$ .</p>
+</blockquote>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200829205418-finding-Thevenin-equivalent-circuit.png" alt="Finding Thevenin equivalent circuit"></p>
+<ol>
+<li><strong>Open the circuit</strong>, to find out the voltage between terminals</li>
+<li>Add an <strong>assumed source</strong> (generally voltage source), then calculate the
+equivalent resistance</li>
+</ol>
+<blockquote>
+<p><strong>Maximum Power Transfer</strong></p>
+<p>$$
+R_L = R_\text{Th},\quad
+p_\text{max} =\frac{V_\text{Th}^2}{4R_\text{Th}}
+$$</p>
+</blockquote>
+<h3 id="Norton’s-Theorem">Norton’s Theorem</h3>
+<blockquote>
+<p>A <strong>linear two terminal circuit</strong> can be replaced by an equivalent circuit
+consisting of a <strong>current source</strong> $I_\text{N}$ and a <strong>parallel</strong> &gt;
+<strong>resistor</strong> $R_\text{N}$</p>
+</blockquote>
+<ol>
+<li>Find the <strong>open-circuit voltage</strong></li>
+<li>Find the <strong>short-circuit current</strong></li>
+<li>The <strong>equivalent or input resistance</strong> $R_\text{in}$ at terminals when all
+independent sources are turned off</li>
+</ol>
+<h2 id="Operational-Amplifiers">Operational Amplifiers</h2>
+<h3 id="Basics-of-Op-Amp">Basics of Op-Amp</h3>
+<p>Op amp is an <strong>active electric element</strong></p>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200829222710-op-amp.png" alt="Op amp"></p>
+<ul>
+<li>input resistance</li>
+<li>output resistance</li>
+<li>open loop voltage gain</li>
+</ul>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200829223112-op-amp.png" alt="image-20200829223111173"></p>
+<blockquote>
+<p><strong>Ideal op amp</strong></p>
+<ol>
+<li>$R_o\approx 0$</li>
+<li>$R_i = \infty\Rightarrow i_1\approx 0, i_2\approx 0$</li>
+<li>$A\approx\infty\Rightarrow v_1\approx v_2$</li>
+</ol>
+<p><strong>virtual opening</strong> and <strong>virtual shorting</strong></p>
+</blockquote>
+<h3 id="Inverting-Amplifier">Inverting Amplifier</h3>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200829223959-inverting-amp.png" alt="inverting amplifier"></p>
+<p>$$
+v_0 = -\frac{R_f}{R_1}v_i
+$$</p>
+<h3 id="Trans-Resistance-Amplifier">Trans-Resistance Amplifier</h3>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200829224120-trans-resistance-amplifier.png" alt="image-20200829224118335"></p>
+<p>$$
+\frac{v_o}{i_s} = -R
+$$</p>
+<h3 id="Summing-Amplifier-Summer">Summing Amplifier/Summer</h3>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200829224216-summing-amplifier.png" alt="Summing Amplifier/Summer"></p>
+<p>$$
+v_0 = -\left(
+\frac{R_f}{R_1}v_1 +
+\frac{R_f}{R_2}v_2 +
+\frac{R_f}{R_3}v_3
+\right)
+$$</p>
+<h3 id="Non-Inverting-Amplifier">Non-Inverting Amplifier</h3>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200829225047-Non-Inverting-Amplifier.png" alt="Non-Inverting Amplifier"></p>
+<p>$$
+A_v = \frac{v_o}{v_i} = 1 + \frac{R_f}{R_1}
+$$</p>
+<h3 id="Voltage-Follower">Voltage Follower</h3>
+<blockquote>
+<p>Also named <strong>unity gain amplifier</strong></p>
+</blockquote>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200829234048-voltage-follower.png" alt="Voltage Follower"></p>
+<h3 id="Difference-Amplifier">Difference Amplifier</h3>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200829234310-difference-amplifier.png" alt="Difference Amplifier"></p>
+<p>$$
+v_o =
+\frac{R_2(1 + R_1/R_2)}{R_1(1+R_3/R_4)}v_2 - \frac{R_2}{R_1}v_1
+$$</p>
+<blockquote>
+<p>If $R_1 = R_2, R_3 = R_4$, this becomes a <strong>subtractor</strong></p>
+</blockquote>
+<h2 id="Capacitors-and-Inductors">Capacitors and Inductors</h2>
+<h3 id="Capacitor">Capacitor</h3>
+<p>$$
+q = Cv
+$$</p>
+<p>For planar capacitor</p>
+<p>$$
+C = \frac{\epsilon A}{d}
+$$</p>
+<p>$$
+v(t) =
+\frac{1}{C}\int_{-\infty}^t
+i(\tau)\mathop{d\tau} + v(t_0)
+$$</p>
+<p>$$
+i = \frac{dq}{dt} = C\frac{dv}{dt}
+$$</p>
+<p>$$
+w = \frac{1}{2}Cv^2 = \frac{q^2}{2C}
+$$</p>
+<ul>
+<li>Capacitor is <strong>open circuit to dc</strong></li>
+<li><strong>Voltage</strong> on a capacitor must be <strong>continuous</strong></li>
+<li>In <strong>parallel</strong>: $C_{eq} = C_1 + C_2 + \cdots + C_N$</li>
+<li>In <strong>series</strong>:
+$\frac{1}{C_{eq}} = \frac{1}{C_1} + \frac{1}{C_2} + \cdots + \frac{1}{C_N}$</li>
+</ul>
+<h3 id="Inductor">Inductor</h3>
+<p>$$
+v = L\frac{di}{dt}
+$$</p>
+<p>For solenoid</p>
+<p>$$
+L = \frac{N^2\mu A}{l}
+$$</p>
+<p>$$
+i(t) =
+\frac{1}{L}\int_{-\infty}^t
+v(\tau)\mathop{d\tau} + i(t_0)
+$$</p>
+<ul>
+<li>Inductor is <strong>short circuit to dc</strong></li>
+<li><strong>Current</strong> on a inductor must be <strong>continuous</strong></li>
+<li>In <strong>parallel</strong>:
+$\frac{1}{L_{eq}} = \frac{1}{L_1} + \frac{1}{L_2} + \cdots + \frac{1}{L_N}$</li>
+<li>In <strong>series</strong>: $L_{eq} = L_1 + L_2 + \cdots + L_N$</li>
+</ul>
+<h2 id="Singularity-Functions">Singularity Functions</h2>
+<h3 id="Step-Function">Step Function</h3>
+<h3 id="Impulse-Delta-Function">Impulse/Delta Function</h3>
+<p>$$
+\int_{0^-}^{0^+} \delta(t)\mathop{dt} = 1
+$$</p>
+<h3 id="Unit-Ramp-Function">Unit Ramp Function</h3>
+<h3 id="Relationship">Relationship</h3>
+<ul>
+<li>In form of differentiation</li>
+</ul>
+<p>$$
+\delta(t) = \frac{du(t)}{dt},\quad
+u(t) = \frac{dr(t)}{dt}
+$$</p>
+<ul>
+<li>In form of integration</li>
+</ul>
+<p>$$
+u(t) = \int_{-\infty}^t \delta(\lambda)\mathop{d\lambda},\quad
+r(t) = \int_{-\infty}^t u(\lambda)\mathop{d\lambda}
+$$</p>
+<h2 id="First-Order-Circuits">First Order Circuits</h2>
+<h3 id="Source-Free-RC-Circuit">Source-Free $RC$ Circuit</h3>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200830103010-source-free-RC-circuit.png" alt="Source-Free RC Circuit"></p>
+<p>$$
+v(t) = V_0e^{-t/RC} = V_0e^{-t/\tau}
+$$</p>
+<ul>
+<li>natural response</li>
+<li>decay rate</li>
+</ul>
+<p>$$
+w_R(t) = \frac{1}{2}CV_0^2 \left(1-e^{-2t/\tau}\right)
+$$</p>
+<ul>
+<li>initial voltage</li>
+<li>time constant</li>
+</ul>
+<h3 id="Source-Free-RL-Circuit">Source-Free $RL$ Circuit</h3>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/202008301036020-source-free-RL-circuit.png" alt="Source-Free RL Circuit"></p>
+<p>$$
+i(t) = i(0)e^{-Rt/L} = i(0)e^{-t/\tau},\quad \tau = \frac{L}{R}
+$$</p>
+<p>$$
+w_R(t) = \frac{1}{2}LI_0^2 \left(1-e^{-2t/\tau}\right)
+$$</p>
+<ul>
+<li>initial current</li>
+<li>time constant</li>
+</ul>
+<h3 id="Step-Response-of-RC-Circuit">Step Response of $RC$ Circuit</h3>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200830104007-step-response-of-RC-circuit.png" alt="Step Response of RC Circuit"></p>
+<ul>
+<li>Complete/Total Response</li>
+</ul>
+<p>$$
+v(t) =
+\left{\begin{aligned}
+&amp; V_0, &amp; t &lt; 0 \
+&amp; V_s + (V_0 - V_s)e^{-t/\tau}, &amp; t &gt; 0
+\end{aligned}\right.,\quad \tau = RC
+$$</p>
+<ul>
+<li>natural response</li>
+<li>forced response</li>
+</ul>
+<p>or</p>
+<ul>
+<li>transient response</li>
+<li>steady-state response</li>
+</ul>
+<h3 id="Step-Response-of-RL-Circuit">Step Response of $RL$ Circuit</h3>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200830104444-step-response-of-RL-circuit.png" alt="Step Response of RL Circuit"></p>
+<p>$$
+i(t) =
+\left{\begin{aligned}
+&amp; I_0, &amp; t &lt; 0 \
+&amp; \frac{V_s}{R} + \left(I_0 - \frac{V_s}{R}\right)e^{-t/\tau}, &amp; t &gt; 0
+\end{aligned}\right.,\quad \tau = \frac{L}{R}
+$$</p>
+<blockquote>
+<p>$$
+\text{Instantaneous value} =
+\text{Final} + (\text{Initial} - \text{Final})e^{-(t-t_0)/\tau}
+$$</p>
+</blockquote>
+<hr>
+<h2 id="Second-Order-Circuits">Second Order Circuits</h2>
+<h3 id="Source-Free-Series-RLC-Circuits">Source-Free Series $RLC$ Circuits</h3>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200830142143-%20Source-Free-Series-RLC-Circuits.png" alt=" Source-Free Series RLC Circuits"></p>
+<p>$$
+Ri +
+L\frac{di}{dt} +
+\frac{1}{C}\int_{-\infty}^t i(\tau)\mathop{d\tau} = 0
+\Rightarrow
+\frac{d^2i}{dt^2} + \frac{R}{L}\frac{di}{dt} + \frac{i}{LC} = 0
+$$</p>
+<p>The solution is in the form of</p>
+<p>$$
+i(t) = A_1e^{s_1t} + A_2e^{s_2t}
+$$</p>
+<p>In which</p>
+<p>$$
+\begin{aligned}
+&amp; \Rightarrow
+s^2 + \frac{R}{L}s + \frac{1}{LC} = 0 \
+&amp; \Rightarrow
+s_1 =
+-\alpha + \sqrt{\alpha^2 - \omega_0^2}, \quad
+s_2 =
+-\alpha - \sqrt{\alpha^2 - \omega_0^2}
+\end{aligned}
+$$</p>
+<p>Where $\alpha = R/2L$ is <strong>damping factor</strong>, $\omega_0 = 1/\sqrt{LC}$ is
+<strong>resonant frequency</strong>.</p>
+<ul>
+<li><strong>over damped</strong>, $\alpha &gt; \omega_0$</li>
+<li><strong>critically damped</strong>, $\alpha = \omega_0$</li>
+<li><strong>under damped</strong>, $\alpha &lt; \omega_0$</li>
+<li><strong>undamped</strong>, $\alpha = 0$</li>
+</ul>
+<h3 id="Source-Free-Parallel-RLC-Circuits">Source-Free Parallel $RLC$ Circuits</h3>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200830144807-Source-Free-Parallel-RLC-Circuits.png" alt="Source-Free Parallel RLC Circuits"></p>
+<p>$$
+\frac{v}{R} +
+\frac{1}{L}\int_{-\infty}^t v(\tau)\mathop{d\tau} +
+C\frac{dv}{dt} = 0
+\Rightarrow
+\frac{d^2v}{dt^2} + \frac{1}{RC}\frac{dv}{dt} + \frac{1}{LC}v = 0
+$$</p>
+<p>The general solution is</p>
+<p>$$
+v(t) = A_1e^{s_1t} + A_2e^{s_2t}
+$$</p>
+<p>Where</p>
+<p>$$
+\alpha = \frac{1}{2RC},\quad \omega_0 = \frac{1}{\sqrt{LC}}
+$$</p>
+<h3 id="Step-Response-of-Series-RLC-Circuit">Step Response of Series $RLC$ Circuit</h3>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200830160927-Step-Response-of-Series-RLC-Circuit.png" alt="Step Response of Series RLC Circuit"></p>
+<ul>
+<li>Over damped - $v(t) = V_s + A_1e^{s_1t} + A_2e^{s_2t}$</li>
+<li>Critically damped - $v(t) = V_s + (A_1 + A_2t)r^{-\alpha t}$</li>
+<li>Under damped -
+$v(t) = V_s + (A_1\cos\omega_dt + A_2\sin\omega_dt)e^{-\alpha t}$</li>
+</ul>
+<p>$$
+\alpha = \frac{R}{2L}
+$$</p>
+<h3 id="Step-Response-pf-Parallel-RLC-Circuit">Step Response pf Parallel $RLC$ Circuit</h3>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200830161016-Step-Response-of-Parallel-RLC-Circuit.png" alt="Step Response pf Parallel RLC Circuit"></p>
+<ul>
+<li>Over damped - $i(t) = I_s + A_1e^{s_1t} + A_2e^{s_2t}$</li>
+<li>Critically damped - $i(t) = I_s + (A_1 + A_2t)r^{-\alpha t}$</li>
+<li>Under damped -
+$i(t) = I_s + (A_1\cos\omega_dt + A_2\sin\omega_dt)e^{-\alpha t}$</li>
+</ul>
+<p>$$
+\alpha = \frac{1}{2RC}
+$$</p>
+<hr>
+<h2 id="Sinusoids-and-Phasors">Sinusoids and Phasors</h2>
+<h3 id="Sinusoids">Sinusoids</h3>
+<p>$$
+v(t) = V_m\sin(\omega t + \phi)
+$$</p>
+<ul>
+<li>amplitude</li>
+<li>angular frequency</li>
+<li>argument</li>
+<li>phase</li>
+<li>period</li>
+<li>leads</li>
+<li>lags</li>
+<li>out of phase</li>
+<li>in phase</li>
+<li>anti phase</li>
+</ul>
+<h3 id="Complex-Number">Complex Number</h3>
+<ul>
+<li>rectangular form $z = x + jy$</li>
+<li>polar form $z = r\angle{\phi}$</li>
+<li>exponential form $z = re^{j\phi}$</li>
+</ul>
+<p>Where $r = \sqrt{x^2 + y^2}$ is the <strong>modulus</strong>, $\phi = \tan^{-1}\frac{y}{x}$
+is the <strong>argument</strong>.</p>
+<ul>
+<li>multiplication</li>
+</ul>
+<p>$$
+z_1z_2 = r_1r_2\angle(\phi_1 + \phi_2)
+$$</p>
+<ul>
+<li>division</li>
+</ul>
+<p>$$
+\frac{z_1}{z_2} = \frac{r_1}{r_2}\angle(\phi_1 - \phi_2)
+$$</p>
+<ul>
+<li>reciprocal</li>
+</ul>
+<p>$$
+\frac{1}{z} = \frac{1}{r}\angle(-\phi)
+$$</p>
+<ul>
+<li>square root</li>
+</ul>
+<p>$$
+\sqrt{z} = \sqrt{r}\angle(\phi/2)
+$$</p>
+<ul>
+<li>complex conjugate</li>
+</ul>
+<p>$$
+z^* = x - jy = r\angle(-\phi) = re^{-j\phi}
+$$</p>
+<h3 id="Phasors">Phasors</h3>
+<p>$$
+v(t) =
+V_m\cos(\omega t + \phi) =
+\Re\left[V_me^{j(\omega t + \phi)}\right]
+$$</p>
+<p>Where $\mathbf{V} = V_me^{j\phi} = V_m\angle\phi$ is the <strong>phasor</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Time Domain</th>
+<th style="text-align:center">Phasor Domain</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$\mathop{dv}/\mathop{dt}$</td>
+<td style="text-align:center">$j\omega\mathbf{V}$</td>
+</tr>
+<tr>
+<td style="text-align:center">$\int v\mathop{dt}$</td>
+<td style="text-align:center">$\mathbf{V}/j\omega$</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Generalized-Ohm’s-Law">Generalized Ohm’s Law</h3>
+<blockquote>
+<p>$$
+\mathbf{V} = R\mathbf{I}
+$$</p>
+<p>$$
+\mathbf{V} = j\omega L\mathbf{I}
+$$</p>
+<p>$$
+\mathbf{I} = j\omega C\mathbf{V}
+$$</p>
+</blockquote>
+<ul>
+<li>resistance</li>
+<li>reactance</li>
+<li>impedance</li>
+</ul>
+<p>$$
+\mathbf{Z} + R + jX
+$$</p>
+<ul>
+<li>admittance</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Element</th>
+<th style="text-align:center">Impedance</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$R$</td>
+<td style="text-align:center">$\mathbf{Z} = R$</td>
+</tr>
+<tr>
+<td style="text-align:center">$L$</td>
+<td style="text-align:center">$\mathbf{Z} = j\omega L$</td>
+</tr>
+<tr>
+<td style="text-align:center">$C$</td>
+<td style="text-align:center">$\mathbf{Z} = \frac{1}{j\omega C}$</td>
+</tr>
+</tbody>
+</table>
+<p>Ohm’s Law</p>
+<p>$$
+\mathbf{V} = \mathbf{ZI}
+$$</p>
+<h3 id="Sinusoid-Steady-State-Analysis">Sinusoid Steady State Analysis</h3>
+<blockquote>
+<p>To obtain <strong>superposition theorem</strong>, the sources in the circuit must have the
+<strong>same frequency</strong></p>
+</blockquote>
+<hr>
+<h2 id="AC-Power-Analysis">AC Power Analysis</h2>
+<h3 id="Instantaneous-Power">Instantaneous Power</h3>
+<p>$$
+\begin{aligned}
+p(t) &amp; = v(t)i(t) \ &amp; =
+V_mI_m\cos(\omega t + \theta_v)\cos(\omega t + v_i) \ &amp; =
+\frac{1}{2}V_mI_m\cos(2\omega t + \theta_v + \theta_i)
+\end{aligned}
+$$</p>
+<h3 id="Average-Power">Average Power</h3>
+<ul>
+<li>effective value / RMS value</li>
+</ul>
+<p>$$
+P = \frac{1}{2}V_mI_m\cos(\theta_v - \theta_i)
+$$</p>
+<ul>
+<li>apparent power $S$</li>
+<li>power factor</li>
+<li>power factor angle</li>
+<li>complex power</li>
+</ul>
+<p>$$
+\mathbf{S} =
+\frac{1}{2}\mathbf{V}\mathbf{I}^<em>=
+\mathbf{V}_\text{rms}\mathbf{I}^</em>_\text{rms}
+$$</p>
+<ul>
+<li>real power</li>
+<li>reactive / quadrature power</li>
+</ul>
+<p>$$
+P = \Re(\mathbf{S}), \quad Q = \Im(\mathbf{S})
+$$</p>
+<h3 id="Maximum-Average-Power-Transfer">Maximum Average Power Transfer</h3>
+<p>$$
+P_\text{max} = \frac{|\mathbf{V}<em>\text{Th}|^2}{8R</em>\text{Th}}
+$$</p>
+<hr>
+<h2 id="Magnetically-Coupled-Circuits">Magnetically Coupled Circuits</h2>
+<h3 id="Faraday’s-Law-pf-electromagnetic-induction">Faraday’s Law pf electromagnetic induction</h3>
+<p>$$
+e = N\frac{d\phi}{dt}
+$$</p>
+<h3 id="Self-Inductance">Self Inductance</h3>
+<p>self inductance</p>
+<p>$$
+v =
+N\frac{d\phi}{dt} =
+N\frac{d\phi}{di}\frac{di}{dt} =
+L\frac{di}{dt}
+$$</p>
+<p>$$
+L = N\frac{d\phi}{di_L}
+$$</p>
+<h3 id="Mutual-Inductance">Mutual Inductance</h3>
+<h4 id="Dot-Convention">Dot Convention</h4>
+<p>If a current <strong>enters</strong> the <strong>dotted terminal</strong> of one coil, the reference
+polarity of the mutual voltage in the second coil is <strong>positive</strong> at the
+<strong>dotted terminal</strong> of the <strong>second coil</strong>.</p>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200830174000-dot-convention.png" alt="Dot Convention"></p>
+<h4 id="Cascade-Connection">Cascade Connection</h4>
+<ul>
+<li>Series aiding connection</li>
+</ul>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200830174229-series-aiding.png" alt="series aiding connection"></p>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200830174249-series-aiding.png" alt="series aiding connection"></p>
+<p>$$
+L = L_1 + L_2 + 2M
+$$</p>
+<p>Else opposing connected, should be minus $2M$</p>
+<h4 id="Coefficient-of-Coupling">Coefficient of Coupling</h4>
+<p>$$
+k =
+\frac{\phi_{12}}{\phi_1} =
+\frac{\phi_{12}}{\phi_{11} + \phi_{12}} =
+\frac{M}{\sqrt{L_1L_2}}
+$$</p>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200830174804-coefficient-of-coupling.png" alt="image-20200830174801760"></p>
+<p>$$
+M = k\sqrt{L_1L_2}
+$$</p>
+<h3 id="Transformers">Transformers</h3>
+<h4 id="Linear-Air-Core-Transformers">Linear / Air-Core Transformers</h4>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200830175402-transformer.png" alt="Transformer"></p>
+<ul>
+<li>input impedance</li>
+<li>reflected / coupled impedance</li>
+</ul>
+<p>$$
+\mathbf{Z}_\text{R} =
+\frac{\omega^2M^2}{R_2 + j\omega L_2 + \mathbf{Z}_L}
+$$</p>
+<ul>
+<li>port V-I property</li>
+</ul>
+<p>$$
+\begin{bmatrix}
+\mathbf{V}_1 \ \mathbf{V_2}
+\end{bmatrix} =
+\begin{bmatrix}
+j\omega L_1 &amp; j\omega M \
+j\omega M &amp; j\omega L_2
+\end{bmatrix} =
+\begin{bmatrix}
+\mathbf{I}_1 \ \mathbf{I_2}
+\end{bmatrix}
+$$</p>
+<h4 id="Ideal-Transformers">Ideal Transformers</h4>
+<p>$$
+\frac{V_2}{V_1} = \frac{N_2}{N_1}
+$$</p>
+<p>$$
+\mathbf{Z}_\text{in} = \frac{\mathbf{Z}_L}{n^2}
+$$</p>
+<hr>
+<h2 id="Frequency-Response">Frequency Response</h2>
+<p>$$
+\mathbf{Y}(\omega) = \mathbf{H}(\omega)\mathbf{X}(\omega)
+$$</p>
+<hr>
+<h2 id="Laplace-Transform">Laplace Transform</h2>
+<ul>
+<li>one-side / unilateral Laplace Transform</li>
+</ul>
+<p>$$
+\mathscr{L}[f(t)] = F(s) =
+\int_{0^-}^\infty f(t)e^{-st}\mathop{dt}
+$$</p>
+<p>Where</p>
+<p>$$
+s = \sigma + j\omega
+$$</p>
+<p>$$
+\mathscr{L}^{-1}[F(s)] = f(t) =
+\frac{1}{2\pi j}\int_{\sigma - j\infty}^{\sigma + j\infty}
+F(s)e^{st}\mathop{ds}
+$$</p>
+<h3 id="Properties">Properties</h3>
+<ul>
+<li>Linearity</li>
+</ul>
+<p>$$
+\mathscr{L}[a_1f_1(t) + a_2f_2(t)] = a_1F_1(t) + a_2F_2(t)
+$$</p>
+<ul>
+<li>Scale changing</li>
+</ul>
+<p>$$
+\mathscr{L}[f(at)] =
+\frac{1}{a}F\left(\frac{s}{a}\right),\quad a &gt; 0
+$$</p>
+<ul>
+<li>Time shift</li>
+</ul>
+<p>$$
+\mathscr{L}[f(t-a)u(t-a)] = e^{-as}F(s), \quad a &gt; 0
+$$</p>
+<ul>
+<li>Frequency shift</li>
+</ul>
+<p>$$
+\mathscr{L}[e^{-at}f(t)] = F(s + a)
+$$</p>
+<ul>
+<li>Differentiation in time domain</li>
+</ul>
+<p>$$
+\mathscr{L}\left[\frac{df(t)}{dt}\right] = sF(s) - f(0^-)
+$$</p>
+<ul>
+<li>Initial value theorem</li>
+</ul>
+<p>$$
+f(0^+) = \lim_{s\rightarrow\infty} sF(s)
+$$</p>
+<ul>
+<li>Final value theorem</li>
+</ul>
+<p>$$
+f(\infty) = \lim_{s\rightarrow 0} sF(s)
+$$</p>
+<ul>
+<li>Higher order differentiation in time domain</li>
+</ul>
+<p>$$
+\mathscr{L}\left[\frac{d^nf(t)}{dt^n}\right] =
+s^nF(s) - s^{n-1}f(0^-) - s^{n-2}\frac{df(0^-)}{dt} - \cdots -
+\frac{d^{n-1}f(0^-)}{d^{n-1}}
+$$</p>
+<ul>
+<li>Integration in time domain</li>
+</ul>
+<p>$$
+\mathscr{L}\left[\int_{0^-}^t f(x)\mathop{dx}\right] = \frac{F(s)}{s}
+$$</p>
+<ul>
+<li>Differentiation in frequency domain</li>
+</ul>
+<p>$$
+\mathscr{L}[t^nf(t)] = (-1)^n\frac{d^nF(s)}{ds^n}
+$$</p>
+<p>…</p>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200830203826-operational-transforms.png" alt="电路基础 -13 new3_页面_15"></p>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200830203858-functional-transforms.png" alt="电路基础 -13 new3_页面_16"></p>
+<h3 id="Method-of-Partial-Expansion">Method of Partial Expansion</h3>
+<h4 id="Residue-Method">Residue Method</h4>
+<ul>
+<li>Case 1: Simple distinct <strong>poles</strong></li>
+</ul>
+<p>$$
+F(s) = \frac{N(s)}{(s+p_1)(s+p_2)\cdots(s+p_n)}
+$$</p>
+<p>$$
+\Rightarrow
+F(s) =
+\frac{k_1}{s + p_1} +
+\frac{k_1}{s + p_2} +
+\cdots +
+\frac{k_1}{s + p_n}
+$$</p>
+<p>Where $k_i$ are known as <strong>residuals</strong></p>
+<p>By <strong>Heaviside’s Theorem</strong></p>
+<p>$$
+k_i = \left.(s + p_i)F(s)\right|_{s = -p_i}
+$$</p>
+<ul>
+<li>Case 2: Repeated poles</li>
+</ul>
+<p>…</p>
+<h4 id="Method-of-Algebra">Method of Algebra</h4>
+<h4 id="Solving-Equations-at-Specific-Values">Solving Equations at Specific Values</h4>
+<h3 id="Inverse-Laplace-Transform">Inverse Laplace Transform</h3>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200830204925-inverse-Laplace-transform.png" alt="电路基础 -13 new3_页面_27"></p>
+<h3 id="Convolution-Integral">Convolution Integral</h3>
+<p>$$
+x(t) =
+\int_{-\infty}^{\infty}
+x(\lambda)\delta(t - \lambda)\mathop{d\lambda} =
+x(t) * h(t)
+$$</p>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200830205313-convolution-properties.png" alt="电路基础 -13 new3_页面_31"></p>
+<p><img src="https://img-blog.csdn.net/20151204210049091" alt="img"></p>
+<h2 id="Circuit-Analysis-in-s-Domain">Circuit Analysis in $s$-Domain</h2>
+<ol>
+<li><strong>Transform</strong> the circuit from the time domain to the $s$-domain</li>
+<li><strong>Solve</strong> the circuit using nodal analysis, mesh analysis, etc.</li>
+<li>Take the <strong>inverse transform</strong> of the solution and thus obtain the solution
+in the time domain</li>
+</ol>
+<ul>
+<li>inductor</li>
+</ul>
+<p>$$
+V(s) = sLI - Li(0^-), \quad
+I(s) = \frac{1}{sL}V(s) + \frac{i(0^-)}{s}
+$$</p>
+<ul>
+<li>capacitor</li>
+</ul>
+<p>$$
+V(s) = \frac{1}{sC}I(s) + \frac{v(0^-)}{s}, \quad
+I(s) = C[sV - v(0^-)]
+$$</p>
+<ul>
+<li>impedance</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Resistor</th>
+<th style="text-align:center">Inductor</th>
+<th style="text-align:center">Capacitor</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">$Z(s) = R$</td>
+<td style="text-align:center">$Z(s) = sL$</td>
+<td style="text-align:center">$Z(s) = 1/sC$</td>
+</tr>
+</tbody>
+</table>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://x.com/SamuelGHuang">
+            <span class="icon">
+              <i class="fab fa-x-twitter"></i>
+            </span>
+
+            <span class="label">X</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://linkedin.com/in/samuel-g-huang/">
+            <span class="icon">
+              <i class="fab fa-linkedin"></i>
+            </span>
+
+            <span class="label">LinkedIn</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">微信公众号</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat-channel.png">
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://zhihu.com/people/hailkiwi">
+            <span class="icon">
+              <i class="fab fa-zhihu"></i>
+            </span>
+
+            <span class="label">知乎</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/ee/" rel="tag"># ee</a>
+              <a href="/tags/circuits/" rel="tag"># circuits</a>
+              <a href="/tags/physics/" rel="tag"># physics</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/physics/" rel="prev" title="General Physics II Review">
+                  <i class="fa fa-angle-left"></i> General Physics II Review
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/involution/" rel="next" title="高校内卷的破坏性和深层次原因，从更新自己的思维开始直面内卷">
+                  高校内卷的破坏性和深层次原因，从更新自己的思维开始直面内卷 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2020 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-terminal"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Samuel Huang</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Word count total">105k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">6:22</span>
+  </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div><div class="footer-custom">
+  Source code and website hosted on
+  <a target="_blank" rel="noopener" href="https://github.com/sghuang19/sghuang19.github.io">GitHub</a>.
+</div>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/sghuang19" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

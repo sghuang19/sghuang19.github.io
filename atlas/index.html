@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#177CB0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#177CB0" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.2.0">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#177CB0">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,300italic,400,400italic,700,700italic%7CNoto+Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"sghuang.com","root":"/","images":"/images","scheme":"Gemini","darkmode":"auto","version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="在目前的调试中，选择了最新的 YOLO-v5 网络，但不排除后期根据需求进行替换。 华为的 Atlas 200DK 开发板，其功能极不全面，文档极不完善，其前后端、代码、文档、环境，甚至于简单的版本号等都极为混乱，软硬件兼容性、泛用性都极差，其广告语 &quot;30 分钟快速搭建 AI 开发环境&quot; 恐有所失实，我们极其不建议使用这款产品进行 AI 开发。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="YOLO-v5 网络在华为 Atlas 200DK 开发板上的部署">
+<meta property="og:url" content="https://sghuang.com/atlas/index.html">
+<meta property="og:site_name" content="Samuel Huang&#39;s Portfolio">
+<meta property="og:description" content="在目前的调试中，选择了最新的 YOLO-v5 网络，但不排除后期根据需求进行替换。 华为的 Atlas 200DK 开发板，其功能极不全面，文档极不完善，其前后端、代码、文档、环境，甚至于简单的版本号等都极为混乱，软硬件兼容性、泛用性都极差，其广告语 &quot;30 分钟快速搭建 AI 开发环境&quot; 恐有所失实，我们极其不建议使用这款产品进行 AI 开发。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2021-12-30T05:00:00.000Z">
+<meta property="article:modified_time" content="2024-06-23T14:25:00.546Z">
+<meta property="article:author" content="Samuel Huang">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="ml">
+<meta property="article:tag" content="pytorch">
+<meta property="article:tag" content="yolo">
+<meta property="article:tag" content="huawei">
+<meta property="article:tag" content="cv">
+<meta property="article:tag" content="tensorflow">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://sghuang.com/atlas/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://sghuang.com/atlas/","path":"/atlas/","title":"YOLO-v5 网络在华为 Atlas 200DK 开发板上的部署"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>YOLO-v5 网络在华为 Atlas 200DK 开发板上的部署 | Samuel Huang's Portfolio</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Samuel Huang's Portfolio</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-posts"><a href="/posts" rel="section"><i class="fa fa-signs-post fa-fw"></i>Posts</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">64</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">61</span></a></li><li class="menu-item menu-item-projects"><a href="/tags/project" rel="section"><i class="fa fa-cogs fa-fw"></i>Projects</a></li><li class="menu-item menu-item-experience"><a href="/experience/" rel="section"><i class="fa fa-briefcase fa-fw"></i>Experience</a></li><li class="menu-item menu-item-education"><a href="/education" rel="section"><i class="fa fa-graduation-cap fa-fw"></i>Education</a></li><li class="menu-item menu-item-courses"><a href="https://sghuang.notion.site/e242d6a39cf74dada55828ffe7cdb83f" rel="section" target="_blank"><i class="fa fa-book fa-fw"></i>Courses</a></li><li class="menu-item menu-item-notes"><a href="https://notes.sghuang.com/" rel="section" target="_blank"><i class="fa fa-file-pen fa-fw"></i>Notes</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E9%83%A8%E7%BD%B2"><span class="nav-number">1.</span> <span class="nav-text">网络部署</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E-TensorFlow-%E7%9A%84%E7%BD%91%E7%BB%9C"><span class="nav-number">1.1.</span> <span class="nav-text">基于 TensorFlow 的网络</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%9F%BA%E4%BA%8E-PyTorch-%E4%B8%8E-ATC-%E8%BD%AC%E5%8C%96%E5%B7%A5%E5%85%B7%E7%9A%84%E7%BD%91%E7%BB%9C"><span class="nav-number">1.2.</span> <span class="nav-text">基于 PyTorch 与 ATC 转化工具的网络</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Samuel Huang"
+      src="/uploads/avatar.png">
+  <p class="site-author-name" itemprop="name">Samuel Huang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">64</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/sghuang19" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;sghuang19" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:samuel.g.huang@outlook.com" title="E-Mail → mailto:samuel.g.huang@outlook.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/SamuelGHuang" title="X → https:&#x2F;&#x2F;twitter.com&#x2F;SamuelGHuang" rel="noopener me" target="_blank"><i class="fab fa-x-twitter fa-fw"></i>X</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/samuel-g-huang/" title="LinkedIn → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;samuel-g-huang&#x2F;" rel="noopener me" target="_blank"><i class="fab fa-linkedin fa-fw"></i>LinkedIn</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://calendly.com/sghuang" title="Calendly → https:&#x2F;&#x2F;calendly.com&#x2F;sghuang" rel="noopener me" target="_blank"><i class="fa fa-calendar fa-fw"></i>Calendly</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/" title="微信 → &#x2F;" rel="noopener me"><i class="fab fa-weixin fa-fw"></i>微信</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by.svg" alt="Creative Commons"></a>
+  </div>
+
+<hr style="margin: 0" />
+<div class="cc-license animated" itemprop="sponsor">
+  Built with<br />
+  <span
+    style="text-decoration: none"
+    class="exturl cc-opacity"
+    title="A fast, simple & powerful blog framework"
+  >
+    <a target="_blank" rel="noopener" href="https://hexo.io" style="text-decoration: none">
+      <img
+        width="160"
+        src="https://github.com/hexojs/logo/blob/master/hexo-logo.png?raw=true"
+        alt="Hexo"
+      />
+    </a>
+  </span>
+</div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+        <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/ml-wsl/" rel="bookmark">
+        <time class="popular-posts-time">2021-05-05</time>
+        <br>
+      利用 WSL 优雅地炼丹
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sghuang.com/atlas/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="Samuel Huang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Samuel Huang's Portfolio">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="YOLO-v5 网络在华为 Atlas 200DK 开发板上的部署 | Samuel Huang's Portfolio">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          YOLO-v5 网络在华为 Atlas 200DK 开发板上的部署<a href="https://github.com/sghuang19/sghuang19.github.io/tree/main/source/_posts/old/atlas.md" class="post-edit-link" title="Edit this post" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-12-30 00:00:00" itemprop="dateCreated datePublished" datetime="2021-12-30T00:00:00-05:00">2021-12-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-06-23 10:25:00" itemprop="dateModified" datetime="2024-06-23T10:25:00-04:00">2024-06-23</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>1.7k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>6 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><!-- cSpell:words YOLO, Yanshee -->
+<blockquote>
+<p>在目前的调试中，选择了最新的 <code>YOLO-v5</code> 网络，但不排除后期根据需求进行替换。</p>
+<p>华为的 Atlas 200DK 开发板，其功能极不全面，文档极不完善，其前后端、代码、文档、环境，甚至于简单的版本号等都极为混乱，软硬件兼容性、泛用性都极差，其广告语 "30 分钟快速搭建 AI 开发环境" 恐有所失实，我们极其不建议使用这款产品进行 AI
+开发。</p>
+</blockquote>
+<span id="more"></span>
+<h2 id="网络部署">网络部署</h2>
+<p>在进行网络部署的过程中，我们注意到由于华为 Atlas 200DK 上的部署具有高度的耦合性、内聚性，且其文档又极不完善，我们从着手之初就彻底排除了自行设计网络、将其转化等的可能性，而只有可能是基于已经完成的例程进行二次开发。</p>
+<h3 id="基于-TensorFlow-的网络"><s>基于 TensorFlow 的网络</s></h3>
+<blockquote>
+<p>该方案证实为不可行的。</p>
+</blockquote>
+<!-- cSpell:words Caffe -->
+<p>依据华为官方文档
+<a target="_blank" rel="noopener" href="https://support.huaweicloud.com/mcg-atlas200app/atlasmcg_05_c30_0002.html">Atlas 应用 / 模型转化 / 简介</a>一节的介绍，转化过程中所支持的网络框架仅有 TensorFlow 与 Caffe 两种，因此，我们首先尝试寻找这类例程。</p>
+<blockquote>
+<p>官方文档：</p>
+<p>本文介绍如何将开源框架的网络模型，例如 Caffe、TensorFlow 等框架训练好的模型，通过 OMG（Offline Model Generator：离线模型生成器）将其转换成昇腾 AI 处理器支持的离线模型，模型转换过程中可以实现算子调度的优化、权值数据重排、量化压缩、内存使用优化等，可以脱离设备完成模型的预处理。</p>
+</blockquote>
+<!-- cSpell:ignore YOLOV3 -->
+<p>在华为给出的例程仓库
+<a target="_blank" rel="noopener" href="https://gitee.com/ascend/samples/tree/master">Ascend/samples</a> 中，提供了大量的样例，涵盖 C++ 与 Python 两种语言，以及各类不同等级的计算机视觉应用。例如，<a target="_blank" rel="noopener" href="https://gitee.com/ascend/samples/tree/master/python/level2_simple_inference/2_object_detection/YOLOV3_coco_detection_picture"><code>YOLOV3_coco_detection_picture</code></a>中就给出了使用 YOLOv3 网络对 COCO 数据集进行图像检测的样例。但是，其中的 <code>src</code>
+目录中仅包含 <code>object_detect.py</code> 一个文件，只能基于 Ascend 开发板的 ACL 包利用既有的转化完成的 <code>.om</code> 模型进行推理，且其文档语焉不详，代码前后处理十分抽象，没有原始的网络定义，找不到训练的入口和数据集的组织形式，因此无法进行在 COCO 数据集上进行测试以外的用途。</p>
+<p>在 GitHub 上检索基于 TensorFlow 的 YOLOv3 网络，我们发现了由
+<a target="_blank" rel="noopener" href="https://github.com/YunYang1994">@YunYang1994</a> 所贡献的
+<a target="_blank" rel="noopener" href="https://github.com/YunYang1994/TensorFlow2.0-Examples">TensorFlow <code>2.x</code> 功能展示</a>以及<a target="_blank" rel="noopener" href="https://github.com/YunYang1994/tensorflow-yolov3">基于 TensorFlow <code>1.x</code> 的 YOLOv3 网络</a>，作者的代码质量十分之高，因此我们决定在这一项目的基础上进行开发。但是，在
+TensorFlow 的使用中我们发现，相较于 PyTorch 框架，TensorFlow 对用户更不友好，其对于环境的要求极为苛刻，特别是要启用对其的 GPU 支持更需要 NVIDIA 驱动、CUDA 工具包、Python、cuDNN、TensorFlow 等多个软硬件环境的完美匹配。在尝试了虚拟机、WSL、Docker 等方案后，我们放弃了在本地对 TensorFlow 网络进行训练的尝试。同时，将基于 TensorFlow 框架的网络利用 ModelArts 进行云端训练也已被排除。综上，我们也意识到基于 TensorFlow 的网络部署方案或根本不具有可行性。</p>
+<p>总而言之，在互联网上所能够检索到的 YOLO 网络在 Atlas 200DK 上的部署的有关介绍只有以下几类：</p>
+<ul>
+<li>只给出了训练好的 <code>.om</code> 模型，以及基于 ACL 的推理文件</li>
+<li>只给出了网络源码，而没有模型的转换过程</li>
+<li>给出了网络源码，但高度耦合，文档不详，基本无法用以进行训练</li>
+</ul>
+<p>而没有一个工程能够涵盖前处理、模型训练、模型转化、在 Atlas 200DK 上的推理、后处理的全流程，而自行开发又几乎不具有可行性。</p>
+<h3 id="基于-PyTorch-与-ATC-转化工具的网络">基于 PyTorch 与 ATC 转化工具的网络</h3>
+<blockquote>
+<p>“Life is short, I use PyTorch.”</p>
+</blockquote>
+<p>在 ModelArts 平台的使用中，我们发现，华为将大量内置的算法集成在<a target="_blank" rel="noopener" href="https://www.hiascend.com/">昇腾社区</a>中的
+<a target="_blank" rel="noopener" href="https://www.hiascend.com/software/modelzoo">ModelZoo</a> 这一平台中，经检索，其中提供了基于 PyTorch 框架的 YOLO 网络的 <code>v3</code>、<code>v4</code>、<code>v5</code> 版本，且在标题中注明了
+ATC。我们选用目前下载量最大的 <a target="_blank" rel="noopener" href="https://www.hiascend.com/zh/software/modelzoo/detail/1/f7338e43cf024ea1851fb46041be1dea"><code>ATC YoloV5 (FP16)</code></a>网络进行测试。该例程包含了完整的</p>
+<!-- cSpell:ignore yolov -->
+<p>下载源代码包，解压，并将其重命名为 <code>yolov5-hw</code> 以示区分。</p>
+<blockquote>
+<p>下载的代码包中包含的自述文件较为详细地介绍了部署方法，除算子包升级替换外，以下内容大多为对其的复述。</p>
+</blockquote>
+<p>拉取网络源码仓库，下称 <code>yolov5</code>。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> -b v2.0 https://github.com/ultralytics/yolov5.git</span><br></pre></td></tr></tbody></table></figure>
+<p>利用 <code>yolov5</code> 中的 <code>export.py</code> 脚本，对 <code>yolov5-hw</code> 中的 <code>yolov5s.pt</code> 模型文件进行转换，得到 <code>ONNX</code> 模型文件 <code>yolov5s.onnx</code>。</p>
+<blockquote>
+<p>可选择复制模型文件到 <code>yolov5</code> 中，也可以手动指定模型文件路径。</p>
+</blockquote>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">python models/export.py --weights ./yolov5s.pt --img 640 --batch 1</span><br></pre></td></tr></tbody></table></figure>
+<p>对导出的 <code>ONNX</code> 模型使用 <code>onnx-simplifier</code> 工具进行简化。</p>
+<!-- cSpell:words onnxsim -->
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip install onnx-simplifier</span><br><span class="line">python -m onnxsim --skip-optimization yolov5s.onnx yolov5s_sim.onnx</span><br></pre></td></tr></tbody></table></figure>
+<p>运行 <code>yolov5-hw</code> 中的 <code>model_yolov5.py</code> 对生成的 <code>ONNX</code> 模型进行修改，得到 <code>yolov5s_sim_t.onnx</code>。</p>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">python modify_yolov5.py yolov5s_sim.onnx</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>直接运行该命令，Python 将有可能抛出错误。在测试过程中，错误出现在 <code>53</code> 及 <code>54</code>
+行：</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">model.graph.node.remove(get_node_by_name(model.graph.node, <span class="string">"Slice_24"</span>))</span><br><span class="line">model.graph.node.remove(get_node_by_name(model.graph.node, <span class="string">"Slice_34"</span>))</span><br></pre></td></tr></tbody></table></figure>
+<p>此时将此两行代码注释即可继续进行模型修改。</p>
+</blockquote>
+<p>在 MindStudio 环境下即可利用 ATC 工具进行转换。</p>
+<!-- cSpell:words NCHW -->
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">atc --model=yolov5s_sim_t.onnx --framework=5 --output=yolov5s_bs1 --input_format=NCHW --<span class="built_in">log</span>=error --soc_version=Ascend310 --input_shape=<span class="string">"images:1,3,640,640"</span> --enable_small_channel=1 --input_fp16_nodes=<span class="string">"images"</span> --output_type=FP16</span><br></pre></td></tr></tbody></table></figure>
+<p>若直接运行指令，将会出现报错：</p>
+<!-- cSpell:words bsdgames -->
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">Command <span class="string">'atc'</span> not found, but can be installed with:</span><br><span class="line">sudo apt install bsdgames</span><br></pre></td></tr></tbody></table></figure>
+<p>显然，<code>atc</code> 命令的目录未被正确加载。根据文章<a target="_blank" rel="noopener" href="https://gitee.com/caoliang0601/samples/blob/master/cplusplus/environment/prepare_ENV/README_300_CN.md">基础环境配置</a>中的介绍，在运行转化前执行命令或通过修改 <code>.bashrc</code> 文件添加环境变量，即可解决该问题。</p>
+<p>此时，转化过程仍然不成功，在测试中，提示错误</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">ModuleNotFoundError: No module named <span class="string">'te.platform'</span></span><br></pre></td></tr></tbody></table></figure>
+<!-- cSpell:words CANN -->
+<p>参考其他与该报错相同或不同的贴文，推测这一问题与算子包兼容性有关系。访问
+<a target="_blank" rel="noopener" href="https://www.hiascend.com/zh/software/mindstudio/download">MindStudio 下载页面</a>，换用 2021/04/27 发布的 <code>2.0.0 (release)</code> 版本 MindStudio，以及与之相对应的
+<a target="_blank" rel="noopener" href="https://www.hiascend.com/software/cann/commercial">CANN 算子包</a>，即实现成功转化，得到 <code>.om</code> 模型。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">...</span><br><span class="line">ATC run success, welcome to the next use.</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>华为对算子包的版本号进行了重构，因此其处在极为混乱的状况，<code>2.0.0 (release)</code> 版本 MindStudio 虽然要求的算子包为 <code>3.2.0</code>，即原 <code>20.2.0</code> 版本，但实测 <code>3.3.0</code>
+版本亦可用。</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://x.com/SamuelGHuang">
+            <span class="icon">
+              <i class="fab fa-x-twitter"></i>
+            </span>
+
+            <span class="label">X</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://linkedin.com/in/samuel-g-huang/">
+            <span class="icon">
+              <i class="fab fa-linkedin"></i>
+            </span>
+
+            <span class="label">LinkedIn</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">微信公众号</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat-channel.png">
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://zhihu.com/people/hailkiwi">
+            <span class="icon">
+              <i class="fab fa-zhihu"></i>
+            </span>
+
+            <span class="label">知乎</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"># python</a>
+              <a href="/tags/ml/" rel="tag"># ml</a>
+              <a href="/tags/pytorch/" rel="tag"># pytorch</a>
+              <a href="/tags/yolo/" rel="tag"># yolo</a>
+              <a href="/tags/huawei/" rel="tag"># huawei</a>
+              <a href="/tags/cv/" rel="tag"># cv</a>
+              <a href="/tags/tensorflow/" rel="tag"># tensorflow</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021-12-30-%E6%88%91%E7%9A%84%E7%88%B6%E6%AF%8D%E4%B8%8E%E8%AF%BB%E4%B9%A6%E4%BA%8C%E4%B8%89%E4%BA%8B/" rel="prev" title="父母与书的旧事二则">
+                  <i class="fa fa-angle-left"></i> 父母与书的旧事二则
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/2021-12-31-%E8%B5%B4%E7%BE%8E%E5%89%8D%E5%86%99%E7%BB%992121%E7%8F%AD%E5%90%8C%E5%AD%A6%E4%BB%AC/" rel="next" title="在赴美之际写给 2121 班同学">
+                  在赴美之际写给 2121 班同学 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2020 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-terminal"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Samuel Huang</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Word count total">105k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">6:22</span>
+  </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div><div class="footer-custom">
+  Source code and website hosted on
+  <a target="_blank" rel="noopener" href="https://github.com/sghuang19/sghuang19.github.io">GitHub</a>.
+</div>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/sghuang19" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

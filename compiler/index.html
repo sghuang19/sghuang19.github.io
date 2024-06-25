@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#177CB0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#177CB0" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.2.0">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#177CB0">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,300italic,400,400italic,700,700italic%7CNoto+Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"sghuang.com","root":"/","images":"/images","scheme":"Gemini","darkmode":"auto","version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="A compiler handwritten in C.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Compiler for B-Minor 2023">
+<meta property="og:url" content="https://sghuang.com/compiler/index.html">
+<meta property="og:site_name" content="Samuel Huang&#39;s Portfolio">
+<meta property="og:description" content="A compiler handwritten in C.">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-12-07T05:00:00.000Z">
+<meta property="article:modified_time" content="2024-06-23T13:58:01.991Z">
+<meta property="article:author" content="Samuel Huang">
+<meta property="article:tag" content="project">
+<meta property="article:tag" content="cse">
+<meta property="article:tag" content="compiler">
+<meta property="article:tag" content="system">
+<meta property="article:tag" content="c">
+<meta property="article:tag" content="pl">
+<meta property="article:tag" content="sde">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://sghuang.com/compiler/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://sghuang.com/compiler/","path":"/compiler/","title":"Compiler for B-Minor 2023"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Compiler for B-Minor 2023 | Samuel Huang's Portfolio</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Samuel Huang's Portfolio</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-posts"><a href="/posts" rel="section"><i class="fa fa-signs-post fa-fw"></i>Posts</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">64</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">61</span></a></li><li class="menu-item menu-item-projects"><a href="/tags/project" rel="section"><i class="fa fa-cogs fa-fw"></i>Projects</a></li><li class="menu-item menu-item-experience"><a href="/experience/" rel="section"><i class="fa fa-briefcase fa-fw"></i>Experience</a></li><li class="menu-item menu-item-education"><a href="/education" rel="section"><i class="fa fa-graduation-cap fa-fw"></i>Education</a></li><li class="menu-item menu-item-courses"><a href="https://sghuang.notion.site/e242d6a39cf74dada55828ffe7cdb83f" rel="section" target="_blank"><i class="fa fa-book fa-fw"></i>Courses</a></li><li class="menu-item menu-item-notes"><a href="https://notes.sghuang.com/" rel="section" target="_blank"><i class="fa fa-file-pen fa-fw"></i>Notes</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Background"><span class="nav-number">1.</span> <span class="nav-text">Background</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Specification"><span class="nav-number">2.</span> <span class="nav-text">Specification</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#How-I-Wrote-It"><span class="nav-number">3.</span> <span class="nav-text">How I Wrote It</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Samuel Huang"
+      src="/uploads/avatar.png">
+  <p class="site-author-name" itemprop="name">Samuel Huang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">64</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/sghuang19" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;sghuang19" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:samuel.g.huang@outlook.com" title="E-Mail → mailto:samuel.g.huang@outlook.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/SamuelGHuang" title="X → https:&#x2F;&#x2F;twitter.com&#x2F;SamuelGHuang" rel="noopener me" target="_blank"><i class="fab fa-x-twitter fa-fw"></i>X</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/samuel-g-huang/" title="LinkedIn → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;samuel-g-huang&#x2F;" rel="noopener me" target="_blank"><i class="fab fa-linkedin fa-fw"></i>LinkedIn</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://calendly.com/sghuang" title="Calendly → https:&#x2F;&#x2F;calendly.com&#x2F;sghuang" rel="noopener me" target="_blank"><i class="fa fa-calendar fa-fw"></i>Calendly</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/" title="微信 → &#x2F;" rel="noopener me"><i class="fab fa-weixin fa-fw"></i>微信</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by.svg" alt="Creative Commons"></a>
+  </div>
+
+<hr style="margin: 0" />
+<div class="cc-license animated" itemprop="sponsor">
+  Built with<br />
+  <span
+    style="text-decoration: none"
+    class="exturl cc-opacity"
+    title="A fast, simple & powerful blog framework"
+  >
+    <a target="_blank" rel="noopener" href="https://hexo.io" style="text-decoration: none">
+      <img
+        width="160"
+        src="https://github.com/hexojs/logo/blob/master/hexo-logo.png?raw=true"
+        alt="Hexo"
+      />
+    </a>
+  </span>
+</div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+        <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/stegano/" rel="bookmark">
+        <time class="popular-posts-time">2021-06-05</time>
+        <br>
+      Image Steganography with Hamming Code Error Correction
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sghuang.com/compiler/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="Samuel Huang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Samuel Huang's Portfolio">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Compiler for B-Minor 2023 | Samuel Huang's Portfolio">
+      <meta itemprop="description" content="A compiler handwritten in C.">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Compiler for B-Minor 2023<a href="https://github.com/sghuang19/sghuang19.github.io/tree/main/source/_posts/projects/2023-12-07-compiler.md" class="post-edit-link" title="Edit this post" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2023-12-07 00:00:00" itemprop="dateCreated datePublished" datetime="2023-12-07T00:00:00-05:00">2023-12-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-06-23 09:58:01" itemprop="dateModified" datetime="2024-06-23T09:58:01-04:00">2024-06-23</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>231</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>1 mins.</span>
+    </span>
+</div>
+
+            <div class="post-description">A compiler handwritten in C.</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h2 id="Background">Background</h2>
+<style>svg:not(:root).svg-inline--fa {
+  overflow: visible;
+}
+
+.svg-inline--fa {
+  display: inline-block;
+  font-size: inherit;
+  height: 1em;
+  overflow: visible;
+  vertical-align: -0.125em;
+}
+.svg-inline--fa.fa-lg {
+  vertical-align: -0.225em;
+}
+.svg-inline--fa.fa-w-1 {
+  width: 0.0625em;
+}
+.svg-inline--fa.fa-w-2 {
+  width: 0.125em;
+}
+.svg-inline--fa.fa-w-3 {
+  width: 0.1875em;
+}
+.svg-inline--fa.fa-w-4 {
+  width: 0.25em;
+}
+.svg-inline--fa.fa-w-5 {
+  width: 0.3125em;
+}
+.svg-inline--fa.fa-w-6 {
+  width: 0.375em;
+}
+.svg-inline--fa.fa-w-7 {
+  width: 0.4375em;
+}
+.svg-inline--fa.fa-w-8 {
+  width: 0.5em;
+}
+.svg-inline--fa.fa-w-9 {
+  width: 0.5625em;
+}
+.svg-inline--fa.fa-w-10 {
+  width: 0.625em;
+}
+.svg-inline--fa.fa-w-11 {
+  width: 0.6875em;
+}
+.svg-inline--fa.fa-w-12 {
+  width: 0.75em;
+}
+.svg-inline--fa.fa-w-13 {
+  width: 0.8125em;
+}
+.svg-inline--fa.fa-w-14 {
+  width: 0.875em;
+}
+.svg-inline--fa.fa-w-15 {
+  width: 0.9375em;
+}
+.svg-inline--fa.fa-w-16 {
+  width: 1em;
+}
+.svg-inline--fa.fa-w-17 {
+  width: 1.0625em;
+}
+.svg-inline--fa.fa-w-18 {
+  width: 1.125em;
+}
+.svg-inline--fa.fa-w-19 {
+  width: 1.1875em;
+}
+.svg-inline--fa.fa-w-20 {
+  width: 1.25em;
+}
+.svg-inline--fa.fa-pull-left {
+  margin-right: 0.3em;
+  width: auto;
+}
+.svg-inline--fa.fa-pull-right {
+  margin-left: 0.3em;
+  width: auto;
+}
+.svg-inline--fa.fa-border {
+  height: 1.5em;
+}
+.svg-inline--fa.fa-li {
+  width: 2em;
+}
+.svg-inline--fa.fa-fw {
+  width: 1.25em;
+}
+
+.fa-layers svg.svg-inline--fa {
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.fa-layers {
+  display: inline-block;
+  height: 1em;
+  position: relative;
+  text-align: center;
+  vertical-align: -0.125em;
+  width: 1em;
+}
+.fa-layers svg.svg-inline--fa {
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+}
+
+.fa-layers-counter, .fa-layers-text {
+  display: inline-block;
+  position: absolute;
+  text-align: center;
+}
+
+.fa-layers-text {
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+}
+
+.fa-layers-counter {
+  background-color: #ff253a;
+  border-radius: 1em;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #fff;
+  height: 1.5em;
+  line-height: 1;
+  max-width: 5em;
+  min-width: 1.5em;
+  overflow: hidden;
+  padding: 0.25em;
+  right: 0;
+  text-overflow: ellipsis;
+  top: 0;
+  -webkit-transform: scale(0.25);
+          transform: scale(0.25);
+  -webkit-transform-origin: top right;
+          transform-origin: top right;
+}
+
+.fa-layers-bottom-right {
+  bottom: 0;
+  right: 0;
+  top: auto;
+  -webkit-transform: scale(0.25);
+          transform: scale(0.25);
+  -webkit-transform-origin: bottom right;
+          transform-origin: bottom right;
+}
+
+.fa-layers-bottom-left {
+  bottom: 0;
+  left: 0;
+  right: auto;
+  top: auto;
+  -webkit-transform: scale(0.25);
+          transform: scale(0.25);
+  -webkit-transform-origin: bottom left;
+          transform-origin: bottom left;
+}
+
+.fa-layers-top-right {
+  right: 0;
+  top: 0;
+  -webkit-transform: scale(0.25);
+          transform: scale(0.25);
+  -webkit-transform-origin: top right;
+          transform-origin: top right;
+}
+
+.fa-layers-top-left {
+  left: 0;
+  right: auto;
+  top: 0;
+  -webkit-transform: scale(0.25);
+          transform: scale(0.25);
+  -webkit-transform-origin: top left;
+          transform-origin: top left;
+}
+
+.fa-lg {
+  font-size: 1.3333333333em;
+  line-height: 0.75em;
+  vertical-align: -0.0667em;
+}
+
+.fa-xs {
+  font-size: 0.75em;
+}
+
+.fa-sm {
+  font-size: 0.875em;
+}
+
+.fa-1x {
+  font-size: 1em;
+}
+
+.fa-2x {
+  font-size: 2em;
+}
+
+.fa-3x {
+  font-size: 3em;
+}
+
+.fa-4x {
+  font-size: 4em;
+}
+
+.fa-5x {
+  font-size: 5em;
+}
+
+.fa-6x {
+  font-size: 6em;
+}
+
+.fa-7x {
+  font-size: 7em;
+}
+
+.fa-8x {
+  font-size: 8em;
+}
+
+.fa-9x {
+  font-size: 9em;
+}
+
+.fa-10x {
+  font-size: 10em;
+}
+
+.fa-fw {
+  text-align: center;
+  width: 1.25em;
+}
+
+.fa-ul {
+  list-style-type: none;
+  margin-left: 2.5em;
+  padding-left: 0;
+}
+.fa-ul > li {
+  position: relative;
+}
+
+.fa-li {
+  left: -2em;
+  position: absolute;
+  text-align: center;
+  width: 2em;
+  line-height: inherit;
+}
+
+.fa-border {
+  border: solid 0.08em #eee;
+  border-radius: 0.1em;
+  padding: 0.2em 0.25em 0.15em;
+}
+
+.fa-pull-left {
+  float: left;
+}
+
+.fa-pull-right {
+  float: right;
+}
+
+.fa.fa-pull-left,
+.fas.fa-pull-left,
+.far.fa-pull-left,
+.fal.fa-pull-left,
+.fab.fa-pull-left {
+  margin-right: 0.3em;
+}
+.fa.fa-pull-right,
+.fas.fa-pull-right,
+.far.fa-pull-right,
+.fal.fa-pull-right,
+.fab.fa-pull-right {
+  margin-left: 0.3em;
+}
+
+.fa-spin {
+  -webkit-animation: fa-spin 2s infinite linear;
+          animation: fa-spin 2s infinite linear;
+}
+
+.fa-pulse {
+  -webkit-animation: fa-spin 1s infinite steps(8);
+          animation: fa-spin 1s infinite steps(8);
+}
+
+@-webkit-keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+.fa-rotate-90 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.fa-rotate-180 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.fa-rotate-270 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";
+  -webkit-transform: rotate(270deg);
+          transform: rotate(270deg);
+}
+
+.fa-flip-horizontal {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)";
+  -webkit-transform: scale(-1, 1);
+          transform: scale(-1, 1);
+}
+
+.fa-flip-vertical {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
+  -webkit-transform: scale(1, -1);
+          transform: scale(1, -1);
+}
+
+.fa-flip-both, .fa-flip-horizontal.fa-flip-vertical {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
+  -webkit-transform: scale(-1, -1);
+          transform: scale(-1, -1);
+}
+
+:root .fa-rotate-90,
+:root .fa-rotate-180,
+:root .fa-rotate-270,
+:root .fa-flip-horizontal,
+:root .fa-flip-vertical,
+:root .fa-flip-both {
+  -webkit-filter: none;
+          filter: none;
+}
+
+.fa-stack {
+  display: inline-block;
+  height: 2em;
+  position: relative;
+  width: 2.5em;
+}
+
+.fa-stack-1x,
+.fa-stack-2x {
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.svg-inline--fa.fa-stack-1x {
+  height: 1em;
+  width: 1.25em;
+}
+.svg-inline--fa.fa-stack-2x {
+  height: 2em;
+  width: 2.5em;
+}
+
+.fa-inverse {
+  color: #fff;
+}
+
+.sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.sr-only-focusable:active, .sr-only-focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+.svg-inline--fa .fa-primary {
+  fill: var(--fa-primary-color, currentColor);
+  opacity: 1;
+  opacity: var(--fa-primary-opacity, 1);
+}
+
+.svg-inline--fa .fa-secondary {
+  fill: var(--fa-secondary-color, currentColor);
+  opacity: 0.4;
+  opacity: var(--fa-secondary-opacity, 0.4);
+}
+
+.svg-inline--fa.fa-swap-opacity .fa-primary {
+  opacity: 0.4;
+  opacity: var(--fa-secondary-opacity, 0.4);
+}
+
+.svg-inline--fa.fa-swap-opacity .fa-secondary {
+  opacity: 1;
+  opacity: var(--fa-primary-opacity, 1);
+}
+
+.svg-inline--fa mask .fa-primary,
+.svg-inline--fa mask .fa-secondary {
+  fill: black;
+}
+
+.fad.fa-inverse {
+  color: #fff;
+}</style>
+<p>The source code of this project can be found on
+<a target="_blank" rel="noopener" href="https://github.com/sghuang19/ghuang3-compiler"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" class="svg-inline--fa fa-github fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg> GitHub</a>.</p>
+<p>This course project for CSE 40243
+<a target="_blank" rel="noopener" href="https://dthain.github.io/compilers-fa23/"><em>Compilers and Language Design</em></a>,
+offered in Fall 2023 at the University of Notre Dame, was taught by Prof.
+Douglas Thain. I also had the privilege of working with Dr. Thain during the
+summer of 2022.</p>
+<p>As a side “note”, the notes I took for this course can be found <a target="_blank" rel="noopener" href="https://notes.sghuang.com/compilers-and-language-design"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pen" class="svg-inline--fa fa-pen fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M290.74 93.24l128.02 128.02-277.99 277.99-114.14 12.6C11.35 513.54-1.56 500.62.14 485.34l12.7-114.22 277.9-277.88zm207.2-19.06l-60.11-60.11c-18.75-18.75-49.16-18.75-67.91 0l-56.55 56.55 128.02 128.02 56.55-56.55c18.75-18.76 18.75-49.16 0-67.91z"></path></svg> here</a>.</p>
+<h2 id="Specification">Specification</h2>
+<p>B-Minor is a language designed by Dr. Thain for teaching this compiler course.
+The specification of this language is tweaked slightly each year. The complete
+specs of B-Minor 2023 can be found on the
+<a target="_blank" rel="noopener" href="https://dthain.github.io/compilers-fa23/bminor">course website</a>.</p>
+<p>In short, it supports:</p>
+<ul>
+<li>Primitive types, arrays, and strings</li>
+<li><code>for</code>, <code>if</code>, and <code>while</code> control logic</li>
+<li><code>print</code> as a statement instead of a function</li>
+<li>Function calls, including recursion. I decided to implement stack calling
+implemented instead of register calling</li>
+</ul>
+<div class="note primary no-icon"><p>This language is named <code>B-Minor</code> because <code>C</code>, <code>C-Sharp</code>, <code>C-Major</code>, <code>C-Minor</code>
+and <code>B</code> are all taken, and Dr. Thain prefers minor keys over major.</p>
+</div>
+<h2 id="How-I-Wrote-It">How I Wrote It</h2>
+<ul>
+<li>Encoder, Resolver, Typechecker, Code Generator: Handwritten in C.</li>
+<li>Scanner: Implemented with RegEx and <a target="_blank" rel="noopener" href="https://github.com/westes/flex">Flex</a>.</li>
+<li>Parser: Implemented with <a target="_blank" rel="noopener" href="https://gnu.org/software/bison/">Bison</a>.</li>
+</ul>
+<p>The Context Free Grammar for this project is pretty elegant in my opinion:</p>
+<figure class="highlight plaintext"><figcaption><span>grammar.y</span><a target="_blank" rel="noopener" href="https://github.com/sghuang19/ghuang3-compiler/blob/main/grammar.y">link</a></figcaption><table><tbody><tr><td class="code"><pre><span class="line">prog : decl_list TOKEN_EOF { $$ = $1; root = $$; YYACCEPT; }</span><br><span class="line">     ;</span><br><span class="line"></span><br><span class="line">/* Declarations */</span><br><span class="line"></span><br><span class="line">decl_list : /* epsilon */  { $$ = NULL; }</span><br><span class="line">          | decl decl_list { $$ = $1; $$-&gt;next = $2; }</span><br><span class="line">          ;</span><br><span class="line"></span><br><span class="line">decl : TOKEN_ID TOKEN_COLON type_simple TOKEN_SEMICOLON</span><br><span class="line">       { $$ = decl_create($1, $3, NULL, NULL, NULL); }</span><br><span class="line">     | TOKEN_ID TOKEN_COLON type_array_sized TOKEN_SEMICOLON</span><br><span class="line">       { $$ = decl_create($1, $3, NULL, NULL, NULL); }</span><br><span class="line">     | TOKEN_ID TOKEN_COLON type_func TOKEN_SEMICOLON</span><br><span class="line">       { $$ = decl_create($1, $3, NULL, NULL, NULL); }</span><br><span class="line">     | decl_init</span><br><span class="line">     ;</span><br><span class="line"></span><br><span class="line">decl_init : TOKEN_ID TOKEN_COLON type_simple TOKEN_ASSIGN expr TOKEN_SEMICOLON</span><br><span class="line">            { $$ = decl_create($1, $3, $5, NULL, NULL); }</span><br><span class="line">          | TOKEN_ID TOKEN_COLON type_array_sized TOKEN_ASSIGN</span><br><span class="line">            TOKEN_LBRACE opt_expr_list TOKEN_RBRACE TOKEN_SEMICOLON</span><br><span class="line">            { $$ = decl_create($1, $3, $6, NULL, NULL); }</span><br><span class="line">          | TOKEN_ID TOKEN_COLON type_func TOKEN_ASSIGN</span><br><span class="line">            TOKEN_LBRACE opt_stmt_list TOKEN_RBRACE</span><br><span class="line">            { $$ = decl_create($1, $3, NULL, $6, NULL); }</span><br><span class="line">          ;</span><br><span class="line"></span><br><span class="line">/* Statements */</span><br><span class="line"></span><br><span class="line">opt_stmt_list : /* epsilon */ { $$ = NULL; }</span><br><span class="line">              | stmt_list</span><br><span class="line">              ;</span><br><span class="line"></span><br><span class="line">stmt_list : stmt</span><br><span class="line">          | stmt stmt_list { $$ = $1; $$-&gt;next = $2; }</span><br><span class="line">          ;</span><br><span class="line"></span><br><span class="line">stmt : open_stmt</span><br><span class="line">     | closed_stmt</span><br><span class="line">     ;</span><br><span class="line"></span><br><span class="line">closed_stmt : if_stmt_closed</span><br><span class="line">            | for_stmt_closed</span><br><span class="line">            | simple_stmt</span><br><span class="line">            ;</span><br><span class="line"></span><br><span class="line">open_stmt : if_stmt_open</span><br><span class="line">          | for_stmt_open</span><br><span class="line">          ;</span><br><span class="line"></span><br><span class="line">if_cond : TOKEN_IF TOKEN_LPAREN opt_expr TOKEN_RPAREN</span><br><span class="line">          { $$ = stmt_create_empty(STMT_IF_ELSE); $$-&gt;expr = $3; }</span><br><span class="line">        ;</span><br><span class="line"></span><br><span class="line">if_stmt_closed : if_cond closed_stmt TOKEN_ELSE closed_stmt</span><br><span class="line">                 { $$ = $1; $$-&gt;body = $2; $$-&gt;else_body = $4; }</span><br><span class="line">               ;</span><br><span class="line"></span><br><span class="line">if_stmt_open : if_cond stmt</span><br><span class="line">               { $$ = $1; $$-&gt;body = $2; }</span><br><span class="line">             | if_cond closed_stmt TOKEN_ELSE if_stmt_open</span><br><span class="line">               { $$ = $1; $$-&gt;body = $2; $$-&gt;else_body = $4;}</span><br><span class="line">             ;</span><br><span class="line"></span><br><span class="line">for_header : TOKEN_FOR TOKEN_LPAREN</span><br><span class="line">             opt_expr TOKEN_SEMICOLON opt_expr TOKEN_SEMICOLON opt_expr</span><br><span class="line">             TOKEN_RPAREN</span><br><span class="line">             { $$ = stmt_create(STMT_FOR, NULL, $3, $5, $7, NULL, NULL, NULL); }</span><br><span class="line"></span><br><span class="line">for_stmt_open : for_header open_stmt { $$ = $1; $$-&gt;body = $2; }</span><br><span class="line">              ;</span><br><span class="line"></span><br><span class="line">for_stmt_closed : for_header closed_stmt { $$ = $1; $$-&gt;body = $2; }</span><br><span class="line">                ;</span><br><span class="line"></span><br><span class="line">/* Simple statements are not recursive */</span><br><span class="line">simple_stmt : print_stmt</span><br><span class="line">            | return_stmt</span><br><span class="line">            | block_stmt</span><br><span class="line">            | decl                 { $$ = stmt_create_empty(STMT_DECL), $$-&gt;decl = $1; }</span><br><span class="line">            | expr TOKEN_SEMICOLON { $$ = stmt_create_empty(STMT_EXPR), $$-&gt;expr = $1; }</span><br><span class="line">            ;</span><br><span class="line"></span><br><span class="line">print_stmt : TOKEN_PRINT opt_expr_list TOKEN_SEMICOLON</span><br><span class="line">             { $$ = stmt_create_empty(STMT_PRINT); $$-&gt;expr = $2; }</span><br><span class="line">           ;</span><br><span class="line"></span><br><span class="line">return_stmt : TOKEN_RETURN opt_expr TOKEN_SEMICOLON</span><br><span class="line">              { $$ = stmt_create_empty(STMT_RETURN); $$-&gt;expr = $2; }</span><br><span class="line">            ;</span><br><span class="line"></span><br><span class="line">block_stmt : TOKEN_LBRACE stmt_list TOKEN_RBRACE</span><br><span class="line">             { $$ = stmt_create_empty(STMT_BLOCK); $$-&gt;body = $2; }</span><br><span class="line">           ;</span><br><span class="line"></span><br><span class="line">/* Expressions */</span><br><span class="line"></span><br><span class="line">opt_expr_list : /* epsilon */ { $$ = NULL; }</span><br><span class="line">              | expr_list</span><br><span class="line">              ;</span><br><span class="line"></span><br><span class="line">expr_list : expr</span><br><span class="line">            { $$ = expr_create(EXPR_LIST, $1, NULL); }</span><br><span class="line">          | expr TOKEN_COMMA expr_list</span><br><span class="line">            { $$ = expr_create(EXPR_LIST, $1, $3); }</span><br><span class="line">          ;</span><br><span class="line"></span><br><span class="line">opt_expr : /* epsilon */ { $$ = NULL; }</span><br><span class="line">         | expr</span><br><span class="line">         ;</span><br><span class="line"></span><br><span class="line">expr : expr1</span><br><span class="line">     ;</span><br><span class="line"></span><br><span class="line">expr1 : lval TOKEN_ASSIGN expr1 { $$ = expr_create(EXPR_ASSIGN, $1, $3); }</span><br><span class="line">      | expr2</span><br><span class="line">      ;</span><br><span class="line"></span><br><span class="line">lval : TOKEN_ID       { $$ = expr_create_name($1); }</span><br><span class="line">     | TOKEN_ID index { $$ = expr_create(EXPR_INDEX, expr_create_name($1), $2); }</span><br><span class="line">     ;</span><br><span class="line"></span><br><span class="line">expr2 : expr2 TOKEN_LOGICAL_OR expr3 { $$ = expr_create(EXPR_OR, $1, $3); }</span><br><span class="line">      | expr3</span><br><span class="line">      ;</span><br><span class="line"></span><br><span class="line">expr3 : expr3 TOKEN_LOGICAL_AND expr4 { $$ = expr_create(EXPR_AND, $1, $3); }</span><br><span class="line">      | expr4</span><br><span class="line">      ;</span><br><span class="line"></span><br><span class="line">expr4 : expr4 TOKEN_EQUAL            expr5 { $$ = expr_create(EXPR_EQ,  $1, $3); }</span><br><span class="line">      | expr4 TOKEN_NOT_EQUAL        expr5 { $$ = expr_create(EXPR_NEQ, $1, $3); }</span><br><span class="line">      | expr4 TOKEN_LESS             expr5 { $$ = expr_create(EXPR_LT,  $1, $3); }</span><br><span class="line">      | expr4 TOKEN_LESS_OR_EQUAL    expr5 { $$ = expr_create(EXPR_LEQ, $1, $3); }</span><br><span class="line">      | expr4 TOKEN_GREATER          expr5 { $$ = expr_create(EXPR_GT,  $1, $3); }</span><br><span class="line">      | expr4 TOKEN_GREATER_OR_EQUAL expr5 { $$ = expr_create(EXPR_GEQ, $1, $3); }</span><br><span class="line">      | expr5</span><br><span class="line">      ;</span><br><span class="line"></span><br><span class="line">expr5 : expr5 TOKEN_ADD   expr6 { $$ = expr_create(EXPR_ADD, $1, $3); }</span><br><span class="line">      | expr5 TOKEN_MINUS expr6 { $$ = expr_create(EXPR_SUB, $1, $3); }</span><br><span class="line">      | expr6</span><br><span class="line">      ;</span><br><span class="line"></span><br><span class="line">expr6 : expr6 TOKEN_MULTIPLY expr7 { $$ = expr_create(EXPR_MUL, $1, $3); }</span><br><span class="line">      | expr6 TOKEN_DIVIDE   expr7 { $$ = expr_create(EXPR_DIV, $1, $3); }</span><br><span class="line">      | expr6 TOKEN_MODULO   expr7 { $$ = expr_create(EXPR_MOD, $1, $3); }</span><br><span class="line">      | expr7</span><br><span class="line">      ;</span><br><span class="line"></span><br><span class="line">expr7 : expr7 TOKEN_EXPONENT expr8 { $$ = expr_create(EXPR_EXP, $1, $3); }</span><br><span class="line">      | expr8</span><br><span class="line">      ;</span><br><span class="line"></span><br><span class="line">expr8 : TOKEN_MINUS       expr8 { $$ = expr_create_unary(EXPR_NEG, $2); }</span><br><span class="line">      | TOKEN_LOGICAL_NOT expr8 { $$ = expr_create_unary(EXPR_NOT, $2); }</span><br><span class="line">      | expr9</span><br><span class="line">      ;</span><br><span class="line"></span><br><span class="line">expr9 : expr9 TOKEN_INCREMENT { $$ = expr_create_unary(EXPR_INCREMENT, $1); }</span><br><span class="line">      | expr9 TOKEN_DECREMENT { $$ = expr_create_unary(EXPR_DECREMENT, $1); }</span><br><span class="line">      | group</span><br><span class="line">      ;</span><br><span class="line"></span><br><span class="line">group : TOKEN_LPAREN expr TOKEN_RPAREN { $$ = $2; }</span><br><span class="line">      | TOKEN_ID TOKEN_LPAREN opt_expr_list TOKEN_RPAREN</span><br><span class="line">        { $$ = expr_create(EXPR_CALL, expr_create_name($1), $3); }</span><br><span class="line">      | TOKEN_ID index</span><br><span class="line">        { $$ = expr_create(EXPR_INDEX, expr_create_name($1), $2); }</span><br><span class="line">      | factor</span><br><span class="line">      ;</span><br><span class="line"></span><br><span class="line">index : TOKEN_LBRACKET expr TOKEN_RBRACKET { $$ = $2; }</span><br><span class="line">      ;</span><br><span class="line"></span><br><span class="line">factor : TOKEN_ID             { $$ = expr_create_name($1); }</span><br><span class="line">       | TOKEN_INT_LITERAL    { $$ = expr_create_integer_literal($1); }</span><br><span class="line">       | TOKEN_FLOAT_LITERAL  { $$ = expr_create_float_literal($1); }</span><br><span class="line">       | TOKEN_CHAR_LITERAL   { $$ = expr_create_char_literal($1); }</span><br><span class="line">       | TOKEN_STRING_LITERAL { $$ = expr_create_string_literal($1); }</span><br><span class="line">       | TOKEN_TRUE           { $$ = expr_create_boolean_literal(1); }</span><br><span class="line">       | TOKEN_FALSE          { $$ = expr_create_boolean_literal(0); }</span><br><span class="line">       ;</span><br><span class="line"></span><br><span class="line">/* Types */</span><br><span class="line"></span><br><span class="line">type_simple : TOKEN_INTEGER { $$ = type_create(TYPE_INTEGER); }</span><br><span class="line">            | TOKEN_FLOAT   { $$ = type_create(TYPE_FLOAT); }</span><br><span class="line">            | TOKEN_BOOLEAN { $$ = type_create(TYPE_BOOLEAN); }</span><br><span class="line">            | TOKEN_CHAR    { $$ = type_create(TYPE_CHAR); }</span><br><span class="line">            | TOKEN_STRING  { $$ = type_create(TYPE_STRING); }</span><br><span class="line">            | TOKEN_VOID    { $$ = type_create(TYPE_VOID); }</span><br><span class="line">            ;</span><br><span class="line"></span><br><span class="line">type_array : TOKEN_ARRAY TOKEN_LBRACKET TOKEN_RBRACKET type_simple</span><br><span class="line">             { $$ = type_create_array($4, NULL); }</span><br><span class="line">           | TOKEN_ARRAY TOKEN_LBRACKET TOKEN_RBRACKET type_array</span><br><span class="line">             { $$ = type_create_array($4, NULL); }</span><br><span class="line">           ;</span><br><span class="line"></span><br><span class="line">type_array_sized : TOKEN_ARRAY index type_simple</span><br><span class="line">                   { $$ = type_create_array($3, $2); }</span><br><span class="line">                 | TOKEN_ARRAY index type_array_sized</span><br><span class="line">                   { $$ = type_create_array($3, $2); }</span><br><span class="line">                 ;</span><br><span class="line"></span><br><span class="line">type_func : TOKEN_FUNCTION type_simple TOKEN_LPAREN opt_param_list TOKEN_RPAREN</span><br><span class="line">            { $$ = type_create_func($2, $4); }</span><br><span class="line">          | TOKEN_FUNCTION type_array_sized TOKEN_LPAREN opt_param_list TOKEN_RPAREN</span><br><span class="line">            { $$ = type_create_func($2, $4); }</span><br><span class="line">          ;</span><br><span class="line"></span><br><span class="line">opt_param_list : /* epsilon */ { $$ = NULL; }</span><br><span class="line">               | param_list</span><br><span class="line">               ;</span><br><span class="line"></span><br><span class="line">param_list : param</span><br><span class="line">           | param_list TOKEN_COMMA param { $$ = $1; $1-&gt;next = $3; }</span><br><span class="line">           ;</span><br><span class="line"></span><br><span class="line">param : TOKEN_ID TOKEN_COLON type_simple      { $$ = param_list_create($1, $3, NULL); }</span><br><span class="line">      | TOKEN_ID TOKEN_COLON type_array       { $$ = param_list_create($1, $3, NULL); }</span><br><span class="line">      | TOKEN_ID TOKEN_COLON type_array_sized { $$ = param_list_create($1, $3, NULL); }</span><br><span class="line">      ;</span><br></pre></td></tr></tbody></table></figure>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://x.com/SamuelGHuang">
+            <span class="icon">
+              <i class="fab fa-x-twitter"></i>
+            </span>
+
+            <span class="label">X</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://linkedin.com/in/samuel-g-huang/">
+            <span class="icon">
+              <i class="fab fa-linkedin"></i>
+            </span>
+
+            <span class="label">LinkedIn</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">微信公众号</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat-channel.png">
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://zhihu.com/people/hailkiwi">
+            <span class="icon">
+              <i class="fab fa-zhihu"></i>
+            </span>
+
+            <span class="label">知乎</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/project/" rel="tag"># project</a>
+              <a href="/tags/cse/" rel="tag"># cse</a>
+              <a href="/tags/compiler/" rel="tag"># compiler</a>
+              <a href="/tags/system/" rel="tag"># system</a>
+              <a href="/tags/c/" rel="tag"># c</a>
+              <a href="/tags/pl/" rel="tag"># pl</a>
+              <a href="/tags/sde/" rel="tag"># sde</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021-12-31-%E8%B5%B4%E7%BE%8E%E5%89%8D%E5%86%99%E7%BB%992121%E7%8F%AD%E5%90%8C%E5%AD%A6%E4%BB%AC/" rel="prev" title="在赴美之际写给 2121 班同学">
+                  <i class="fa fa-angle-left"></i> 在赴美之际写给 2121 班同学
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/hello-world/" rel="next" title="Hello World">
+                  Hello World <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2020 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-terminal"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Samuel Huang</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Word count total">105k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">6:22</span>
+  </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div><div class="footer-custom">
+  Source code and website hosted on
+  <a target="_blank" rel="noopener" href="https://github.com/sghuang19/sghuang19.github.io">GitHub</a>.
+</div>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/sghuang19" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

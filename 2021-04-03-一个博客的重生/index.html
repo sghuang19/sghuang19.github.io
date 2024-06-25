@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#177CB0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#177CB0" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.2.0">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#177CB0">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,300italic,400,400italic,700,700italic%7CNoto+Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"sghuang.com","root":"/","images":"/images","scheme":"Gemini","darkmode":"auto","version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="前言 首先要向关注我的读者们（假如有）道个歉，因为学业繁忙，一直都没有时间撰写新的文章。咕咕的日子里我也学到许多东西，近段时间尤其多，特别是环境的配置涉及到许许多多细枝末节的问题，而且其中有很多灵光一现的 debug 思维我觉得特别有价值且值得玩味。如果不写点东西记下来了话，大概将来就都忘了吧。综上，我更深刻地认识到写博客是开发者最好的学习方式，所以要陆陆续续地重新开始写文章了！ 也正因此，今后">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一个博客的重生：基于 &#96;Hexo&#96; 引擎的博客配置">
+<meta property="og:url" content="https://sghuang.com/2021-04-03-%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2%E7%9A%84%E9%87%8D%E7%94%9F/index.html">
+<meta property="og:site_name" content="Samuel Huang&#39;s Portfolio">
+<meta property="og:description" content="前言 首先要向关注我的读者们（假如有）道个歉，因为学业繁忙，一直都没有时间撰写新的文章。咕咕的日子里我也学到许多东西，近段时间尤其多，特别是环境的配置涉及到许许多多细枝末节的问题，而且其中有很多灵光一现的 debug 思维我觉得特别有价值且值得玩味。如果不写点东西记下来了话，大概将来就都忘了吧。综上，我更深刻地认识到写博客是开发者最好的学习方式，所以要陆陆续续地重新开始写文章了！ 也正因此，今后">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://sghuang.com/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202021-04-02%20200854.png">
+<meta property="og:image" content="https://sghuang.com/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202021-04-03%20002025.png">
+<meta property="og:image" content="https://sghuang.com/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202021-04-03%20004005.png">
+<meta property="og:image" content="https://sghuang.com/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202021-04-03%20010012.png">
+<meta property="article:published_time" content="2021-04-03T04:00:00.000Z">
+<meta property="article:modified_time" content="2024-06-23T14:29:13.043Z">
+<meta property="article:author" content="Samuel Huang">
+<meta property="article:tag" content="blog">
+<meta property="article:tag" content="hexo">
+<meta property="article:tag" content="next">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://sghuang.com/images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202021-04-02%20200854.png">
+
+
+<link rel="canonical" href="https://sghuang.com/2021-04-03-%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2%E7%9A%84%E9%87%8D%E7%94%9F/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://sghuang.com/2021-04-03-%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2%E7%9A%84%E9%87%8D%E7%94%9F/","path":"2021-04-03-一个博客的重生/","title":"一个博客的重生：基于 `Hexo` 引擎的博客配置"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>一个博客的重生：基于 `Hexo` 引擎的博客配置 | Samuel Huang's Portfolio</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Samuel Huang's Portfolio</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-posts"><a href="/posts" rel="section"><i class="fa fa-signs-post fa-fw"></i>Posts</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">64</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">61</span></a></li><li class="menu-item menu-item-projects"><a href="/tags/project" rel="section"><i class="fa fa-cogs fa-fw"></i>Projects</a></li><li class="menu-item menu-item-experience"><a href="/experience/" rel="section"><i class="fa fa-briefcase fa-fw"></i>Experience</a></li><li class="menu-item menu-item-education"><a href="/education" rel="section"><i class="fa fa-graduation-cap fa-fw"></i>Education</a></li><li class="menu-item menu-item-courses"><a href="https://sghuang.notion.site/e242d6a39cf74dada55828ffe7cdb83f" rel="section" target="_blank"><i class="fa fa-book fa-fw"></i>Courses</a></li><li class="menu-item menu-item-notes"><a href="https://notes.sghuang.com/" rel="section" target="_blank"><i class="fa fa-file-pen fa-fw"></i>Notes</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%89%8D%E8%A8%80"><span class="nav-number">1.</span> <span class="nav-text">前言</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%96%B0%E7%9A%84Gitee%E8%B4%A6%E5%8F%B7%E5%92%8C%E4%BB%93%E5%BA%93"><span class="nav-number">2.</span> <span class="nav-text">新的 Gitee 账号和仓库</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Hexo%E5%BC%95%E6%93%8E%E9%85%8D%E7%BD%AE"><span class="nav-number">3.</span> <span class="nav-text">Hexo 引擎配置</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%8D%9A%E5%AE%A2%E5%B7%A5%E4%BD%9C%E7%9B%AE%E5%BD%95%E5%88%9D%E5%A7%8B%E5%8C%96"><span class="nav-number">3.1.</span> <span class="nav-text">博客工作目录初始化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%89%88%E6%9C%AC%E8%BF%81%E7%A7%BB"><span class="nav-number">3.2.</span> <span class="nav-text">版本迁移</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NexT%E4%B8%BB%E9%A2%98%E9%85%8D%E7%BD%AE"><span class="nav-number">3.3.</span> <span class="nav-text">NexT 主题配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%85%B6%E4%BB%96%E9%97%AE%E9%A2%98%E7%9A%84%E4%BF%AE%E5%A4%8D"><span class="nav-number">4.</span> <span class="nav-text">其他问题的修复</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9B%BE%E7%89%87%E3%80%81%E5%9B%BE%E5%BA%8A%E5%92%8CPicGo%E9%85%8D%E7%BD%AE"><span class="nav-number">5.</span> <span class="nav-text">图片、图床和 PicGo 配置</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Samuel Huang"
+      src="/uploads/avatar.png">
+  <p class="site-author-name" itemprop="name">Samuel Huang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">64</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/sghuang19" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;sghuang19" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:samuel.g.huang@outlook.com" title="E-Mail → mailto:samuel.g.huang@outlook.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/SamuelGHuang" title="X → https:&#x2F;&#x2F;twitter.com&#x2F;SamuelGHuang" rel="noopener me" target="_blank"><i class="fab fa-x-twitter fa-fw"></i>X</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/samuel-g-huang/" title="LinkedIn → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;samuel-g-huang&#x2F;" rel="noopener me" target="_blank"><i class="fab fa-linkedin fa-fw"></i>LinkedIn</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://calendly.com/sghuang" title="Calendly → https:&#x2F;&#x2F;calendly.com&#x2F;sghuang" rel="noopener me" target="_blank"><i class="fa fa-calendar fa-fw"></i>Calendly</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/" title="微信 → &#x2F;" rel="noopener me"><i class="fab fa-weixin fa-fw"></i>微信</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by.svg" alt="Creative Commons"></a>
+  </div>
+
+<hr style="margin: 0" />
+<div class="cc-license animated" itemprop="sponsor">
+  Built with<br />
+  <span
+    style="text-decoration: none"
+    class="exturl cc-opacity"
+    title="A fast, simple & powerful blog framework"
+  >
+    <a target="_blank" rel="noopener" href="https://hexo.io" style="text-decoration: none">
+      <img
+        width="160"
+        src="https://github.com/hexojs/logo/blob/master/hexo-logo.png?raw=true"
+        alt="Hexo"
+      />
+    </a>
+  </span>
+</div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+        <div class="pjax">
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sghuang.com/2021-04-03-%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2%E7%9A%84%E9%87%8D%E7%94%9F/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="Samuel Huang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Samuel Huang's Portfolio">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="一个博客的重生：基于 `Hexo` 引擎的博客配置 | Samuel Huang's Portfolio">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          一个博客的重生：基于 `Hexo` 引擎的博客配置<a href="https://github.com/sghuang19/sghuang19.github.io/tree/main/source/_posts/old/2021-04-03-%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2%E7%9A%84%E9%87%8D%E7%94%9F.md" class="post-edit-link" title="Edit this post" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-04-03 00:00:00" itemprop="dateCreated datePublished" datetime="2021-04-03T00:00:00-04:00">2021-04-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-06-23 10:29:13" itemprop="dateModified" datetime="2024-06-23T10:29:13-04:00">2024-06-23</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>5.1k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>18 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><!-- cSpell:ignore kommium Kommunism Guanc kommunisium -->
+<h2 id="前言">前言</h2>
+<p>首先要向关注我的读者们（假如有）道个歉，因为学业繁忙，一直都没有时间撰写新的文章。咕咕的日子里我也学到许多东西，近段时间尤其多，特别是环境的配置涉及到许许多多细枝末节的问题，而且其中有很多灵光一现的 debug 思维我觉得特别有价值且值得玩味。如果不写点东西记下来了话，大概将来就都忘了吧。综上，我更深刻地认识到写博客是开发者最好的学习方式，所以要陆陆续续地重新开始写文章了！</p>
+<p>也正因此，今后的技术类文章会着重于记录调试、配置的细节，力求还原脑力劳动的思路，希望将来的我会感谢努力的自己！</p>
+<span id="more"></span>
+<h2 id="新的Gitee账号和仓库">新的 Gitee 账号和仓库</h2>
+<p>之前取的 username 是 <code>SamuelHuang2019</code>，这个用户名现在让我很不满意，原因有三：</p>
+<ol>
+<li>有大写字母，实际上全部小写最好</li>
+<li>不够 impressive，不能让人眼前一亮</li>
+<li>不好记，特别是对外国友人，姓氏和数字都挺无厘头的</li>
+</ol>
+<p>这可是人生大事啊！经过思考，取了一个新的 username，隆重介绍：</p>
+<center>kommunium</center>
+<p>这是一个生造的词，<s>里面有 3 个 m 好像显得我很 m</s>，它的主体取材自德语 <code>Kommunism</code>，翻译成英语就是 <code>communism</code>，这个大家自然都懂吧。至于词尾则是参考了 <code>Chrome</code> 浏览器的 <code>Chromium</code> 内核的命名方式，一般以 <code>ium</code> 结尾的会让人联想起是某种元素。最后合成的含义就是 “共产元素”，从内涵到形式都让人印象深刻！</p>
+<blockquote>
+<p>其实改完之后也纠结过是不是其他的组合反而更好，比如 <code>kommium</code>（更短但是略带轻佻意），<code>kommunisium</code>（有个 <code>s</code> 在听起来更帅但是又太拗口了）之类，不过罢了罢了，这样也挺好的！</p>
+</blockquote>
+<p><img src="../images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202021-04-02%20200854.png" alt="Change username on GitHub"></p>
+<p>GitHub 提供的更改用户名服务还是不错的，只需要修改就好了，似乎也没见到次数限制。不过值得注意的是，更改用户名后，<em>仓库链接会被重定向至新的位置，但用户主页链接并不会</em>，这已经非常不错了。我的图床和静态博客都托管在 Gitee 上，相比之下码云就不太人性化，并不支持更改用户名，所以只能是选择新创建一个账号。</p>
+<p>为了保证原有的图床链接仍然可以正常显示，不能直接注销原有的 Gitee 账号，而需要注册一个新的账号作为主力使用，此时则需要有邮箱和手机验证。好在这两者我也都还有余裕。</p>
+<blockquote>
+<p>Gitee 提供了仓库转移给企业、组织、个人的选项，此时 “仓库的地址将变更至目标用户的命名空间下”，并不确定能否重定向到原来的位置。经过实测，转移仓库后，原有的访问链接就会变为 404，看来不得不暂时保留这个老号了。</p>
+<p>此处还有一个隐含的担忧，也即 Gitee 有可能会对非活跃用户 / 仓库进行清理，如果影响到此前图床里的图片问题就相当严重了。不过在这之前应该会收到邮件通知，并不用过分担心。</p>
+</blockquote>
+<p>接下来需要进行的是图床和博客仓库的迁移。图床还好，直接新建一个仓库进行全新的开始就好。为了之前的一些文章可以仍然通过链接进行访问，原有的博客仓库不能直接转移；如果直接进行 fork 的话，又会留下一个 fork 自某某账号的标记，不够 brand new；Gitee 貌似没有提供在某个仓库的基础上新建仓库的选项，于是选择采取最朴素的复制粘贴方式。</p>
+<blockquote>
+<p>将来也许会考虑换成别的平台的图床，例如华为云的对象存储服务，现在正在做项目学校有给代金券，希望以后一直有得用 \doge，没有的话资费应该也不会太贵吧。</p>
+</blockquote>
+<hr>
+<h2 id="Hexo引擎配置"><code>Hexo</code> 引擎配置</h2>
+<p>参考：</p>
+<p>零基础免费通过 hexo+github 快速搭建个人博客（超详细图解 + B 站视频讲解资源）：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_44523860/article/details/104166671">https://blog.csdn.net/weixin_44523860/article/details/104166671</a></p>
+<blockquote>
+<p>以下是笔者进行博客迁移加升级的过程，如果你需要全新开始博客，实际上过程比这会更简便。</p>
+</blockquote>
+<p>之前曾经挖过坑说要出一篇 <code>Hexo</code> 配置的文章，不过自然也是荒废了…… 这次要重新配置，所以做个简单的记录。安装 <code>Node.js</code> 和 <code>Git</code>，以及拉取仓库的部分都直接略过。</p>
+<h3 id="博客工作目录初始化">博客工作目录初始化</h3>
+<p>（<code>Node.js</code> 安装好之后）在命令行运行 <code>npm install -g hexo</code> 以安装 <code>Hexo</code> 引擎。</p>
+<blockquote>
+<p>此处 <code>-g</code> 参数代表全局安装，对于只在一个文件夹里运行博客来说，其实不加这个参数也一样，但是选择全局安装会在某些时候带来便利。</p>
+</blockquote>
+<p>完成后运行 <code>hexo -v</code> 检查安装结果，我却出现了一系列报错：</p>
+<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line">ERROR Cannot find module <span class="string">'hexo'</span> from <span class="string">'C:\Users\Guanc\Documents\GitHub\kommunium'</span></span><br><span class="line">ERROR Local hexo loading failed <span class="keyword">in</span> ~\Documents\GitHub\kommunium</span><br><span class="line">ERROR <span class="keyword">Try</span> running: <span class="string">'rm -rf node_modules &amp;&amp; npm install --force'</span></span><br></pre></td></tr></tbody></table></figure>
+<p>其原因是，复制整个仓库时同时复制了根目录下的 <code>package.json</code>，这个文件中存放了 <code>npm</code> 此前安装过的 <code>module</code>s 的信息，但显然在新的环境中，这些 <code>module</code> 都还未被安装，自然会出现冲突，将这个文件删除就好了。（不过这个列表也可以作为安装了的包的目录备份）</p>
+<p>虽然之前的目录里已经有了 Hexo 博客的各个 “部件”，也就是 <code>scaffolds/</code>、<code>source/</code>、<code>themes/</code> 文件夹等，但是实测此时运行 <code>hexo s</code> 等命令并不能被识别，还需要再次进行初始化。<strong>初始化 Hexo 博客文件夹的一个大坑是，文件夹中必须是空的！</strong> 一个比较好的解决方案是，先在一个空文件夹里运行 <code>hexo init</code> 命令进行初始化，再将初始化操作拉取的文件、安装的包等等全数复制到进行版本控制的 Git 文件夹里！（既然需要进行版本控制，则会有<code>.git/</code> 文件夹，不可能满足条件，这也是最诡异的地方）。</p>
+<blockquote>
+<p>附上一些常用的 <code>npm</code> 操作备查：</p>
+<table>
+<thead>
+<tr>
+<th>指令</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>npm install &lt;package&gt;</code></td>
+<td>安装某个包，或升级某个包</td>
+</tr>
+<tr>
+<td><code>npm uninstall &lt;package&gt;</code></td>
+<td>卸载某个包</td>
+</tr>
+<tr>
+<td><code>npm update &lt;package&gt;</code></td>
+<td>升级某个包</td>
+</tr>
+<tr>
+<td><code>npm list &lt;package&gt; [--depth &lt;depth&gt;]</code></td>
+<td>列出安装的包]</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li> 此处若不给出深度，则默认深度为 0。一个包在安装时，往往也会安装其他的许多依赖，通过指定一个深度参数可以选择要列出的安装的包的层级深度。</li>
+<li>在任意一个命令中添加 <code>-g</code> 参数则会在全局执行，若不添加则默认在 local，也就是当前目录执行。</li>
+<li>添加 <code>--force</code> 参数则强制执行。</li>
+<li>npm 升级所有可更新包：<a target="_blank" rel="noopener" href="https://blog.csdn.net/weixin_34294649/article/details/89384922">https://blog.csdn.net/weixin_34294649/article/details/89384922</a></li>
+</ul>
+</blockquote>
+<p>此外，还需要补全博客里用到的模块（参考 <code>package.json</code>）。特别注意，这里要斟酌是否全局安装了！如果某些模块造成问题，只要删掉博客目录下的文件夹，就可以清除所有局域安装的包！而如果全局安装，就没那么容易解决了。</p>
+<h3 id="版本迁移">版本迁移</h3>
+<p>接下来需要将新旧博客目录里的文件夹、文件一一对比，确定有哪些修改需要从旧版本带到新版本。</p>
+<p>安装了一系列模块之后，发现实际上过了这么久许多模块并没有大版本升级，不过 <code>Hexo</code> 引擎却是从 <code>4.2.1</code> 跳到了 <code>5.0.0</code> 版本。既然是从头来过了，那就整个全新的吧。实际上，升级的过程相当痛苦，因为过程当中需要反复比较新旧的异同……</p>
+<p>结论如下：</p>
+<ul>
+<li><code>scaffolds/</code> 目录下的模板文件没有变动，直接用原来的替换就好（如果有自定义模板的话）</li>
+<li><code>source/</code> 目录的结构也没有改变，直接用原有的替换就好，千万不要误删原有的 <code>source/</code> 文件夹！这里存的都是博客原稿！</li>
+<li><code>themes/</code> 文件夹一定要非常慎重，因为主题的配置往往十分复杂，而在外观上花心思又是大家调教博客的一个重点，需要更细致地比对文件间的修改。不过，其中的默认主题文件夹倒是用处不大。</li>
+<li><code>_config.landscape.yml</code> 是默认的 <code>landscape</code> 主题的配置文件，用处不大，可以直接删掉。</li>
+<li><code>_config.yml</code> 是整个 <code>Hexo</code> 站点的配置文件，需要详细比对。</li>
+<li>其余以<code>.json</code> 结尾的文件是由 <code>Node.js</code> 自己生成的，可以不去理睬，用新生成的就好，老版本中的可以直接删掉。</li>
+</ul>
+<p>首先来比对<code>_config.yml</code>：</p>
+<p><img src="../images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202021-04-03%20002025.png" alt="新旧配置文件对比"></p>
+<blockquote>
+<p>旧版本中对于 URL 的注释为 "## If your site is put in a subdirectory, set url as
+‘<a target="_blank" rel="noopener" href="http://yoursite.com/child">http://yoursite.com/child</a>’ and root as ‘/child/’"，而新版本则并没有关于
+subdirectory 的提示，是已经解决了这个问题了吗？</p>
+</blockquote>
+<p>新版本的配置文件在<code># Writing</code> 一节加入了新的参数：</p>
+<figure class="highlight yml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attr">prismjs:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">preprocess:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">line_number:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">tab_replace:</span> <span class="string">""</span></span><br></pre></td></tr></tbody></table></figure>
+<p>看来这是一个代码高亮的工具，新版本的引擎支持更灵活优美的代码样式。</p>
+<p>现在关于博文的修改时间设定也有更新：</p>
+<figure class="highlight yml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># before</span></span><br><span class="line"><span class="comment">## Use post's date for updated date unless set in front-matter</span></span><br><span class="line"><span class="attr">use_date_for_updated:</span> <span class="literal">false</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># now</span></span><br><span class="line"><span class="comment">## updated_option supports 'mtime', 'date', 'empty'</span></span><br><span class="line"><span class="attr">updated_option:</span> <span class="string">"mtime"</span></span><br></pre></td></tr></tbody></table></figure>
+<p>我选择在<code># Pagination</code> 中将 <code>per_page</code> 设置为 <code>0</code> 以取消分页，不然看长文要点很多次下一页很烦人。再下方的 <code>theme</code> 自然也是要改成自己使用的主题了的。最后，需要加入对博客部署、数学、字数统计和看板娘等插件的定义，这些都是默认配置文件中所不包含的</p>
+<figure class="highlight yaml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attr">deploy:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">git</span></span><br><span class="line">  <span class="attr">repo:</span> <span class="string">https://gitee.com/kommunium/kommunium.git</span></span><br><span class="line">  <span class="attr">branch:</span> <span class="string">pages</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Mathjax</span></span><br><span class="line"><span class="attr">mathjax:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line"></span><br><span class="line"><span class="attr">symbols_count_time:</span></span><br><span class="line">  <span class="attr">symbols:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">time:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">total_symbols:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_time:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">exclude_codeblock:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">awl:</span> <span class="number">100</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Live2D</span></span><br><span class="line"><span class="attr">live2d:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">scriptFrom:</span> <span class="string">local</span></span><br><span class="line">  <span class="attr">pluginRootPath:</span> <span class="string">live2dw/</span></span><br><span class="line">  <span class="attr">pluginJsPath:</span> <span class="string">lib/</span></span><br><span class="line">  <span class="attr">pluginModelPath:</span> <span class="string">assets/</span></span><br><span class="line">  <span class="attr">tagMode:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">debug:</span> <span class="literal">false</span></span><br><span class="line">  <span class="attr">model:</span></span><br><span class="line">    <span class="attr">use:</span> <span class="string">live2d-widget-model-koharu</span></span><br><span class="line">    <span class="comment"># use: live2d-widget-model-z16</span></span><br><span class="line">    <span class="comment"># use: live2d-widget-model-hijiki</span></span><br><span class="line">    <span class="attr">scale:</span> <span class="number">1</span></span><br><span class="line">    <span class="attr">hHeadPos:</span> <span class="number">0.5</span></span><br><span class="line">    <span class="attr">vHeadPos:</span> <span class="number">0.618</span></span><br><span class="line">  <span class="attr">display:</span></span><br><span class="line">    <span class="attr">superSample:</span> <span class="number">2</span></span><br><span class="line">    <span class="attr">width:</span> <span class="number">180</span></span><br><span class="line">    <span class="attr">height:</span> <span class="number">360</span></span><br><span class="line">    <span class="attr">position:</span> <span class="string">right</span></span><br><span class="line">    <span class="attr">hOffset:</span> <span class="number">50</span></span><br><span class="line">    <span class="attr">vOffset:</span> <span class="number">-50</span></span><br><span class="line">  <span class="attr">mobile:</span></span><br><span class="line">    <span class="attr">show:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">scale:</span> <span class="number">0.5</span></span><br><span class="line">  <span class="attr">react:</span></span><br><span class="line">    <span class="attr">opacityDefault:</span> <span class="number">0.7</span></span><br><span class="line">    <span class="attr">opacityOnHover:</span> <span class="number">0.2</span></span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>这里的 live2d 看板娘是我自己偏好的配置。</p>
+</blockquote>
+<p>除此之外，<code>.gitignore</code> 根据需求简单合并一下即可。到这里，引擎自身已经配置好了，可以先用默认主题检查一下效果。</p>
+<p><img src="../images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202021-04-03%20004005.png" alt="默认主题效果"></p>
+<p>土土的，但是能用，接下来考虑美化。</p>
+<h3 id="NexT主题配置"><code>NexT</code> 主题配置</h3>
+<p><code>NexT</code> 主题灵活度高，配置好之后真的很好看，但是也真的很复杂，早在很久之前我刚开始入手 <code>Hexo</code> 静态博客的时候就已经听闻了主题迁移非常麻烦，现在再来挑战一下。</p>
+<p>如果我没有猜测错，（可能是）原作者 <a target="_blank" rel="noopener" href="http://theme-next.iissnan.com/%E6%9B%B4">@issnan</a> 新到了 <a target="_blank" rel="noopener" href="https://github.com/iissnan/hexo-theme-next/releases/tag/v5.1.4">v5.1.4</a> 版本，而后则是由 <a target="_blank" rel="noopener" href="https://github.com/next-theme/hexo-theme-next">@next-theme</a> 这个团队来进行维护了？（纯粹通过观察得到的猜想，具体情况也未知）写作这篇文章时，最新的一个版本正是前一天发布的 <a target="_blank" rel="noopener" href="https://github.com/next-theme/hexo-theme-next/releases/tag/v8.3.0">v8.3.0</a>，而在我最初接触 <code>Hexo</code> 博客时，<code>v7.x</code> 就已经算是很新鲜的事物了，不禁感叹时过境迁呀……</p>
+<p>使用 GitHub Desktop 拉取最新的主题到 <code>themes/</code> 目录下，然后再配置文件里修改主题为对应的主题文件夹名，之所以用这个软件是方便后期拉取更新。先测试一下，发现现在运行时会打出很帅的 logo。</p>
+<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line">INFO  ==================================</span><br><span class="line">  ███╗   ██╗███████╗██╗  ██╗████████╗</span><br><span class="line">  ████╗  ██║██╔════╝╚██╗██╔╝╚══██╔══╝</span><br><span class="line">  ██╔██╗ ██║█████╗   ╚███╔╝    ██║</span><br><span class="line">  ██║╚██╗██║██╔══╝   ██╔██╗    ██║</span><br><span class="line">  ██║ ╚████║███████╗██╔╝ ██╗   ██║</span><br><span class="line">  ╚═╝  ╚═══╝╚══════╝╚═╝  ╚═╝   ╚═╝</span><br><span class="line">========================================</span><br><span class="line">NexT version <span class="number">8.3</span>.<span class="number">0</span></span><br><span class="line">Documentation: https://theme<span class="literal">-next</span>.js.org</span><br></pre></td></tr></tbody></table></figure>
+<p><img src="../images/%E5%B1%8F%E5%B9%95%E6%88%AA%E5%9B%BE%202021-04-03%20010012.png" alt="默认配置"></p>
+<p>接下来要进行的就是最艰巨的任务，调试主题，需要对比大量配置文件…… 首先，<code>docs/</code> 和 <code>languages/</code> 目录都是我完全没修改过的，直接删去旧版本即可。</p>
+<blockquote>
+<p>此处一定要特别特别小心，主题目录内的<code>_config.yml</code> 是主题的配置，而根目录中的<code>_config.yml</code> 是 <code>Hexo</code> 引擎的配置，他们是不一样的，切记切记！</p>
+</blockquote>
+<p>新旧版本主题的配置文件的一个大不同是，新版主题的 <code>custom_file</code> 几乎全部从<code>.swig</code> 格式转成了<code>.njk</code> 格式，好在此前我只修改了 <code>styles.styl</code> 这一处，且它并未受到版本更新的影响。</p>
+<blockquote>
+<p>若我没记错的话，在老版本中，启用 <code>style: source/_data/styles.styl</code> 这一自定义文件，实际上真正在起作用的却是 <code>source/_custom/custom.styl</code>，曾经踩过的坑历历在目，不知道现在是否修复了这个 bug。</p>
+</blockquote>
+<p>剩余的修改过于细致繁复，不在这里一一记录。现在墙裂建议新接触 <code>Hexo</code> 博客的伙伴，在配置主题等设置时，一定要在注释里加上一个星标，表面这个字段是否被手动更改过！</p>
+<p>接下来则是对 <code>source/</code> 目录下的 CSS 文件进行修改，主要的外观自定义其实都在这里完成。</p>
+<ul>
+<li><code>image/</code> 目录下存储的是一些图片、图标，如果有自定义的用户头像、网页背景等需要进行覆盖。</li>
+<li>其他的目录基本不会有改动</li>
+<li>最关键就是<code>_custom/</code> 下的样式文件（如果有），需要带到新版本里面去</li>
+</ul>
+<p>其他的文件夹应该都不包含手动的配置，唯一重要的就是 <code>custom.styl</code> 了（如果之前配置过）。现在重启本地博客，发现样式没有改变，猜测是自定义样式文件的路径冲突问题在新版本里被解决了，于是依照新的要求更换目录和文件名到 <code>hexo-theme-next/source/_data/styles.styl</code>，但此时依然没有生效！</p>
+<p>参考以下两篇非常细致的文章，它们真的给到我很大帮助，感谢作者。</p>
+<ul>
+<li>数据文件：<a target="_blank" rel="noopener" href="https://tding.top/docs/getting-started/data-files.html">https://tding.top/docs/getting-started/data-files.html</a></li>
+<li>Hexo-NexT 版本更新记录：<a target="_blank" rel="noopener" href="https://tding.top/archives/2bd6d82.html">https://tding.top/archives/2bd6d82.html</a></li>
+</ul>
+<p>幡然醒悟原来此处<code>_data/</code> 目录是在 <strong>Hexo 博客的根目录下的 <code>source/</code> 文件夹里，而非主题的 <code>source/</code> 文件夹下</strong>！并且，在更新版本的 <code>NexT</code> 主题中，提倡源代码与自定义配置进行分离的主题设置方式，这里我暂时选用 <code>override: true</code>，毕竟之前都已经把设置全复制一遍了。再次启动博客，此时已经可以正常显示背景。</p>
+<blockquote>
+<p>与上述两篇文献有所不同的是，在 <code>Hexo 5.0</code> 以上，配置文件应命名为<code>_config.next.yml</code>。</p>
+</blockquote>
+<p>既然已经能用了，赶紧 Commit Push 一下怕丢失进度。注意到现在的博客是在新的空目录下建的，不能进行版本控制，所以需要先拉取仓库，再将博客文件复制进去。</p>
+<p>但是现在站点的 <code>source/_data/</code> 下的配置文件完全不能起作用了！经过重新初始化站点、拉取主题等操作，亦然不能解决问题，实在不知道是怎么回事。只能采取原有的办法，使用主题文件夹下的配置文件了。</p>
+<p>为了解决对主题文件夹进行版本控制的问题，决定重新采用子模块方式拉取主题。</p>
+<figure class="highlight sh"><table><tbody><tr><td class="code"><pre><span class="line">git submodule https://github.com/theme-next/hexo-theme-next.git themes/hexo-theme-next</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>无法拉取子模块的解决方案</p>
+<ol>
+<li>新建 <code>hexo-theme-next</code> 文件夹</li>
+<li>手动将这个文件夹使用 <code>git add</code> 命令添加到版本控制中</li>
+<li>再手动 discard 这个更改（如在 GitHub Desktop 中）</li>
+<li>接下来可以拉取子模块</li>
+<li>在 GitHub Desktop 里添加本地仓库，选择主题文件夹，直到这里 VSCode 才成功将其识别为 <code>S</code>&gt;（子模块）。</li>
+</ol>
+<p>~~ 猜测与文件追踪的缓存有关，尝试过一些网上的方案，但都没有成功，最后这样解决了
+……~~ 貌似只是因为我弄错了目录。</p>
+</blockquote>
+<p>在拉取新的主题之后，<code>Hexo</code> 出现诡异的报错：</p>
+<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line">TypeError: Cannot read property <span class="string">'enable'</span> of undefined</span><br></pre></td></tr></tbody></table></figure>
+<p>经过对比，发现竟然是直接拉取主题仓库，和以子模块方式拉取的主题仓库里的<code>_config.yml</code> 文件有不同，导致某个属性没有被识别！实在是令人疑惑，不排除是之前的操作出现了问题，导致我使用了老版本的配置文件。</p>
+<hr>
+<h2 id="其他问题的修复">其他问题的修复</h2>
+<p>接下来需要解决大量文章的标题显示为 “未命名” 的问题，许多人反映升级到新版本 <code>Hexo</code> 后出现这个问题。这应该是由于在老版本中，文章标题默认为 Markdown 中<code>#</code>后的一级标题，而新版本中必须通过 front-matter 中的 <code>title</code> 属性进行指定。好在我太过低产，已有的文章并不多，直接全部声明一下标题好了。</p>
+<p>参考 <a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/265203927">Hexo 使用 NexT 主题文章元数据设置 - 比如文章字数和阅读时长预测</a>配置字数和阅读时间统计，虽然能显示，但是字数统计貌似不太对，可能无解，应该是将代码也计算在内的缘故，更改 <code>awl</code> 并未起作用。</p>
+<p>启动自动截取的 <code>auto_excerpt</code> 选项后，亦然没有自动截取。此处还需要安装一个额外的模块。</p>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">npm install hexo-excerpt --save</span><br></pre></td></tr></tbody></table></figure>
+<p>一个奇怪的 “未命名” 文章出现在首页，其内容看起来像是某种样式配置文件，检查后发现是
+Git Book 的产物，在站点配置文件内将其忽略即可。</p>
+<blockquote>
+<p><code>Hexo</code> 的 <code>ignore</code> 参数与<code>.gitignore</code> 不同，如果单纯输入一个文件名，并不会忽略掉所有该名称的文件，而只会忽略掉根目录下的该文件，因此有可能需要加上通配符。</p>
+</blockquote>
+<p>Anyway，现在总算配置好博客了！</p>
+<hr>
+<h2 id="图片、图床和PicGo配置">图片、图床和 <code>PicGo</code> 配置</h2>
+<p>安装 PicGo，并在 Gitee 上新建图床仓库，在个人设置中创建私人令牌供 PicGo 访问。</p>
+<p>不过，到这里我突然意识到，为什么不直接使用博客目录的相对路径来插入图片呢？其实完全可以做到，唯一需要担心的就是在分享 Markdown 文件给其他人（或者上传到知乎等）时图片不能加载，不过这个也很好解决，因为可以批量地将相对路径替换为在 Gitee 上的图片路径。</p>
+<p>使用 Gitee 作为图床的一个缺陷是，当图片的大小超过 1M 时，就不能直接在 Markdown 中访问到了，可以通过 <code>PowerToys</code> 工具提供的批量调整图片大小功能来解决。若要发布到知乎，可以采取以下步骤</p>
+<!-- cSpell:ignore wamg -->
+<ol>
+<li>撰写文章，图片位于<code>../images/</code> 目录下</li>
+<li>推送 <code>master</code> 分支到 Gitee（否则后续无法从外部访问图片）</li>
+<li>替换文章中所有的<code>](../images/</code> 为<code>](../images/</code></li>
+<li>将全文复制到 <code>wamgEditor</code> 中，链接为 <a target="_blank" rel="noopener" href="https://www.wangeditor.com/">https://www.wangeditor.com/</a></li>
+<li> 用 <a target="_blank" rel="noopener" href="http://markdown-here.com/">Markdown Here</a> 插件将所有内容转换为 Markdown 样式</li>
+<li>复制这些内容，粘贴到知乎中</li>
+<li>撤回之前的替换</li>
+</ol>
+<p>此处还有一个大坑，就是要以相对路径插入图片，必须要安装插件 <code>hexo-renderer-marked</code>，并且在站点配置文件中添加参数：</p>
+<figure class="highlight yaml"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attr">marked:</span></span><br><span class="line">  <span class="attr">prependRoot:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">postAsset:</span> <span class="literal">true</span></span><br></pre></td></tr></tbody></table></figure>
+<p>至于是否选择需要新建 asset 文件夹，则看个人需求，但是上面三行代码是不得不加的，否则无法加载图片。</p>
+<p>参看：<a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/265077468">hexo 博客如何插入图片</a></p>
+<blockquote>
+<p>在测试这几行参数的时候，意识到 Hexo 站点配置文件更改之后，直接再一次 <code>start</code> 本地预览不一定能看到真正的更改，可能需要先进行一次 <code>hexo clean</code>，在调试的时候要注意这一点。</p>
+</blockquote>
+<p>接下来就是配置 <code>Hexo</code> 的推送目标，安装 <code>hexo-deployer-git</code> 模块，打开 GiteePages 功能，推送静态博客……</p>
+<blockquote>
+<p>根据过往的经验，如果不选择强制启用 https 可能会遇到一些问题。</p>
+</blockquote>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://x.com/SamuelGHuang">
+            <span class="icon">
+              <i class="fab fa-x-twitter"></i>
+            </span>
+
+            <span class="label">X</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://linkedin.com/in/samuel-g-huang/">
+            <span class="icon">
+              <i class="fab fa-linkedin"></i>
+            </span>
+
+            <span class="label">LinkedIn</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">微信公众号</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat-channel.png">
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://zhihu.com/people/hailkiwi">
+            <span class="icon">
+              <i class="fab fa-zhihu"></i>
+            </span>
+
+            <span class="label">知乎</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/blog/" rel="tag"># blog</a>
+              <a href="/tags/hexo/" rel="tag"># hexo</a>
+              <a href="/tags/next/" rel="tag"># next</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/involution/" rel="prev" title="高校内卷的破坏性和深层次原因，从更新自己的思维开始直面内卷">
+                  <i class="fa fa-angle-left"></i> 高校内卷的破坏性和深层次原因，从更新自己的思维开始直面内卷
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/yolo-v1/" rel="next" title="YOLO-v1 网络调试、训练与测试">
+                  YOLO-v1 网络调试、训练与测试 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2020 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-terminal"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Samuel Huang</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Word count total">105k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">6:22</span>
+  </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div><div class="footer-custom">
+  Source code and website hosted on
+  <a target="_blank" rel="noopener" href="https://github.com/sghuang19/sghuang19.github.io">GitHub</a>.
+</div>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/sghuang19" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

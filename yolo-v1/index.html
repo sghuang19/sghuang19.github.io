@@ -1,0 +1,697 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#177CB0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#177CB0" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.2.0">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#177CB0">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,300italic,400,400italic,700,700italic%7CNoto+Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"sghuang.com","root":"/","images":"/images","scheme":"Gemini","darkmode":"auto","version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="本报告由深港微电子学院黄冠超（学号 11912309）贡献，所有相关的资源，包括源代码、数据集与报告可在我的 GitHub 仓库获取。  基于 @abeardear 提交在 abeardear&#x2F;pytorch-YOLO-v1 仓库中的源代码，利用 YOLO-v1 网络，实现对零件的主体、边缘、中心的预测与定位。 合并标注文件（缺少预处理）  依照原本的要求，物体及其位置标注应当从 labels">
+<meta property="og:type" content="article">
+<meta property="og:title" content="YOLO-v1 网络调试、训练与测试">
+<meta property="og:url" content="https://sghuang.com/yolo-v1/index.html">
+<meta property="og:site_name" content="Samuel Huang&#39;s Portfolio">
+<meta property="og:description" content="本报告由深港微电子学院黄冠超（学号 11912309）贡献，所有相关的资源，包括源代码、数据集与报告可在我的 GitHub 仓库获取。  基于 @abeardear 提交在 abeardear&#x2F;pytorch-YOLO-v1 仓库中的源代码，利用 YOLO-v1 网络，实现对零件的主体、边缘、中心的预测与定位。 合并标注文件（缺少预处理）  依照原本的要求，物体及其位置标注应当从 labels">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://sghuang.com/images/YOLO-results/no-pre-underfit.jpg">
+<meta property="og:image" content="https://sghuang.com/images/YOLO-results/result_2.jpg">
+<meta property="og:image" content="https://sghuang.com/images/YOLO-results/result_3_1.jpg">
+<meta property="og:image" content="https://sghuang.com/images/YOLO-results/result_3_2.jpg">
+<meta property="og:image" content="https://sghuang.com/images/YOLO-results/result_3_3.jpg">
+<meta property="og:image" content="https://sghuang.com/images/YOLO-results/result_4.jpg">
+<meta property="article:published_time" content="2021-04-04T00:04:51.000Z">
+<meta property="article:modified_time" content="2024-06-23T14:28:47.028Z">
+<meta property="article:author" content="Samuel Huang">
+<meta property="article:tag" content="python">
+<meta property="article:tag" content="ml">
+<meta property="article:tag" content="pytorch">
+<meta property="article:tag" content="deep learning">
+<meta property="article:tag" content="yolo">
+<meta property="article:tag" content="course">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://sghuang.com/images/YOLO-results/no-pre-underfit.jpg">
+
+
+<link rel="canonical" href="https://sghuang.com/yolo-v1/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://sghuang.com/yolo-v1/","path":"/yolo-v1/","title":"YOLO-v1 网络调试、训练与测试"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>YOLO-v1 网络调试、训练与测试 | Samuel Huang's Portfolio</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Samuel Huang's Portfolio</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-posts"><a href="/posts" rel="section"><i class="fa fa-signs-post fa-fw"></i>Posts</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">64</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">61</span></a></li><li class="menu-item menu-item-projects"><a href="/tags/project" rel="section"><i class="fa fa-cogs fa-fw"></i>Projects</a></li><li class="menu-item menu-item-experience"><a href="/experience/" rel="section"><i class="fa fa-briefcase fa-fw"></i>Experience</a></li><li class="menu-item menu-item-education"><a href="/education" rel="section"><i class="fa fa-graduation-cap fa-fw"></i>Education</a></li><li class="menu-item menu-item-courses"><a href="https://sghuang.notion.site/e242d6a39cf74dada55828ffe7cdb83f" rel="section" target="_blank"><i class="fa fa-book fa-fw"></i>Courses</a></li><li class="menu-item menu-item-notes"><a href="https://notes.sghuang.com/" rel="section" target="_blank"><i class="fa fa-file-pen fa-fw"></i>Notes</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%88%E5%B9%B6%E6%A0%87%E6%B3%A8%E6%96%87%E4%BB%B6%EF%BC%88%E7%BC%BA%E5%B0%91%E9%A2%84%E5%A4%84%E7%90%86%EF%BC%89"><span class="nav-number">1.</span> <span class="nav-text">合并标注文件（缺少预处理）</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%88%E5%B9%B6%E6%A0%87%E6%B3%A8%E6%96%87%E4%BB%B6"><span class="nav-number">2.</span> <span class="nav-text">合并标注文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E6%BA%90%E4%BB%A3%E7%A0%81%E8%B0%83%E8%AF%95"><span class="nav-number">3.</span> <span class="nav-text">网络源代码调试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%BC%E5%BC%8F%E5%8C%96%E4%BB%A3%E7%A0%81"><span class="nav-number">3.1.</span> <span class="nav-text">格式化代码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A5%E5%85%A8yoloDataset-encoder-%E6%96%B9%E6%B3%95"><span class="nav-number">3.2.</span> <span class="nav-text">补全 yoloDataset.encoder() 方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E5%A4%8D%E5%9B%BE%E7%89%87%E6%96%87%E4%BB%B6%E6%97%A0%E6%B3%95%E8%AF%BB%E5%8F%96%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">3.3.</span> <span class="nav-text">修复图片文件无法读取的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E9%83%A8%E5%88%86-PyTorch-%E8%AF%AD%E6%B3%95%E8%A2%AB%E5%BA%9F%E5%BC%83%E6%89%80%E5%BC%95%E8%B5%B7%E7%9A%84%E7%94%A8%E6%88%B7%E8%AD%A6%E5%91%8A"><span class="nav-number">3.4.</span> <span class="nav-text">解决部分 PyTorch 语法被废弃所引起的用户警告</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#nn-functional-sigmoid-%E8%A2%AB%E5%BA%9F%E5%BC%83"><span class="nav-number">3.4.1.</span> <span class="nav-text">nn.functional.sigmoid 被废弃</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BB%A5%E6%95%B4%E5%9E%8B%E8%BF%9B%E8%A1%8C%E5%B8%83%E5%B0%94%E7%B4%A2%E5%BC%95%E8%A2%AB%E5%BA%9F%E5%BC%83"><span class="nav-number">3.4.2.</span> <span class="nav-text">以整型进行布尔索引被废弃</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#mse-loss-%E7%9A%84size-average%E5%8F%82%E6%95%B0%E5%B0%86%E8%A2%AB%E5%BA%9F%E5%BC%83"><span class="nav-number">3.4.3.</span> <span class="nav-text">mse_loss() 的 size_average 参数将被废弃</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E5%A4%8D%E6%8D%9F%E5%A4%B1%E5%87%BD%E6%95%B0%E4%B8%8D%E5%8F%AF%E7%94%A8%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">3.5.</span> <span class="nav-text">修复损失函数不可用的问题</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A1%A5%E5%85%A8%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95"><span class="nav-number">3.6.</span> <span class="nav-text">补全数据预处理方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E5%BC%95%E5%85%A5%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86%E6%89%80%E5%BC%95%E5%8F%91%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">3.7.</span> <span class="nav-text">解决引入数据预处理所引发的问题</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E7%BD%91%E7%BB%9C%E8%AE%AD%E7%BB%83%E4%B8%8E%E6%B5%8B%E8%AF%95"><span class="nav-number">4.</span> <span class="nav-text">网络训练与测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%AD%E7%BB%83%E5%B9%B3%E5%8F%B0"><span class="nav-number">4.1.</span> <span class="nav-text">训练平台</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%AD%E7%BB%83%E9%85%8D%E7%BD%AE"><span class="nav-number">4.2.</span> <span class="nav-text">训练配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%B5%8B%E8%AF%95%E9%85%8D%E7%BD%AE"><span class="nav-number">4.3.</span> <span class="nav-text">测试配置</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#torch-autograd-Variable-%E7%9A%84volatile%E5%8F%82%E6%95%B0%E8%A2%AB%E7%A7%BB%E9%99%A4"><span class="nav-number">4.3.1.</span> <span class="nav-text">torch.autograd.Variable() 的 volatile 参数被移除</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%87%8D%E6%9E%84%E7%B1%BB%E5%90%8D%E6%A0%87%E7%AD%BE%E9%9B%86"><span class="nav-number">4.3.2.</span> <span class="nav-text">重构类名标签集</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E4%B8%8D%E8%83%BD%E6%AD%A3%E7%A1%AE%E8%BE%93%E5%87%BA%E9%A2%84%E6%B5%8B%E7%BB%93%E6%9E%9C%E7%9A%84%E9%97%AE%E9%A2%98"><span class="nav-number">4.3.3.</span> <span class="nav-text">解决不能正确输出预测结果的问题</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E8%A7%A3%E5%86%B3%E9%9D%9E%E9%9B%B6%E9%87%8D%E8%BD%BD%E8%A2%AB%E5%BA%9F%E5%BC%83%E7%9A%84%E7%94%A8%E6%88%B7%E8%AD%A6%E5%91%8A"><span class="nav-number">4.3.4.</span> <span class="nav-text">解决非零重载被废弃的用户警告</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%97%A0%E9%A2%84%E5%A4%84%E7%90%86%E6%9D%A1%E4%BB%B6%E4%B8%8B%E8%AE%AD%E7%BB%83"><span class="nav-number">4.4.</span> <span class="nav-text">无预处理条件下训练</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%B8%80%E6%AC%A1%E8%AE%AD%E7%BB%83%EF%BC%88%E6%97%A0%E9%A2%84%E5%A4%84%E7%90%86%E3%80%8150%E4%BB%A3%EF%BC%89"><span class="nav-number">4.4.1.</span> <span class="nav-text">第一次训练（无预处理、50 代）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%BA%8C%E6%AC%A1%E8%AE%AD%E7%BB%83%EF%BC%88%E6%97%A0%E9%A2%84%E5%A4%84%E7%90%86%E3%80%8150%E4%BB%A3%E3%80%81%E6%8F%90%E9%AB%98%E5%AD%A6%E4%B9%A0%E7%8E%87%EF%BC%89"><span class="nav-number">4.4.2.</span> <span class="nav-text">第二次训练（无预处理、50 代、提高学习率）</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E4%B8%89%E6%AC%A1%E8%AE%AD%E7%BB%83%EF%BC%88%E6%97%A0%E9%A2%84%E5%A4%84%E7%90%86%E3%80%81100%E4%BB%A3%EF%BC%89"><span class="nav-number">4.4.3.</span> <span class="nav-text">第三次训练（无预处理、100 代）</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%93%E5%90%88%E6%95%B0%E6%8D%AE%E9%A2%84%E5%A4%84%E7%90%86%E8%BF%9B%E8%A1%8C%E7%BD%91%E7%BB%9C%E8%AE%AD%E7%BB%83"><span class="nav-number">4.5.</span> <span class="nav-text">结合数据预处理进行网络训练</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E7%AC%AC%E5%9B%9B%E6%AC%A1%E8%AE%AD%E7%BB%83%EF%BC%88%E9%A2%84%E5%A4%84%E7%90%86%EF%BC%8C80%E4%BB%A3%EF%BC%89"><span class="nav-number">4.5.1.</span> <span class="nav-text">第四次训练（预处理，80 代）</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%80%BB%E7%BB%93"><span class="nav-number">5.</span> <span class="nav-text">总结</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Samuel Huang"
+      src="/uploads/avatar.png">
+  <p class="site-author-name" itemprop="name">Samuel Huang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">64</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/sghuang19" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;sghuang19" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:samuel.g.huang@outlook.com" title="E-Mail → mailto:samuel.g.huang@outlook.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/SamuelGHuang" title="X → https:&#x2F;&#x2F;twitter.com&#x2F;SamuelGHuang" rel="noopener me" target="_blank"><i class="fab fa-x-twitter fa-fw"></i>X</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/samuel-g-huang/" title="LinkedIn → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;samuel-g-huang&#x2F;" rel="noopener me" target="_blank"><i class="fab fa-linkedin fa-fw"></i>LinkedIn</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://calendly.com/sghuang" title="Calendly → https:&#x2F;&#x2F;calendly.com&#x2F;sghuang" rel="noopener me" target="_blank"><i class="fa fa-calendar fa-fw"></i>Calendly</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/" title="微信 → &#x2F;" rel="noopener me"><i class="fab fa-weixin fa-fw"></i>微信</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by.svg" alt="Creative Commons"></a>
+  </div>
+
+<hr style="margin: 0" />
+<div class="cc-license animated" itemprop="sponsor">
+  Built with<br />
+  <span
+    style="text-decoration: none"
+    class="exturl cc-opacity"
+    title="A fast, simple & powerful blog framework"
+  >
+    <a target="_blank" rel="noopener" href="https://hexo.io" style="text-decoration: none">
+      <img
+        width="160"
+        src="https://github.com/hexojs/logo/blob/master/hexo-logo.png?raw=true"
+        alt="Hexo"
+      />
+    </a>
+  </span>
+</div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+        <div class="pjax">
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sghuang.com/yolo-v1/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="Samuel Huang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Samuel Huang's Portfolio">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="YOLO-v1 网络调试、训练与测试 | Samuel Huang's Portfolio">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          YOLO-v1 网络调试、训练与测试<a href="https://github.com/sghuang19/sghuang19.github.io/tree/main/source/_posts/old/2021-04-03-YOLO-v1-%E7%BD%91%E7%BB%9C%E8%B0%83%E8%AF%95.md" class="post-edit-link" title="Edit this post" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2021-04-03 20:04:51" itemprop="dateCreated datePublished" datetime="2021-04-03T20:04:51-04:00">2021-04-03</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-06-23 10:28:47" itemprop="dateModified" datetime="2024-06-23T10:28:47-04:00">2024-06-23</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>4k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>14 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><!-- markdownlint-disable no-empty-links -->
+<p>本报告由深港微电子学院黄冠超（学号 11912309）贡献，所有相关的资源，包括源代码、数据集与报告<s>可在<a href="#">我的 GitHub 仓库</a>获取</s>。</p>
+<!-- cSpell:ignore abeardear -->
+<p>基于 <a target="_blank" rel="noopener" href="https://github.com/abeardear">@abeardear</a> 提交在 <a target="_blank" rel="noopener" href="https://github.com/abeardear/pytorch-YOLO-v1">abeardear/pytorch-YOLO-v1 仓库</a>中的源代码，利用 YOLO-v1 网络，实现对零件的主体、边缘、中心的预测与定位。</p>
+<h2 id="合并标注文件（缺少预处理）"><s>合并标注文件（缺少预处理）</s></h2>
+<blockquote>
+<p>依照原本的要求，物体及其位置标注应当从 <code>labels</code> 目录下的<code>.txt</code> 文件中合并后读取，但随后证实其中的数据与网络训练不匹配，需要进行预处理，否则将导致模型完全失效，无法进行预测。</p>
+<p>前期调试时，所使用的无效的标注数据可能导致诸如数值错误等未可预料的异常，在<a href="#%E7%BD%91%E7%BB%9C%E6%BA%90%E4%BB%A3%E7%A0%81%E8%B0%83%E8%AF%95">源代码调试</a>中，部分错误可能实际上由错误的标注数据所引发。</p>
+</blockquote>
+<p>通过文件读写合并标注数据文件。</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">path = <span class="string">'labels/'</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(path + <span class="string">'label_train.txt'</span>, <span class="string">'w'</span>) <span class="keyword">as</span> fw:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">201</span>):</span><br><span class="line">        file_name = path + <span class="built_in">str</span>(i).rjust(<span class="number">7</span>, <span class="string">'0'</span>) + <span class="string">'.txt'</span></span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(file_name, <span class="string">'r'</span>) <span class="keyword">as</span> fr:</span><br><span class="line">            <span class="keyword">for</span> line <span class="keyword">in</span> fr.readlines():</span><br><span class="line">                fw.write(line.strip() + <span class="string">' '</span>)</span><br><span class="line">            fw.write(<span class="string">'\n'</span>)</span><br></pre></td></tr></tbody></table></figure>
+<p>此处标注数据的组成形式为 <code>c</code>, <code>x</code>, <code>y</code>, <code>x2</code>, <code>y2</code>，因此需要对应修改 <code>dataset.py</code> 中 <code>yoloDataset</code> 类下的<code>__init__()</code> 方法：</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">x = <span class="built_in">float</span>(split[<span class="number">1</span> + <span class="number">5</span> * i])</span><br><span class="line">y = <span class="built_in">float</span>(split[<span class="number">2</span> + <span class="number">5</span> * i])</span><br><span class="line">x2 = <span class="built_in">float</span>(split[<span class="number">3</span> + <span class="number">5</span> * i])</span><br><span class="line">y2 = <span class="built_in">float</span>(split[<span class="number">4</span> + <span class="number">5</span> * i])</span><br><span class="line">c = split[<span class="number">0</span> + <span class="number">5</span> * i]</span><br></pre></td></tr></tbody></table></figure>
+<span id="more"></span>
+<h2 id="合并标注文件">合并标注文件</h2>
+<blockquote>
+<p>重构了脚本，以实现对标注的预处理，并适应网络的输入格式。</p>
+</blockquote>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">path = <span class="string">"labels/"</span></span><br><span class="line"><span class="keyword">with</span> <span class="built_in">open</span>(<span class="string">'label_train.txt'</span>, <span class="string">'w'</span>) <span class="keyword">as</span> fw:</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">1</span>, <span class="number">201</span>):</span><br><span class="line">        file_name = <span class="built_in">str</span>(i).rjust(<span class="number">7</span>, <span class="string">'0'</span>)</span><br><span class="line">        data = file_name + <span class="string">'.jpg '</span></span><br><span class="line">        <span class="keyword">with</span> <span class="built_in">open</span>(path + file_name + <span class="string">'.txt'</span>, <span class="string">'r'</span>) <span class="keyword">as</span> fr:</span><br><span class="line">            <span class="keyword">for</span> line <span class="keyword">in</span> fr.readlines():</span><br><span class="line">                obj = line.strip().split(<span class="string">' '</span>)</span><br><span class="line">                c = obj[<span class="number">0</span>]</span><br><span class="line">                obj = <span class="built_in">list</span>(<span class="built_in">map</span>(<span class="built_in">float</span>, obj[<span class="number">1</span>:]))</span><br><span class="line">                x1 = <span class="built_in">round</span>((obj[<span class="number">0</span>] - <span class="number">.5</span> * obj[<span class="number">2</span>]) * <span class="number">640</span>)</span><br><span class="line">                y1 = <span class="built_in">round</span>((obj[<span class="number">1</span>] - <span class="number">.5</span> * obj[<span class="number">3</span>]) * <span class="number">480</span>)</span><br><span class="line">                x2 = <span class="built_in">round</span>((obj[<span class="number">0</span>] + <span class="number">.5</span> * obj[<span class="number">2</span>]) * <span class="number">640</span>)</span><br><span class="line">                y2 = <span class="built_in">round</span>((obj[<span class="number">1</span>] + <span class="number">.5</span> * obj[<span class="number">3</span>]) * <span class="number">480</span>)</span><br><span class="line">                data += <span class="string">'{} {} {} {} {} '</span>.<span class="built_in">format</span>(x1, y1, x2, y2, c)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">            fw.write(data.strip() + <span class="string">'\n'</span>)</span><br></pre></td></tr></tbody></table></figure>
+<p>其中，190 条样本用以训练，剩余 10 条样本用以测试。</p>
+<h2 id="网络源代码调试">网络源代码调试</h2>
+<blockquote>
+<p>如无特别说明，以下调试均在<a href="#%E5%90%88%E5%B9%B6%E6%A0%87%E6%B3%A8%E6%96%87%E4%BB%B6%E7%BC%BA%E5%B0%91%E9%A2%84%E5%A4%84%E7%90%86">标注数据未进行预处理</a>条件下进行，因此部分错误可能实际上由错误的数据标注所引发。</p>
+</blockquote>
+<h3 id="格式化代码">格式化代码</h3>
+<p>原作者的代码中含有大量 typo、重复代码、单行代码过长、在 <code>docstring</code> 中使用单引号等不符合 <code>The Zen of Python</code> 的代码片段，且均没有进行格式化。为提升代码可读性，有必要进行相应的修复和优化。</p>
+<h3 id="补全yoloDataset-encoder-方法">补全 <code>yoloDataset.encoder()</code> 方法</h3>
+<p>依照原作者 <a target="_blank" rel="noopener" href="https://github.com/abeardear">@abeardear</a> 提交在<a target="_blank" rel="noopener" href="https://github.com/abeardear/pytorch-YOLO-v1">仓库 abeardear/pytorch-YOLO-v1</a> 中的源代码，修改 <code>dataset.py</code> 中 <code>yoloDataset</code> 类下的 <code>encoder()</code> 方法如下：</p>
+<!-- cSpell:ignore cxcy -->
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">encoder</span>(<span class="params">self, boxes, labels</span>):</span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    implement the encoder</span></span><br><span class="line"><span class="string">    boxes (tensor) [[x1,y1,x2,y2],[]]</span></span><br><span class="line"><span class="string">    labels (tensor) [...]</span></span><br><span class="line"><span class="string">    return 7x7x30</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line"></span><br><span class="line">    grid_num = <span class="number">14</span></span><br><span class="line">    target = torch.zeros((grid_num, grid_num, <span class="number">30</span>))</span><br><span class="line">    cell_size = <span class="number">1.</span> / grid_num</span><br><span class="line">    wh = boxes[:, <span class="number">2</span>:] - boxes[:, :<span class="number">2</span>]</span><br><span class="line">    cxcy = (boxes[:, <span class="number">2</span>:] + boxes[:, :<span class="number">2</span>]) / <span class="number">2</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> <span class="built_in">range</span>(cxcy.size()[<span class="number">0</span>]):</span><br><span class="line">        cxcy_sample = cxcy[i]</span><br><span class="line">        ij = (cxcy_sample / cell_size).ceil() - <span class="number">1</span></span><br><span class="line">        target[<span class="built_in">int</span>(ij[<span class="number">1</span>]), <span class="built_in">int</span>(ij[<span class="number">0</span>]), <span class="number">4</span>] = <span class="number">1</span></span><br><span class="line">        target[<span class="built_in">int</span>(ij[<span class="number">1</span>]), <span class="built_in">int</span>(ij[<span class="number">0</span>]), <span class="number">9</span>] = <span class="number">1</span></span><br><span class="line">        target[<span class="built_in">int</span>(ij[<span class="number">1</span>]), <span class="built_in">int</span>(ij[<span class="number">0</span>]), <span class="built_in">int</span>(labels[i]) + <span class="number">9</span>] = <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        xy = ij * cell_size</span><br><span class="line">        delta_xy = (cxcy_sample - xy) / cell_size</span><br><span class="line">        target[<span class="built_in">int</span>(ij[<span class="number">1</span>]), <span class="built_in">int</span>(ij[<span class="number">0</span>]), <span class="number">2</span>:<span class="number">4</span>] = wh[i]</span><br><span class="line">        target[<span class="built_in">int</span>(ij[<span class="number">1</span>]), <span class="built_in">int</span>(ij[<span class="number">0</span>]), :<span class="number">2</span>] = delta_xy</span><br><span class="line">        target[<span class="built_in">int</span>(ij[<span class="number">1</span>]), <span class="built_in">int</span>(ij[<span class="number">0</span>]), <span class="number">7</span>:<span class="number">9</span>] = wh[i]</span><br><span class="line">        target[<span class="built_in">int</span>(ij[<span class="number">1</span>]), <span class="built_in">int</span>(ij[<span class="number">0</span>]), <span class="number">5</span>:<span class="number">7</span>] = delta_xy</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> target</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="修复图片文件无法读取的问题"><s>修复图片文件无法读取的问题</s></h3>
+<blockquote>
+<p>该问题由错误的标注格式引起，后已修正。</p>
+</blockquote>
+<p>此时运行网络训练，将会出现报错：</p>
+<!-- cSpell:ignore fliplr twodim -->
+<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line">...</span><br><span class="line"></span><br><span class="line">File <span class="string">"&lt;__array_function__ internals&gt;"</span>, line <span class="number">5</span>, <span class="keyword">in</span> fliplr</span><br><span class="line">  File <span class="string">"C:\ProgramData\Anaconda3\lib\site-packages\numpy\lib\twodim_base.py"</span>, line <span class="number">93</span>, <span class="keyword">in</span> fliplr</span><br><span class="line">    raise ValueError(<span class="string">"Input must be &gt;= 2-d."</span>)</span><br><span class="line">ValueError: Input must be &gt;= <span class="number">2</span><span class="literal">-d</span>.</span><br></pre></td></tr></tbody></table></figure>
+<p>即，在 <code>random_flip()</code> 数据预处理中传入的图片数组不满足 <code>numpy.fliplr()</code> 的维度大于等于 2 的要求。</p>
+<p>或：</p>
+<!-- cSpell:ignore Guanc imgproc -->
+<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line">...</span><br><span class="line"></span><br><span class="line">File <span class="string">"C:\Users\Guanc\Documents\GitHub\machine-learning-lab\src\YOLO-v1\dataset.py"</span>, line <span class="number">121</span>, <span class="keyword">in</span> BGR2HSV</span><br><span class="line">    <span class="keyword">return</span> cv2.cvtColor(img, cv2.COLOR_BGR2HSV)</span><br><span class="line">cv2.error: OpenCV(<span class="number">4.0</span>.<span class="number">1</span>) C:\ci\opencv<span class="literal">-suite_1573470242804</span>\work\modules\imgproc\src\color.cpp:<span class="number">181</span>: error: (<span class="literal">-215</span>:Assertion failed) !_src.empty() <span class="keyword">in</span> <span class="function"><span class="keyword">function</span> '<span class="title">cv</span>::<span class="title">cvtColor</span>'</span></span><br></pre></td></tr></tbody></table></figure>
+<p>或</p>
+<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line">...</span><br><span class="line"></span><br><span class="line">  File <span class="string">"C:/Users/Guanc/Documents/GitHub/machine-learning-lab/src/YOLO-v1/dataset.py"</span>, line <span class="number">205</span>, <span class="keyword">in</span> randomCrop</span><br><span class="line">    height, width, c = bgr.shape</span><br><span class="line">AttributeError: <span class="string">'NoneType'</span> object has no attribute <span class="string">'shape'</span></span><br></pre></td></tr></tbody></table></figure>
+<p>等等。以上错误均出现在数据预处理环节，因各预处理执行与否为随机，因此错误也将随机出现。以上两个问题均是由图片路径为空造成，为此，在调用数据预处理方法代码前设置断点：</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">&gt;&gt; &gt; <span class="keyword">if</span> self.train:</span><br><span class="line">  img, boxes = random_flip(img, boxes)</span><br><span class="line">  img, boxes = randomScale(img, boxes)</span><br><span class="line">  img = randomBlur(img)</span><br><span class="line">  img = RandomBrightness(img)</span><br><span class="line">  img = RandomHue(img)</span><br><span class="line">  img = RandomSaturation(img)</span><br><span class="line">  img, boxes, labels = randomShift(img, boxes, labels)</span><br><span class="line">  img, boxes, labels = randomCrop(img, boxes, labels)</span><br></pre></td></tr></tbody></table></figure>
+<!-- cSpell:ignore fnames -->
+<p>通过 debugger 观察到，此时，图片文件名变量 <code>fname</code> 值为 <code>{str} '0'</code>，且 <code>yoloDataset</code> 对象成员变量 <code>fnames</code> 值为 <code>{list: 180} ['0', ..., '0']</code>，读取到的图片 <code>image</code> 也为 <code>None</code>。在对象的初始化方法中，<code>fnames</code> 被初始化为</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">self.fnames = []</span><br><span class="line">...</span><br><span class="line">self.fnames.append(split[<span class="number">0</span>])</span><br></pre></td></tr></tbody></table></figure>
+<p>可见，原作者设计的数据集读取方式与我们所指定的有所不同，图片文件名本应出现在标注数据的第一列。重新定义 <code>fnames</code> 列表如下：</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">idx = <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> lines:</span><br><span class="line">    split = line.strip().split()</span><br><span class="line">    self.fnames.append(<span class="built_in">str</span>(idx).rjust(<span class="number">7</span>, <span class="string">'0'</span>) + <span class="string">'.jpg'</span>)</span><br><span class="line">    idx += <span class="number">1</span></span><br><span class="line">    ...</span><br></pre></td></tr></tbody></table></figure>
+<p>即解决了图片文件无法读取的问题。</p>
+<h3 id="解决部分-PyTorch-语法被废弃所引起的用户警告">解决部分 <code>PyTorch</code> 语法被废弃所引起的用户警告</h3>
+<p>运行 <code>train.py</code>，终端输出大量错误警告，需要一一解决。</p>
+<h4 id="nn-functional-sigmoid-被废弃"><code>nn.functional.sigmoid</code> 被废弃</h4>
+<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line">UserWarning: nn.functional.sigmoid is deprecated. Use torch.sigmoid instead.</span><br><span class="line">  warnings.warn(<span class="string">"nn.functional.sigmoid is deprecated. Use torch.sigmoid instead."</span>)</span><br></pre></td></tr></tbody></table></figure>
+<p>原作者并未显式调用 <code>nn.functional.sigmoid</code>，因此该警告的原因尚无从得知。</p>
+<h4 id="以整型进行布尔索引被废弃">以整型进行布尔索引被废弃</h4>
+<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line">UserWarning: indexing with dtype torch.uint8 is now deprecated, please use a dtype torch.bool instead. (Triggered internally at  ..\aten\src\ATen/native/IndexingUtils.h:<span class="number">25</span>.)</span><br></pre></td></tr></tbody></table></figure>
+<p>该数据类型警告源于作者使用整型值 <code>0</code> 与 <code>1</code> 表征物体的存在与否，并基于此对预测值、实际值张量进行布尔型索引，而通过整型进行布尔索引将在随后的版本中被废弃。为此，只需将对应的张量转型为 <code>torch.bool</code> 类即可。</p>
+<!-- cSpell:words unsqueeze -->
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">coo_mask = coo_mask.unsqueeze(-<span class="number">1</span>).expand_as(target_tensor).<span class="built_in">bool</span>()</span><br><span class="line">noo_mask = noo_mask.unsqueeze(-<span class="number">1</span>).expand_as(target_tensor).<span class="built_in">bool</span>()</span><br><span class="line"></span><br><span class="line">noo_pred_mask = noo_pred_mask.<span class="built_in">bool</span>()</span><br><span class="line"></span><br><span class="line">coo_not_response_mask.zero_()</span><br><span class="line">coo_not_response_mask = coo_not_response_mask.<span class="built_in">bool</span>()</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>值得注意的是，<code>PyTorch</code> 中并不支持类似 <code>NumPy</code> 中 <code>ndarray.astype()</code> 的张量数据类型转换，其函数返回值为转型后的张量，而原张量不变，因而必须按以下形式进行类型转换：</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">new_tensor = tensor.<span class="built_in">bool</span>()</span><br></pre></td></tr></tbody></table></figure>
+</blockquote>
+<p>由于随后在计算损失函数时将会调用上述几个张量，因此，仍然需要将其转回 <code>0</code>、<code>1</code> 整型。</p>
+<h4 id="mse-loss-的size-average参数将被废弃"><code>mse_loss()</code> 的 <code>size_average</code> 参数将被废弃</h4>
+<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line">C:\ProgramData\Anaconda3\lib\site<span class="literal">-packages</span>\torch\nn\_reduction.py:<span class="number">44</span>: UserWarning: size_average and reduce args will be deprecated, please use reduction=<span class="string">'sum'</span> instead.</span><br><span class="line">  warnings.warn(warning.format(ret))</span><br></pre></td></tr></tbody></table></figure>
+<p>将对应的 <code>size_average=False</code> 参数改为 <code>reduction='sum'</code> 即可。</p>
+<h3 id="修复损失函数不可用的问题">修复损失函数不可用的问题</h3>
+<p>运行 <code>train.py</code>，此时训练已能运行，但每次迭代中的损失函数均为 <code>nan</code>。</p>
+<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line">Epoch [<span class="number">1</span>/<span class="number">10</span>], Iter [<span class="number">5</span>/<span class="number">180</span>] Loss: nan, average_loss: nan</span><br><span class="line">Epoch [<span class="number">1</span>/<span class="number">10</span>], Iter [<span class="number">10</span>/<span class="number">180</span>] Loss: nan, average_loss: nan</span><br><span class="line">Epoch [<span class="number">1</span>/<span class="number">10</span>], Iter [<span class="number">15</span>/<span class="number">180</span>] Loss: nan, average_loss: nan</span><br><span class="line">Epoch [<span class="number">1</span>/<span class="number">10</span>], Iter [<span class="number">20</span>/<span class="number">180</span>] Loss: nan, average_loss: nan</span><br><span class="line">...</span><br></pre></td></tr></tbody></table></figure>
+<p>在 <code>yoloLoss.forward()</code> 的末尾设置断点：</p>
+<!-- cSpell:ignore noobj -->
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">return</span> (self.l_coord * loc_loss +</span><br><span class="line">            <span class="number">2</span> * contain_loss + not_contain_loss +</span><br><span class="line">            self.l_noobj * noobj_loss +</span><br><span class="line">            class_loss) / N</span><br></pre></td></tr></tbody></table></figure>
+<p>通过 debugger 观察到，损失函数的组成部分中，<code>loc_loss</code> 为 <code>{Tensor} tensor(nan, grad_fn=&lt;AddBackward0&gt;)</code>，导致最终的损失函数为 <code>nan</code>。注意到 <code>loc_loss</code> 由两部分构成，将其分离进行调试。</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">loc_loss_1 = F.mse_loss(box_pred_response[:, :<span class="number">2</span>],</span><br><span class="line">                        box_target_response[:, :<span class="number">2</span>],</span><br><span class="line">                        reduction=<span class="string">'sum'</span>)</span><br><span class="line">loc_loss_2 = F.mse_loss(torch.sqrt(box_pred_response[:, <span class="number">2</span>:<span class="number">4</span>]),</span><br><span class="line">                        torch.sqrt(box_target_response[:, <span class="number">2</span>:<span class="number">4</span>]),</span><br><span class="line">                        reduction=<span class="string">'sum'</span>)</span><br><span class="line">loc_loss = loc_loss_1 + loc_loss_2</span><br><span class="line"><span class="comment"># loc_loss = F.mse_loss(box_pred_response[:, :2],</span></span><br><span class="line"><span class="comment">#                       box_target_response[:, :2],</span></span><br><span class="line"><span class="comment">#                       reduction='sum') + \</span></span><br><span class="line"><span class="comment">#            F.mse_loss(torch.sqrt(box_pred_response[:, 2:4]),</span></span><br><span class="line"><span class="comment">#                       torch.sqrt(box_target_response[:, 2:4]),</span></span><br><span class="line"><span class="comment">#                       reduction='sum')</span></span><br></pre></td></tr></tbody></table></figure>
+<p>观察到，<code>loc_loss_1</code> 正常，而 <code>loc_loss_2</code> 值为 <code>nan</code>，而用以计算 <code>loc_loss_2</code> 的张量 <code>box_target_response</code> 中出现了小于零的值，其作为 <code>torch.sqrt()</code> 的入参时自然会产生数值计算错误。虽然这部分负值出现的原因未知，但注意到其绝对值都极小，可以直接化为 0 处理。则代码对应修改为：</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">F.mse_loss(torch.sqrt(box_pred_response[:, <span class="number">2</span>:<span class="number">4</span>].clamp(<span class="built_in">min</span>=<span class="number">0</span>)),</span><br><span class="line">           torch.sqrt(box_target_response[:, <span class="number">2</span>:<span class="number">4</span>].clamp(<span class="built_in">min</span>=<span class="number">0</span>)),</span><br><span class="line">           reduction=<span class="string">'sum'</span>)</span><br></pre></td></tr></tbody></table></figure>
+<p>至此，训练已可正常进行。</p>
+<h3 id="补全数据预处理方法">补全数据预处理方法</h3>
+<p>依照原作者提交的源代码，补全数据预处理方法如下。</p>
+<p>随机饱和度：</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">RandomSaturation</span>(<span class="params">bgr</span>):</span><br><span class="line">    <span class="keyword">if</span> random.random() &lt; <span class="number">0.5</span>:</span><br><span class="line">        hsv = BGR2HSV(bgr)</span><br><span class="line">        h, s, v = cv.split(hsv)</span><br><span class="line">        adjust = random.choice([<span class="number">0.5</span>, <span class="number">1.5</span>])</span><br><span class="line">        s *= adjust</span><br><span class="line">        s = np.clip(s, <span class="number">0</span>, <span class="number">255</span>).astype(hsv.dtype)</span><br><span class="line">        hsv = cv.merge((h, s, v))</span><br><span class="line">        bgr = HSV2BGR(hsv)</span><br><span class="line">    <span class="keyword">return</span> bgr</span><br></pre></td></tr></tbody></table></figure>
+<p>随机模糊：</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">randomBlur</span>(<span class="params">bgr</span>):</span><br><span class="line">    <span class="keyword">return</span> cv.blur(bgr, (<span class="number">5</span>,) * <span class="number">2</span>) <span class="keyword">if</span> random.random() &lt; <span class="number">0.5</span> <span class="keyword">else</span> bgr</span><br></pre></td></tr></tbody></table></figure>
+<p>随机形变：</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">randomScale</span>(<span class="params">bgr, boxes</span>):</span><br><span class="line">    <span class="comment"># fix height, scale width from 0.8 to 1.2</span></span><br><span class="line">    <span class="keyword">if</span> random.random() &lt; <span class="number">0.5</span>:</span><br><span class="line">        scale = random.uniform(<span class="number">0.8</span>, <span class="number">1.2</span>)</span><br><span class="line">        height, width, c = bgr.shape</span><br><span class="line">        bgr = cv.resize(bgr, (<span class="built_in">int</span>(width * scale), height))</span><br><span class="line">        scale_tensor = torch.FloatTensor([[scale, <span class="number">1</span>] * <span class="number">2</span>]).expand_as(boxes)</span><br><span class="line">        boxes *= scale_tensor</span><br><span class="line">    <span class="keyword">return</span> bgr, boxes</span><br></pre></td></tr></tbody></table></figure>
+<p>除补全方法之外，也将所有的数据预处理方法提取为 <code>yoloDataset</code> 之外的静态函数。</p>
+<h3 id="解决引入数据预处理所引发的问题">解决引入数据预处理所引发的问题</h3>
+<p>引入数据预处理方法后，在训练中产生了新的问题，Python 抛出大量异常，进度条也不能正常显示。</p>
+<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File <span class="string">"C:\ProgramData\Anaconda3\lib\multiprocessing\queues.py"</span>, line <span class="number">239</span>, <span class="keyword">in</span> _feed</span><br><span class="line">    obj = _ForkingPickler.dumps(obj)</span><br><span class="line">  File <span class="string">"C:\ProgramData\Anaconda3\lib\multiprocessing\reduction.py"</span>, line <span class="number">51</span>, <span class="keyword">in</span> dumps</span><br><span class="line">    <span class="built_in">cls</span>(buf, protocol).dump(obj)</span><br><span class="line">_pickle.PicklingError: Can<span class="string">'t pickle &lt;class '</span>numpy.core._exceptions.UFuncTypeError<span class="string">'&gt;: it'</span>s not the same object as numpy.core._exceptions.UFuncTypeError</span><br></pre></td></tr></tbody></table></figure>
+<p>由于未提示异常具体由哪一行源代码抛出，因此只能逐行检查。通过设置断点发现，影响训练进程的代码为随机饱和度预处理。而其他的预处理方法都能正常执行。</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">img = RandomSaturation(img)</span><br></pre></td></tr></tbody></table></figure>
+<h2 id="网络训练与测试">网络训练与测试</h2>
+<h3 id="训练平台">训练平台</h3>
+<ul>
+<li>硬件
+<ul>
+<li>中央处理器：AMD Ryzen 7 3800X，8 核 16 线程，标称 3.89GHz，运行在 4.20GHz</li>
+<li> 图形处理器（训练）：ASUS TUF Gaming GeForce® GTX 1650 超频版
+<ul>
+<li>4GB GDDR6 显存，带宽 12Gbps，位宽 128 位</li>
+<li>加速频率 1680MHz</li>
+<li>896 枚 CUDA 核心</li>
+<li>采用图灵架构</li>
+<li>连接到 PCIe 4.0</li>
+</ul>
+</li>
+<li> 图形处理器（推理）：NVIDIA GeForce GTX 950，2G 独立显存</li>
+<li>内存：光威深渊 DDR4，标称 3000MHz，运行在 3000MHz，双 16GB 构成双通道，总 32GB</li>
+<li> 主板：华硕 TUF Gaming Plus X570 WiFi</li>
+<li> 驱动器：三星 SSD 980 Pro，连接到 PCIe 4.0</li>
+</ul>
+</li>
+<li> 软件
+<ul>
+<li>Windows 10 专业版 20H2，已安装所有更新</li>
+<li> PyCharm Professional 2020.3</li>
+<li>Anaconda 3 中的 Python 3.8.8</li>
+<li>PyTorch 1.8.0</li>
+<li>CUDA 11.2</li>
+<li> 其余相关包均已更新至最新版本</li>
+</ul>
+</li>
+</ul>
+<h3 id="训练配置">训练配置</h3>
+<blockquote>
+<p>由于 GeForce GTX 1650 同时作为训练平台的显示输出，需要驱动一台 4K 与一台 2K 显示器，其在空载情况下占用显存已达 <code>0.8GB</code> 左右，本就不大的显存愈发吃紧。经过反复测试，为避免出现显存溢出，同时尽可能优化训练效果，设定以下初始训练参数：</p>
+</blockquote>
+<ul>
+<li>在初始化 <code>DataLoader</code> 时加入 <code>pin_memory=True</code> 参数</li>
+<li> batch 大小设置为 <code>2</code></li>
+<li>学习率初始化为 <code>0.001</code></li>
+<li>在第 <code>30</code> 个 epoch 后，学习率下降至 <code>0.0001</code></li>
+<li>在第 <code>40</code> 个 epoch 后，学习率下降至 <code>0.00001</code></li>
+<li>共训练 <code>50</code> 个 epoch。</li>
+</ul>
+<p>在训练过程中，偶发性出现在运行多个 epoch 后，在某处 batch 结束后训练不再继续，进程也不退出。经查，此类问题往往与进程互锁有关。此项目中均采用 ``OpenCV <code>包进行数据读 取，其多线程并发引起锁死的概率较大。为避免对工程进行完全重构，只需将</code> OpenCV <code>的多 线程关闭即可。在</code> yoloDataset.<strong>init</strong>()` 中，添加如下代码：</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">cv.setNumThreads(<span class="number">0</span>)</span><br><span class="line">cv.ocl.setUseOpenCL(<span class="literal">False</span>)</span><br></pre></td></tr></tbody></table></figure>
+<p>此时训练可正常进行，效率并未受到大的影响。</p>
+<blockquote>
+<p>就机器学习而言，相较于 <code>OpenCV</code>，<code>PIL</code>（<code>Pillow</code>）包往往更受推荐，因其可避免进程互锁问题，并且在 <code>DataLoader</code> 的数据预处理中更具灵活性。</p>
+</blockquote>
+<h3 id="测试配置">测试配置</h3>
+<blockquote>
+<p>出于充分利用计算资源的考量，将网络推理放置在 GeForce GTX 950 上运行。</p>
+</blockquote>
+<p>为了正常进行预测，需要对预测程序入口 <code>predict.py</code> 文件进行必要修改。</p>
+<h4 id="torch-autograd-Variable-的volatile参数被移除"><code>torch.autograd.Variable()</code> 的 <code>volatile</code> 参数被移除</h4>
+<p>在更正了图片路径后，程序运行报错：</p>
+<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line">C:/Users/Guanc/Documents/GitHub/machine<span class="literal">-learning-lab</span>/src/YOLO<span class="literal">-v1</span>/predict.py:<span class="number">140</span>: UserWarning: volatile was removed and now has no effect. Use `with torch.no_grad():` instead.</span><br><span class="line">  img = Variable(img[<span class="type">None</span>, :, :, :], volatile=True)</span><br></pre></td></tr></tbody></table></figure>
+<p>根据提示修改代码如下：</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="keyword">with</span> torch.no_grad():</span><br><span class="line">    img = Variable(img[<span class="literal">None</span>, :, :, :])</span><br><span class="line">    img = img.cuda()</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="重构类名标签集">重构类名标签集</h4>
+<p>为了正确输出分类标签，需要重写类名标签集。</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">CLASSES = (<span class="string">'part'</span>, <span class="string">'center'</span>, <span class="string">'side'</span>)</span><br><span class="line">...</span><br><span class="line">result.append([(x1, y1), (x2, y2), CLASSES[cls_index], image_name, prob])</span><br></pre></td></tr></tbody></table></figure>
+<h4 id="解决不能正确输出预测结果的问题"><s>解决不能正确输出预测结果的问题</s></h4>
+<blockquote>
+<p>该问题后证实为数据标注错误所引起。</p>
+</blockquote>
+<p>执行脚本进行推理，发现输出的图片中并未给出任何分类、定位方框与文字。此时，程序输出的 <code>result = predict_gpu(model, image_name, root_path=root_path)</code> 的值始终为 <code>{list: 1} [[(0, 0), (0, 0), 'part', '&lt;filename&gt;', 0.0]]</code>，换言之，没有侦测到物体以及定位框。</p>
+<h4 id="解决非零重载被废弃的用户警告">解决非零重载被废弃的用户警告</h4>
+<p>运行预测，Python 抛出用户警告：</p>
+<figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line">C:/Users/Guanc/Documents/GitHub/pytorch<span class="literal">-YOLO-v1</span>/predict.py:<span class="number">165</span>: UserWarning: This overload of nonzero is deprecated:</span><br><span class="line"> nonzero()</span><br><span class="line">Consider <span class="keyword">using</span> one of the following signatures instead:</span><br><span class="line"> nonzero(*, bool as_tuple) (Triggered internally at  ..\torch\csrc\utils\python_arg_parser.cpp:<span class="number">882</span>.)</span><br><span class="line"> idx = (iou &lt;= threshold).nonzero().squeeze()</span><br></pre></td></tr></tbody></table></figure>
+<p>依照提示修改参数：</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">idx = (iou &lt;= threshold).nonzero(as_tuple=<span class="literal">False</span>).squeeze()</span><br></pre></td></tr></tbody></table></figure>
+<h3 id="无预处理条件下训练">无预处理条件下训练</h3>
+<h4 id="第一次训练（无预处理、50代）">第一次训练（无预处理、50 代）</h4>
+<p>以初始训练设置进行训练，在不进行数据预处理时，针对 190 个样本进行学习，耗时 1308030
+毫秒，约合 21.80 分钟，在训练集上得到的平均损失为 <code>9.90</code>。</p>
+<blockquote>
+<p>在关闭风扇时，GPU 的满负荷运行温度达到 80℃；而风扇全速运转时，下降至约 50℃，可见风扇启停对 GPU 性能与训练效率有重要影响。</p>
+</blockquote>
+<p>依照<a href="#%E7%BD%91%E7%BB%9C%E8%AE%AD%E7%BB%83%E4%B8%8E%E6%B5%8B%E8%AF%95">网络测试</a>中的设置进行预测，下图为对训练集的最后一个样本 <code>0000190.jpg</code> 进行预测的结果，测试集上的效果也类似。可见，虽然整体效果较好，但其常将零件的中心识别为零件主题，仍有欠拟合现象。</p>
+<p><img src="../images/YOLO-results/no-pre-underfit.jpg" alt="训练1，无预处理，欠拟合"></p>
+<h4 id="第二次训练（无预处理、50代、提高学习率）">第二次训练（无预处理、50 代、提高学习率）</h4>
+<p>针对欠拟合现象，适当提高学习率，作如下调整：</p>
+<ul>
+<li>学习率初始化为 <code>0.005</code></li>
+<li>在第 <code>30</code> 个 epoch 后，学习率下降至 <code>0.001</code></li>
+<li>在第 <code>40</code> 个 epoch 后，学习率下降至 <code>0.0001</code></li>
+</ul>
+<p>经训练，最后在测试集上获得的平均损失下降至 <code>8.45</code>.</p>
+<p>下图为对训练集的最后一个样本 <code>0000190.jpg</code> 进行预测的结果。可见，识别效果仍然不尽如人意，甚至相较于第一次训练出现了更多的重复识别边缘的现象。在测试集上，效果也类似。</p>
+<p><img src="../images/YOLO-results/result_2.jpg" alt="训练2，无预处理"></p>
+<h4 id="第三次训练（无预处理、100代）">第三次训练（无预处理、100 代）</h4>
+<p>进一步增加 epoch 至 100 代，降低学习率为 <code>0.001</code> 在测试集上获得的损失反而上升至 <code>9.96</code>，观察预测结果。</p>
+<p>下图为对训练集的最后一个样本 <code>0000190.jpg</code> 进行预测的结果。</p>
+<p><img src="../images/YOLO-results/result_3_1.jpg" alt="训练3，阈值为0.1，190号样本"></p>
+<p>可见，出现了大量错误的物体识别。将检测阈值从 <code>0.1</code> 提高至 <code>0.2</code>，得到结果如下：</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># mask1 = contain &gt; 0.1</span></span><br><span class="line">mask1 = contain &gt; <span class="number">0.2</span></span><br></pre></td></tr></tbody></table></figure>
+<p><img src="../images/YOLO-results/result_3_2.jpg" alt="训练3，阈值为0.2，190号样本"></p>
+<p>但是，在测试集上，仍有错误产生。</p>
+<p><img src="../images/YOLO-results/result_3_3.jpg" alt="训练3，阈值为0.2，200号样本"></p>
+<blockquote>
+<p>至此，需要考虑通过在训练时认为加入噪声，以提升网络的预测能力。</p>
+</blockquote>
+<h3 id="结合数据预处理进行网络训练">结合数据预处理进行网络训练</h3>
+<h4 id="第四次训练（预处理，80代）">第四次训练（预处理，80 代）</h4>
+<p>在引入了图片预处理后，对模型进行训练。</p>
+<ul>
+<li>学习率初始化为 <code>0.005</code></li>
+<li>在第 <code>40</code> 个 epoch 后，学习率下降至 <code>0.001</code></li>
+</ul>
+<p>总训练用时 2144026 毫秒，约合 35.73 分钟，在测试集上得到平均损失为 <code>2.78</code>。</p>
+<p><img src="../images/YOLO-results/result_4.jpg" alt="训练4，190号样本"></p>
+<p>总的来讲，虽然此时效果已较之前三次训练有大的提升，但仍然存在边界识别重复、混淆零件主体和零件中心的问题。</p>
+<h2 id="总结">总结</h2>
+<p>通过对源代码的大量调试，以及对训练、推理参数的试错优化，成功实现了网络的训练、预测全流程，效果较好，但仍不能达到为完美，有待进一步的优化。</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://x.com/SamuelGHuang">
+            <span class="icon">
+              <i class="fab fa-x-twitter"></i>
+            </span>
+
+            <span class="label">X</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://linkedin.com/in/samuel-g-huang/">
+            <span class="icon">
+              <i class="fab fa-linkedin"></i>
+            </span>
+
+            <span class="label">LinkedIn</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">微信公众号</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat-channel.png">
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://zhihu.com/people/hailkiwi">
+            <span class="icon">
+              <i class="fab fa-zhihu"></i>
+            </span>
+
+            <span class="label">知乎</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/python/" rel="tag"># python</a>
+              <a href="/tags/ml/" rel="tag"># ml</a>
+              <a href="/tags/pytorch/" rel="tag"># pytorch</a>
+              <a href="/tags/deep-learning/" rel="tag"># deep learning</a>
+              <a href="/tags/yolo/" rel="tag"># yolo</a>
+              <a href="/tags/course/" rel="tag"># course</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2021-04-03-%E4%B8%80%E4%B8%AA%E5%8D%9A%E5%AE%A2%E7%9A%84%E9%87%8D%E7%94%9F/" rel="prev" title="一个博客的重生：基于 `Hexo` 引擎的博客配置">
+                  <i class="fa fa-angle-left"></i> 一个博客的重生：基于 `Hexo` 引擎的博客配置
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/salary-in-shenzhen/" rel="next" title="在深圳赚钱，有几分能带回家？">
+                  在深圳赚钱，有几分能带回家？ <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2020 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-terminal"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Samuel Huang</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Word count total">105k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">6:22</span>
+  </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div><div class="footer-custom">
+  Source code and website hosted on
+  <a target="_blank" rel="noopener" href="https://github.com/sghuang19/sghuang19.github.io">GitHub</a>.
+</div>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/sghuang19" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">false</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>

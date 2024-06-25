@@ -1,0 +1,1343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#177CB0" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#177CB0" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.2.0">
+<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+<link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#177CB0">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans:300,300italic,400,400italic,700,700italic%7CNoto+Mono:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha256-XOqroi11tY4EFQMR9ZYwZWKj5ZXiftSx36RRuC3anlA=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.css" integrity="sha256-gkQVf8UKZgQ0HyuxL/VnacadJ+D2Kox2TCEBuNQg5+w=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"sghuang.com","root":"/","images":"/images","scheme":"Gemini","darkmode":"auto","version":"8.20.0","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"always","padding":18,"offset":12},"copycode":{"enable":true,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":true,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"},"path":"/search.xml","localsearch":{"enable":true,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="Ch. 21 Coulomb’s Law Charge  Plastic rod rubbed on fur: negatively charged Glass rod rubbed on silk: positively charged  The total (net) electric charge of an isolated system is conserved.  Charging">
+<meta property="og:type" content="article">
+<meta property="og:title" content="General Physics II Review">
+<meta property="og:url" content="https://sghuang.com/physics/index.html">
+<meta property="og:site_name" content="Samuel Huang&#39;s Portfolio">
+<meta property="og:description" content="Ch. 21 Coulomb’s Law Charge  Plastic rod rubbed on fur: negatively charged Glass rod rubbed on silk: positively charged  The total (net) electric charge of an isolated system is conserved.  Charging">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200815115549-Uniformly-Charged-Line.png">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200815121851-Uniformly-Charged-Ring.png">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200815142044-Uniformly-Charged-Disk.png">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200816084952-Electric-Dipole.png">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200816103540-Torque-on-Dipole.png">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200816150116-Potential-Due-to-Electric-Dipole.png">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200817233724-Cylindrical-Capacitor.png">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200817235159-dielectric.png">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200818104136-current-density.png">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200819214835-magnetic-dipole.png">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200819220729-Biot-Savart-Law.png">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200819223558-solenoid.png">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200819224820-toroid.png">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200820201837-emwaves.png">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200820203628-polarizer.png">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200820203903-refraction-reflection.png">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200820204607-Brewster.png">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200820205313-Young-actual.png">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200820205340-Young-approx.png">
+<meta property="og:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200820211501-Fraunhofer-Single-Slit.png">
+<meta property="article:published_time" content="2020-08-25T04:00:00.000Z">
+<meta property="article:modified_time" content="2024-06-23T01:14:39.114Z">
+<meta property="article:author" content="Samuel Huang">
+<meta property="article:tag" content="physics">
+<meta property="article:tag" content="note">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/sghuang19/assets/raw/master/img/20200815115549-Uniformly-Charged-Line.png">
+
+
+<link rel="canonical" href="https://sghuang.com/physics/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://sghuang.com/physics/","path":"/physics/","title":"General Physics II Review"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>General Physics II Review | Samuel Huang's Portfolio</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">Samuel Huang's Portfolio</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-posts"><a href="/posts" rel="section"><i class="fa fa-signs-post fa-fw"></i>Posts</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">64</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">61</span></a></li><li class="menu-item menu-item-projects"><a href="/tags/project" rel="section"><i class="fa fa-cogs fa-fw"></i>Projects</a></li><li class="menu-item menu-item-experience"><a href="/experience/" rel="section"><i class="fa fa-briefcase fa-fw"></i>Experience</a></li><li class="menu-item menu-item-education"><a href="/education" rel="section"><i class="fa fa-graduation-cap fa-fw"></i>Education</a></li><li class="menu-item menu-item-courses"><a href="https://sghuang.notion.site/e242d6a39cf74dada55828ffe7cdb83f" rel="section" target="_blank"><i class="fa fa-book fa-fw"></i>Courses</a></li><li class="menu-item menu-item-notes"><a href="https://notes.sghuang.com/" rel="section" target="_blank"><i class="fa fa-file-pen fa-fw"></i>Notes</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup"><div class="search-header">
+  <span class="search-icon">
+    <i class="fa fa-search"></i>
+  </span>
+  <div class="search-input-container">
+    <input autocomplete="off" autocapitalize="off" maxlength="80"
+           placeholder="Searching..." spellcheck="false"
+           type="search" class="search-input">
+  </div>
+  <span class="popup-btn-close" role="button">
+    <i class="fa fa-times-circle"></i>
+  </span>
+</div>
+<div class="search-result-container no-result">
+  <div class="search-result-icon">
+    <i class="fa fa-spinner fa-pulse fa-5x"></i>
+  </div>
+</div>
+
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Ch-21-Coulomb%E2%80%99s-Law"><span class="nav-number">1.</span> <span class="nav-text">Ch. 21 Coulomb’s Law</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Charge"><span class="nav-number">1.1.</span> <span class="nav-text">Charge</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Coulomb%E2%80%99s-Law"><span class="nav-number">1.2.</span> <span class="nav-text">Coulomb’s Law</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ch-22-Electric-Field"><span class="nav-number">2.</span> <span class="nav-text">Ch. 22 Electric Field</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Definition"><span class="nav-number">2.1.</span> <span class="nav-text">Definition</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cases"><span class="nav-number">2.2.</span> <span class="nav-text">Cases</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Uniformly-Charged-Line"><span class="nav-number">2.2.1.</span> <span class="nav-text">Uniformly Charged Line</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Uniformly-Charged-Ring"><span class="nav-number">2.2.2.</span> <span class="nav-text">Uniformly Charged Ring</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Uniformly-Charged-Disk"><span class="nav-number">2.2.3.</span> <span class="nav-text">Uniformly Charged Disk</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Electric-Field-Line"><span class="nav-number">2.3.</span> <span class="nav-text">Electric Field Line</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Electric-Dipole"><span class="nav-number">2.4.</span> <span class="nav-text">Electric Dipole *</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Electric-Field-Due-to-Electric-Dipole"><span class="nav-number">2.4.1.</span> <span class="nav-text">Electric Field Due to Electric Dipole</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Dipole-in-Electric-Field"><span class="nav-number">2.4.2.</span> <span class="nav-text">Dipole in Electric Field</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ch-23-Gauss%E2%80%99s-Law"><span class="nav-number">3.</span> <span class="nav-text">Ch. 23 Gauss’s Law</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Charged-Isolated-Conductor"><span class="nav-number">3.1.</span> <span class="nav-text">Charged Isolated Conductor</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Electrostatic-Shielding"><span class="nav-number">3.2.</span> <span class="nav-text">Electrostatic Shielding</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ch-24-Electric-Potential"><span class="nav-number">4.</span> <span class="nav-text">Ch. 24 Electric Potential</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ch-25-Capacitance"><span class="nav-number">5.</span> <span class="nav-text">Ch. 25 Capacitance</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ch-26-Current-and-Resistance"><span class="nav-number">6.</span> <span class="nav-text">Ch. 26 Current and Resistance</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Current"><span class="nav-number">6.1.</span> <span class="nav-text">Current</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Resistance"><span class="nav-number">6.2.</span> <span class="nav-text">Resistance</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Ohm%E2%80%99s-Law"><span class="nav-number">6.3.</span> <span class="nav-text">Ohm’s Law</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ch-27-Circuits"><span class="nav-number">7.</span> <span class="nav-text">Ch. 27 Circuits</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ch-28-Magnetic-Field"><span class="nav-number">8.</span> <span class="nav-text">Ch. 28 Magnetic Field</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ch-29-Magnetic-Fields-Due-to-Currents"><span class="nav-number">9.</span> <span class="nav-text">Ch. 29 Magnetic Fields Due to Currents</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ch-30-Induction-and-Inductance"><span class="nav-number">10.</span> <span class="nav-text">Ch. 30 Induction and Inductance</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Laws-of-Induction"><span class="nav-number">10.1.</span> <span class="nav-text">Laws of Induction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Inductors"><span class="nav-number">10.2.</span> <span class="nav-text">Inductors</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#RL-Circuit"><span class="nav-number">10.3.</span> <span class="nav-text">RL Circuit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Mutual-Induction"><span class="nav-number">10.4.</span> <span class="nav-text">Mutual Induction</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ch-31-EM-Oscillation-AC-Current"><span class="nav-number">11.</span> <span class="nav-text">Ch. 31 EM Oscillation &amp; AC Current *</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Damped-Oscillation-in-LRC-Circuit"><span class="nav-number">11.1.</span> <span class="nav-text">Damped Oscillation in LRC Circuit</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Forced-Oscillations"><span class="nav-number">11.2.</span> <span class="nav-text">Forced Oscillations</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Power-in-AC-Circuits"><span class="nav-number">11.3.</span> <span class="nav-text">Power in AC Circuits</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Transformers"><span class="nav-number">11.4.</span> <span class="nav-text">Transformers</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ch-32-Maxwell%E2%80%99s-Equations-Magnetism-of-Matter"><span class="nav-number">12.</span> <span class="nav-text">Ch. 32 Maxwell’s Equations; Magnetism of Matter *</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ch-33-Electromagnetic-Waves"><span class="nav-number">13.</span> <span class="nav-text">Ch. 33 Electromagnetic Waves *</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Energy-Transfer-in-EM-Waves"><span class="nav-number">13.1.</span> <span class="nav-text">Energy Transfer in EM Waves</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Polarization"><span class="nav-number">13.2.</span> <span class="nav-text">Polarization</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Reflection-Refraction"><span class="nav-number">13.3.</span> <span class="nav-text">Reflection &amp; Refraction</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ch-35-Interference"><span class="nav-number">14.</span> <span class="nav-text">Ch. 35 Interference *</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Young%E2%80%99s-Interference"><span class="nav-number">14.1.</span> <span class="nav-text">Young’s Interference</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Thin-Film-Interference"><span class="nav-number">14.2.</span> <span class="nav-text">Thin-Film Interference</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ch-36-Diffraction"><span class="nav-number">15.</span> <span class="nav-text">Ch. 36 Diffraction</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Single-Slit-Diffraction"><span class="nav-number">15.1.</span> <span class="nav-text">Single Slit Diffraction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Diffraction-on-Multiple-Slits"><span class="nav-number">15.2.</span> <span class="nav-text">Diffraction on Multiple Slits</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Diffraction-Gratings"><span class="nav-number">15.3.</span> <span class="nav-text">Diffraction Gratings</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ch-37-Special-Relativity"><span class="nav-number">16.</span> <span class="nav-text">Ch. 37 Special Relativity</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Samuel Huang"
+      src="/uploads/avatar.png">
+  <p class="site-author-name" itemprop="name">Samuel Huang</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">61</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">64</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/sghuang19" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;sghuang19" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:samuel.g.huang@outlook.com" title="E-Mail → mailto:samuel.g.huang@outlook.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://twitter.com/SamuelGHuang" title="X → https:&#x2F;&#x2F;twitter.com&#x2F;SamuelGHuang" rel="noopener me" target="_blank"><i class="fab fa-x-twitter fa-fw"></i>X</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://www.linkedin.com/in/samuel-g-huang/" title="LinkedIn → https:&#x2F;&#x2F;www.linkedin.com&#x2F;in&#x2F;samuel-g-huang&#x2F;" rel="noopener me" target="_blank"><i class="fab fa-linkedin fa-fw"></i>LinkedIn</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://calendly.com/sghuang" title="Calendly → https:&#x2F;&#x2F;calendly.com&#x2F;sghuang" rel="noopener me" target="_blank"><i class="fa fa-calendar fa-fw"></i>Calendly</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="/" title="微信 → &#x2F;" rel="noopener me"><i class="fab fa-weixin fa-fw"></i>微信</a>
+      </span>
+  </div>
+  <div class="cc-license animated" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="https://cdnjs.cloudflare.com/ajax/libs/creativecommons-vocabulary/2020.11.3/assets/license_badges/big/by.svg" alt="Creative Commons"></a>
+  </div>
+
+<hr style="margin: 0" />
+<div class="cc-license animated" itemprop="sponsor">
+  Built with<br />
+  <span
+    style="text-decoration: none"
+    class="exturl cc-opacity"
+    title="A fast, simple & powerful blog framework"
+  >
+    <a target="_blank" rel="noopener" href="https://hexo.io" style="text-decoration: none">
+      <img
+        width="160"
+        src="https://github.com/hexojs/logo/blob/master/hexo-logo.png?raw=true"
+        alt="Hexo"
+      />
+    </a>
+  </span>
+</div>
+
+        </div>
+      </div>
+        <div class="back-to-top animated" role="button" aria-label="Back to top">
+          <i class="fa fa-arrow-up"></i>
+          <span>0%</span>
+        </div>
+    </div>
+
+    
+        <div class="pjax">
+        <div class="sidebar-inner sidebar-post-related">
+          <div class="animated">
+              <div class="links-of-blogroll-title"><i class="fa fa-signs-post fa-fw"></i>
+    Related Posts
+  </div>
+  <ul class="popular-posts">
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/16.2%20Vector%20Fields%20and%20Line%20Integrals%20Work,%20Circulation,%20and%20Flux/" rel="bookmark">
+        <time class="popular-posts-time">2020-08-10</time>
+        <br>
+      高等数学（下）期末复习：16.2 矢量场与线积分：功、环流和通量
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/16.3%20Path%20Independence,%20Conservative%20Fields,%20and%20Potential%20Functions/" rel="bookmark">
+        <time class="popular-posts-time">2020-08-11</time>
+        <br>
+      高等数学（下）期末复习：16.3 Path Independence、保守场与势函数
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/16.5%20Surfaces%20and%20Area/" rel="bookmark">
+        <time class="popular-posts-time">2020-08-11</time>
+        <br>
+      高等数学（下）期末复习：16.5 曲面与面积
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/16.1%20Line%20Integral/" rel="bookmark">
+        <time class="popular-posts-time">2020-08-09</time>
+        <br>
+      高等数学（下）期末复习：16.1 线积分
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/16.4%20Green%E2%80%99s%20Theorem%20in%20the%20Plane/" rel="bookmark">
+        <time class="popular-posts-time">2020-08-11</time>
+        <br>
+      高等数学（下）期末复习：16.4 平面上的格林定理
+      </a>
+    </li>
+  </ul>
+
+          </div>
+        </div>
+        </div>
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://sghuang.com/physics/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="name" content="Samuel Huang">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Samuel Huang's Portfolio">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="General Physics II Review | Samuel Huang's Portfolio">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          General Physics II Review<a href="https://github.com/sghuang19/sghuang19.github.io/tree/main/source/_posts/old/Physics%20II%20Review.md" class="post-edit-link" title="Edit this post" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2020-08-25 00:00:00" itemprop="dateCreated datePublished" datetime="2020-08-25T00:00:00-04:00">2020-08-25</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-06-22 21:14:39" itemprop="dateModified" datetime="2024-06-22T21:14:39-04:00">2024-06-22</time>
+    </span>
+
+  
+    <span class="post-meta-break"></span>
+    <span class="post-meta-item" title="Word count in article">
+      <span class="post-meta-item-icon">
+        <i class="far fa-file-word"></i>
+      </span>
+      <span class="post-meta-item-text">Word count in article: </span>
+      <span>2.2k</span>
+    </span>
+    <span class="post-meta-item" title="Reading time">
+      <span class="post-meta-item-icon">
+        <i class="far fa-clock"></i>
+      </span>
+      <span class="post-meta-item-text">Reading time &asymp;</span>
+      <span>8 mins.</span>
+    </span>
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><!-- cSpell:words Biot Savart Lenz Poynting -->
+<h2 id="Ch-21-Coulomb’s-Law">Ch. 21 Coulomb’s Law</h2>
+<h3 id="Charge">Charge</h3>
+<ul>
+<li><strong>Plastic</strong> rod rubbed on <strong>fur</strong>: <strong>negatively</strong> charged</li>
+<li><strong>Glass</strong> rod rubbed on <strong>silk</strong>: <strong>positively</strong> charged</li>
+</ul>
+<p>The total (net) electric charge of an isolated system is conserved.</p>
+<ul>
+<li>Charging by induction (without losing its own charge)</li>
+</ul>
+<p>$$
+e=1.60\times10^{-19}\rm C
+$$</p>
+<ul>
+<li>Quantized Charge</li>
+<li>Millikin Oil-Drop Experiment</li>
+</ul>
+<h3 id="Coulomb’s-Law">Coulomb’s Law</h3>
+<p>$$
+F=k\frac{|q_1q_2|}{r^2}
+$$</p>
+<p>$$
+k= \frac{1}{4\pi\epsilon_0} =
+8.99\times10^9 \rm N\cdot m^2/C^2
+$$</p>
+<p>$$
+\epsilon_0 =
+8.85\times10^{-12}\rm C^2/N\cdot m^2
+$$</p>
+<ul>
+<li>$k$ is the <strong>electromagnetic constant</strong></li>
+<li>$\epsilon_0$ is the <strong>permittivity constant</strong></li>
+<li>Principle of Superposition</li>
+</ul>
+<span id="more"></span>
+<h2 id="Ch-22-Electric-Field">Ch. 22 Electric Field</h2>
+<h3 id="Definition">Definition</h3>
+<p>$$
+\vec{F} = q\vec{E}.
+$$</p>
+<p>$$
+\vec{E} =
+\frac{\vec{F}}{q_0} =
+k\frac{|q|}{r^2} =
+\frac{1}{4\pi\epsilon_0}\frac{|q|}{r^2}
+$$</p>
+<h3 id="Cases">Cases</h3>
+<blockquote>
+<p>The key to integrate, is find the relation between $\mathop{dq}$ and charge
+density (as well as length or area)</p>
+</blockquote>
+<h4 id="Uniformly-Charged-Line">Uniformly Charged Line</h4>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200815115549-Uniformly-Charged-Line.png" alt="Uniformly Charged Line"></p>
+<p>$$
+E_x =
+\frac{1}{4\pi\epsilon_0}\frac{Q}{2a}
+\int_{-a}^{+a}
+\frac{x\mathop{dy}}{(x^2+y^2)^{3/2}} =
+\frac{Q}{4\pi\epsilon_0}
+\frac{1}{x\sqrt{x^2+a^2}}
+$$</p>
+<p>If the line is very long, $a\gg x$</p>
+<p>$$
+E = \frac{\lambda}{2\pi\epsilon_0 r}
+$$</p>
+<h4 id="Uniformly-Charged-Ring">Uniformly Charged Ring</h4>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200815121851-Uniformly-Charged-Ring.png" alt="Uniformly Charged Ring"></p>
+<p>$$
+\begin{aligned}
+E &amp; = \int\mathop{dE}\cos\theta \ &amp; =
+\frac{z}{\sqrt{z^2+R^2}}\cdot
+\frac{\lambda}{4\pi\epsilon_0 (z^2+R^2)}
+\int_0^{2\pi R}\mathop{ds} \ &amp; =
+\frac{qz}{4\pi\epsilon_0 (z^2+R^2)^{3/2}}.
+\end{aligned}
+$$</p>
+<p>If the charged ring is at large distance, $z\gg R$</p>
+<p>$$
+E = \frac{1}{4\pi\epsilon_0}\frac{1}{z^2}.
+$$</p>
+<h4 id="Uniformly-Charged-Disk">Uniformly Charged Disk</h4>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200815142044-Uniformly-Charged-Disk.png" alt="Uniformly Charged Disk"></p>
+<p>$$
+\mathop{dq} =
+\sigma\mathop{dA} =
+\sigma(2\pi r\mathop{dr}).
+$$</p>
+<p>$$
+\mathop{dE} =
+\frac{\sigma z}{4\epsilon_0}
+\frac{2r\mathop{dr}}{(z^2+r^2)^{3/2}}.
+$$</p>
+<p>$$
+E = \int\mathop{dE} =
+\frac{\sigma}{2\epsilon_0}\left(
+1 - \frac{z}{\sqrt{z^2+R^2}}
+\right).
+$$</p>
+<p>For $R\rightarrow\infty$ (infinite sheet)</p>
+<p>$$
+E = \frac{\sigma}{2\epsilon_0}.
+$$</p>
+<h3 id="Electric-Field-Line">Electric Field Line</h3>
+<h3 id="Electric-Dipole">Electric Dipole *</h3>
+<h4 id="Electric-Field-Due-to-Electric-Dipole">Electric Field Due to Electric Dipole</h4>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200816084952-Electric-Dipole.png" alt="Electric Dipole"></p>
+<p>$$
+\begin{aligned}
+E &amp; =
+E_{(+)} - E_{(-)} \ &amp; =
+\frac{1}{4\pi\epsilon_0}
+\frac{q}{r^2_{(+)}} -
+\frac{1}{4\pi\epsilon_0}
+\frac{q}{r^2_{(-)}} \ &amp; = \cdots \ &amp; =
+\frac{q}{2\pi\epsilon_0z^3}
+\frac{d}{\left(
+1 - \left(\frac{d}{2z}\right)^2
+\right)^2}
+\end{aligned}.
+$$</p>
+<p>If $z\gg d$</p>
+<p>$$
+E = \frac{1}{2\pi\epsilon_0}\frac{qd}{z^3}
+$$</p>
+<ul>
+<li>$qd$ is the <strong>electric dipole moment</strong> $\vec{p}$</li>
+</ul>
+<p>On the axis of the dipole</p>
+<p>$$
+\vec{E}_\text{dipole} \approx
+\frac{1}{4\pi\epsilon_0}\frac{\vec{p}}{r^3}
+$$</p>
+<p>On the perpendicular plane</p>
+<p>$$
+\vec{E}_\text{dipole} \approx
+-\frac{1}{4\pi\epsilon_0}\frac{\vec{p}}{r^3}
+$$</p>
+<h4 id="Dipole-in-Electric-Field">Dipole in Electric Field</h4>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200816103540-Torque-on-Dipole.png" alt="Torque on Dipole"></p>
+<p>$$
+\vec{\tau} = Fd\sin\theta = \vec{p}\times\vec{E}.
+$$</p>
+<p>$$
+U =
+-W =
+-\int\tau\mathop{d\theta} =
+\int pE\sin\theta\mathop{d\theta} =
+-pE\cos\theta =
+-\vec{p}\cdot\vec{E}
+$$</p>
+<hr>
+<h2 id="Ch-23-Gauss’s-Law">Ch. 23 Gauss’s Law</h2>
+<p>$$
+\epsilon_0\Phi =
+\epsilon_0\oint
+\vec{E}\cdot\mathop{d\vec{A}} =
+q_{\text{enclosed}}
+$$</p>
+<p>$$
+\oint_A \vec{E}\cdot\mathop{d\vec{A}} =
+\int_V \nabla\cdot\vec{E}\mathop{dV} =
+\frac{q_{\text{enc}}}{\epsilon_0}.
+$$</p>
+<ul>
+<li>Gauss’s Law is equivalent with Coulomb’s Law.</li>
+<li>Planar Symmetry</li>
+<li>Cylindrical Symmetry</li>
+</ul>
+<h3 id="Charged-Isolated-Conductor">Charged Isolated Conductor</h3>
+<ul>
+<li>There can be no excess charge at any point within a solid conductor</li>
+<li>Electric field inside a conductor needs to be zero</li>
+<li>Charge on the inner wall cannot produce and electric field in the shell to
+affect the charge on the outer wall</li>
+</ul>
+<h3 id="Electrostatic-Shielding">Electrostatic Shielding</h3>
+<hr>
+<h2 id="Ch-24-Electric-Potential">Ch. 24 Electric Potential</h2>
+<p>$$
+\Delta U = U_f - U_i = -W_{\text{by the field}}
+$$</p>
+<p>$$
+V = V_f - V_i =
+-\int_i^f \vec{E}\cdot\mathop{d\vec{s}}.
+$$</p>
+<p>$i$ is at $\infty$, where $U$ is $0$, $V_i$ is $0$.</p>
+<ul>
+<li>Electric potential for a point charge</li>
+</ul>
+<p>$$
+V = \frac{1}{4\pi\epsilon_0}\frac{q}{r}
+$$</p>
+<ul>
+<li>Potential due to electric dipole</li>
+</ul>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200816150116-Potential-Due-to-Electric-Dipole.png" alt="Potential Due to Electric Dipole"></p>
+<p>$$
+V = V_{(+)} + V_{(-)} = \cdots =
+\frac{1}{4\pi\epsilon_0}\frac{p\cos\theta}{r^2}
+$$</p>
+<ul>
+<li>Field from Potential</li>
+</ul>
+<p>$$
+E_s = -\frac{\partial V}{\partial s}.
+$$</p>
+<p>$$
+\vec{E} = -\nabla V
+$$</p>
+<hr>
+<h2 id="Ch-25-Capacitance">Ch. 25 Capacitance</h2>
+<p>$$
+q = CV
+$$</p>
+<ul>
+<li>Parallel capacitor</li>
+</ul>
+<p>$$
+C =
+\frac{q}{V} =
+\frac{\epsilon_0 EA}{Ed} =
+\frac{\epsilon_0 A}{d}.
+$$</p>
+<ul>
+<li>Cylindrical capacitor</li>
+</ul>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200817233724-Cylindrical-Capacitor.png" alt="Cylindrical Capacitor"></p>
+<p>$$
+q = \epsilon_0 EA = \epsilon_0 E(2\pi rL)
+$$</p>
+<p>$$
+V =
+\int_-^+ E\mathop{ds} =
+-\frac{q}{2\pi\epsilon_0 L}
+\int_b^a \frac{\mathop{dr}}{r} =
+\frac{q}{2\pi\epsilon_0 L}
+\ln\left(\frac{b}{a}\right)
+$$</p>
+<p>$$
+C = \frac{q}{V} =
+2\pi\epsilon_0 \frac{L}{\ln(b/a)}
+$$</p>
+<ul>
+<li>Spherical capacitor</li>
+</ul>
+<p>$$
+\cdots C = 4\pi\epsilon_0 \frac{ab}{b-a}.
+$$</p>
+<ul>
+<li>
+<p>Series &amp; Parallel</p>
+</li>
+<li>
+<p>Energy stored</p>
+</li>
+</ul>
+<p>$$
+\mathop{dW} = v\mathop{dq} = \frac{q\mathop{dq}}{C}
+$$</p>
+<p>$$
+W = \int_0^W \mathop{dW} =
+\frac{1}{C}\int_0^Q q\mathop{dq} =
+\frac{Q^2}{2C} \Rightarrow
+U = \frac{1}{2}CV^2 = \frac{1}{2}QV
+$$</p>
+<ul>
+<li>Energy density</li>
+</ul>
+<p>$$
+u = \frac{\frac{1}{2}CV^2}{Ad} = \frac{1}{2}\epsilon_0E^2
+$$</p>
+<ul>
+<li>Dielectric</li>
+</ul>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200817235159-dielectric.png" alt="Dielectric"></p>
+<p>$$
+\epsilon =  \kappa\epsilon_0
+$$</p>
+<p>$$
+E
+= \frac{V}{d}
+= \frac{q}{Cd}
+= \frac{q}{d\epsilon_0A/d}
+= \frac{\sigma}{\epsilon_0}
+$$</p>
+<p>$$
+E = \frac{\sigma-\sigma_i}{\epsilon_0} = \frac{E_0}{K} \Rightarrow
+\sigma_i = \sigma\left(1-\frac{1}{K}\right)
+\quad\text{(induced surface charge density)}
+$$</p>
+<p>$$
+\epsilon_0 \oint\kappa\vec{E}\cdot\mathop{d\vec{A}} = q
+$$</p>
+<hr>
+<h2 id="Ch-26-Current-and-Resistance">Ch. 26 Current and Resistance</h2>
+<h3 id="Current">Current</h3>
+<p>$$
+i = \frac{\mathop{dq}}{\mathop{dt}}
+$$</p>
+<blockquote>
+<p>Current is <strong>NOT</strong> a vector</p>
+</blockquote>
+<ul>
+<li>Current density</li>
+</ul>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200818104136-current-density.png" alt="Current Density"></p>
+<p>$$
+i =
+\frac{q}{t} =
+\frac{nALe}{L/v_d} =
+nAev_d.
+$$</p>
+<p>$$
+\vec{J} = (ne)\vec{v}_d
+$$</p>
+<h3 id="Resistance">Resistance</h3>
+<ul>
+<li>Resistivity</li>
+</ul>
+<p>$$
+\rho = \frac{E}{J}
+$$</p>
+<ul>
+<li>Resistance</li>
+</ul>
+<p>$$
+\rho = \frac{V/L}{I/A} \Rightarrow R = \frac{V}{I} = \frac{\rho L}{A}.
+$$</p>
+<h3 id="Ohm’s-Law">Ohm’s Law</h3>
+<blockquote>
+<p>For Ohmic contact cases</p>
+</blockquote>
+<p>$$
+V = iR
+$$</p>
+<hr>
+<h2 id="Ch-27-Circuits">Ch. 27 Circuits</h2>
+<ul>
+<li><strong>Kirchhoff’s Rules</strong></li>
+</ul>
+<p>$$
+\sum I = 0,\quad \sum V = 0
+$$</p>
+<ul>
+<li>Mark for RC Circuit</li>
+</ul>
+<hr>
+<h2 id="Ch-28-Magnetic-Field">Ch. 28 Magnetic Field</h2>
+<ul>
+<li>On Moving Charge</li>
+</ul>
+<p>$$
+\vec{F} = q\vec{v}\times\vec{B}
+$$</p>
+<ul>
+<li>Hall Effect</li>
+</ul>
+<p>$$
+n = \frac{Bi}{Vle}
+$$</p>
+<ul>
+<li>On a Current Carrying Conductor</li>
+</ul>
+<p>$$
+\vec{F}_B = i\vec{l}\times\vec{B}
+$$</p>
+<ul>
+<li>Magnetic Dipoles</li>
+</ul>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200819214835-magnetic-dipole.png" alt="Magnetic Dipoles"></p>
+<p>$$
+\bm{\mu} = NiA
+$$</p>
+<p>$$
+\bm{\tau=\mu\times B}
+$$</p>
+<hr>
+<h2 id="Ch-29-Magnetic-Fields-Due-to-Currents">Ch. 29 Magnetic Fields Due to Currents</h2>
+<ul>
+<li><strong>Biot-Savart Law</strong></li>
+</ul>
+<p>$$
+\mathop{d\bm{B}} =
+\frac{\mu_0}{4\pi}\frac{i\mathop{d\bm{l}}\times\bm{e}_r}{r^2}
+$$</p>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200819220729-Biot-Savart-Law.png" alt="Biot-Savart Law"></p>
+<ul>
+<li>For B-Field of a wire with steady current</li>
+</ul>
+<p>$$
+B = \frac{\mu_0 i}{2\pi R}
+$$</p>
+<ul>
+<li>B-Field at the center of a circular arc of wire</li>
+</ul>
+<p>$$
+B =
+\int\mathop{dB} =
+\int_0^\phi \frac{\mu_0}{4\pi}\frac{iR\mathop{d\phi}}{R^2} =
+\frac{\mu_0 i}{4\pi R}
+\int_0^\phi\mathop{d\phi} =
+\frac{\mu_0 i\phi}{4\pi R}
+$$</p>
+<ul>
+<li><strong>Gauss’ Law for magnetism</strong></li>
+</ul>
+<p>$$
+\oint \vec{B}\cdot\mathop{d\vec{A}} = 0
+$$</p>
+<ul>
+<li><strong>Ampere’s Law</strong></li>
+</ul>
+<p>$$
+\oint\vec{B}\cdot\mathop{d\vec{l}} = \mu_0I_\text{encl}
+$$</p>
+<p>$$
+\oint_\mathbf{l} \mathbf{B}\cdot\mathop{d\mathbf{l}} =
+\mu_0 \int_\mathbf{A}\mathbf{J}\cdot\mathop{d\mathbf{A}}
+$$</p>
+<ul>
+<li>B-Field of solenoid</li>
+</ul>
+<p>$$
+BL = \mu_0 nLI
+$$</p>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200819223558-solenoid.png" alt="Solenoid"></p>
+<ul>
+<li>B-Field of toroid</li>
+</ul>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200819224820-toroid.png" alt="Toroid"></p>
+<p>$$
+B = \frac{\mu_0 NI}{2\pi r}
+$$</p>
+<ul>
+<li>Current sheet</li>
+</ul>
+<p>$$
+B = \frac{1}{2}\mu_0 J_s
+$$</p>
+<hr>
+<h2 id="Ch-30-Induction-and-Inductance">Ch. 30 Induction and Inductance</h2>
+<h3 id="Laws-of-Induction">Laws of Induction</h3>
+<ul>
+<li>Lenz’s Law</li>
+<li>Faraday’s Law of Induction</li>
+</ul>
+<p>$$
+\mathscr{E} = -\frac{\mathop{d\Phi_B}}{\mathop{dt}}
+$$</p>
+<p>$$
+-\frac{d}{dt}\int\limits_A\vec{B}\cdot\mathop{d\vec{A}} =
+\oint\limits_l\vec{E}\cdot\mathop{d\vec{l}}
+$$</p>
+<p>$$
+\nabla\times\mathbf{E} = -\frac{d\mathbf{B}}{dt}
+$$</p>
+<ul>
+<li>Eddy Current</li>
+</ul>
+<h3 id="Inductors">Inductors</h3>
+<ul>
+<li>Self induction</li>
+</ul>
+<p>$$
+\mathscr{E}_L = -L\frac{di}{dt}
+$$</p>
+<p>$$
+L = \frac{N\Phi_B}{i}
+$$</p>
+<ul>
+<li>Inductance of an ideal solenoid</li>
+</ul>
+<p>$$
+L = \mu_0n^2lA
+$$</p>
+<ul>
+<li>Inductance of a toroid</li>
+</ul>
+<p>$$
+L = \frac{\mu_0N^2b}{2\pi}\ln\frac{r_2}{r_1}
+$$</p>
+<h3 id="RL-Circuit">RL Circuit</h3>
+<p>$$
+\mathscr{E} -i(t)R - L\frac{di}{dt} = 0
+\Rightarrow \frac{di}{dt} + \frac{iR}{L} = \frac{\mathscr{E}}{L}
+$$</p>
+<p>$$
+i(t) = \frac{\mathscr{E}}{R}(1 - e^{-t/\tau_L}), \quad \tau_L = L/R
+$$</p>
+<ul>
+<li>Energy stored in magnetic field</li>
+</ul>
+<p>$$
+i\mathscr{E} = Li\frac{di}{dt} + i^2R
+\Rightarrow U_B = \int_0^t Li\mathop{di} =
+\frac{1}{2}Li^2
+$$</p>
+<ul>
+<li>Energy density of magnetic field</li>
+</ul>
+<p>$$
+u_B =
+\frac{Li^2}{2Al} =
+\frac{U_B}{Al} =
+\frac{\mu_0n^2Ai^2}{2A} =
+\frac{\mu_0n^2i^2}{2} =
+\frac{B^2}{2\mu_0}
+$$</p>
+<h3 id="Mutual-Induction">Mutual Induction</h3>
+<p>$$
+\mathscr{E}_2 = -M\frac{di_1}{dt},\quad
+\mathscr{E}_1 = -M\frac{di_2}{dt}
+$$</p>
+<hr>
+<h2 id="Ch-31-EM-Oscillation-AC-Current">Ch. 31 EM Oscillation &amp; AC Current *</h2>
+<p>$$
+U_C = \frac{q^2}{2C}, \quad
+U_B = \frac{Li^2}{2}, \quad
+$$</p>
+<p>$$
+-L\frac{di}{dt} - \frac{q}{C} = 0
+\Rightarrow \frac{d^2q}{dt^2} + \frac{q}{LC} = 0
+$$</p>
+<p>$$
+\Rightarrow
+-A\omega^2\cos(\omega t + \phi) +
+\frac{A}{LC}\cos(\omega t + \phi) = 0, \quad
+\omega = \frac{1}{\sqrt{LC}}
+$$</p>
+<h3 id="Damped-Oscillation-in-LRC-Circuit">Damped Oscillation in LRC Circuit</h3>
+<h3 id="Forced-Oscillations">Forced Oscillations</h3>
+<ul>
+<li>capacitive reactance</li>
+</ul>
+<p>$$
+X_C = \frac{1}{\omega_d C}
+$$</p>
+<blockquote>
+<p>Voltage leads the current</p>
+</blockquote>
+<ul>
+<li>inductive reactance</li>
+</ul>
+<p>$$
+X_L = \omega_d L
+$$</p>
+<blockquote>
+<p>Voltage lags the current</p>
+</blockquote>
+<ul>
+<li>Impedance</li>
+</ul>
+<p>$$
+Z = \sqrt{R^2 + (X_L - X_C)^2}, \quad
+I = \frac{\mathscr{E}}{Za}
+$$</p>
+<h3 id="Power-in-AC-Circuits">Power in AC Circuits</h3>
+<p>$$
+P_\text{avg} = \mathscr{E}<em>\text{rms}I</em>\text{rms}\cos\phi, \quad
+\cos\phi = \frac{V_R}{\mathscr{E}_m} = \frac{R}{Z}
+$$</p>
+<h3 id="Transformers">Transformers</h3>
+<p>$$
+V_1I_1 = V_2I_2, \quad
+\frac{V_2}{V_1} = \frac{N_2}{N_1}
+$$</p>
+<hr>
+<h2 id="Ch-32-Maxwell’s-Equations-Magnetism-of-Matter">Ch. 32 Maxwell’s Equations; Magnetism of Matter *</h2>
+<ul>
+<li>Integral Form</li>
+</ul>
+<p>$$
+\left{ \begin{aligned}
+&amp; \oint_{\mathbf{A} = \partial V}
+\mathbf{E}\cdot\mathop{d\mathbf{A}} =
+\frac{q_\text{enc}}{\epsilon_0}
+&amp; \quad\text{Gauss’ Law} \
+&amp; \oint_{\mathbf{A} = \partial V}
+\mathbf{B}\cdot\mathop{d\mathbf{A}} = 0
+&amp; \quad\text{Gauss’ Law for B-Field} \
+&amp; \oint_{\mathbf{l} = \partial \mathbf{A}}
+\mathbf{E}\cdot\mathop{d\mathbf{l}} = -
+\frac{d}{dt} \int_\mathbf{A}
+\mathbf{B}\cdot\mathop{d\mathbf{A}}
+&amp; \quad\text{Faraday’s Law} \
+&amp; \oint_{\mathbf{l} = \partial\mathbf{A}}
+\mathbf{B}\cdot\mathop{d\mathbf{l}} =
+\mu_0\left(
+\int_\mathbf{A} \mathbf{J}\cdot\mathop{d\mathbf{A}} +
+\epsilon_0\frac{d}{dt}
+\int_\mathbf{A} \mathbf{E}\cdot\mathop{d\mathbf{A}}
+\right)
+&amp; \quad\text{Ampere’ Law}
+\end{aligned} \right.
+$$</p>
+<ul>
+<li>Maxwell’s Law of Induction</li>
+</ul>
+<p>$$
+\oint_\mathbf{l} \mathbf{B}\cdot\mathop{d\mathbf{l}} =
+\mu_0\epsilon_0\frac{d\Phi_E}{dt} =
+\mu_0\epsilon_0\frac{d}{dt}
+\int_\mathbf{A} \mathbf{E}\cdot\mathop{d\mathbf{A}}
+$$</p>
+<ul>
+<li>displacement current</li>
+</ul>
+<p>$$
+i_d = \epsilon_0\frac{d\Phi_E}{dt}
+$$</p>
+<ul>
+<li>Differential Form</li>
+</ul>
+<p>$$
+\left{ \begin{aligned}
+&amp; \nabla\cdot\mathbf{E} =
+\frac{\rho}{\epsilon_0} \
+&amp; \nabla\cdot\mathbf{B} = 0 \
+&amp; \nabla\cdot\mathbf{E} = -
+\frac{\partial\mathbf{B}}{\partial t} \
+&amp; \nabla\cdot\mathbf{B} = \mu_0\left(
+\mathbf{J} +
+\epsilon_0\frac{\partial\mathbf{E}}{\partial t}
+\right) \
+\end{aligned} \right.
+$$</p>
+<hr>
+<h2 id="Ch-33-Electromagnetic-Waves">Ch. 33 Electromagnetic Waves *</h2>
+<p>$$
+\left{ \begin{aligned}
+&amp; \nabla^2\mathbf{B} -
+\mu_0\epsilon_0\frac{\partial^2\mathbf{B}}{\partial t^2} = 0 \
+&amp; \nabla^2\mathbf{E} -
+\mu_0\epsilon_0\frac{\partial^2\mathbf{E}}{\partial t^2} = 0
+\end{aligned} \right.\Rightarrow
+\left{ \begin{aligned}
+&amp; \mathbf{E}(\mathbf{r},t) = \mathbf{E}_0
+\cos(\omega t - \mathbf{k}\cdot\mathbf{r} + \phi_0) \
+&amp; \mathbf{B}(\mathbf{r},t) = \mathbf{B}_0
+\cos(\omega t - \mathbf{k}\cdot\mathbf{r} + \phi_0)
+\end{aligned} \right.
+$$</p>
+<p>$$
+k = |\mathbf{k}| = \frac{\omega}{c} = \frac{2\pi}{\lambda}
+$$</p>
+<p>$$
+\left|\frac{\mathbf{E}_0}{\mathbf{B}_0}\right| =
+c = \frac{1}{\sqrt{\mu_0\epsilon_0}}
+$$</p>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200820201837-emwaves.png" alt="EM Waves"></p>
+<h3 id="Energy-Transfer-in-EM-Waves">Energy Transfer in EM Waves</h3>
+<p>$$
+u_\text{total} = \epsilon_0E^2 = \epsilon_0EBc = \frac{EB}{\mu_0}
+$$</p>
+<ul>
+<li><strong>Poynting Vector</strong></li>
+</ul>
+<p>$$
+\vec{S} = \frac{1}{\mu_0}\vec{E}\times\vec{B}
+$$</p>
+<ul>
+<li><strong>Intensity</strong></li>
+</ul>
+<p>$$
+I =
+S_\text{avg} =
+\frac{E_0B_0}{2\mu_0} =
+\frac{E_0^2}{2\mu_0c} =
+\frac{E^2_\text{rms}}{\mu_0c}
+$$</p>
+<p>$$
+\frac{\text{average power}}{4\pi r^2} \propto \frac{1}{r^2}
+$$</p>
+<h3 id="Polarization">Polarization</h3>
+<p>When a unpolarized light passes through a polarizer, half of the intensity is
+loss</p>
+<p>$$
+I - \frac{1}{2}I_0
+$$</p>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200820203628-polarizer.png" alt="Polarizer"></p>
+<p>$$
+I_2 = I_1\cos^2\phi
+$$</p>
+<h3 id="Reflection-Refraction">Reflection &amp; Refraction</h3>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200820203903-refraction-reflection.png" alt="Reflection &amp; Refraction"></p>
+<ul>
+<li><strong>Snell’s Law</strong></li>
+</ul>
+<p>$$
+\frac{\sin\theta_1}{\sin\theta_2} =
+\frac{n_\text{water}}{n_\text{air}},\quad
+n = c/v = \frac{\lambda_\text{vacuum}}{\lambda_\text{medium}}
+$$</p>
+<ul>
+<li>Fermat’s Principle in Optics</li>
+<li>Total Internal Reflection</li>
+</ul>
+<p>$$
+\sin\theta_\text{critical} = \frac{n_2}{n_1}
+$$</p>
+<ul>
+<li>Light in a Raindrop *</li>
+<li>Polarization bt reflection</li>
+</ul>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200820204607-Brewster.png" alt="Brewster Angle"></p>
+<p>$$
+\theta_B = \tan^{-1}\frac{n_2}{n_1}
+$$</p>
+<hr>
+<h2 id="Ch-35-Interference">Ch. 35 Interference *</h2>
+<h3 id="Young’s-Interference">Young’s Interference</h3>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200820205313-Young-actual.png" alt="image-20200820205311296"></p>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200820205340-Young-approx.png" alt="image-20200820205339402"></p>
+<p>$$
+d\sin\theta = m\lambda\Rightarrow
+y_m = R\tan\theta_m\approx R\sin\theta_m = R\frac{m\lambda}{d}
+$$</p>
+<ul>
+<li>Intensity of interference pattern</li>
+</ul>
+<p>$$
+\phi = \frac{2\pi d}{\lambda}\sin\theta, \quad
+I = 4I_0\cos^2\frac{1}{2}\phi
+$$</p>
+<h3 id="Thin-Film-Interference">Thin-Film Interference</h3>
+<ul>
+<li>Half wavelength shift</li>
+</ul>
+<h2 id="Ch-36-Diffraction">Ch. 36 Diffraction</h2>
+<h3 id="Single-Slit-Diffraction">Single Slit Diffraction</h3>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200820211501-Fraunhofer-Single-Slit.png" alt="Fraunhofer Single Slit"></p>
+<p>(of dark fringes)</p>
+<p>$$
+\sin\theta = \frac{m\lambda}{a}
+$$</p>
+<p>$$
+I = I_0\left[\frac{\sin(\beta/2)}{\beta/2}\right]^2, \quad
+\beta = \frac{2\pi}{\lambda}a\sin\theta
+$$</p>
+<blockquote>
+<p>Single-Slit diffraction envelope in double slit interference</p>
+</blockquote>
+<h3 id="Diffraction-on-Multiple-Slits">Diffraction on Multiple Slits</h3>
+<ul>
+<li>Principal Maxima</li>
+</ul>
+<p>$$
+\sin\theta_n = n\lambda/d
+$$</p>
+<ul>
+<li>Interference Minima</li>
+</ul>
+<p>($Nd$ is the total width of N-slits)</p>
+<p>$$
+\sin\theta_s = s\lambda/(Nd)
+$$</p>
+<ul>
+<li>Subsidiary Maxima</li>
+<li>Single-Slit Diffraction Envelope</li>
+</ul>
+<h3 id="Diffraction-Gratings">Diffraction Gratings</h3>
+<ul>
+<li>Dispersion</li>
+</ul>
+<p>The angular separation of two lines whose wavelengths differ by a certain amount</p>
+<p>$$
+D = \frac{\Delta\theta}{\Delta\lambda} = \frac{m}{d\cos\theta}
+$$</p>
+<ul>
+<li>Resolving Power</li>
+</ul>
+<p>$$
+\Delta\theta_\text{hw} = \frac{\lambda}{Nd\cos\theta}
+\Rightarrow R = \frac{\lambda}{\Delta\lambda} = Nm
+$$</p>
+<ul>
+<li>Rayleigh’s criterion of resolvability</li>
+</ul>
+<h2 id="Ch-37-Special-Relativity">Ch. 37 Special Relativity</h2>
+<ul>
+<li>Lorentz’s Factor</li>
+</ul>
+<p>$$
+\gamma = \frac{1}{\sqrt{1 - u^2/c^2}}
+$$</p>
+<ul>
+<li>Time dilation</li>
+</ul>
+<p>$$
+t = \frac{1}{\sqrt{1 - (v/c)^2}}t’ = \gamma t’
+$$</p>
+<ul>
+<li>Length contraction</li>
+</ul>
+<p>$$
+L = L’\sqrt{1 - (v/c)^2} = L’/\gamma
+$$</p>
+<ul>
+<li>Lorentz Transformation</li>
+</ul>
+<p>…</p>
+<p>$$
+u = \frac{u’ + v}{1 + vu’/c^2}
+$$</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="followme">
+  <span>Welcome to my other publishing channels</span>
+
+  <div class="social-list">
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://x.com/SamuelGHuang">
+            <span class="icon">
+              <i class="fab fa-x-twitter"></i>
+            </span>
+
+            <span class="label">X</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://linkedin.com/in/samuel-g-huang/">
+            <span class="icon">
+              <i class="fab fa-linkedin"></i>
+            </span>
+
+            <span class="label">LinkedIn</span>
+          </a>
+      </div>
+
+      <div class="social-item">
+          <span class="social-link">
+            <span class="icon">
+              <i class="fab fa-weixin"></i>
+            </span>
+
+            <span class="label">微信公众号</span>
+          </span>
+
+          <img class="social-item-img" src="/images/wechat-channel.png">
+      </div>
+
+      <div class="social-item">
+          <a target="_blank" class="social-link" href="https://zhihu.com/people/hailkiwi">
+            <span class="icon">
+              <i class="fab fa-zhihu"></i>
+            </span>
+
+            <span class="label">知乎</span>
+          </a>
+      </div>
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/physics/" rel="tag"># physics</a>
+              <a href="/tags/note/" rel="tag"># note</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/16.4%20Green%E2%80%99s%20Theorem%20in%20the%20Plane/" rel="prev" title="高等数学（下）期末复习：16.4 平面上的格林定理">
+                  <i class="fa fa-angle-left"></i> 高等数学（下）期末复习：16.4 平面上的格林定理
+                </a>
+            </div>
+            <div class="post-nav-item">
+                <a href="/circuits/" rel="next" title="Fundamentals of Electric Circuits Review">
+                  Fundamentals of Electric Circuits Review <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2020 – 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-terminal"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Samuel Huang</span>
+  </div>
+<div class="wordcount">
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-chart-line"></i>
+    </span>
+    <span title="Word count total">105k</span>
+  </span>
+  <span class="post-meta-item">
+    <span class="post-meta-item-icon">
+      <i class="fa fa-coffee"></i>
+    </span>
+    <span title="Reading time total">6:22</span>
+  </span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
+  </div><div class="footer-custom">
+  Source code and website hosted on
+  <a target="_blank" rel="noopener" href="https://github.com/sghuang19/sghuang19.github.io">GitHub</a>.
+</div>
+
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="reading-progress-bar"></div>
+
+  <a href="https://github.com/sghuang19" class="github-corner" title="Follow me on GitHub" aria-label="Follow me on GitHub" rel="noopener" target="_blank"><svg width="80" height="80" viewBox="0 0 250 250" aria-hidden="true"><path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path><path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2" fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path><path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z" fill="currentColor" class="octo-body"></path></svg></a>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/next-theme-pjax/0.6.0/pjax.min.js" integrity="sha256-vxLn1tSKWD4dqbMRyv940UYw4sXgMtYcK6reefzZrao=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/5.0.31/fancybox/fancybox.umd.js" integrity="sha256-a+H7FYzJv6oU2hfsfDGM2Ohw/cR9v+hPfxHCLdmCrE8=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/sidebar.js"></script><script src="/js/next-boot.js"></script><script src="/js/pjax.js"></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.4.1/search.js" integrity="sha256-1kfA5uHPf65M5cphT2dvymhkuyHPQp5A53EGZOnOLmc=" crossorigin="anonymous"></script>
+<script src="/js/third-party/search/local-search.js"></script>
+
+
+
+
+  <script src="/js/third-party/fancybox.js"></script>
+
+
+
+  
+
+
+
+
+  
+
+  <script class="next-config" data-name="enableMath" type="application/json">true</script><script class="next-config" data-name="mathjax" type="application/json">{"enable":true,"tags":"none","js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/mathjax/3.2.2/es5/tex-mml-chtml.js","integrity":"sha256-MASABpB4tYktI2Oitl4t+78w/lyA+D7b/s9GEP0JOGI="}}</script>
+<script src="/js/third-party/math/mathjax.js"></script>
+
+
+
+</body>
+</html>
