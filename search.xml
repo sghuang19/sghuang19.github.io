@@ -728,6 +728,26 @@ the <code>default:</code> path for the header tabs to be loaded.</p>
       </tags>
   </entry>
   <entry>
+    <title>A Survey of SSG Choice</title>
+    <url>/2024-06-25-blog-survey/</url>
+    <content><![CDATA[<!-- TODO: update the date to actual -->
+<p>First, the general criteria is defined as follows:</p>
+<div class="note primary no-icon"><ul>
+<li>Widely used.</li>
+<li>Actively maintained.</li>
+<li>Comprehensive extensions support.</li>
+<li>Appealing appearance.
+<ul>
+<li>Responsive.</li>
+<li>Mobile friendly.</li>
+<li>Dark mode.</li>
+</ul>
+</li>
+</ul>
+</div>
+]]></content>
+  </entry>
+  <entry>
     <title>A Pythonic and Fast Solution for &quot;Longest Substring without Repeating Characters&quot; Problem</title>
     <url>//longest-substring-without-repeating-characters/</url>
     <content><![CDATA[<p>This solution beats 98.90% solutions on
@@ -763,30 +783,6 @@ character isn’t found, thus <code>substr[-1 + 1:]</code> simplifies to <code>s
         <tag>algorithm</tag>
         <tag>leetcode</tag>
         <tag>python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hello World</title>
-    <url>/hello-world/</url>
-    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start">Quick Start</h2>
-<h3 id="Create-a-new-post">Create a new post</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server">Run server</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files">Generate static files</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure>
-<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-]]></content>
-      <tags>
-        <tag>project</tag>
-        <tag>test</tag>
-        <tag>cse</tag>
       </tags>
   </entry>
   <entry>
@@ -857,6 +853,567 @@ tunneled address, the images loaded successfully!</p>
       </tags>
   </entry>
   <entry>
+    <title>Hello World</title>
+    <url>/hello-world/</url>
+    <content><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
+<h2 id="Quick-Start">Quick Start</h2>
+<h3 id="Create-a-new-post">Create a new post</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p>
+<h3 id="Run-server">Run server</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p>
+<h3 id="Generate-static-files">Generate static files</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p>
+<h3 id="Deploy-to-remote-sites">Deploy to remote sites</h3>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></tbody></table></figure>
+<p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+]]></content>
+      <tags>
+        <tag>project</tag>
+        <tag>test</tag>
+        <tag>cse</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>An Efficient Python 3 Solution to the Minimum Window Substring Problem</title>
+    <url>/2024-06-26-min-win-substr/</url>
+    <content><![CDATA[<p>An efficient solution to
+<a href="https://leetcode.com/problems/minimum-window-substring/">this problem</a> that
+beats 99.92% solutions in runtime and 98.79% in memory usage.</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">start = min_start = <span class="number">0</span></span><br><span class="line">end = -<span class="number">1</span></span><br><span class="line">min_w = <span class="built_in">len</span>(s) + <span class="number">1</span></span><br><span class="line"></span><br><span class="line">table = [<span class="number">0</span>] * <span class="number">128</span></span><br><span class="line">count = <span class="built_in">len</span>(t)</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> c <span class="keyword">in</span> t:</span><br><span class="line">    table[<span class="built_in">ord</span>(c)] += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> c <span class="keyword">in</span> s:</span><br><span class="line">    end += <span class="number">1</span></span><br><span class="line">    <span class="keyword">if</span> table[<span class="built_in">ord</span>(c)] &gt; <span class="number">0</span>:</span><br><span class="line">        count -= <span class="number">1</span></span><br><span class="line">    table[<span class="built_in">ord</span>(c)] -= <span class="number">1</span></span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> count == <span class="number">0</span>:</span><br><span class="line">        <span class="keyword">while</span> table[<span class="built_in">ord</span>(s[start])] &lt; <span class="number">0</span>:</span><br><span class="line">            table[<span class="built_in">ord</span>(s[start])] += <span class="number">1</span></span><br><span class="line">            start += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> end - start + <span class="number">1</span> &lt; min_w:</span><br><span class="line">            min_w = end - start + <span class="number">1</span></span><br><span class="line">            min_start = start</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> <span class="string">""</span> <span class="keyword">if</span> min_w == <span class="built_in">len</span>(s) + <span class="number">1</span> <span class="keyword">else</span> s[min_start:][:min_w]</span><br></pre></td></tr></tbody></table></figure>
+<span id="more"></span>
+<h2 id="Intuition">Intuition</h2>
+<ul>
+<li>Maintain a sliding window.</li>
+<li>Keep track of whether the window contains all characters in <code>t</code>.</li>
+<li>Also keep track of the “surplus” characters in the window.</li>
+<li>If it does, shrink the window by trimming the redundant characters from the
+start, by referring to the surplus characters table.</li>
+<li>Also keep track of the minimum window size and the corresponding window.</li>
+</ul>
+<h2 id="A-Quick-Prototype-and-Its-Optimization">A Quick Prototype and Its Optimization</h2>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">counter_t = Counter(t)</span><br><span class="line">counter_w = Counter()</span><br><span class="line">start = <span class="number">0</span></span><br><span class="line">w = <span class="string">""</span></span><br><span class="line">min_w = s + t</span><br><span class="line"><span class="keyword">for</span> c <span class="keyword">in</span> s:</span><br><span class="line">    counter_w[c] += <span class="number">1</span></span><br><span class="line">    w += c</span><br><span class="line">    <span class="keyword">while</span> start &lt; <span class="built_in">len</span>(s) <span class="keyword">and</span> counter_w[s[start]] - counter_t[s[start]] &gt;= <span class="number">1</span>:</span><br><span class="line">        counter_w.subtract(s[start])</span><br><span class="line">        start += <span class="number">1</span></span><br><span class="line">        w = w[<span class="number">1</span>:]</span><br><span class="line">    <span class="keyword">if</span> counter_t &lt;= counter_w:</span><br><span class="line">        <span class="keyword">if</span> <span class="built_in">len</span>(w) &lt; <span class="built_in">len</span>(min_w):</span><br><span class="line">            min_w = w</span><br><span class="line"><span class="keyword">if</span> <span class="built_in">len</span>(min_w) == <span class="built_in">len</span>(s) + <span class="built_in">len</span>(t):</span><br><span class="line">    <span class="keyword">return</span> <span class="string">""</span></span><br><span class="line"><span class="keyword">else</span>:</span><br><span class="line">    <span class="keyword">return</span> min_w</span><br></pre></td></tr></tbody></table></figure>
+<p>There is a lot of room for optimization in the above code.</p>
+<ul>
+<li>The <code>Counter</code> class is handy but slow for this use case.</li>
+<li>We can keep track of the <code>start</code> and <code>end</code> indices of the window instead of
+the substring of the window itself. Alternatively, we can keep track of the
+<code>start</code> index and the length of the window.</li>
+<li>We don’t have to trim the window at each interation, it is only needed when a
+valid window is found.</li>
+<li>As a side effect, when we trim window only when the window is valid, we no
+longer need to guard <code>start</code> index again out of range error.</li>
+</ul>
+<h2 id="Explanation-of-the-Final-Code">Explanation of the Final Code</h2>
+<p>Here’s the final code with comments:</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="comment"># Initialize the variables needed</span></span><br><span class="line">start = min_start = <span class="number">0</span></span><br><span class="line">end = -<span class="number">1</span>  <span class="comment"># So that at the first iteration end == 1</span></span><br><span class="line">min_w = <span class="built_in">len</span>(s) + <span class="number">1</span>  <span class="comment"># The max possible window length is len(s)</span></span><br><span class="line"></span><br><span class="line">table = [<span class="number">0</span>] * <span class="number">128</span>  <span class="comment"># Since only letters are considered</span></span><br><span class="line">count = <span class="built_in">len</span>(t)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Initialize the table</span></span><br><span class="line"><span class="keyword">for</span> c <span class="keyword">in</span> t:</span><br><span class="line">    table[<span class="built_in">ord</span>(c)] += <span class="number">1</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> c <span class="keyword">in</span> s:</span><br><span class="line">    end += <span class="number">1</span>  <span class="comment"># Advance the end index</span></span><br><span class="line">    <span class="keyword">if</span> table[<span class="built_in">ord</span>(c)] &gt; <span class="number">0</span>:  <span class="comment"># One more char from t is found</span></span><br><span class="line">        count -= <span class="number">1</span></span><br><span class="line">    table[<span class="built_in">ord</span>(c)] -= <span class="number">1</span>  <span class="comment"># Update the table</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># A valid window is found</span></span><br><span class="line">    <span class="keyword">if</span> count == <span class="number">0</span>:</span><br><span class="line">        <span class="comment"># Let's trim the window!</span></span><br><span class="line">        <span class="keyword">while</span> table[<span class="built_in">ord</span>(s[start])] &lt; <span class="number">0</span>:</span><br><span class="line">            <span class="comment"># If the char at the start is "surplus", remove it</span></span><br><span class="line">            table[<span class="built_in">ord</span>(s[start])] += <span class="number">1</span></span><br><span class="line">            start += <span class="number">1</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># Update the minimum window</span></span><br><span class="line">        <span class="keyword">if</span> end - start + <span class="number">1</span> &lt; min_w:</span><br><span class="line">            min_w = end - start + <span class="number">1</span></span><br><span class="line">            min_start = start</span><br><span class="line"></span><br><span class="line"><span class="comment"># If a valid window is never found, return ""</span></span><br><span class="line"><span class="keyword">return</span> <span class="string">""</span> <span class="keyword">if</span> min_w == <span class="built_in">len</span>(s) + <span class="number">1</span> <span class="keyword">else</span> s[min_start:][:min_w]</span><br></pre></td></tr></tbody></table></figure>
+<p>The use of <code>counter</code> variable significantly speeds up the algorithm. Otherwise,
+we would have to consult the table each time, and test whether <code>max(table) == 0</code>
+to see if we found a valid window.</p>
+<h2 id="Some-Optimization-Tricks-for-Leetcode">Some Optimization Tricks for Leetcode</h2>
+<ul>
+<li><code>s[min_start:][:min_w]</code> is somehow much faster than
+<code>s[min_start:min_start + min_w + 1]</code></li>
+<li><code>table[ord(c)]</code> is faster than <code>table[ord(c) - ord('A')]</code></li>
+<li>Initialize <code>min_w</code> to a integer is slightly faster than <code>float('inf')</code>.</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>leetcode</tag>
+        <tag>python</tag>
+        <tag>algorithms</tag>
+        <tag>sliding-window</tag>
+        <tag>strings</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Image Steganography with Hamming Code Error Correction</title>
+    <url>//stegano/</url>
+    <content><![CDATA[<!-- cSpell:words stegano -->
+<p>This course project for Digital Image Processing integrates LSB steganography in
+images with Hamming Code error correction. I chose this topic because I was
+fascinated by the video made by 3Blue1Brown explaining Hamming Code, and I have
+a strong interest in bit operations.</p>
+<style>svg:not(:root).svg-inline--fa {
+  overflow: visible;
+}
+
+.svg-inline--fa {
+  display: inline-block;
+  font-size: inherit;
+  height: 1em;
+  overflow: visible;
+  vertical-align: -0.125em;
+}
+.svg-inline--fa.fa-lg {
+  vertical-align: -0.225em;
+}
+.svg-inline--fa.fa-w-1 {
+  width: 0.0625em;
+}
+.svg-inline--fa.fa-w-2 {
+  width: 0.125em;
+}
+.svg-inline--fa.fa-w-3 {
+  width: 0.1875em;
+}
+.svg-inline--fa.fa-w-4 {
+  width: 0.25em;
+}
+.svg-inline--fa.fa-w-5 {
+  width: 0.3125em;
+}
+.svg-inline--fa.fa-w-6 {
+  width: 0.375em;
+}
+.svg-inline--fa.fa-w-7 {
+  width: 0.4375em;
+}
+.svg-inline--fa.fa-w-8 {
+  width: 0.5em;
+}
+.svg-inline--fa.fa-w-9 {
+  width: 0.5625em;
+}
+.svg-inline--fa.fa-w-10 {
+  width: 0.625em;
+}
+.svg-inline--fa.fa-w-11 {
+  width: 0.6875em;
+}
+.svg-inline--fa.fa-w-12 {
+  width: 0.75em;
+}
+.svg-inline--fa.fa-w-13 {
+  width: 0.8125em;
+}
+.svg-inline--fa.fa-w-14 {
+  width: 0.875em;
+}
+.svg-inline--fa.fa-w-15 {
+  width: 0.9375em;
+}
+.svg-inline--fa.fa-w-16 {
+  width: 1em;
+}
+.svg-inline--fa.fa-w-17 {
+  width: 1.0625em;
+}
+.svg-inline--fa.fa-w-18 {
+  width: 1.125em;
+}
+.svg-inline--fa.fa-w-19 {
+  width: 1.1875em;
+}
+.svg-inline--fa.fa-w-20 {
+  width: 1.25em;
+}
+.svg-inline--fa.fa-pull-left {
+  margin-right: 0.3em;
+  width: auto;
+}
+.svg-inline--fa.fa-pull-right {
+  margin-left: 0.3em;
+  width: auto;
+}
+.svg-inline--fa.fa-border {
+  height: 1.5em;
+}
+.svg-inline--fa.fa-li {
+  width: 2em;
+}
+.svg-inline--fa.fa-fw {
+  width: 1.25em;
+}
+
+.fa-layers svg.svg-inline--fa {
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.fa-layers {
+  display: inline-block;
+  height: 1em;
+  position: relative;
+  text-align: center;
+  vertical-align: -0.125em;
+  width: 1em;
+}
+.fa-layers svg.svg-inline--fa {
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+}
+
+.fa-layers-counter, .fa-layers-text {
+  display: inline-block;
+  position: absolute;
+  text-align: center;
+}
+
+.fa-layers-text {
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+}
+
+.fa-layers-counter {
+  background-color: #ff253a;
+  border-radius: 1em;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #fff;
+  height: 1.5em;
+  line-height: 1;
+  max-width: 5em;
+  min-width: 1.5em;
+  overflow: hidden;
+  padding: 0.25em;
+  right: 0;
+  text-overflow: ellipsis;
+  top: 0;
+  -webkit-transform: scale(0.25);
+          transform: scale(0.25);
+  -webkit-transform-origin: top right;
+          transform-origin: top right;
+}
+
+.fa-layers-bottom-right {
+  bottom: 0;
+  right: 0;
+  top: auto;
+  -webkit-transform: scale(0.25);
+          transform: scale(0.25);
+  -webkit-transform-origin: bottom right;
+          transform-origin: bottom right;
+}
+
+.fa-layers-bottom-left {
+  bottom: 0;
+  left: 0;
+  right: auto;
+  top: auto;
+  -webkit-transform: scale(0.25);
+          transform: scale(0.25);
+  -webkit-transform-origin: bottom left;
+          transform-origin: bottom left;
+}
+
+.fa-layers-top-right {
+  right: 0;
+  top: 0;
+  -webkit-transform: scale(0.25);
+          transform: scale(0.25);
+  -webkit-transform-origin: top right;
+          transform-origin: top right;
+}
+
+.fa-layers-top-left {
+  left: 0;
+  right: auto;
+  top: 0;
+  -webkit-transform: scale(0.25);
+          transform: scale(0.25);
+  -webkit-transform-origin: top left;
+          transform-origin: top left;
+}
+
+.fa-lg {
+  font-size: 1.3333333333em;
+  line-height: 0.75em;
+  vertical-align: -0.0667em;
+}
+
+.fa-xs {
+  font-size: 0.75em;
+}
+
+.fa-sm {
+  font-size: 0.875em;
+}
+
+.fa-1x {
+  font-size: 1em;
+}
+
+.fa-2x {
+  font-size: 2em;
+}
+
+.fa-3x {
+  font-size: 3em;
+}
+
+.fa-4x {
+  font-size: 4em;
+}
+
+.fa-5x {
+  font-size: 5em;
+}
+
+.fa-6x {
+  font-size: 6em;
+}
+
+.fa-7x {
+  font-size: 7em;
+}
+
+.fa-8x {
+  font-size: 8em;
+}
+
+.fa-9x {
+  font-size: 9em;
+}
+
+.fa-10x {
+  font-size: 10em;
+}
+
+.fa-fw {
+  text-align: center;
+  width: 1.25em;
+}
+
+.fa-ul {
+  list-style-type: none;
+  margin-left: 2.5em;
+  padding-left: 0;
+}
+.fa-ul > li {
+  position: relative;
+}
+
+.fa-li {
+  left: -2em;
+  position: absolute;
+  text-align: center;
+  width: 2em;
+  line-height: inherit;
+}
+
+.fa-border {
+  border: solid 0.08em #eee;
+  border-radius: 0.1em;
+  padding: 0.2em 0.25em 0.15em;
+}
+
+.fa-pull-left {
+  float: left;
+}
+
+.fa-pull-right {
+  float: right;
+}
+
+.fa.fa-pull-left,
+.fas.fa-pull-left,
+.far.fa-pull-left,
+.fal.fa-pull-left,
+.fab.fa-pull-left {
+  margin-right: 0.3em;
+}
+.fa.fa-pull-right,
+.fas.fa-pull-right,
+.far.fa-pull-right,
+.fal.fa-pull-right,
+.fab.fa-pull-right {
+  margin-left: 0.3em;
+}
+
+.fa-spin {
+  -webkit-animation: fa-spin 2s infinite linear;
+          animation: fa-spin 2s infinite linear;
+}
+
+.fa-pulse {
+  -webkit-animation: fa-spin 1s infinite steps(8);
+          animation: fa-spin 1s infinite steps(8);
+}
+
+@-webkit-keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+.fa-rotate-90 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.fa-rotate-180 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.fa-rotate-270 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";
+  -webkit-transform: rotate(270deg);
+          transform: rotate(270deg);
+}
+
+.fa-flip-horizontal {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)";
+  -webkit-transform: scale(-1, 1);
+          transform: scale(-1, 1);
+}
+
+.fa-flip-vertical {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
+  -webkit-transform: scale(1, -1);
+          transform: scale(1, -1);
+}
+
+.fa-flip-both, .fa-flip-horizontal.fa-flip-vertical {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
+  -webkit-transform: scale(-1, -1);
+          transform: scale(-1, -1);
+}
+
+:root .fa-rotate-90,
+:root .fa-rotate-180,
+:root .fa-rotate-270,
+:root .fa-flip-horizontal,
+:root .fa-flip-vertical,
+:root .fa-flip-both {
+  -webkit-filter: none;
+          filter: none;
+}
+
+.fa-stack {
+  display: inline-block;
+  height: 2em;
+  position: relative;
+  width: 2.5em;
+}
+
+.fa-stack-1x,
+.fa-stack-2x {
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.svg-inline--fa.fa-stack-1x {
+  height: 1em;
+  width: 1.25em;
+}
+.svg-inline--fa.fa-stack-2x {
+  height: 2em;
+  width: 2.5em;
+}
+
+.fa-inverse {
+  color: #fff;
+}
+
+.sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.sr-only-focusable:active, .sr-only-focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+.svg-inline--fa .fa-primary {
+  fill: var(--fa-primary-color, currentColor);
+  opacity: 1;
+  opacity: var(--fa-primary-opacity, 1);
+}
+
+.svg-inline--fa .fa-secondary {
+  fill: var(--fa-secondary-color, currentColor);
+  opacity: 0.4;
+  opacity: var(--fa-secondary-opacity, 0.4);
+}
+
+.svg-inline--fa.fa-swap-opacity .fa-primary {
+  opacity: 0.4;
+  opacity: var(--fa-secondary-opacity, 0.4);
+}
+
+.svg-inline--fa.fa-swap-opacity .fa-secondary {
+  opacity: 1;
+  opacity: var(--fa-primary-opacity, 1);
+}
+
+.svg-inline--fa mask .fa-primary,
+.svg-inline--fa mask .fa-secondary {
+  fill: black;
+}
+
+.fad.fa-inverse {
+  color: #fff;
+}</style>
+<p>You can learn more about this project by reading the comprehensive
+<a href="https://github.com/sghuang19/dip-project-stegano/blob/main/README.md"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="file" class="svg-inline--fa fa-file fa-w-12" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm160-14.1v6.1H256V0h6.1c6.4 0 12.5 2.5 17 7l97.9 98c4.5 4.5 7 10.6 7 16.9z"></path></svg> project report</a>.</p>
+<h2 id="Challenges-Encountered">Challenges Encountered</h2>
+<p><img src="https://raw.githubusercontent.com/sghuang19/dip-project-stegano/main/fig/acc.svg" alt="accuracy"></p>
+<ul>
+<li>Hamming Code cannot recover from excessive bit errors caused by significant
+damage to the image file.</li>
+<li>I wasn’t familiar with Git at the time, the commit history was unclear.</li>
+</ul>
+<h2 id="Successes-Achieved">Successes Achieved</h2>
+<ul>
+<li>Several elegant code snippets were developed, which I’m proud of.</li>
+<li>The code is fairly Pythonic, many builtin features are utilized.</li>
+<li>The code is well documented with docstrings.</li>
+<li>The final report is comprehensive.</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>python</tag>
+        <tag>project</tag>
+        <tag>hamming</tag>
+        <tag>ecc</tag>
+        <tag>dip</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Best Articles I Wrote (Subjectively)</title>
     <url>//best-articles/</url>
     <content><![CDATA[<p>The following articles were written in Chinese.</p>
@@ -866,6 +1423,505 @@ tunneled address, the images loaded successfully!</p>
 （重新认识西方政治制度的优势）</li>
 </ul>
 ]]></content>
+  </entry>
+  <entry>
+    <title>Compiler for B-Minor 2023</title>
+    <url>//compiler/</url>
+    <content><![CDATA[<h2 id="Background">Background</h2>
+<style>svg:not(:root).svg-inline--fa {
+  overflow: visible;
+}
+
+.svg-inline--fa {
+  display: inline-block;
+  font-size: inherit;
+  height: 1em;
+  overflow: visible;
+  vertical-align: -0.125em;
+}
+.svg-inline--fa.fa-lg {
+  vertical-align: -0.225em;
+}
+.svg-inline--fa.fa-w-1 {
+  width: 0.0625em;
+}
+.svg-inline--fa.fa-w-2 {
+  width: 0.125em;
+}
+.svg-inline--fa.fa-w-3 {
+  width: 0.1875em;
+}
+.svg-inline--fa.fa-w-4 {
+  width: 0.25em;
+}
+.svg-inline--fa.fa-w-5 {
+  width: 0.3125em;
+}
+.svg-inline--fa.fa-w-6 {
+  width: 0.375em;
+}
+.svg-inline--fa.fa-w-7 {
+  width: 0.4375em;
+}
+.svg-inline--fa.fa-w-8 {
+  width: 0.5em;
+}
+.svg-inline--fa.fa-w-9 {
+  width: 0.5625em;
+}
+.svg-inline--fa.fa-w-10 {
+  width: 0.625em;
+}
+.svg-inline--fa.fa-w-11 {
+  width: 0.6875em;
+}
+.svg-inline--fa.fa-w-12 {
+  width: 0.75em;
+}
+.svg-inline--fa.fa-w-13 {
+  width: 0.8125em;
+}
+.svg-inline--fa.fa-w-14 {
+  width: 0.875em;
+}
+.svg-inline--fa.fa-w-15 {
+  width: 0.9375em;
+}
+.svg-inline--fa.fa-w-16 {
+  width: 1em;
+}
+.svg-inline--fa.fa-w-17 {
+  width: 1.0625em;
+}
+.svg-inline--fa.fa-w-18 {
+  width: 1.125em;
+}
+.svg-inline--fa.fa-w-19 {
+  width: 1.1875em;
+}
+.svg-inline--fa.fa-w-20 {
+  width: 1.25em;
+}
+.svg-inline--fa.fa-pull-left {
+  margin-right: 0.3em;
+  width: auto;
+}
+.svg-inline--fa.fa-pull-right {
+  margin-left: 0.3em;
+  width: auto;
+}
+.svg-inline--fa.fa-border {
+  height: 1.5em;
+}
+.svg-inline--fa.fa-li {
+  width: 2em;
+}
+.svg-inline--fa.fa-fw {
+  width: 1.25em;
+}
+
+.fa-layers svg.svg-inline--fa {
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.fa-layers {
+  display: inline-block;
+  height: 1em;
+  position: relative;
+  text-align: center;
+  vertical-align: -0.125em;
+  width: 1em;
+}
+.fa-layers svg.svg-inline--fa {
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+}
+
+.fa-layers-counter, .fa-layers-text {
+  display: inline-block;
+  position: absolute;
+  text-align: center;
+}
+
+.fa-layers-text {
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  -webkit-transform-origin: center center;
+          transform-origin: center center;
+}
+
+.fa-layers-counter {
+  background-color: #ff253a;
+  border-radius: 1em;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  color: #fff;
+  height: 1.5em;
+  line-height: 1;
+  max-width: 5em;
+  min-width: 1.5em;
+  overflow: hidden;
+  padding: 0.25em;
+  right: 0;
+  text-overflow: ellipsis;
+  top: 0;
+  -webkit-transform: scale(0.25);
+          transform: scale(0.25);
+  -webkit-transform-origin: top right;
+          transform-origin: top right;
+}
+
+.fa-layers-bottom-right {
+  bottom: 0;
+  right: 0;
+  top: auto;
+  -webkit-transform: scale(0.25);
+          transform: scale(0.25);
+  -webkit-transform-origin: bottom right;
+          transform-origin: bottom right;
+}
+
+.fa-layers-bottom-left {
+  bottom: 0;
+  left: 0;
+  right: auto;
+  top: auto;
+  -webkit-transform: scale(0.25);
+          transform: scale(0.25);
+  -webkit-transform-origin: bottom left;
+          transform-origin: bottom left;
+}
+
+.fa-layers-top-right {
+  right: 0;
+  top: 0;
+  -webkit-transform: scale(0.25);
+          transform: scale(0.25);
+  -webkit-transform-origin: top right;
+          transform-origin: top right;
+}
+
+.fa-layers-top-left {
+  left: 0;
+  right: auto;
+  top: 0;
+  -webkit-transform: scale(0.25);
+          transform: scale(0.25);
+  -webkit-transform-origin: top left;
+          transform-origin: top left;
+}
+
+.fa-lg {
+  font-size: 1.3333333333em;
+  line-height: 0.75em;
+  vertical-align: -0.0667em;
+}
+
+.fa-xs {
+  font-size: 0.75em;
+}
+
+.fa-sm {
+  font-size: 0.875em;
+}
+
+.fa-1x {
+  font-size: 1em;
+}
+
+.fa-2x {
+  font-size: 2em;
+}
+
+.fa-3x {
+  font-size: 3em;
+}
+
+.fa-4x {
+  font-size: 4em;
+}
+
+.fa-5x {
+  font-size: 5em;
+}
+
+.fa-6x {
+  font-size: 6em;
+}
+
+.fa-7x {
+  font-size: 7em;
+}
+
+.fa-8x {
+  font-size: 8em;
+}
+
+.fa-9x {
+  font-size: 9em;
+}
+
+.fa-10x {
+  font-size: 10em;
+}
+
+.fa-fw {
+  text-align: center;
+  width: 1.25em;
+}
+
+.fa-ul {
+  list-style-type: none;
+  margin-left: 2.5em;
+  padding-left: 0;
+}
+.fa-ul > li {
+  position: relative;
+}
+
+.fa-li {
+  left: -2em;
+  position: absolute;
+  text-align: center;
+  width: 2em;
+  line-height: inherit;
+}
+
+.fa-border {
+  border: solid 0.08em #eee;
+  border-radius: 0.1em;
+  padding: 0.2em 0.25em 0.15em;
+}
+
+.fa-pull-left {
+  float: left;
+}
+
+.fa-pull-right {
+  float: right;
+}
+
+.fa.fa-pull-left,
+.fas.fa-pull-left,
+.far.fa-pull-left,
+.fal.fa-pull-left,
+.fab.fa-pull-left {
+  margin-right: 0.3em;
+}
+.fa.fa-pull-right,
+.fas.fa-pull-right,
+.far.fa-pull-right,
+.fal.fa-pull-right,
+.fab.fa-pull-right {
+  margin-left: 0.3em;
+}
+
+.fa-spin {
+  -webkit-animation: fa-spin 2s infinite linear;
+          animation: fa-spin 2s infinite linear;
+}
+
+.fa-pulse {
+  -webkit-animation: fa-spin 1s infinite steps(8);
+          animation: fa-spin 1s infinite steps(8);
+}
+
+@-webkit-keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+
+@keyframes fa-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+.fa-rotate-90 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.fa-rotate-180 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
+}
+
+.fa-rotate-270 {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";
+  -webkit-transform: rotate(270deg);
+          transform: rotate(270deg);
+}
+
+.fa-flip-horizontal {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)";
+  -webkit-transform: scale(-1, 1);
+          transform: scale(-1, 1);
+}
+
+.fa-flip-vertical {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
+  -webkit-transform: scale(1, -1);
+          transform: scale(1, -1);
+}
+
+.fa-flip-both, .fa-flip-horizontal.fa-flip-vertical {
+  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
+  -webkit-transform: scale(-1, -1);
+          transform: scale(-1, -1);
+}
+
+:root .fa-rotate-90,
+:root .fa-rotate-180,
+:root .fa-rotate-270,
+:root .fa-flip-horizontal,
+:root .fa-flip-vertical,
+:root .fa-flip-both {
+  -webkit-filter: none;
+          filter: none;
+}
+
+.fa-stack {
+  display: inline-block;
+  height: 2em;
+  position: relative;
+  width: 2.5em;
+}
+
+.fa-stack-1x,
+.fa-stack-2x {
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.svg-inline--fa.fa-stack-1x {
+  height: 1em;
+  width: 1.25em;
+}
+.svg-inline--fa.fa-stack-2x {
+  height: 2em;
+  width: 2.5em;
+}
+
+.fa-inverse {
+  color: #fff;
+}
+
+.sr-only {
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+}
+
+.sr-only-focusable:active, .sr-only-focusable:focus {
+  clip: auto;
+  height: auto;
+  margin: 0;
+  overflow: visible;
+  position: static;
+  width: auto;
+}
+
+.svg-inline--fa .fa-primary {
+  fill: var(--fa-primary-color, currentColor);
+  opacity: 1;
+  opacity: var(--fa-primary-opacity, 1);
+}
+
+.svg-inline--fa .fa-secondary {
+  fill: var(--fa-secondary-color, currentColor);
+  opacity: 0.4;
+  opacity: var(--fa-secondary-opacity, 0.4);
+}
+
+.svg-inline--fa.fa-swap-opacity .fa-primary {
+  opacity: 0.4;
+  opacity: var(--fa-secondary-opacity, 0.4);
+}
+
+.svg-inline--fa.fa-swap-opacity .fa-secondary {
+  opacity: 1;
+  opacity: var(--fa-primary-opacity, 1);
+}
+
+.svg-inline--fa mask .fa-primary,
+.svg-inline--fa mask .fa-secondary {
+  fill: black;
+}
+
+.fad.fa-inverse {
+  color: #fff;
+}</style>
+<p>The source code of this project can be found on
+<a href="https://github.com/sghuang19/ghuang3-compiler"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" class="svg-inline--fa fa-github fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg> GitHub</a>.</p>
+<p>This course project for CSE 40243
+<a href="https://dthain.github.io/compilers-fa23/"><em>Compilers and Language Design</em></a>,
+offered in Fall 2023 at the University of Notre Dame, was taught by Prof.
+Douglas Thain. I also had the privilege of working with Dr. Thain during the
+summer of 2022.</p>
+<p>As a side “note”, the notes I took for this course can be found <a href="https://notes.sghuang.com/compilers-and-language-design"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pen" class="svg-inline--fa fa-pen fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M290.74 93.24l128.02 128.02-277.99 277.99-114.14 12.6C11.35 513.54-1.56 500.62.14 485.34l12.7-114.22 277.9-277.88zm207.2-19.06l-60.11-60.11c-18.75-18.75-49.16-18.75-67.91 0l-56.55 56.55 128.02 128.02 56.55-56.55c18.75-18.76 18.75-49.16 0-67.91z"></path></svg> here</a>.</p>
+<h2 id="Specification">Specification</h2>
+<p>B-Minor is a language designed by Dr. Thain for teaching this compiler course.
+The specification of this language is tweaked slightly each year. The complete
+specs of B-Minor 2023 can be found on the
+<a href="https://dthain.github.io/compilers-fa23/bminor">course website</a>.</p>
+<p>In short, it supports:</p>
+<ul>
+<li>Primitive types, arrays, and strings</li>
+<li><code>for</code>, <code>if</code>, and <code>while</code> control logic</li>
+<li><code>print</code> as a statement instead of a function</li>
+<li>Function calls, including recursion. I decided to implement stack calling
+implemented instead of register calling</li>
+</ul>
+<div class="note primary no-icon"><p>This language is named <code>B-Minor</code> because <code>C</code>, <code>C-Sharp</code>, <code>C-Major</code>, <code>C-Minor</code>
+and <code>B</code> are all taken, and Dr. Thain prefers minor keys over major.</p>
+</div>
+<h2 id="How-I-Wrote-It">How I Wrote It</h2>
+<ul>
+<li>Encoder, Resolver, Typechecker, Code Generator: Handwritten in C.</li>
+<li>Scanner: Implemented with RegEx and <a href="https://github.com/westes/flex">Flex</a>.</li>
+<li>Parser: Implemented with <a href="https://gnu.org/software/bison/">Bison</a>.</li>
+</ul>
+<p>The Context Free Grammar for this project is pretty elegant in my opinion:</p>
+<figure class="highlight plaintext"><figcaption><span>grammar.y</span><a href="https://github.com/sghuang19/ghuang3-compiler/blob/main/grammar.y">link</a></figcaption><table><tbody><tr><td class="code"><pre><span class="line">prog : decl_list TOKEN_EOF { $$ = $1; root = $$; YYACCEPT; }</span><br><span class="line">     ;</span><br><span class="line"></span><br><span class="line">/* Declarations */</span><br><span class="line"></span><br><span class="line">decl_list : /* epsilon */  { $$ = NULL; }</span><br><span class="line">          | decl decl_list { $$ = $1; $$-&gt;next = $2; }</span><br><span class="line">          ;</span><br><span class="line"></span><br><span class="line">decl : TOKEN_ID TOKEN_COLON type_simple TOKEN_SEMICOLON</span><br><span class="line">       { $$ = decl_create($1, $3, NULL, NULL, NULL); }</span><br><span class="line">     | TOKEN_ID TOKEN_COLON type_array_sized TOKEN_SEMICOLON</span><br><span class="line">       { $$ = decl_create($1, $3, NULL, NULL, NULL); }</span><br><span class="line">     | TOKEN_ID TOKEN_COLON type_func TOKEN_SEMICOLON</span><br><span class="line">       { $$ = decl_create($1, $3, NULL, NULL, NULL); }</span><br><span class="line">     | decl_init</span><br><span class="line">     ;</span><br><span class="line"></span><br><span class="line">decl_init : TOKEN_ID TOKEN_COLON type_simple TOKEN_ASSIGN expr TOKEN_SEMICOLON</span><br><span class="line">            { $$ = decl_create($1, $3, $5, NULL, NULL); }</span><br><span class="line">          | TOKEN_ID TOKEN_COLON type_array_sized TOKEN_ASSIGN</span><br><span class="line">            TOKEN_LBRACE opt_expr_list TOKEN_RBRACE TOKEN_SEMICOLON</span><br><span class="line">            { $$ = decl_create($1, $3, $6, NULL, NULL); }</span><br><span class="line">          | TOKEN_ID TOKEN_COLON type_func TOKEN_ASSIGN</span><br><span class="line">            TOKEN_LBRACE opt_stmt_list TOKEN_RBRACE</span><br><span class="line">            { $$ = decl_create($1, $3, NULL, $6, NULL); }</span><br><span class="line">          ;</span><br><span class="line"></span><br><span class="line">/* Statements */</span><br><span class="line"></span><br><span class="line">opt_stmt_list : /* epsilon */ { $$ = NULL; }</span><br><span class="line">              | stmt_list</span><br><span class="line">              ;</span><br><span class="line"></span><br><span class="line">stmt_list : stmt</span><br><span class="line">          | stmt stmt_list { $$ = $1; $$-&gt;next = $2; }</span><br><span class="line">          ;</span><br><span class="line"></span><br><span class="line">stmt : open_stmt</span><br><span class="line">     | closed_stmt</span><br><span class="line">     ;</span><br><span class="line"></span><br><span class="line">closed_stmt : if_stmt_closed</span><br><span class="line">            | for_stmt_closed</span><br><span class="line">            | simple_stmt</span><br><span class="line">            ;</span><br><span class="line"></span><br><span class="line">open_stmt : if_stmt_open</span><br><span class="line">          | for_stmt_open</span><br><span class="line">          ;</span><br><span class="line"></span><br><span class="line">if_cond : TOKEN_IF TOKEN_LPAREN opt_expr TOKEN_RPAREN</span><br><span class="line">          { $$ = stmt_create_empty(STMT_IF_ELSE); $$-&gt;expr = $3; }</span><br><span class="line">        ;</span><br><span class="line"></span><br><span class="line">if_stmt_closed : if_cond closed_stmt TOKEN_ELSE closed_stmt</span><br><span class="line">                 { $$ = $1; $$-&gt;body = $2; $$-&gt;else_body = $4; }</span><br><span class="line">               ;</span><br><span class="line"></span><br><span class="line">if_stmt_open : if_cond stmt</span><br><span class="line">               { $$ = $1; $$-&gt;body = $2; }</span><br><span class="line">             | if_cond closed_stmt TOKEN_ELSE if_stmt_open</span><br><span class="line">               { $$ = $1; $$-&gt;body = $2; $$-&gt;else_body = $4;}</span><br><span class="line">             ;</span><br><span class="line"></span><br><span class="line">for_header : TOKEN_FOR TOKEN_LPAREN</span><br><span class="line">             opt_expr TOKEN_SEMICOLON opt_expr TOKEN_SEMICOLON opt_expr</span><br><span class="line">             TOKEN_RPAREN</span><br><span class="line">             { $$ = stmt_create(STMT_FOR, NULL, $3, $5, $7, NULL, NULL, NULL); }</span><br><span class="line"></span><br><span class="line">for_stmt_open : for_header open_stmt { $$ = $1; $$-&gt;body = $2; }</span><br><span class="line">              ;</span><br><span class="line"></span><br><span class="line">for_stmt_closed : for_header closed_stmt { $$ = $1; $$-&gt;body = $2; }</span><br><span class="line">                ;</span><br><span class="line"></span><br><span class="line">/* Simple statements are not recursive */</span><br><span class="line">simple_stmt : print_stmt</span><br><span class="line">            | return_stmt</span><br><span class="line">            | block_stmt</span><br><span class="line">            | decl                 { $$ = stmt_create_empty(STMT_DECL), $$-&gt;decl = $1; }</span><br><span class="line">            | expr TOKEN_SEMICOLON { $$ = stmt_create_empty(STMT_EXPR), $$-&gt;expr = $1; }</span><br><span class="line">            ;</span><br><span class="line"></span><br><span class="line">print_stmt : TOKEN_PRINT opt_expr_list TOKEN_SEMICOLON</span><br><span class="line">             { $$ = stmt_create_empty(STMT_PRINT); $$-&gt;expr = $2; }</span><br><span class="line">           ;</span><br><span class="line"></span><br><span class="line">return_stmt : TOKEN_RETURN opt_expr TOKEN_SEMICOLON</span><br><span class="line">              { $$ = stmt_create_empty(STMT_RETURN); $$-&gt;expr = $2; }</span><br><span class="line">            ;</span><br><span class="line"></span><br><span class="line">block_stmt : TOKEN_LBRACE stmt_list TOKEN_RBRACE</span><br><span class="line">             { $$ = stmt_create_empty(STMT_BLOCK); $$-&gt;body = $2; }</span><br><span class="line">           ;</span><br><span class="line"></span><br><span class="line">/* Expressions */</span><br><span class="line"></span><br><span class="line">opt_expr_list : /* epsilon */ { $$ = NULL; }</span><br><span class="line">              | expr_list</span><br><span class="line">              ;</span><br><span class="line"></span><br><span class="line">expr_list : expr</span><br><span class="line">            { $$ = expr_create(EXPR_LIST, $1, NULL); }</span><br><span class="line">          | expr TOKEN_COMMA expr_list</span><br><span class="line">            { $$ = expr_create(EXPR_LIST, $1, $3); }</span><br><span class="line">          ;</span><br><span class="line"></span><br><span class="line">opt_expr : /* epsilon */ { $$ = NULL; }</span><br><span class="line">         | expr</span><br><span class="line">         ;</span><br><span class="line"></span><br><span class="line">expr : expr1</span><br><span class="line">     ;</span><br><span class="line"></span><br><span class="line">expr1 : lval TOKEN_ASSIGN expr1 { $$ = expr_create(EXPR_ASSIGN, $1, $3); }</span><br><span class="line">      | expr2</span><br><span class="line">      ;</span><br><span class="line"></span><br><span class="line">lval : TOKEN_ID       { $$ = expr_create_name($1); }</span><br><span class="line">     | TOKEN_ID index { $$ = expr_create(EXPR_INDEX, expr_create_name($1), $2); }</span><br><span class="line">     ;</span><br><span class="line"></span><br><span class="line">expr2 : expr2 TOKEN_LOGICAL_OR expr3 { $$ = expr_create(EXPR_OR, $1, $3); }</span><br><span class="line">      | expr3</span><br><span class="line">      ;</span><br><span class="line"></span><br><span class="line">expr3 : expr3 TOKEN_LOGICAL_AND expr4 { $$ = expr_create(EXPR_AND, $1, $3); }</span><br><span class="line">      | expr4</span><br><span class="line">      ;</span><br><span class="line"></span><br><span class="line">expr4 : expr4 TOKEN_EQUAL            expr5 { $$ = expr_create(EXPR_EQ,  $1, $3); }</span><br><span class="line">      | expr4 TOKEN_NOT_EQUAL        expr5 { $$ = expr_create(EXPR_NEQ, $1, $3); }</span><br><span class="line">      | expr4 TOKEN_LESS             expr5 { $$ = expr_create(EXPR_LT,  $1, $3); }</span><br><span class="line">      | expr4 TOKEN_LESS_OR_EQUAL    expr5 { $$ = expr_create(EXPR_LEQ, $1, $3); }</span><br><span class="line">      | expr4 TOKEN_GREATER          expr5 { $$ = expr_create(EXPR_GT,  $1, $3); }</span><br><span class="line">      | expr4 TOKEN_GREATER_OR_EQUAL expr5 { $$ = expr_create(EXPR_GEQ, $1, $3); }</span><br><span class="line">      | expr5</span><br><span class="line">      ;</span><br><span class="line"></span><br><span class="line">expr5 : expr5 TOKEN_ADD   expr6 { $$ = expr_create(EXPR_ADD, $1, $3); }</span><br><span class="line">      | expr5 TOKEN_MINUS expr6 { $$ = expr_create(EXPR_SUB, $1, $3); }</span><br><span class="line">      | expr6</span><br><span class="line">      ;</span><br><span class="line"></span><br><span class="line">expr6 : expr6 TOKEN_MULTIPLY expr7 { $$ = expr_create(EXPR_MUL, $1, $3); }</span><br><span class="line">      | expr6 TOKEN_DIVIDE   expr7 { $$ = expr_create(EXPR_DIV, $1, $3); }</span><br><span class="line">      | expr6 TOKEN_MODULO   expr7 { $$ = expr_create(EXPR_MOD, $1, $3); }</span><br><span class="line">      | expr7</span><br><span class="line">      ;</span><br><span class="line"></span><br><span class="line">expr7 : expr7 TOKEN_EXPONENT expr8 { $$ = expr_create(EXPR_EXP, $1, $3); }</span><br><span class="line">      | expr8</span><br><span class="line">      ;</span><br><span class="line"></span><br><span class="line">expr8 : TOKEN_MINUS       expr8 { $$ = expr_create_unary(EXPR_NEG, $2); }</span><br><span class="line">      | TOKEN_LOGICAL_NOT expr8 { $$ = expr_create_unary(EXPR_NOT, $2); }</span><br><span class="line">      | expr9</span><br><span class="line">      ;</span><br><span class="line"></span><br><span class="line">expr9 : expr9 TOKEN_INCREMENT { $$ = expr_create_unary(EXPR_INCREMENT, $1); }</span><br><span class="line">      | expr9 TOKEN_DECREMENT { $$ = expr_create_unary(EXPR_DECREMENT, $1); }</span><br><span class="line">      | group</span><br><span class="line">      ;</span><br><span class="line"></span><br><span class="line">group : TOKEN_LPAREN expr TOKEN_RPAREN { $$ = $2; }</span><br><span class="line">      | TOKEN_ID TOKEN_LPAREN opt_expr_list TOKEN_RPAREN</span><br><span class="line">        { $$ = expr_create(EXPR_CALL, expr_create_name($1), $3); }</span><br><span class="line">      | TOKEN_ID index</span><br><span class="line">        { $$ = expr_create(EXPR_INDEX, expr_create_name($1), $2); }</span><br><span class="line">      | factor</span><br><span class="line">      ;</span><br><span class="line"></span><br><span class="line">index : TOKEN_LBRACKET expr TOKEN_RBRACKET { $$ = $2; }</span><br><span class="line">      ;</span><br><span class="line"></span><br><span class="line">factor : TOKEN_ID             { $$ = expr_create_name($1); }</span><br><span class="line">       | TOKEN_INT_LITERAL    { $$ = expr_create_integer_literal($1); }</span><br><span class="line">       | TOKEN_FLOAT_LITERAL  { $$ = expr_create_float_literal($1); }</span><br><span class="line">       | TOKEN_CHAR_LITERAL   { $$ = expr_create_char_literal($1); }</span><br><span class="line">       | TOKEN_STRING_LITERAL { $$ = expr_create_string_literal($1); }</span><br><span class="line">       | TOKEN_TRUE           { $$ = expr_create_boolean_literal(1); }</span><br><span class="line">       | TOKEN_FALSE          { $$ = expr_create_boolean_literal(0); }</span><br><span class="line">       ;</span><br><span class="line"></span><br><span class="line">/* Types */</span><br><span class="line"></span><br><span class="line">type_simple : TOKEN_INTEGER { $$ = type_create(TYPE_INTEGER); }</span><br><span class="line">            | TOKEN_FLOAT   { $$ = type_create(TYPE_FLOAT); }</span><br><span class="line">            | TOKEN_BOOLEAN { $$ = type_create(TYPE_BOOLEAN); }</span><br><span class="line">            | TOKEN_CHAR    { $$ = type_create(TYPE_CHAR); }</span><br><span class="line">            | TOKEN_STRING  { $$ = type_create(TYPE_STRING); }</span><br><span class="line">            | TOKEN_VOID    { $$ = type_create(TYPE_VOID); }</span><br><span class="line">            ;</span><br><span class="line"></span><br><span class="line">type_array : TOKEN_ARRAY TOKEN_LBRACKET TOKEN_RBRACKET type_simple</span><br><span class="line">             { $$ = type_create_array($4, NULL); }</span><br><span class="line">           | TOKEN_ARRAY TOKEN_LBRACKET TOKEN_RBRACKET type_array</span><br><span class="line">             { $$ = type_create_array($4, NULL); }</span><br><span class="line">           ;</span><br><span class="line"></span><br><span class="line">type_array_sized : TOKEN_ARRAY index type_simple</span><br><span class="line">                   { $$ = type_create_array($3, $2); }</span><br><span class="line">                 | TOKEN_ARRAY index type_array_sized</span><br><span class="line">                   { $$ = type_create_array($3, $2); }</span><br><span class="line">                 ;</span><br><span class="line"></span><br><span class="line">type_func : TOKEN_FUNCTION type_simple TOKEN_LPAREN opt_param_list TOKEN_RPAREN</span><br><span class="line">            { $$ = type_create_func($2, $4); }</span><br><span class="line">          | TOKEN_FUNCTION type_array_sized TOKEN_LPAREN opt_param_list TOKEN_RPAREN</span><br><span class="line">            { $$ = type_create_func($2, $4); }</span><br><span class="line">          ;</span><br><span class="line"></span><br><span class="line">opt_param_list : /* epsilon */ { $$ = NULL; }</span><br><span class="line">               | param_list</span><br><span class="line">               ;</span><br><span class="line"></span><br><span class="line">param_list : param</span><br><span class="line">           | param_list TOKEN_COMMA param { $$ = $1; $1-&gt;next = $3; }</span><br><span class="line">           ;</span><br><span class="line"></span><br><span class="line">param : TOKEN_ID TOKEN_COLON type_simple      { $$ = param_list_create($1, $3, NULL); }</span><br><span class="line">      | TOKEN_ID TOKEN_COLON type_array       { $$ = param_list_create($1, $3, NULL); }</span><br><span class="line">      | TOKEN_ID TOKEN_COLON type_array_sized { $$ = param_list_create($1, $3, NULL); }</span><br><span class="line">      ;</span><br></pre></td></tr></tbody></table></figure>
+]]></content>
+      <tags>
+        <tag>project</tag>
+        <tag>cse</tag>
+        <tag>compiler</tag>
+        <tag>system</tag>
+        <tag>c</tag>
+        <tag>pl</tag>
+        <tag>sde</tag>
+      </tags>
   </entry>
   <entry>
     <title>YOLO-v1 网络调试、训练与测试</title>
@@ -1402,20 +2458,27 @@ Git Book 的产物，在站点配置文件内将其忽略即可。</p>
   </entry>
   <entry>
     <title>父母与书的旧事二则</title>
-    <url>/2021-12-30-%E6%88%91%E7%9A%84%E7%88%B6%E6%AF%8D%E4%B8%8E%E8%AF%BB%E4%B9%A6%E4%BA%8C%E4%B8%89%E4%BA%8B/</url>
+    <url>//parents-and-books/</url>
     <content><![CDATA[<blockquote>
 <p>昨日 “文化人类学导论” 课程结课，一位同学向大家分享了关于读书之调查，今天又被问及自己关于读书的故事，于是回忆起这几件事情记录下来。当然，虽然此处关于笔者父母的几件事情都是 “坏事”，但在与其他人相处中，“好事” 也是有的，否则今天还喜欢阅读也不太说得过去 —— 只不过，这些好事，也多半和父母没什么关系了。</p>
 </blockquote>
 <span id="more"></span>
 <h2 id="科普杂志与科教频道">科普杂志与科教频道</h2>
-<p>小时父亲每年都会在邮局订阅报刊杂志，我也获得一些儿童读物，主要是科普类的。印象较深的有一本《发现号》，今天想来内容也是十分有趣、寓教于乐。还有一本错别字百出的科幻小说类刊物，其中有意思的故事也颇引人深思 —— 即使读者只是个小学生。</p>
-<p>这本科幻刊物中的错别字以肉眼可见的速度日渐增多，直到有一天，发表了终刊号，要彻底停刊了，想来也并不意外。至于其他的科普读物，虽然没有停刊，但我却不得不停止阅读了。家人不再给我订阅所谓 “课外” 读物，而全部变成了我非常厌烦的教你如何写作文类的刊物，而这些我日后也从来没读过。</p>
-<p>类似的，我家的电视机向来是没有中央十四台少儿频道的，因为父母非常细心地向有线电视服务提供商要求不可以提供这个频道的信号。于是乎，我的最爱变成了中央十套科教频道和九套纪录片频道。好景不长，某日突然发现，无论怎么换台，这两个频道也只剩下雪花了。</p>
-<p>至于上述这些变故的原因，我尚有印象的来自父母的解释只有一句话：“不让你在电视、杂志里获取知识，看你还怎么再去向同学炫耀”。</p>
+<p>小时父亲每年都在邮局订阅报刊杂志，我也获得一些儿童读物，主要是科普类的。印象较深的有一本《发现号》，今天想来内容也是十分有趣、寓教于乐。还有一部错别字百出的科幻小说类刊物，其中有意思的故事也颇引人深思 —— 即使读者只是个小学生。</p>
+<p>再后来，这本科幻刊物中的错别字日渐增多，直到有天发表了终刊号，要彻底停刊了，想来也并不意外。至于其他的科普读物，虽没有停刊，但我却不得不停止阅读了。家人不再给我订阅「课外」读物，而全部变成了我非常厌烦的教你如何写作文类的刊物，而这些我日后也从来没读过。</p>
+<p>类似的，我家的电视机里向来是没有中央十四台少儿频道的，因为父母非常细心地向有线电视服务提供商要求不可以提供这个频道的信号 <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>。在此情形下，我的最爱变成了中央十套科教频道和九套纪录片频道。不过好景不长，某日突然发现，无论怎么换台，这两个频道也只剩下雪花了。</p>
+<p>至于上述这些变故的原因，我尚有印象的来自父母的解释只有一句话：「不让你在电视、杂志里获取知识，看你还怎么再去向同学炫耀」。</p>
 <h2 id="河里的小说与漫画">河里的小说与漫画</h2>
 <p>小学初中之交的那段时间，我因为偶然机会开始读一些当时十分流行的小说、漫画。小说如《斗罗大陆》、《斗破苍穹》、《龙族》等，漫画则除前面几部小说的漫改外有《偷星九月天》和周刊《知音漫客》。我阅读的都是纸质书籍，漫画、小说的单行本在一个书柜里码放得整整齐齐。早期的书籍没有塑封，而是用不干胶塑料袋包装，我就把读完的书籍又原封不动地装回去，十分爱护。</p>
-<p>某天，因为已经忘记的起因，父母突然不允许我再读这些有害的闲书了。我的藏书一部分被撕碎，另一部分则被他们装进箱子里，再带着我去书店理论，试图退货。被我完好地保存在塑料包装袋的《偷星九月天》前 20 册单行本竟然还可以退款，而其他的自然不可能被书店老板接受。于是乎，当着我、书店老板以及路人的面，我的父母把这一大箱子书倒进了武水河里。</p>
+<p>某天，因为已经忘记的起因，父母突然不允许我再读这些有害的闲书了。我的藏书一部分被撕碎，另一部分则被他们装进箱子里，带去书店试图退货。在被拒绝之后，他们又将我扭送到书店与店主对峙。被我完好地保存在塑料包装袋的《偷星九月天》前 20 册单行本还可以退款，而其他的自然不可能被接受。于是乎，当着我、店主以及路人的面，我的父母把这一大箱子书倒进了武水河里。</p>
 <p>我读过的书及其碎片，再加上我的童年和对父母任何不切实际的幻想，就这样随着武水汇入珠江，流进了太平洋。</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>多年以后，母亲解释称并非是他们主动将这几个频道关停的，但我已经这般「误解」了十余年。 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
 ]]></content>
       <tags>
         <tag>life</tag>
@@ -1438,6 +2501,315 @@ Git Book 的产物，在站点配置文件内将其忽略即可。</p>
 <p><strong>我希望你们能保护自己正直的心</strong>。请注意，我并没有用 “坚持” 这个词，而着重用了 “保护”，后者是一个主动的态度和动作。我相信大家最开始都是有正直的心的，但是，当你发现做正确的事成本越来越高，越来越容易受到非议、打压，依然能坚持做对的事情，就变成了非常难得和宝贵的品质了。我们都曾经正直过、热情过，也许还仍在正直着、热情着，但我们却在不断地受着社会浪潮的冲刷。我们要学会保护自己，要有一种忧患 —— 这是我每天常有的担忧 —— 我也许只能选择妥协，但是如果我连续地妥协，我是否就不再正直？当我们遇冷的时候，当我们坚信正确的事情被否定的时候，不要只接受这个无奈的现实，也请再一次对着镜子说：这些打击不会改变我，我还是要做一个正直的人。你们并不是丑陋畸形的沙砾，不必要被抛光得圆滑世故，你们本就是耀眼的钻石，失掉棱角，才会让你们变得平庸！</p>
 <p><strong>我希望你们能始终坚持独立思考</strong>。</p>
 ]]></content>
+  </entry>
+  <entry>
+    <title>Markdown 学习</title>
+    <url>//markdown/</url>
+    <content><![CDATA[<p>是时候学一点 Markdown 了！</p>
+<h2 id="为什么要学习Markdown">为什么要学习 Markdown</h2>
+<p>其实很早之前就有学 Markdown 和 LaTeX 的想法。今年年初由于疫情，不得不在电脑上完成作业，起初是采用 Surface Pen 手写，效果也还不错，后来体验了 Word 自带的 Unicode Math 公式编辑器，瞬间爱不释手，这效率可比手写高多了（并且我也特别享受这样的创作过程），于是又进而萌生了学习 Markdown 和 LaTeX 的想法。一拖再拖到暑假，来认认真真地学习一下吧！</p>
+<p>Markdown 有很多的优点，以下是一些简单的介绍。</p>
+<span id="more"></span>
+<h3 id="简洁明了，专注内容的编辑体验">简洁明了，专注内容的编辑体验</h3>
+<p>我们平时若想要写一些文字，会采用什么软件呢？利用记事本写 txt 纯文本文档的话，虽然更为通用，可以在几乎任何地方阅读，但似乎可支持的内容太少，不能插入代码块、图片、标题分级、文本的加粗、斜体、下划线等。采用 Word 来编写的话，首先文件的外观就与平台有关，有时候我们好不容易排好了版，但是在其他版本的软件上瞬间变得一团糟。更严重的是，排版本身就将作者大量的注意力里从文字当中吸引走，而不能专注于写作本身，Word 的排版真是门技术活，段前段后缩进、段落距离行距离等我就花了很长时间研究……</p>
+<p>这样一来，Markdown 的优点就凸显出来。Markdown 更专注于内容本身，而文档的样式、版式则是由阅读器来决定的（所以使用 Markdown 进行写作可以很方便地换主题）。这样一来，写作者可以更专注于自己正在撰写的文字，也有更多的编辑器和阅读器选择自由度。Markdown
+也可以插入公式、图片、代码块、标题、序号等，内容很丰富。个人认为，但就写作体验而言，Markdown 应该是目前最佳的一种格式吧。</p>
+<h3 id="对其他平台的友好兼容">对其他平台的友好兼容</h3>
+<p>正如前述，因为 Markdown 本身不包含版式等信息，它也能够很好地兼容各个平台。CSDN、知乎、简书等博客性质的网站都可以支持导入.md 文件转化为文章，正是利用了 Markdown 的这一特性。其实这次我开始学习 Markdown 的直接诱因就是想在知乎上写一些文章（；´д｀）ゞ</p>
+<h3 id="Markdown的缺点">Markdown 的缺点</h3>
+<p>Markdown 也有很多缺点，首先就是 Markdown 需要记住一些独特的语法，但是这也不算很难。其次，Markdown 插入图片是以链接的方式，而非直接将图片存储在文件之中，这就会导致迁移文件或者图片目录时可能引起图片显示的异常。虽然有一些方法解决这一问题，但总的来讲的确不太方便。此外，Markdown 的公式编辑功能缺乏图形界面的辅助，使用体验不如 Word
+的公式编辑器。还有很多的小毛病，比如段首缩进等，对中文的适配等……</p>
+<p>（但是，许多功能可以通过软件的辅助来实现）</p>
+<h2 id="两款Markdown编辑器">两款 Markdown 编辑器</h2>
+<p>开始 Markdown 写作其实只需要下载相应的软件就好了，之所以说需要配置环境，是因为使用
+Markdown 在某些情况下需要很多插件（或者 Markdown 本身就是通过插件实现的）。Markdown
+的可选编辑器有很多，不再赘述，只提一下我自己用的两款。</p>
+<h3 id="Typora">Typora</h3>
+<h4 id="Typora的优点">Typora 的优点</h4>
+<ul>
+<li>UI 很美观，赏心悦目</li>
+<li>支持多种显示主题，如 Dark Mode，GitHub 样式等，在网上可以找到更多拓展</li>
+<li>支持多个平台</li>
+<li>操作简单，不需要什么额外的配置</li>
+<li>支持打字机模式、专注模式等，提升写作体验</li>
+<li>具有直观的 GUI 操作，例如直接右键单击进行样式设定，插入图片等功能</li>
+<li>可以通过快捷键改变文字样式，正如在 Word 中一样</li>
+<li>支持字数统计等</li>
+<li>总而言之就是更像是一个用来写作的工具了</li>
+</ul>
+<h4 id="Typora的缺点">Typora 的缺点</h4>
+<ul>
+<li>可自定义性较差</li>
+<li>不支持 Markdown 的 format 提醒</li>
+<li>采用将源代码区与显示区合为一体的交互方式，在我看来是一种劣势，但是也许有的用户会喜欢吧</li>
+</ul>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200619165741_Typora.gif" alt="将鼠标移动到对应位置即显示出源代码"></p>
+<h3 id="VSCode">VSCode</h3>
+<p>VSCode 原生支持 Markdown 文件的预览和语法高亮，通过插件可以在 VSCode 中实现 Markdown 的更多功能，能少安装一些软件，何乐而不为呢？</p>
+<h4 id="VSCode的优点">VSCode 的优点</h4>
+<ul>
+<li>VSCode 的界面不用我说了，漂亮的惊人，主题样式也很多，每次写代码都是享受</li>
+<li>高度可自定义，只需要编辑.json 配置文件</li>
+<li>支持语法高亮</li>
+<li>通过插件可以大大增强功能，支持对于 Markdown 格式标准化的提醒，甚至可以进行自动修正等</li>
+</ul>
+<p><img src="https://raw.githubusercontent.com/SamuelHuang2019/FigureBed/master/img/20200619103454_VSCode.png" alt="VSCode截图"></p>
+<h4 id="VSCode的缺点">VSCode 的缺点</h4>
+<ul>
+<li>没有图形界面（指对于 Markdown 的编辑而言），大部分操作都需要通过原生的 Markdown 代码实现</li>
+<li>需要配置环境，还是有点复杂的（一开始我对.json 不是很熟悉，研究了很久才掌握）</li>
+</ul>
+<p>总而言之，VSCode 更像是一款针对程序员的 Markdown 工具，而 Typora 则适合没有那么强的计算机基础的小白，它也适合利用 Markdown 进行纯粹的创作的人群。萝卜白菜各有所爱，总之我是两个都装了。</p>
+<h2 id="在VSCode上编写Markdown">在 VSCode 上编写 Markdown</h2>
+<p>首先从微软的官网下载安装 VSCode。</p>
+<p>打开你所需要的文件夹，新建 Markdown 文件。</p>
+<p><img src="https://raw.githubusercontent.com/SamuelHuang2019/FigureBed/master/img/20200619104337_VSCode_newMDFile.gif" alt="新建MD文件"></p>
+<p>打开这个文件，就可以看到源代码的编写界面。通过快捷键 <code>Ctrl</code>+<code>Shift```+</code>V` 启动预览页面，再把窗口拖拽到另一侧，就成了我们熟悉的 Markdown 编写界面了。</p>
+<p><img src="https://raw.githubusercontent.com/SamuelHuang2019/FigureBed/master/img/20200619105131_VSCode_Window.gif" alt="Markdown预览窗口"></p>
+<h3 id="VSCode中Markdown环境的简单配置">VSCode 中 Markdown 环境的简单配置</h3>
+<p>介绍几个小插件，各有各自的功能。</p>
+<h4 id="markdownlint">markdownlint</h4>
+<p>正如其名字里带着的 lint，这款插件主要用于实现 Markdown 写作的格式规范化和自动更正，具体可以访问 <a href="https://github.com/DavidAnson/markdownlint/blob/v0.20.3/doc/Rules.md#md012">markdownlint 规则说明文档</a>。</p>
+<p>如果源代码中有与 markdownlint 的规则相抵触之处，则会出现黄色波浪线，将鼠标移至其上，就可以在弹出的选项卡里转到对应规则的描述。有些规则是我们不太想要的，或者需要做一些微调。以规则 <code>MD024</code> 为例，这一规则要求不能出现内容相同的标题。但是实际使用中，只要从属在不同的上一级标题之下，似乎即使标题相同也不会引起什么误解。</p>
+<p>在官方说明文档中我们看到，这一规则对应的名称 <code>Aliases</code> 为 <code>no-duplicate-heading</code> 或者 <code>no-duplicate-header</code>，参数为 <code>siblings-only</code> 或者 <code>allow_different_nesting</code>，默认值都为 <code>false</code>，接下来进行修改。</p>
+<p>使用快捷键 <code>F1</code> 或 <code>Ctrl</code>+<code>Shift</code>+<code>P</code> 打开 VSCode 主命令行，直接搜索 <code>settings.json</code>，根据自己的需要打开全局或者工作区的配置文件。在配置文件中，添加 markdownlint 的配置语句：</p>
+<figure class="highlight json"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attr">"markdownlint.config"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">    <span class="attr">"no-duplicate-heading"</span><span class="punctuation">:</span> <span class="punctuation">{</span><span class="attr">"allow_different_nesting"</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">}</span></span><br><span class="line"><span class="punctuation">}</span><span class="punctuation">,</span></span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>Remark：只需要更改一个参数就行，注意语法，尤其是那个逗号。</p>
+</blockquote>
+<p>这样一来就可以实现允许相同内容的标题出现，但仅在不同的上一级标题之下</p>
+<p>此外 markdownlint 还支持更高级的规则自定义，具体参阅 GitHub 上的 <a href="https://github.com/DavidAnson/markdownlint/blob/v0.20.3/doc/CustomRules.md">markdownlint 自定义规则说明文档</a></p>
+<p>markdownlint 提供的另一个功能是根据这些规则自动格式化文档。要启用同样是在 <code>settings.json</code> 文件中添加语句：</p>
+<figure class="highlight json"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attr">"editor.codeActionsOnSave"</span><span class="punctuation">:</span> <span class="punctuation">{</span><span class="number">629976589629976589</span></span><br><span class="line">    <span class="attr">"source.fixAll.markdownlint"</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line"><span class="punctuation">}</span><span class="punctuation">,</span></span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>Remark：这一段代码相当于对 VSCode 主体的设置，所以是写在 <code>settings.json</code> 文件的主体中，而非前述 <code>"markdownlint.config"</code> 括号内。</p>
+</blockquote>
+<p>完成这个修改之后，每次保存文件都会自动格式化，还挺方便的。这个格式化过程也是可以回退的。</p>
+<h4 id="Markdown-Preview-Enhanced">Markdown Preview Enhanced</h4>
+<p>顾名思义，这个插件就是用来增强 VSCode 中 Markdown 文件的预览体验的。VSCode 默认的预览窗口是跟随 VSCode 全局的主题设置，所以有时候可能暗色模式不太适合阅读文件。</p>
+<p>安装 Markdown Preview Enhanced 插件，在源代码窗口右键单击，即可选择在右侧打开预览窗口。不仅可以实现阅读的增强，以及目录的显示，在预览窗口中右键单击还可导出
+Markdown 文件为其他格式，实在方便。</p>
+<p><img src="https://raw.githubusercontent.com/sghuang19/assets/master/img/20200619135214_MarkdownPreviewEnhanced.png" alt="Markdown Preview Enhanced"></p>
+<p>此外，Markdown Preview Enhanced 也具有额外的图片功能！在后文会提到。</p>
+<h4 id="Markdown-All-in-One">Markdown All in One</h4>
+<p>正如名称所言，这款插件集合了很多功能，包括快捷键、公式、格式转换、目录和脚注等。具体的目前我都还没有摸得很清楚，有待研究。</p>
+<p>最为方便的功能就是快捷键，下文中会提到关于文本样式的设定，如加粗、斜体等，在没有插件的情况下就必须通过标记符号来实现，还是比较复杂，而安装了 Markdown All in One
+后便可以直接使用快捷键，正如在 Word 中进行编辑一样。当然，值得注意的是，这会覆盖一些 VSCode 自身的快捷键。</p>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200619173318_Shortcuts.gif" alt="Ctrl+B实现加粗"></p>
+<h4 id="vscode-pandoc">vscode-pandoc</h4>
+<p>这款轻量插件实现了将 Markdown 文件转换为某些格式，没有 GUI，通过命令行操作。</p>
+<h4 id="PicGo">PicGo</h4>
+<p>大名鼎鼎的 Markdown 图片辅助工具，VSCode 有可用的插件，基于 PicGo Core 实现，所以没有
+GUI。我觉得为什么不直接用 PicGo 软件本体呢？关于 PicGo 在 “图片” 一节中会提到更多。</p>
+<h2 id="Markdown的语法">Markdown 的语法</h2>
+<p>用简明的方式整理一些基本的 Markdown 语言，需要更详细的解读可以去参照官方文档或者其他的文章。</p>
+<blockquote>
+<p>Remark：大部分 HTML 语法可以直接在 Markdown 中使用，但是 markdownlint 中的规则 <code>MD033</code> 要求不在 Markdown 中直接使用 HTML 语法，而是使用 “纯粹” 的 Markdown 语言。如果对于黄色波浪线感到反感，可以通过前述的类似方法设定允许使用的 HTML 语法元素。</p>
+</blockquote>
+<h3 id="文本">文本</h3>
+<p>输入文本就代表文本</p>
+<p>换行符只相当于空格，段落是通过一个空行来标记</p>
+<p><code>#</code>标记各级标题，井号的数量标记标题的等级</p>
+<p>段首空格并不代表缩进，但是四个空格会代表一个制表符（即 <code>Tab</code> 键）</p>
+<p>使用单星号包围文字以表示斜体，如 <code>*文字*</code> 显示为<em>文字</em></p>
+<blockquote>
+<p>Remark：部分编辑器中斜体也可以用单下划线<code>_</code>包围来表示</p>
+</blockquote>
+<p>使用双星号包围文字以表示加粗，如 <code>**文字**</code> 显示为<strong>文字</strong></p>
+<p>使用三星号包围文字以表示加粗斜体，如 <code>***文字***</code> 显示为 ** <em>文字</em> **</p>
+<p>使用双波浪线包围文字以表示删除线，如 <code>~~文字~~</code> 显示为<s>文字</s></p>
+<p>使用等号包围文字以实现高亮，如 <code>==文字==</code> 显示为<mark>文字</mark></p>
+<p>使用 HTML 中的语法来实现下划线，如 <code>&lt;u&gt;文字&lt;/u&gt;</code> 显示为<u>文字</u></p>
+<p>使用 <code>^</code> 包围来表示上标，如 <code>e^x^</code> 显示为 e^x^</p>
+<p>使用 <code>~</code> 包围来表示上标，如 <code>a~n~</code> 显示为 a~n~</p>
+<p>其他的样式可以通过数学公式来实现，例如 <code>$\overline{文字}$</code> 显示为 $\overline {文字}$</p>
+<p>Markdown 支持输入 HTML 转义字符</p>
+<h3 id="代码块">代码块</h3>
+<p>段首使用四个空格或者一个制表符即进入代码块模式</p>
+<p>也可以在段落前与段落后各加上三个反引号（即键盘左上角的波浪线）<code>```</code> 以开启代码块。在第一串三反引号之后加上代码的类型，即可实现语法高亮。</p>
+<p>例：</p>
+<figure class="highlight plaintext"><figcaption><span>markdown</span></figcaption><table><tbody><tr><td class="code"><pre><span class="line"></span><br><span class="line"><figure class="highlight json"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attr">"editor.codeActionsOnSave"</span><span class="punctuation">:</span> <span class="punctuation">{</span> <span class="attr">"source.fixAll.markdownlint"</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span> <span class="punctuation">}</span><span class="punctuation">,</span></span><br></pre></td></tr></tbody></table></figure></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>Remark：以上代码块中最后的 <code>\</code> 是为了不让 Markdown 将其前面的 <code>```</code> 识别为代码块的结束，没有别的含义</p>
+</blockquote>
+<p>其显示效果即为前文提到的配置 <code>settings.json</code> 文件时所引用的代码块样式</p>
+<blockquote>
+<p>Remark：正确的转义反引号 <code>`</code> 的方法并非使用反斜杠，而是使用双反引号及空格将反引号围起来，即</p>
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line"><span class="code">`` `</span> ``</span><br></pre></td></tr></tbody></table></figure>
+<p>这将显示为一个代码块内的单反引号</p>
+</blockquote>
+<p>行内代码块，既可以通过三反引号前后包围，也可以通过单反引号前后包围。</p>
+<h3 id="链接">链接</h3>
+<p>不现实为特定文字的链接： <code>&lt;https://www.bilibili.com&gt;</code> 将显示为 <a href="https://www.bilibili.com">https://www.bilibili.com</a></p>
+<p>显示为特定文字的链接： <code>[Bilibili](https://www.bilibili.com)</code> 将显示为 <a href="https://www.bilibili.com">Bilibili</a></p>
+<h3 id="图片">图片</h3>
+<p>与显示为特定文字的链接相似，只是在之前加上一个叹号 <code>!</code>，其后更改为图片的地址。既可以是网络地址，也可以是计算机上的绝对路径，也可以是相对于.md 文件的相对路径。</p>
+<p>插入图片是 Markdown 的一大揪心之处，一般通过 “图床” 来实现，详见后文。</p>
+<h3 id="公式">公式</h3>
+<p>Markdown 中的数学输入和 LaTeX 其实很像</p>
+<p>偷懒放个别的文章：<a href="https://www.zybuluo.com/codeep/note/163962">Markdown 公式指导手册</a></p>
+<p>（视编写环境而定，可能语法和功能上有些出入）</p>
+<p>简要提一下我从 Unicode Math 转到 LaTeX 的心得：大部分地方还是相同的，只是要更加注意用 <code>{}</code> 来对不同的元素进行组合，公式要有首尾的标记，以及不能够再直接 <code>/</code> 然后敲空格来输入分数了……</p>
+<h3 id="分割线">分割线</h3>
+<p>在一行输入三个及以上的 <code>*</code> 或 <code>-</code> 都可以起到分割的作用，哪怕它们之间有空格。</p>
+<h3 id="表格">表格</h3>
+<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">| 姓名 | 性别 |   年龄 |</span><br><span class="line">| :--: | :--- | -----: |</span><br><span class="line">| 张三 | 未知 | 约30岁 |</span><br><span class="line">| 李四 | 男   | 约20岁 |</span><br></pre></td></tr></tbody></table></figure>
+<p>将显示为</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">姓名</th>
+<th style="text-align:left">性别</th>
+<th style="text-align:right">年龄</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">法外狂徒・张三</td>
+<td style="text-align:left">未知</td>
+<td style="text-align:right">约 30 岁</td>
+</tr>
+<tr>
+<td style="text-align:center">李四</td>
+<td style="text-align:left">男</td>
+<td style="text-align:right"> 20 岁左右</td>
+</tr>
+</tbody>
+</table>
+<p>通过 <code>|</code> 来划分每一列，而构成表格的要素则是第二行的一串符号（这一行代码是必须的）。其实很直观很好理解，<code>:-:</code> 代表居中，<code>:-</code> 代表左对齐，<code>-:</code> 代表右对齐，从这个示例表格的样式里也可以观察出来。</p>
+<h3 id="列表">列表</h3>
+<p>使用 <code>-</code> 开启无序列表，注意必须要有这个空格使用 <code>1.</code>，即数字加英文句点和空格来开启有序列表，空格也是必须的</p>
+<h2 id="怎样存图片">怎样存图片</h2>
+<p>这个问题相当复杂，也很重要，关于图床的话题单独写一篇文章吧。（希望我能尽快填坑）</p>
+<!-- cSpell:ignore imgur -->
+<blockquote>
+<p>Remark：“图床” 的英文并非是 "Figure Bed"，也跟 "bed" 没有关系 Remark：此前提到的
+Markdown Preview Enhanced 插件支持 imgur，<a href="http://SM.MS">SM.MS</a>，七牛这几款图床</p>
+</blockquote>
+<h2 id="其他参考文档">其他参考文档</h2>
+<p>这些文档都很有价值，可以一看（每次上网搜文档都极其感激博主们）</p>
+<ul>
+<li><a href="https://www.zhihu.com/question/21420126">在 Markdown 语言中，如何实现段首空格的显示？</a></li>
+<li><a href="https://juejin.im/entry/5c4ec5aaf265da614420689f">PicGo+GitHub 图床，让 Markdown 飞</a></li>
+<li><a href="https://www.appinn.com/markdown/">Markdown 语法说明 (简体中文版)</a></li>
+<li><a href="https://juejin.im/post/5dd92cddf265da7dcb76aafb">我的 gitee 图床，自动上传、压缩、获取图片 url</a>（真的很羡慕，我试了，没成功，还是再多多学习下吧）</li>
+<li><a href="https://www.cnblogs.com/focksor/p/12402471.html">Gitee 图床 + PicGo+Typora 便捷在博客中使用图片</a></li>
+<li><a href="https://www.zybuluo.com/codeep/note/163962">Cmd Markdown 公式指导手册</a></li>
+<li><a href="https://www.jianshu.com/p/25f0139637b7">markdown 中公式编辑教程</a></li>
+</ul>
+]]></content>
+      <tags>
+        <tag>markdown</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>高校内卷的破坏性和深层次原因，从更新自己的思维开始直面内卷</title>
+    <url>//involution/</url>
+    <content><![CDATA[<p>自 2020 年中以来，越来越多的人以及自媒体开始意识到、提起和关注内卷（involution）这一话题。内卷到底是什么，它对我们和我们所生活的世界造成了怎样的深远影响？我们应该如何对待内卷？而本文所尤其关注的是，2021 年的准大学生又应该如何面对社会竞争内卷化这一浪潮？</p>
+<blockquote>
+<p>本文为笔者为 2021 年湖南省郴州市第一中学的返校宣讲活动 “Dating Future” 所录制的演讲的讲稿。笔者并非社会科学专业，文中所涉内容若有疏忽谬误，或对某些群体有所冒犯，还恳请读者及时指正。</p>
+<p>对于在各个平台关注了我的读者，首先十分感谢你们对我的肯定。发出这篇文章之前久无更新，一来是因为我学业和科研事务繁重，实在无从抽身；二来也是因为写文章纯粹随缘，并无长期创作的习惯。不够高产，还望海涵。</p>
+</blockquote>
+<span id="more"></span>
+<h2 id="内卷的概念逐渐深入人心">内卷的概念逐渐深入人心</h2>
+<!-- 演示文稿显示“内卷”两个大字即可 -->
+<p>很久之前我就听说过 “内卷” 这个词汇，但是直到 2020 年的年中，也就是我进入大二，选定专业，开始上专业课程 —— 尤其是模拟电路课程之后，才发现身边越来越多的人开始使用 “内卷”
+这个词，开始表达出对于竞争烈度的担忧和焦虑。我一度认为，这种焦虑的产生是进入专业，学业压力增大（当然对于我来说学业压力一直都非常大）之后产生的必然结果，大学生们会自然而然地在这个阶段开始觉得 “很卷”。</p>
+<p>但是，上周我参加主持队的专业培训，我打开电脑，屏幕上显示的是我正在学习的英文文献，一旁的学弟就说：“这学期才刚开学就开始卷了吗？” 同样，我在 Dating Future 群里潜水的时候，看到一中的 20 届毕业生们也开始谈论内卷，类似的例子还有很多。于是我又发现，似乎内卷也并不是大学特定阶段的感受，而是所有的大学生在 2020 年开始觉察，在 2021
+年必须认真面对的一个话题了。</p>
+<p>更让人惊讶的是，再到我与一中的学弟学妹们交谈时，低年级的同学也能对内卷发表评论，而网络上的谈论内卷，谈论社会竞争压力加剧的视频也越来越多，我这才幡然醒悟：原来内卷不是模电课学生的焦虑，也不是当代大学生的集体情绪，还不只是学生们的谈资，它实实在在地成为了当前一个时期和未来一个时期躲不开的社会命题，成为属于我们的时代的一个鲜明印记，成为我们的父辈所没有遭遇过的，而我们却要面临的问题。对二十一世纪二零年代的我们来讲，内卷已经变得像吃穿住行一样寻常，也许未来十年人们打招呼不再是 “你吃了吗？”，而是 “你卷了吗”？</p>
+<hr>
+<h2 id="内卷的典型例子">内卷的典型例子</h2>
+<p>最为典型的内卷的体现，可以举买火车票为例子。以往还不能网上购买火车票时，大家必须到车站或是代售点买票。假定火车票定于发车前 12 个小时开始销售，若票少人多，那么人们会提前 12 个小时就来到代售点排队等票。随后自然而然，就会有越来越多的人选择提前 13 个小时前来排队买票；接下来，大家为了抢到票，就只能提前 14、15 小时甚至更长的时间前来排队等票。最后的结果则是达到一种低效的平衡 —— 售票点前排起长长的帐篷，仅为了争抢并没有因此而变多的火车票。</p>
+<p>这一现象的一大特征，是它仍然存在进行 “帕累托改进” 的余地。换言之，就是明显地存在一种改进的方式，在不使任何人境况变坏的前提下，使得至少一个人变得更好 —— 大家各退一步，都来晚点就好了。</p>
+<p>但是，帕累托优化的路径可能存在，但并不总能真正实现。高考体制就是这样一个严重内卷化的系统。一旦第一所学校开始周六上午补课，就有第二所学校开始周六全天补课，就有第三所学校开始七天无休。当第一个人迈出内卷的第一步时，赌桌上的所有人都不得不层层加码，而阻止这一恶性循环的开始又是极其困难和不具有操作性的。我们都清楚地意识到自己应该退一步，但是却决没有人愿意主动第一个退步。整个教育体系就像打上了一个只紧不松的死结。</p>
+<p>如果从全社会的视角来考虑，企业里员工努力的工作，相互竞争倾轧以谋求上升通道，但整个劳动者群体的待遇并没有得到改善，只有食利者阶层坐享其成，劳动者得到的往往还是购买力越来越低的工资，越来越长的工作时间，越来越大的竞争压力，和要求绩效只增不减的军令状。</p>
+<p>仔细思考，内卷现象已经深深地渗透进了我们的社会，但是认知内卷、应对内卷的思维却还未能深深渗透进我们的头脑。内卷是横亘于我们面前的挑战，对内卷缺乏认知则更是个人的严重发展危机。</p>
+<hr>
+<h2 id="高校教育内卷产生的深层次原因">高校教育内卷产生的深层次原因</h2>
+<p>当看过几个例子之后，大家即使之前没有接触过内卷这个词，现在也应该感到自己理解了内卷这个概念。但是，仅仅从几个例子的表现中提取共同特征，还不足以真正把握内卷这一社会现象的实质，要深刻理解内卷，还必须深刻反思内卷产生的原因。从人类社会的宏观层面，或者从政治经济学的层面来理解内卷，许多优秀的社会学家已经给出了非常独到和精辟的见解，而今天我们所关注的，则是本科教育中内卷现象的产生。</p>
+<p>我想举很久前读过的一篇文章为例：<a href="https://mp.weixin.qq.com/s/QZHvnRcICYpq8411PxJ78g">浅谈清华学风、课程内卷、特奖与其他</a>，这篇文章着重提到了清华大学不切实际地加大课程难度，加快教学进度，搞填鸭式教学，以及 “特奖” 评选的超高要求折射出的不见得就一定是积极的价值导向。作者这样形容获得特奖的路径：</p>
+<blockquote>
+<p>特奖 = 必需品 × 2 + 点缀 × n</p>
+<p>其中，必需品包括：GPA 全系前三（部分院系需要第一），两篇及以上顶会期刊论文，学生会主席 / 副主席，国际大赛金牌或解决领域难题；</p>
+<p>点缀包括但不限于：体育代表队队长或马杯奖牌，志愿服务超过 200 个小时，艺术团核心成员，实践金 / 银 / 铜奖，有自己出版的专著，让清华在国际上出头露脸的任何事件等</p>
+</blockquote>
+<p>对这些情况，大家进入大学之后很快就会有一个直观的感受，你会意识到有时候课程很难，但某些教授和助教，再加上某些学生总会摇旗呐喊希望考试再难一点，希望作业再多一点，希望上课再快一点。你会发现这些学生，我不太清楚他们到底是出于哪一方面的人格障碍，会不断地以一种 “凡尔赛” 的方式流露出自己学得如何如何轻松，而他们传递出的焦虑实际上对整个大学的学风造成了严重的伤害。你还会发现有太多异常完美的人，就如同前面提到的特奖得主一样，从成绩到公益、文艺、科研等等都很完美，甚至包括身材和对象都很完美，完美到像是从网络爽文里面跑出来的角色，这些人被树为典型，变成一种抽象的符号，变成一种图腾，一种社会导向，变成非人的概念，最后变成压在我们每个人头上，让我们谈之色变的大山。</p>
+<p>但是，单纯的集体焦虑，集体疲劳和集体的恶性竞争并不一定都能算是内卷。今天我们在高校里享受优质的教育软硬件资源，住着深圳寸土寸金的宿舍，在食堂吃的饭也得到了一定比例的补贴，哪怕考雅思托福都可以得到报销，这些都是中华人民共和国纳税人的投入。而纳税人在我们身上进行这样大规模、长周期的投资所期望得到的回报，或者说是大学设立的目的，就是让我们成为能够为社会创造更大价值的人，培养出一批优秀的人才。从这个角度看，如果高烈度的竞争、高强度的大学学习有助于这一目标的实现，那这样的境况应当是不能被称之为内卷的，反而恰恰是符合大学的 “目的” 的。我的观点是，<strong>内卷必须是无意义的内耗</strong>，所以也必定存在对应的帕累托优化路径，尽管这样的优化不一定具有可操作性。</p>
+<p>但实际上，本科教育的确已经陷入了深深的内卷泥潭当中。当大家为了应对考试，不得不投入超大量时间到课业当中，去刷题，揣测试卷，记忆背诵许多东西的时候，这些努力真的是值得的吗？这些努力真的有利于塑造社会所需要的人才吗？至少可以从以下几个方面说明，这种考试体系是不完全符合大学的 “目的” 的：</p>
+<ul>
+<li>首先，一门课程的考试所涉及的内容，往往不都是实际应用中有价值的</li>
+<li>其次，知识的实际应用并非闭卷考试，可以查阅资料，使用辅助工具</li>
+<li>再次，学生的科研、工作、学习能力，并不能完全从考试中得到体现</li>
+</ul>
+<p>正因为有诸如此类原因的存在，我们有理由相信，追求成绩，追求 GPA 的高校教育，或者说严重应试化的高校教育确实存在严重的内卷现象。这种内卷的一个深层次原因，即为<strong>对学生进行考核的制度存在系统性缺陷</strong>，现行的考核维度与学生实际的科研、工作、学习能力存在脱节，建立在这种存有弊端的考核制度上的任何烈性竞争，也必然会导致学生精力的耗散，是对教育资源的浪费，是对纳税人钱财的浪费，是不符合大学的 “目的” 的，是最典型的内卷。</p>
+<p>与此同时，再进一步思考，我们又会发现，产生内卷的另一个根本原因，是僧多粥少的大局面，是蛋糕做的不够大。学生多而出路少，保研名额少，考研人数多，就业竞争大，因此所有人都迫切需要用 GPA 来证明自己，用 GPA 来决定自己人生下一步可能的际遇和平台。<strong>机遇、出路、选择的有限性与本科生数量的膨胀</strong>，是导致高校教育内卷化的另一个本质原因。</p>
+<p>让我们再一次总结：</p>
+<ul>
+<li>学生考核制度存在系统性缺陷</li>
+<li>机遇、出路、选择的有限性与本科生数量的膨胀</li>
+</ul>
+<p>这两点，我认为就是高校教育内卷化的深层次原因，把握这两点就是把握到大学内卷的本质。这些诱因的产生，在很大程度上是有客观的必然性的，比如大量人争夺少量资源的矛盾，是从人类社会诞生起，乃至于生物产生起的基本矛盾 —— 实际上内卷这个概念在最早被提出的时候，所指的就是农业社会的人多地少，粮食产量低下，导致的巨大的生存压力这一历史阶段性现象。而任何一种考核制度都显然不能完全地贴近真实情况，客观而真实地反映一个学生所能在科研、工作中创造价值的能力。</p>
+<p>尽管如此，仍然存在一些简单的调整，来改善内卷的局面。例如，在考试中允许携带计算器和 cheating paper，这样将更加贴近真实的知识运用情况，有效减轻了学生的压力，改善了内卷内耗的局面，但学生习得的知识和能力并未因此而大打折扣。再例如，也许可以大幅度增加高考考纲、高中课程内容的广度和深度，这样或许会让高中生的课业压力有所增加，但是知识的总量却得到了实实在在的提高。同样的学习时间，用来拓宽学生知识结构的深度和广度，比起反复的刷题训练，哪个对学生培养更有价值？同样的学习时间，用来学习更多新的知识，探究更深层次的内容，比起枯燥无味的刷题做卷子，哪个让学生更感兴趣？这两个问题，我想老师和同学们会比我更深有感触。</p>
+<hr>
+<h2 id="高校教育内卷化的破坏性表现">高校教育内卷化的破坏性表现</h2>
+<p>内卷对于高校教育带来的破坏性也是严重而深远的，并且很多时候并非那么直白。我总结以下几点：</p>
+<ul>
+<li>学生、教授耗费了学习、教学精力和时间，但知识总量没有增加，能力没有得到提升，是教育资源的浪费</li>
+<li>在这一条件下，竞争烈度的急剧增加，给大学生带来太多太大的、不必要的学习压力</li>
+<li>进而，这种压力，导致学生没有办法去学习更多有价值的知识，培养有价值的能力，或者只是让大家没有时间锻炼身体，很多情况下构成对大学生身心的摧残</li>
+<li>最后，内卷氛围的弥漫，会对高校学风、校风构成巨大的冲击</li>
+</ul>
+<p>前三点都很好理解，大家即使在高中，甚至是初中就已经有所体会了。当然，现在的 10 后可能在幼儿园时代就有所体会了。至于内卷氛围冲击学风，则是大家在高中阶段，特别是在郴州一中不见得有感觉的。</p>
+<p>我曾经跟一位学长讨论各个系的 administration，也就是行政管理的情况。这位老哥非常深刻地指出，凡是内卷严重的地方，那里的行政管理人员一定很不 nice，不好打交道。或许是朝令夕改，或许是发邮件不回，也有可能是出台各种不切实际、引起怨声载道的拍脑袋政策。当然，这也并非是一条铁律，但仍然具有比较强的普适性。究其原因，我想可以被解释为：内卷强的地方，学生和院系之间的关系往往不再是平等而积极的，学生争相有求于手握资源之人。独生子当然可以当做宝贝来疼爱，但是有人能把 60 个嗷嗷待哺的孩子全都视若掌上明珠吗？</p>
+<p>比起内卷本身更可怕的，是内卷的氛围。一个集体中存不存在内卷，尚且另当别论，但当这个集体中的成员普遍认为自己身在内卷之中时，就要提起警惕，这个集体的凝聚力和战斗力和集体认同感可能正面临着严峻的挑战。虽然高考是竞争性的极其内卷化的考试，但是大家都非常幸运，因为你们真正的竞争对手并不在自己身边，而是在这里以北 300 公里外的长沙市。我很羡慕大家，也很怀念过去的时光，大家相互之间的关系跟像是在一起并肩作战，这种环境里的竞争是积极而有节制的。</p>
+<p>这里还是以我惨痛的模电课经历做例证，我的模电期中考的非常非常糟糕，有多糟糕就不提了，还是比较丢人的，总之就是很糟糕，我甚至一度非常担心自己将要挂科。到了期末考试之前，发现应试最有效的方法还是刷题，我就是太不懂应试才吃亏，所以从好同志那里找到了哈工深用的模电卷子 —— 在南科大，考试卷子向来是保密的。这一套数年以来的习题集，就成为我应试的利器，它确实给了我很大帮助。但是，让我直到现在想起来都很后怕的是，当我手握这一套卷子的时候的畸形的心态。</p>
+<p>记得我在一中的时候，老师鼓励大家把自己找到的有价值的习题分享出来，大家一起学习共同进步，而不应该藏着掖着，害怕别人所谓 “超过自己”—— 没记错的话，类似的例子在初中思想品德教材上就已经出现了。我一直是个非常热情的同学，当我听到这些的时候，我的第一反应都是，怎么会有这么小气的人，完全无法理解他们这种行为。实际上确实如此，今天我也要鼓励一中的学弟学妹们，大家不该把一个班级一个年级的成绩和排名看得太重，因为如我之前提到的，你的竞争对手不在你肉眼所及的地方，而在你看不到的地方。</p>
+<p>但是，到了大学，情况就变了。我突然意识到，与我竞争资源竞争出路的敌人就在身边，在系里面的排名是可以实实在在地决定你未来人生走向的。在这种情况下，你还会愿意慷慨地分享知识吗？在考试当中，共同进步可以实现双赢吗？我是非常热情，乐于分享的人，但是当我想到这里，打消了这种分享的想法，甚至在内心深处有一个小小的声音，开始诅咒起其他的同学。</p>
+<p>实在是太可怕了。这样一种曾经被我自己所鄙视的思维方式，在特定的环境下竟然会变得如此的自然，实在是让人不寒而栗，这是在真正走向社会之前，大学的内卷给我上的重要一课。</p>
+<p>每每有人问起我在哪个专业，我答 “深港微电子学院”，其他同学的第一反应都是：“深港微啊，很卷”。其实到底卷不卷，我尚且没有一个很清晰的认知，但是大家都认为很卷，这样的一种认知，倒是实实在在正在影响着人的思维方式。就像之前所提到的，“卷” 的地方，行政可能就不太 nice，人情相对淡漠，人与人之间相互的联系变得更不紧密而更加功利。我想，内卷最最恐怖的地方，莫过于此吧。</p>
+<hr>
+<h2 id="路径依赖与跳出内卷">路径依赖与跳出内卷</h2>
+<p>内卷很恐怖，但同样恐怖的，是没有意识到内卷的存在，或者认为内卷就是理所当然的。面对内卷，一中的各位同学们能够做什么。说一句实在的话，其实我也没有一个明确的答案，但是我非常清楚，正面认识内卷就是迈出了最重要的第一步。</p>
+<p>前段时间我跟哈工深的朋友讨论这个话题，他给出的一个思路就是所谓的 “肉身翻墙”—— 国内竞争压力太大，我就到国外去抢外国人的工作。这是一个很现实也很自然的想法，他还给出了更现实的例子。在广东，或者说主要是广州和深圳，很多人会把自己的孩子送到国外去读大学本科，也就是所谓的 “海本”。首先强调，我只是举个例子，并不是在宣传出国读海本，更不是在替一中的国际部背书。我们讨论了一些例子得到的结果是，如果一个人被送到海外读本科：</p>
+<ul>
+<li>首先他将不用忍受高考的折磨，他可以将更多的时间用来学习知识和培养能力</li>
+<li>再者，以中国人受到的应试教育训练，在国外可以轻易地以考试成绩击败一众同龄人</li>
+<li>最后，国外的教育体系下，能够提供的上升机会是非常多的，很多人申请牛剑亦不在话下</li>
+</ul>
+<p>这里说了一堆很洋气的东西，大家可能觉得听起来很遥远，实际上我自己也觉得听起来很遥远。所以其实这是项庄舞剑意在沛公，我想强调的，是什么在限制我们的思维，让我们觉得逃离内卷，逃离一些固有的模式是遥远而不切实际的。</p>
+<p>我来自临武县，成长在一个普通的家庭，小学和初中时代都在县里度过。我的爷爷奶奶辈都还曾经是农民，我的父亲母亲则是用知识改变了命运，让我有幸成为一个县城人。在临武三中的时候，我们经常听到的是，班主任鼓励大家去读所谓的免费师范。在那个时候那个环境下，师范是一个自然而然的出路，高中是一个可选项，初中毕业即就业也是很正常的。</p>
+<p>当我非常幸运地考上了市一中的二四班，来到市里头，在这里再也没有人提什么师范了，也没有人来催你学政史地，让你全面发展了，只有一个终极目标，就是高考。高考就是一切，一切为了高考。有一个周末的上午让我至今影响深刻，我去到生源时代广场，偶然见到了一群打扮得很像小大人的小朋友，在没有大人陪伴的情况下一起出来玩，熟练地跟店员对话，打手机，掏钱包。我像他们这么大的时候，还很怕生，不善于跟陌生人交流，因为小县城也不需要跟太多人打交道，我的活动范围可能是从武水河的左岸到右岸；而这个年纪的他们，也许早就已经能够搭着出租车从苏仙区的一头跑到北湖区的另一头了。</p>
+<p>历史学上有个概念，叫做 “路径依赖”，我们每个人都是路径依赖的，我们曾经遇到的每一个人，生活的每一个环境，都对今天的我们产生着深远的影响，尽管我们很多时候不能自知。这种路径依赖在很多时候，会限制我们的眼界，限制我们的思维方式。直到今天我的行事方式和观念里，仍然有些十分传统的成分，当然我很为之骄傲：我坚持节约粮食，饭一定要吃完；坚持勤俭节约，快递纸箱子和报纸一定要收起来充分利用；我会坚持雷厉风行，吃饭的时候不玩手机，走路也要带起风来；拖地一定要用双手，弯腰用力拖，现在很多大城市来的同学是用一只手拖地的。</p>
+<p>大家可能已经注意到了，我的牙齿有比较严重的畸形，上下是根本没法对整齐的，如果我出生在一个城市中等收入家庭，可能早就被带去做正畸了。但是我并没有，在我们的观念里，牙医都是一个罕见的概念，也不会在乎牙齿的畸形是不是会对人的语音和颜值造成影响。流淌在我血液里的，就是面朝黄土背朝天的中国农民的思维，踏踏实实地把自己的事情做好，那一切都一定会好起来。</p>
+<p>这就是我的路径依赖，作为一个南方小县城人的路径依赖，我知道一中的同学们有很多跟我的境况其实是相似的。我并没有因此而感到自卑或者遗憾，很多时候我还很骄傲，但是我也知道，我们一定要努力地跳出路径依赖，跳出固有的思维定式，开阔自己的眼界，发现更多的可能性。也正因此，我为自己来到深圳而感到无比的幸运。</p>
+<hr>
+<h2 id="从信息获取开始打破自己的路径依赖">从信息获取开始打破自己的路径依赖</h2>
+<p>为了应对内卷这个全新的挑战，第一要务是重构自己的思维体系，重新建立对世界的一些认知，开放自己的思维，开阔自己的眼界。而在这一过程中，路径依赖就是我们最大的敌人。为了破除自己的路径依赖，我们需要不断地挑战自己 —— 并不是用一些艰巨的任务来挑战自己的能力，而是用不同的观点来挑战自己的思维定式。要更新自己的观念，先获取别人的观念；要获取别人的观念，首先需要综合大量的信息。</p>
+<p>当互联网被普及的时候，人们乐观地认为，这一划时代的发明从此可以改变人类社会的结构，因为它极大地降低了人们获取知识的门槛，也许因此可以大幅加快阶级的流动，平衡人们的 “起跑线”。但是，今天我们发现，互联网在看似提供了很多便利的同时，也筑起了一道高高的壁垒，知识的壁垒，文化的壁垒，信息的壁垒。对于懂得如何利用互联网高效地获取所需的信息的人来说，互联网成为了前所未有的极其有效的工具，让他们进一步地利用这些高质量高通量的信息，进一步巩固自己的地位。而对于不懂得利用互联网的人来说，互联网成为了一个陷阱，成为所谓的 “奶头乐” 的载体，反而让人丧失了获取信息和知识的能力。在这样一个算法和流量当道的年代，在大量的短视频、快餐文化、碎片内容的冲击之下，我们的思维能力是因互联网而如虎添翼，还是因互联网而生锈积灰？</p>
+<p>还是举大学的例子，在大学里很多人经常会在群里问一堆莫名其妙的问题，主要是一些跟电脑相关的。一般都是一些很浅显，让人不想回答的问题。究其原因是这些人不能够利用互联网这个工具来查找自己需要的信息。比方说，如果有人要输入一个积分符号，它可能会这样搜索：</p>
+<blockquote>
+<p>“Word 里面怎么打积分符号”</p>
+</blockquote>
+<p>也有人会这样搜索：</p>
+<blockquote>
+<p>“Word 输入 积分 符号”</p>
+</blockquote>
+<p>（这个例子举得不一定好，实际上第一种搜索方式也能搜到答案），但是还有别的更典型的例子有很多，关键字的设置，会显著地决定你通过搜索引擎得到的答案的质量以及它们与你的需求的契合度，很多人并不懂得这个道理，所以他们也长期没有办法从搜索引擎得到自己需要的答案，所以久而久之就再也不试着自己找问题的答案了。这种能力的退化，所带来的恶果是非常显著的。</p>
+<p>但是，现代社会的信息陷阱还远远不止于此。我也偶尔会沉迷 B 站上的小视频，一看就看很长时间。有一天我突然意识到为什么自己会连续不断地刷小视频，从看一个视频不断看到相似的另一个 —— 这些视频构成了一种<strong>回音壁</strong>，我的固有的思维和印象在其中不断地反射、放大、加深、固化。如果我看了一个所谓 “战斗民族” 的视频，接下来推荐的每一个视频都不断地加深这种思维，他们如何与熊相处，或者是在冰天雪地里喝伏特加；如果我看到了印度小吃的视频，接下来的推荐会不断地强调，印度街头小吃是如何的脏乱差、重口味和呈现出糊糊状态。这些视频没有给我提供任何新的有价值的内容，仅仅是通过迎合我的固有观点来给我提供一种满足感，而这种满足感是让我感到十分后怕的。</p>
+<p>现代社会，我们越来越欠缺 “冒犯”，缺失不同的声音，缺少被打脸。我一直在读的一本双月刊叫做《读库》，主编就这样阐述他们的理念：应该给读者以适当的冒犯，在新的一年里，有很多读者因为读库里不喜欢的文章变多而取消订阅，也有很多读者因为读库里不喜欢的文章变多而坚持订阅。我们需要更多像《读库》这样的信息源，能够冒犯我们，打我们的脸，逼迫我们学习一些不喜欢但是有用的知识，接触陌生领域，挑战深植于我们脑海中的刻板思维定式。</p>
+<p>这些是我们在利用互联网，包括在整个现代生活中，接触、获取信息时所应该思考的问题。很多人这件事情做的不好，可能会导致他们在内卷当中败下阵来；而我把话说得难听一些，今天就冒犯一下大家，至于那些在一中连互联网和课外书都不愿意接触的人来讲，你连被卷的资格都没有，直接就被现代社会给抛弃了。不是所有东西都能先上车后补票，你觉得这些可以拖到高考结束再去考虑，再去培养，但是到那个时候，你丧失的不只是能力和知识，更是培养能力所需要的能力、获取知识所依赖的知识啊。</p>
+<p>这一段长长的演讲，长长的视频，本身就是这样一种冒犯，当你看到了这个位置的时候，我猜想，你的能力已经超过了百分之八十的一中人。</p>
+<hr>
+<h2 id="结语">结语</h2>
+<p>你看或者不看，内卷都在那里，不离不弃。当大家都在卷的时候，我希望今天，听过我这一番演说的一中同学们，可以多问自己，问身边的人，也问这个社会几个问题：正在内卷吗？我一定要卷吗？卷，真的值得吗？找到你们想做的事情，成为你们想成为的人，发现属于你们自己的人生答案。希望今后大家可以多思考，多探索，在辛勤耕耘脚下的土地的同时，也能仰起头眺望远方的地平线。</p>
+<p>谢谢大家。</p>
+]]></content>
+      <tags>
+        <tag>college students</tag>
+        <tag>involution</tag>
+        <tag>society</tag>
+      </tags>
   </entry>
   <entry>
     <title>Fundamentals of Electric Circuits Review</title>
@@ -2412,315 +3784,6 @@ $$</p>
       </tags>
   </entry>
   <entry>
-    <title>高校内卷的破坏性和深层次原因，从更新自己的思维开始直面内卷</title>
-    <url>//involution/</url>
-    <content><![CDATA[<p>自 2020 年中以来，越来越多的人以及自媒体开始意识到、提起和关注内卷（involution）这一话题。内卷到底是什么，它对我们和我们所生活的世界造成了怎样的深远影响？我们应该如何对待内卷？而本文所尤其关注的是，2021 年的准大学生又应该如何面对社会竞争内卷化这一浪潮？</p>
-<blockquote>
-<p>本文为笔者为 2021 年湖南省郴州市第一中学的返校宣讲活动 “Dating Future” 所录制的演讲的讲稿。笔者并非社会科学专业，文中所涉内容若有疏忽谬误，或对某些群体有所冒犯，还恳请读者及时指正。</p>
-<p>对于在各个平台关注了我的读者，首先十分感谢你们对我的肯定。发出这篇文章之前久无更新，一来是因为我学业和科研事务繁重，实在无从抽身；二来也是因为写文章纯粹随缘，并无长期创作的习惯。不够高产，还望海涵。</p>
-</blockquote>
-<span id="more"></span>
-<h2 id="内卷的概念逐渐深入人心">内卷的概念逐渐深入人心</h2>
-<!-- 演示文稿显示“内卷”两个大字即可 -->
-<p>很久之前我就听说过 “内卷” 这个词汇，但是直到 2020 年的年中，也就是我进入大二，选定专业，开始上专业课程 —— 尤其是模拟电路课程之后，才发现身边越来越多的人开始使用 “内卷”
-这个词，开始表达出对于竞争烈度的担忧和焦虑。我一度认为，这种焦虑的产生是进入专业，学业压力增大（当然对于我来说学业压力一直都非常大）之后产生的必然结果，大学生们会自然而然地在这个阶段开始觉得 “很卷”。</p>
-<p>但是，上周我参加主持队的专业培训，我打开电脑，屏幕上显示的是我正在学习的英文文献，一旁的学弟就说：“这学期才刚开学就开始卷了吗？” 同样，我在 Dating Future 群里潜水的时候，看到一中的 20 届毕业生们也开始谈论内卷，类似的例子还有很多。于是我又发现，似乎内卷也并不是大学特定阶段的感受，而是所有的大学生在 2020 年开始觉察，在 2021
-年必须认真面对的一个话题了。</p>
-<p>更让人惊讶的是，再到我与一中的学弟学妹们交谈时，低年级的同学也能对内卷发表评论，而网络上的谈论内卷，谈论社会竞争压力加剧的视频也越来越多，我这才幡然醒悟：原来内卷不是模电课学生的焦虑，也不是当代大学生的集体情绪，还不只是学生们的谈资，它实实在在地成为了当前一个时期和未来一个时期躲不开的社会命题，成为属于我们的时代的一个鲜明印记，成为我们的父辈所没有遭遇过的，而我们却要面临的问题。对二十一世纪二零年代的我们来讲，内卷已经变得像吃穿住行一样寻常，也许未来十年人们打招呼不再是 “你吃了吗？”，而是 “你卷了吗”？</p>
-<hr>
-<h2 id="内卷的典型例子">内卷的典型例子</h2>
-<p>最为典型的内卷的体现，可以举买火车票为例子。以往还不能网上购买火车票时，大家必须到车站或是代售点买票。假定火车票定于发车前 12 个小时开始销售，若票少人多，那么人们会提前 12 个小时就来到代售点排队等票。随后自然而然，就会有越来越多的人选择提前 13 个小时前来排队买票；接下来，大家为了抢到票，就只能提前 14、15 小时甚至更长的时间前来排队等票。最后的结果则是达到一种低效的平衡 —— 售票点前排起长长的帐篷，仅为了争抢并没有因此而变多的火车票。</p>
-<p>这一现象的一大特征，是它仍然存在进行 “帕累托改进” 的余地。换言之，就是明显地存在一种改进的方式，在不使任何人境况变坏的前提下，使得至少一个人变得更好 —— 大家各退一步，都来晚点就好了。</p>
-<p>但是，帕累托优化的路径可能存在，但并不总能真正实现。高考体制就是这样一个严重内卷化的系统。一旦第一所学校开始周六上午补课，就有第二所学校开始周六全天补课，就有第三所学校开始七天无休。当第一个人迈出内卷的第一步时，赌桌上的所有人都不得不层层加码，而阻止这一恶性循环的开始又是极其困难和不具有操作性的。我们都清楚地意识到自己应该退一步，但是却决没有人愿意主动第一个退步。整个教育体系就像打上了一个只紧不松的死结。</p>
-<p>如果从全社会的视角来考虑，企业里员工努力的工作，相互竞争倾轧以谋求上升通道，但整个劳动者群体的待遇并没有得到改善，只有食利者阶层坐享其成，劳动者得到的往往还是购买力越来越低的工资，越来越长的工作时间，越来越大的竞争压力，和要求绩效只增不减的军令状。</p>
-<p>仔细思考，内卷现象已经深深地渗透进了我们的社会，但是认知内卷、应对内卷的思维却还未能深深渗透进我们的头脑。内卷是横亘于我们面前的挑战，对内卷缺乏认知则更是个人的严重发展危机。</p>
-<hr>
-<h2 id="高校教育内卷产生的深层次原因">高校教育内卷产生的深层次原因</h2>
-<p>当看过几个例子之后，大家即使之前没有接触过内卷这个词，现在也应该感到自己理解了内卷这个概念。但是，仅仅从几个例子的表现中提取共同特征，还不足以真正把握内卷这一社会现象的实质，要深刻理解内卷，还必须深刻反思内卷产生的原因。从人类社会的宏观层面，或者从政治经济学的层面来理解内卷，许多优秀的社会学家已经给出了非常独到和精辟的见解，而今天我们所关注的，则是本科教育中内卷现象的产生。</p>
-<p>我想举很久前读过的一篇文章为例：<a href="https://mp.weixin.qq.com/s/QZHvnRcICYpq8411PxJ78g">浅谈清华学风、课程内卷、特奖与其他</a>，这篇文章着重提到了清华大学不切实际地加大课程难度，加快教学进度，搞填鸭式教学，以及 “特奖” 评选的超高要求折射出的不见得就一定是积极的价值导向。作者这样形容获得特奖的路径：</p>
-<blockquote>
-<p>特奖 = 必需品 × 2 + 点缀 × n</p>
-<p>其中，必需品包括：GPA 全系前三（部分院系需要第一），两篇及以上顶会期刊论文，学生会主席 / 副主席，国际大赛金牌或解决领域难题；</p>
-<p>点缀包括但不限于：体育代表队队长或马杯奖牌，志愿服务超过 200 个小时，艺术团核心成员，实践金 / 银 / 铜奖，有自己出版的专著，让清华在国际上出头露脸的任何事件等</p>
-</blockquote>
-<p>对这些情况，大家进入大学之后很快就会有一个直观的感受，你会意识到有时候课程很难，但某些教授和助教，再加上某些学生总会摇旗呐喊希望考试再难一点，希望作业再多一点，希望上课再快一点。你会发现这些学生，我不太清楚他们到底是出于哪一方面的人格障碍，会不断地以一种 “凡尔赛” 的方式流露出自己学得如何如何轻松，而他们传递出的焦虑实际上对整个大学的学风造成了严重的伤害。你还会发现有太多异常完美的人，就如同前面提到的特奖得主一样，从成绩到公益、文艺、科研等等都很完美，甚至包括身材和对象都很完美，完美到像是从网络爽文里面跑出来的角色，这些人被树为典型，变成一种抽象的符号，变成一种图腾，一种社会导向，变成非人的概念，最后变成压在我们每个人头上，让我们谈之色变的大山。</p>
-<p>但是，单纯的集体焦虑，集体疲劳和集体的恶性竞争并不一定都能算是内卷。今天我们在高校里享受优质的教育软硬件资源，住着深圳寸土寸金的宿舍，在食堂吃的饭也得到了一定比例的补贴，哪怕考雅思托福都可以得到报销，这些都是中华人民共和国纳税人的投入。而纳税人在我们身上进行这样大规模、长周期的投资所期望得到的回报，或者说是大学设立的目的，就是让我们成为能够为社会创造更大价值的人，培养出一批优秀的人才。从这个角度看，如果高烈度的竞争、高强度的大学学习有助于这一目标的实现，那这样的境况应当是不能被称之为内卷的，反而恰恰是符合大学的 “目的” 的。我的观点是，<strong>内卷必须是无意义的内耗</strong>，所以也必定存在对应的帕累托优化路径，尽管这样的优化不一定具有可操作性。</p>
-<p>但实际上，本科教育的确已经陷入了深深的内卷泥潭当中。当大家为了应对考试，不得不投入超大量时间到课业当中，去刷题，揣测试卷，记忆背诵许多东西的时候，这些努力真的是值得的吗？这些努力真的有利于塑造社会所需要的人才吗？至少可以从以下几个方面说明，这种考试体系是不完全符合大学的 “目的” 的：</p>
-<ul>
-<li>首先，一门课程的考试所涉及的内容，往往不都是实际应用中有价值的</li>
-<li>其次，知识的实际应用并非闭卷考试，可以查阅资料，使用辅助工具</li>
-<li>再次，学生的科研、工作、学习能力，并不能完全从考试中得到体现</li>
-</ul>
-<p>正因为有诸如此类原因的存在，我们有理由相信，追求成绩，追求 GPA 的高校教育，或者说严重应试化的高校教育确实存在严重的内卷现象。这种内卷的一个深层次原因，即为<strong>对学生进行考核的制度存在系统性缺陷</strong>，现行的考核维度与学生实际的科研、工作、学习能力存在脱节，建立在这种存有弊端的考核制度上的任何烈性竞争，也必然会导致学生精力的耗散，是对教育资源的浪费，是对纳税人钱财的浪费，是不符合大学的 “目的” 的，是最典型的内卷。</p>
-<p>与此同时，再进一步思考，我们又会发现，产生内卷的另一个根本原因，是僧多粥少的大局面，是蛋糕做的不够大。学生多而出路少，保研名额少，考研人数多，就业竞争大，因此所有人都迫切需要用 GPA 来证明自己，用 GPA 来决定自己人生下一步可能的际遇和平台。<strong>机遇、出路、选择的有限性与本科生数量的膨胀</strong>，是导致高校教育内卷化的另一个本质原因。</p>
-<p>让我们再一次总结：</p>
-<ul>
-<li>学生考核制度存在系统性缺陷</li>
-<li>机遇、出路、选择的有限性与本科生数量的膨胀</li>
-</ul>
-<p>这两点，我认为就是高校教育内卷化的深层次原因，把握这两点就是把握到大学内卷的本质。这些诱因的产生，在很大程度上是有客观的必然性的，比如大量人争夺少量资源的矛盾，是从人类社会诞生起，乃至于生物产生起的基本矛盾 —— 实际上内卷这个概念在最早被提出的时候，所指的就是农业社会的人多地少，粮食产量低下，导致的巨大的生存压力这一历史阶段性现象。而任何一种考核制度都显然不能完全地贴近真实情况，客观而真实地反映一个学生所能在科研、工作中创造价值的能力。</p>
-<p>尽管如此，仍然存在一些简单的调整，来改善内卷的局面。例如，在考试中允许携带计算器和 cheating paper，这样将更加贴近真实的知识运用情况，有效减轻了学生的压力，改善了内卷内耗的局面，但学生习得的知识和能力并未因此而大打折扣。再例如，也许可以大幅度增加高考考纲、高中课程内容的广度和深度，这样或许会让高中生的课业压力有所增加，但是知识的总量却得到了实实在在的提高。同样的学习时间，用来拓宽学生知识结构的深度和广度，比起反复的刷题训练，哪个对学生培养更有价值？同样的学习时间，用来学习更多新的知识，探究更深层次的内容，比起枯燥无味的刷题做卷子，哪个让学生更感兴趣？这两个问题，我想老师和同学们会比我更深有感触。</p>
-<hr>
-<h2 id="高校教育内卷化的破坏性表现">高校教育内卷化的破坏性表现</h2>
-<p>内卷对于高校教育带来的破坏性也是严重而深远的，并且很多时候并非那么直白。我总结以下几点：</p>
-<ul>
-<li>学生、教授耗费了学习、教学精力和时间，但知识总量没有增加，能力没有得到提升，是教育资源的浪费</li>
-<li>在这一条件下，竞争烈度的急剧增加，给大学生带来太多太大的、不必要的学习压力</li>
-<li>进而，这种压力，导致学生没有办法去学习更多有价值的知识，培养有价值的能力，或者只是让大家没有时间锻炼身体，很多情况下构成对大学生身心的摧残</li>
-<li>最后，内卷氛围的弥漫，会对高校学风、校风构成巨大的冲击</li>
-</ul>
-<p>前三点都很好理解，大家即使在高中，甚至是初中就已经有所体会了。当然，现在的 10 后可能在幼儿园时代就有所体会了。至于内卷氛围冲击学风，则是大家在高中阶段，特别是在郴州一中不见得有感觉的。</p>
-<p>我曾经跟一位学长讨论各个系的 administration，也就是行政管理的情况。这位老哥非常深刻地指出，凡是内卷严重的地方，那里的行政管理人员一定很不 nice，不好打交道。或许是朝令夕改，或许是发邮件不回，也有可能是出台各种不切实际、引起怨声载道的拍脑袋政策。当然，这也并非是一条铁律，但仍然具有比较强的普适性。究其原因，我想可以被解释为：内卷强的地方，学生和院系之间的关系往往不再是平等而积极的，学生争相有求于手握资源之人。独生子当然可以当做宝贝来疼爱，但是有人能把 60 个嗷嗷待哺的孩子全都视若掌上明珠吗？</p>
-<p>比起内卷本身更可怕的，是内卷的氛围。一个集体中存不存在内卷，尚且另当别论，但当这个集体中的成员普遍认为自己身在内卷之中时，就要提起警惕，这个集体的凝聚力和战斗力和集体认同感可能正面临着严峻的挑战。虽然高考是竞争性的极其内卷化的考试，但是大家都非常幸运，因为你们真正的竞争对手并不在自己身边，而是在这里以北 300 公里外的长沙市。我很羡慕大家，也很怀念过去的时光，大家相互之间的关系跟像是在一起并肩作战，这种环境里的竞争是积极而有节制的。</p>
-<p>这里还是以我惨痛的模电课经历做例证，我的模电期中考的非常非常糟糕，有多糟糕就不提了，还是比较丢人的，总之就是很糟糕，我甚至一度非常担心自己将要挂科。到了期末考试之前，发现应试最有效的方法还是刷题，我就是太不懂应试才吃亏，所以从好同志那里找到了哈工深用的模电卷子 —— 在南科大，考试卷子向来是保密的。这一套数年以来的习题集，就成为我应试的利器，它确实给了我很大帮助。但是，让我直到现在想起来都很后怕的是，当我手握这一套卷子的时候的畸形的心态。</p>
-<p>记得我在一中的时候，老师鼓励大家把自己找到的有价值的习题分享出来，大家一起学习共同进步，而不应该藏着掖着，害怕别人所谓 “超过自己”—— 没记错的话，类似的例子在初中思想品德教材上就已经出现了。我一直是个非常热情的同学，当我听到这些的时候，我的第一反应都是，怎么会有这么小气的人，完全无法理解他们这种行为。实际上确实如此，今天我也要鼓励一中的学弟学妹们，大家不该把一个班级一个年级的成绩和排名看得太重，因为如我之前提到的，你的竞争对手不在你肉眼所及的地方，而在你看不到的地方。</p>
-<p>但是，到了大学，情况就变了。我突然意识到，与我竞争资源竞争出路的敌人就在身边，在系里面的排名是可以实实在在地决定你未来人生走向的。在这种情况下，你还会愿意慷慨地分享知识吗？在考试当中，共同进步可以实现双赢吗？我是非常热情，乐于分享的人，但是当我想到这里，打消了这种分享的想法，甚至在内心深处有一个小小的声音，开始诅咒起其他的同学。</p>
-<p>实在是太可怕了。这样一种曾经被我自己所鄙视的思维方式，在特定的环境下竟然会变得如此的自然，实在是让人不寒而栗，这是在真正走向社会之前，大学的内卷给我上的重要一课。</p>
-<p>每每有人问起我在哪个专业，我答 “深港微电子学院”，其他同学的第一反应都是：“深港微啊，很卷”。其实到底卷不卷，我尚且没有一个很清晰的认知，但是大家都认为很卷，这样的一种认知，倒是实实在在正在影响着人的思维方式。就像之前所提到的，“卷” 的地方，行政可能就不太 nice，人情相对淡漠，人与人之间相互的联系变得更不紧密而更加功利。我想，内卷最最恐怖的地方，莫过于此吧。</p>
-<hr>
-<h2 id="路径依赖与跳出内卷">路径依赖与跳出内卷</h2>
-<p>内卷很恐怖，但同样恐怖的，是没有意识到内卷的存在，或者认为内卷就是理所当然的。面对内卷，一中的各位同学们能够做什么。说一句实在的话，其实我也没有一个明确的答案，但是我非常清楚，正面认识内卷就是迈出了最重要的第一步。</p>
-<p>前段时间我跟哈工深的朋友讨论这个话题，他给出的一个思路就是所谓的 “肉身翻墙”—— 国内竞争压力太大，我就到国外去抢外国人的工作。这是一个很现实也很自然的想法，他还给出了更现实的例子。在广东，或者说主要是广州和深圳，很多人会把自己的孩子送到国外去读大学本科，也就是所谓的 “海本”。首先强调，我只是举个例子，并不是在宣传出国读海本，更不是在替一中的国际部背书。我们讨论了一些例子得到的结果是，如果一个人被送到海外读本科：</p>
-<ul>
-<li>首先他将不用忍受高考的折磨，他可以将更多的时间用来学习知识和培养能力</li>
-<li>再者，以中国人受到的应试教育训练，在国外可以轻易地以考试成绩击败一众同龄人</li>
-<li>最后，国外的教育体系下，能够提供的上升机会是非常多的，很多人申请牛剑亦不在话下</li>
-</ul>
-<p>这里说了一堆很洋气的东西，大家可能觉得听起来很遥远，实际上我自己也觉得听起来很遥远。所以其实这是项庄舞剑意在沛公，我想强调的，是什么在限制我们的思维，让我们觉得逃离内卷，逃离一些固有的模式是遥远而不切实际的。</p>
-<p>我来自临武县，成长在一个普通的家庭，小学和初中时代都在县里度过。我的爷爷奶奶辈都还曾经是农民，我的父亲母亲则是用知识改变了命运，让我有幸成为一个县城人。在临武三中的时候，我们经常听到的是，班主任鼓励大家去读所谓的免费师范。在那个时候那个环境下，师范是一个自然而然的出路，高中是一个可选项，初中毕业即就业也是很正常的。</p>
-<p>当我非常幸运地考上了市一中的二四班，来到市里头，在这里再也没有人提什么师范了，也没有人来催你学政史地，让你全面发展了，只有一个终极目标，就是高考。高考就是一切，一切为了高考。有一个周末的上午让我至今影响深刻，我去到生源时代广场，偶然见到了一群打扮得很像小大人的小朋友，在没有大人陪伴的情况下一起出来玩，熟练地跟店员对话，打手机，掏钱包。我像他们这么大的时候，还很怕生，不善于跟陌生人交流，因为小县城也不需要跟太多人打交道，我的活动范围可能是从武水河的左岸到右岸；而这个年纪的他们，也许早就已经能够搭着出租车从苏仙区的一头跑到北湖区的另一头了。</p>
-<p>历史学上有个概念，叫做 “路径依赖”，我们每个人都是路径依赖的，我们曾经遇到的每一个人，生活的每一个环境，都对今天的我们产生着深远的影响，尽管我们很多时候不能自知。这种路径依赖在很多时候，会限制我们的眼界，限制我们的思维方式。直到今天我的行事方式和观念里，仍然有些十分传统的成分，当然我很为之骄傲：我坚持节约粮食，饭一定要吃完；坚持勤俭节约，快递纸箱子和报纸一定要收起来充分利用；我会坚持雷厉风行，吃饭的时候不玩手机，走路也要带起风来；拖地一定要用双手，弯腰用力拖，现在很多大城市来的同学是用一只手拖地的。</p>
-<p>大家可能已经注意到了，我的牙齿有比较严重的畸形，上下是根本没法对整齐的，如果我出生在一个城市中等收入家庭，可能早就被带去做正畸了。但是我并没有，在我们的观念里，牙医都是一个罕见的概念，也不会在乎牙齿的畸形是不是会对人的语音和颜值造成影响。流淌在我血液里的，就是面朝黄土背朝天的中国农民的思维，踏踏实实地把自己的事情做好，那一切都一定会好起来。</p>
-<p>这就是我的路径依赖，作为一个南方小县城人的路径依赖，我知道一中的同学们有很多跟我的境况其实是相似的。我并没有因此而感到自卑或者遗憾，很多时候我还很骄傲，但是我也知道，我们一定要努力地跳出路径依赖，跳出固有的思维定式，开阔自己的眼界，发现更多的可能性。也正因此，我为自己来到深圳而感到无比的幸运。</p>
-<hr>
-<h2 id="从信息获取开始打破自己的路径依赖">从信息获取开始打破自己的路径依赖</h2>
-<p>为了应对内卷这个全新的挑战，第一要务是重构自己的思维体系，重新建立对世界的一些认知，开放自己的思维，开阔自己的眼界。而在这一过程中，路径依赖就是我们最大的敌人。为了破除自己的路径依赖，我们需要不断地挑战自己 —— 并不是用一些艰巨的任务来挑战自己的能力，而是用不同的观点来挑战自己的思维定式。要更新自己的观念，先获取别人的观念；要获取别人的观念，首先需要综合大量的信息。</p>
-<p>当互联网被普及的时候，人们乐观地认为，这一划时代的发明从此可以改变人类社会的结构，因为它极大地降低了人们获取知识的门槛，也许因此可以大幅加快阶级的流动，平衡人们的 “起跑线”。但是，今天我们发现，互联网在看似提供了很多便利的同时，也筑起了一道高高的壁垒，知识的壁垒，文化的壁垒，信息的壁垒。对于懂得如何利用互联网高效地获取所需的信息的人来说，互联网成为了前所未有的极其有效的工具，让他们进一步地利用这些高质量高通量的信息，进一步巩固自己的地位。而对于不懂得利用互联网的人来说，互联网成为了一个陷阱，成为所谓的 “奶头乐” 的载体，反而让人丧失了获取信息和知识的能力。在这样一个算法和流量当道的年代，在大量的短视频、快餐文化、碎片内容的冲击之下，我们的思维能力是因互联网而如虎添翼，还是因互联网而生锈积灰？</p>
-<p>还是举大学的例子，在大学里很多人经常会在群里问一堆莫名其妙的问题，主要是一些跟电脑相关的。一般都是一些很浅显，让人不想回答的问题。究其原因是这些人不能够利用互联网这个工具来查找自己需要的信息。比方说，如果有人要输入一个积分符号，它可能会这样搜索：</p>
-<blockquote>
-<p>“Word 里面怎么打积分符号”</p>
-</blockquote>
-<p>也有人会这样搜索：</p>
-<blockquote>
-<p>“Word 输入 积分 符号”</p>
-</blockquote>
-<p>（这个例子举得不一定好，实际上第一种搜索方式也能搜到答案），但是还有别的更典型的例子有很多，关键字的设置，会显著地决定你通过搜索引擎得到的答案的质量以及它们与你的需求的契合度，很多人并不懂得这个道理，所以他们也长期没有办法从搜索引擎得到自己需要的答案，所以久而久之就再也不试着自己找问题的答案了。这种能力的退化，所带来的恶果是非常显著的。</p>
-<p>但是，现代社会的信息陷阱还远远不止于此。我也偶尔会沉迷 B 站上的小视频，一看就看很长时间。有一天我突然意识到为什么自己会连续不断地刷小视频，从看一个视频不断看到相似的另一个 —— 这些视频构成了一种<strong>回音壁</strong>，我的固有的思维和印象在其中不断地反射、放大、加深、固化。如果我看了一个所谓 “战斗民族” 的视频，接下来推荐的每一个视频都不断地加深这种思维，他们如何与熊相处，或者是在冰天雪地里喝伏特加；如果我看到了印度小吃的视频，接下来的推荐会不断地强调，印度街头小吃是如何的脏乱差、重口味和呈现出糊糊状态。这些视频没有给我提供任何新的有价值的内容，仅仅是通过迎合我的固有观点来给我提供一种满足感，而这种满足感是让我感到十分后怕的。</p>
-<p>现代社会，我们越来越欠缺 “冒犯”，缺失不同的声音，缺少被打脸。我一直在读的一本双月刊叫做《读库》，主编就这样阐述他们的理念：应该给读者以适当的冒犯，在新的一年里，有很多读者因为读库里不喜欢的文章变多而取消订阅，也有很多读者因为读库里不喜欢的文章变多而坚持订阅。我们需要更多像《读库》这样的信息源，能够冒犯我们，打我们的脸，逼迫我们学习一些不喜欢但是有用的知识，接触陌生领域，挑战深植于我们脑海中的刻板思维定式。</p>
-<p>这些是我们在利用互联网，包括在整个现代生活中，接触、获取信息时所应该思考的问题。很多人这件事情做的不好，可能会导致他们在内卷当中败下阵来；而我把话说得难听一些，今天就冒犯一下大家，至于那些在一中连互联网和课外书都不愿意接触的人来讲，你连被卷的资格都没有，直接就被现代社会给抛弃了。不是所有东西都能先上车后补票，你觉得这些可以拖到高考结束再去考虑，再去培养，但是到那个时候，你丧失的不只是能力和知识，更是培养能力所需要的能力、获取知识所依赖的知识啊。</p>
-<p>这一段长长的演讲，长长的视频，本身就是这样一种冒犯，当你看到了这个位置的时候，我猜想，你的能力已经超过了百分之八十的一中人。</p>
-<hr>
-<h2 id="结语">结语</h2>
-<p>你看或者不看，内卷都在那里，不离不弃。当大家都在卷的时候，我希望今天，听过我这一番演说的一中同学们，可以多问自己，问身边的人，也问这个社会几个问题：正在内卷吗？我一定要卷吗？卷，真的值得吗？找到你们想做的事情，成为你们想成为的人，发现属于你们自己的人生答案。希望今后大家可以多思考，多探索，在辛勤耕耘脚下的土地的同时，也能仰起头眺望远方的地平线。</p>
-<p>谢谢大家。</p>
-]]></content>
-      <tags>
-        <tag>college students</tag>
-        <tag>involution</tag>
-        <tag>society</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Markdown 学习</title>
-    <url>//markdown/</url>
-    <content><![CDATA[<p>是时候学一点 Markdown 了！</p>
-<h2 id="为什么要学习Markdown">为什么要学习 Markdown</h2>
-<p>其实很早之前就有学 Markdown 和 LaTeX 的想法。今年年初由于疫情，不得不在电脑上完成作业，起初是采用 Surface Pen 手写，效果也还不错，后来体验了 Word 自带的 Unicode Math 公式编辑器，瞬间爱不释手，这效率可比手写高多了（并且我也特别享受这样的创作过程），于是又进而萌生了学习 Markdown 和 LaTeX 的想法。一拖再拖到暑假，来认认真真地学习一下吧！</p>
-<p>Markdown 有很多的优点，以下是一些简单的介绍。</p>
-<span id="more"></span>
-<h3 id="简洁明了，专注内容的编辑体验">简洁明了，专注内容的编辑体验</h3>
-<p>我们平时若想要写一些文字，会采用什么软件呢？利用记事本写 txt 纯文本文档的话，虽然更为通用，可以在几乎任何地方阅读，但似乎可支持的内容太少，不能插入代码块、图片、标题分级、文本的加粗、斜体、下划线等。采用 Word 来编写的话，首先文件的外观就与平台有关，有时候我们好不容易排好了版，但是在其他版本的软件上瞬间变得一团糟。更严重的是，排版本身就将作者大量的注意力里从文字当中吸引走，而不能专注于写作本身，Word 的排版真是门技术活，段前段后缩进、段落距离行距离等我就花了很长时间研究……</p>
-<p>这样一来，Markdown 的优点就凸显出来。Markdown 更专注于内容本身，而文档的样式、版式则是由阅读器来决定的（所以使用 Markdown 进行写作可以很方便地换主题）。这样一来，写作者可以更专注于自己正在撰写的文字，也有更多的编辑器和阅读器选择自由度。Markdown
-也可以插入公式、图片、代码块、标题、序号等，内容很丰富。个人认为，但就写作体验而言，Markdown 应该是目前最佳的一种格式吧。</p>
-<h3 id="对其他平台的友好兼容">对其他平台的友好兼容</h3>
-<p>正如前述，因为 Markdown 本身不包含版式等信息，它也能够很好地兼容各个平台。CSDN、知乎、简书等博客性质的网站都可以支持导入.md 文件转化为文章，正是利用了 Markdown 的这一特性。其实这次我开始学习 Markdown 的直接诱因就是想在知乎上写一些文章（；´д｀）ゞ</p>
-<h3 id="Markdown的缺点">Markdown 的缺点</h3>
-<p>Markdown 也有很多缺点，首先就是 Markdown 需要记住一些独特的语法，但是这也不算很难。其次，Markdown 插入图片是以链接的方式，而非直接将图片存储在文件之中，这就会导致迁移文件或者图片目录时可能引起图片显示的异常。虽然有一些方法解决这一问题，但总的来讲的确不太方便。此外，Markdown 的公式编辑功能缺乏图形界面的辅助，使用体验不如 Word
-的公式编辑器。还有很多的小毛病，比如段首缩进等，对中文的适配等……</p>
-<p>（但是，许多功能可以通过软件的辅助来实现）</p>
-<h2 id="两款Markdown编辑器">两款 Markdown 编辑器</h2>
-<p>开始 Markdown 写作其实只需要下载相应的软件就好了，之所以说需要配置环境，是因为使用
-Markdown 在某些情况下需要很多插件（或者 Markdown 本身就是通过插件实现的）。Markdown
-的可选编辑器有很多，不再赘述，只提一下我自己用的两款。</p>
-<h3 id="Typora">Typora</h3>
-<h4 id="Typora的优点">Typora 的优点</h4>
-<ul>
-<li>UI 很美观，赏心悦目</li>
-<li>支持多种显示主题，如 Dark Mode，GitHub 样式等，在网上可以找到更多拓展</li>
-<li>支持多个平台</li>
-<li>操作简单，不需要什么额外的配置</li>
-<li>支持打字机模式、专注模式等，提升写作体验</li>
-<li>具有直观的 GUI 操作，例如直接右键单击进行样式设定，插入图片等功能</li>
-<li>可以通过快捷键改变文字样式，正如在 Word 中一样</li>
-<li>支持字数统计等</li>
-<li>总而言之就是更像是一个用来写作的工具了</li>
-</ul>
-<h4 id="Typora的缺点">Typora 的缺点</h4>
-<ul>
-<li>可自定义性较差</li>
-<li>不支持 Markdown 的 format 提醒</li>
-<li>采用将源代码区与显示区合为一体的交互方式，在我看来是一种劣势，但是也许有的用户会喜欢吧</li>
-</ul>
-<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200619165741_Typora.gif" alt="将鼠标移动到对应位置即显示出源代码"></p>
-<h3 id="VSCode">VSCode</h3>
-<p>VSCode 原生支持 Markdown 文件的预览和语法高亮，通过插件可以在 VSCode 中实现 Markdown 的更多功能，能少安装一些软件，何乐而不为呢？</p>
-<h4 id="VSCode的优点">VSCode 的优点</h4>
-<ul>
-<li>VSCode 的界面不用我说了，漂亮的惊人，主题样式也很多，每次写代码都是享受</li>
-<li>高度可自定义，只需要编辑.json 配置文件</li>
-<li>支持语法高亮</li>
-<li>通过插件可以大大增强功能，支持对于 Markdown 格式标准化的提醒，甚至可以进行自动修正等</li>
-</ul>
-<p><img src="https://raw.githubusercontent.com/SamuelHuang2019/FigureBed/master/img/20200619103454_VSCode.png" alt="VSCode截图"></p>
-<h4 id="VSCode的缺点">VSCode 的缺点</h4>
-<ul>
-<li>没有图形界面（指对于 Markdown 的编辑而言），大部分操作都需要通过原生的 Markdown 代码实现</li>
-<li>需要配置环境，还是有点复杂的（一开始我对.json 不是很熟悉，研究了很久才掌握）</li>
-</ul>
-<p>总而言之，VSCode 更像是一款针对程序员的 Markdown 工具，而 Typora 则适合没有那么强的计算机基础的小白，它也适合利用 Markdown 进行纯粹的创作的人群。萝卜白菜各有所爱，总之我是两个都装了。</p>
-<h2 id="在VSCode上编写Markdown">在 VSCode 上编写 Markdown</h2>
-<p>首先从微软的官网下载安装 VSCode。</p>
-<p>打开你所需要的文件夹，新建 Markdown 文件。</p>
-<p><img src="https://raw.githubusercontent.com/SamuelHuang2019/FigureBed/master/img/20200619104337_VSCode_newMDFile.gif" alt="新建MD文件"></p>
-<p>打开这个文件，就可以看到源代码的编写界面。通过快捷键 <code>Ctrl</code>+<code>Shift```+</code>V` 启动预览页面，再把窗口拖拽到另一侧，就成了我们熟悉的 Markdown 编写界面了。</p>
-<p><img src="https://raw.githubusercontent.com/SamuelHuang2019/FigureBed/master/img/20200619105131_VSCode_Window.gif" alt="Markdown预览窗口"></p>
-<h3 id="VSCode中Markdown环境的简单配置">VSCode 中 Markdown 环境的简单配置</h3>
-<p>介绍几个小插件，各有各自的功能。</p>
-<h4 id="markdownlint">markdownlint</h4>
-<p>正如其名字里带着的 lint，这款插件主要用于实现 Markdown 写作的格式规范化和自动更正，具体可以访问 <a href="https://github.com/DavidAnson/markdownlint/blob/v0.20.3/doc/Rules.md#md012">markdownlint 规则说明文档</a>。</p>
-<p>如果源代码中有与 markdownlint 的规则相抵触之处，则会出现黄色波浪线，将鼠标移至其上，就可以在弹出的选项卡里转到对应规则的描述。有些规则是我们不太想要的，或者需要做一些微调。以规则 <code>MD024</code> 为例，这一规则要求不能出现内容相同的标题。但是实际使用中，只要从属在不同的上一级标题之下，似乎即使标题相同也不会引起什么误解。</p>
-<p>在官方说明文档中我们看到，这一规则对应的名称 <code>Aliases</code> 为 <code>no-duplicate-heading</code> 或者 <code>no-duplicate-header</code>，参数为 <code>siblings-only</code> 或者 <code>allow_different_nesting</code>，默认值都为 <code>false</code>，接下来进行修改。</p>
-<p>使用快捷键 <code>F1</code> 或 <code>Ctrl</code>+<code>Shift</code>+<code>P</code> 打开 VSCode 主命令行，直接搜索 <code>settings.json</code>，根据自己的需要打开全局或者工作区的配置文件。在配置文件中，添加 markdownlint 的配置语句：</p>
-<figure class="highlight json"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attr">"markdownlint.config"</span><span class="punctuation">:</span> <span class="punctuation">{</span></span><br><span class="line">    <span class="attr">"no-duplicate-heading"</span><span class="punctuation">:</span> <span class="punctuation">{</span><span class="attr">"allow_different_nesting"</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span><span class="punctuation">}</span></span><br><span class="line"><span class="punctuation">}</span><span class="punctuation">,</span></span><br></pre></td></tr></tbody></table></figure>
-<blockquote>
-<p>Remark：只需要更改一个参数就行，注意语法，尤其是那个逗号。</p>
-</blockquote>
-<p>这样一来就可以实现允许相同内容的标题出现，但仅在不同的上一级标题之下</p>
-<p>此外 markdownlint 还支持更高级的规则自定义，具体参阅 GitHub 上的 <a href="https://github.com/DavidAnson/markdownlint/blob/v0.20.3/doc/CustomRules.md">markdownlint 自定义规则说明文档</a></p>
-<p>markdownlint 提供的另一个功能是根据这些规则自动格式化文档。要启用同样是在 <code>settings.json</code> 文件中添加语句：</p>
-<figure class="highlight json"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attr">"editor.codeActionsOnSave"</span><span class="punctuation">:</span> <span class="punctuation">{</span><span class="number">629976589629976589</span></span><br><span class="line">    <span class="attr">"source.fixAll.markdownlint"</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span></span><br><span class="line"><span class="punctuation">}</span><span class="punctuation">,</span></span><br></pre></td></tr></tbody></table></figure>
-<blockquote>
-<p>Remark：这一段代码相当于对 VSCode 主体的设置，所以是写在 <code>settings.json</code> 文件的主体中，而非前述 <code>"markdownlint.config"</code> 括号内。</p>
-</blockquote>
-<p>完成这个修改之后，每次保存文件都会自动格式化，还挺方便的。这个格式化过程也是可以回退的。</p>
-<h4 id="Markdown-Preview-Enhanced">Markdown Preview Enhanced</h4>
-<p>顾名思义，这个插件就是用来增强 VSCode 中 Markdown 文件的预览体验的。VSCode 默认的预览窗口是跟随 VSCode 全局的主题设置，所以有时候可能暗色模式不太适合阅读文件。</p>
-<p>安装 Markdown Preview Enhanced 插件，在源代码窗口右键单击，即可选择在右侧打开预览窗口。不仅可以实现阅读的增强，以及目录的显示，在预览窗口中右键单击还可导出
-Markdown 文件为其他格式，实在方便。</p>
-<p><img src="https://raw.githubusercontent.com/sghuang19/assets/master/img/20200619135214_MarkdownPreviewEnhanced.png" alt="Markdown Preview Enhanced"></p>
-<p>此外，Markdown Preview Enhanced 也具有额外的图片功能！在后文会提到。</p>
-<h4 id="Markdown-All-in-One">Markdown All in One</h4>
-<p>正如名称所言，这款插件集合了很多功能，包括快捷键、公式、格式转换、目录和脚注等。具体的目前我都还没有摸得很清楚，有待研究。</p>
-<p>最为方便的功能就是快捷键，下文中会提到关于文本样式的设定，如加粗、斜体等，在没有插件的情况下就必须通过标记符号来实现，还是比较复杂，而安装了 Markdown All in One
-后便可以直接使用快捷键，正如在 Word 中进行编辑一样。当然，值得注意的是，这会覆盖一些 VSCode 自身的快捷键。</p>
-<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200619173318_Shortcuts.gif" alt="Ctrl+B实现加粗"></p>
-<h4 id="vscode-pandoc">vscode-pandoc</h4>
-<p>这款轻量插件实现了将 Markdown 文件转换为某些格式，没有 GUI，通过命令行操作。</p>
-<h4 id="PicGo">PicGo</h4>
-<p>大名鼎鼎的 Markdown 图片辅助工具，VSCode 有可用的插件，基于 PicGo Core 实现，所以没有
-GUI。我觉得为什么不直接用 PicGo 软件本体呢？关于 PicGo 在 “图片” 一节中会提到更多。</p>
-<h2 id="Markdown的语法">Markdown 的语法</h2>
-<p>用简明的方式整理一些基本的 Markdown 语言，需要更详细的解读可以去参照官方文档或者其他的文章。</p>
-<blockquote>
-<p>Remark：大部分 HTML 语法可以直接在 Markdown 中使用，但是 markdownlint 中的规则 <code>MD033</code> 要求不在 Markdown 中直接使用 HTML 语法，而是使用 “纯粹” 的 Markdown 语言。如果对于黄色波浪线感到反感，可以通过前述的类似方法设定允许使用的 HTML 语法元素。</p>
-</blockquote>
-<h3 id="文本">文本</h3>
-<p>输入文本就代表文本</p>
-<p>换行符只相当于空格，段落是通过一个空行来标记</p>
-<p><code>#</code>标记各级标题，井号的数量标记标题的等级</p>
-<p>段首空格并不代表缩进，但是四个空格会代表一个制表符（即 <code>Tab</code> 键）</p>
-<p>使用单星号包围文字以表示斜体，如 <code>*文字*</code> 显示为<em>文字</em></p>
-<blockquote>
-<p>Remark：部分编辑器中斜体也可以用单下划线<code>_</code>包围来表示</p>
-</blockquote>
-<p>使用双星号包围文字以表示加粗，如 <code>**文字**</code> 显示为<strong>文字</strong></p>
-<p>使用三星号包围文字以表示加粗斜体，如 <code>***文字***</code> 显示为 ** <em>文字</em> **</p>
-<p>使用双波浪线包围文字以表示删除线，如 <code>~~文字~~</code> 显示为<s>文字</s></p>
-<p>使用等号包围文字以实现高亮，如 <code>==文字==</code> 显示为<mark>文字</mark></p>
-<p>使用 HTML 中的语法来实现下划线，如 <code>&lt;u&gt;文字&lt;/u&gt;</code> 显示为<u>文字</u></p>
-<p>使用 <code>^</code> 包围来表示上标，如 <code>e^x^</code> 显示为 e^x^</p>
-<p>使用 <code>~</code> 包围来表示上标，如 <code>a~n~</code> 显示为 a~n~</p>
-<p>其他的样式可以通过数学公式来实现，例如 <code>$\overline{文字}$</code> 显示为 $\overline {文字}$</p>
-<p>Markdown 支持输入 HTML 转义字符</p>
-<h3 id="代码块">代码块</h3>
-<p>段首使用四个空格或者一个制表符即进入代码块模式</p>
-<p>也可以在段落前与段落后各加上三个反引号（即键盘左上角的波浪线）<code>```</code> 以开启代码块。在第一串三反引号之后加上代码的类型，即可实现语法高亮。</p>
-<p>例：</p>
-<figure class="highlight plaintext"><figcaption><span>markdown</span></figcaption><table><tbody><tr><td class="code"><pre><span class="line"></span><br><span class="line"><figure class="highlight json"><table><tbody><tr><td class="code"><pre><span class="line"><span class="attr">"editor.codeActionsOnSave"</span><span class="punctuation">:</span> <span class="punctuation">{</span> <span class="attr">"source.fixAll.markdownlint"</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">true</span></span> <span class="punctuation">}</span><span class="punctuation">,</span></span><br></pre></td></tr></tbody></table></figure></span><br><span class="line"></span><br></pre></td></tr></tbody></table></figure>
-<blockquote>
-<p>Remark：以上代码块中最后的 <code>\</code> 是为了不让 Markdown 将其前面的 <code>```</code> 识别为代码块的结束，没有别的含义</p>
-</blockquote>
-<p>其显示效果即为前文提到的配置 <code>settings.json</code> 文件时所引用的代码块样式</p>
-<blockquote>
-<p>Remark：正确的转义反引号 <code>`</code> 的方法并非使用反斜杠，而是使用双反引号及空格将反引号围起来，即</p>
-<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line"><span class="code">`` `</span> ``</span><br></pre></td></tr></tbody></table></figure>
-<p>这将显示为一个代码块内的单反引号</p>
-</blockquote>
-<p>行内代码块，既可以通过三反引号前后包围，也可以通过单反引号前后包围。</p>
-<h3 id="链接">链接</h3>
-<p>不现实为特定文字的链接： <code>&lt;https://www.bilibili.com&gt;</code> 将显示为 <a href="https://www.bilibili.com">https://www.bilibili.com</a></p>
-<p>显示为特定文字的链接： <code>[Bilibili](https://www.bilibili.com)</code> 将显示为 <a href="https://www.bilibili.com">Bilibili</a></p>
-<h3 id="图片">图片</h3>
-<p>与显示为特定文字的链接相似，只是在之前加上一个叹号 <code>!</code>，其后更改为图片的地址。既可以是网络地址，也可以是计算机上的绝对路径，也可以是相对于.md 文件的相对路径。</p>
-<p>插入图片是 Markdown 的一大揪心之处，一般通过 “图床” 来实现，详见后文。</p>
-<h3 id="公式">公式</h3>
-<p>Markdown 中的数学输入和 LaTeX 其实很像</p>
-<p>偷懒放个别的文章：<a href="https://www.zybuluo.com/codeep/note/163962">Markdown 公式指导手册</a></p>
-<p>（视编写环境而定，可能语法和功能上有些出入）</p>
-<p>简要提一下我从 Unicode Math 转到 LaTeX 的心得：大部分地方还是相同的，只是要更加注意用 <code>{}</code> 来对不同的元素进行组合，公式要有首尾的标记，以及不能够再直接 <code>/</code> 然后敲空格来输入分数了……</p>
-<h3 id="分割线">分割线</h3>
-<p>在一行输入三个及以上的 <code>*</code> 或 <code>-</code> 都可以起到分割的作用，哪怕它们之间有空格。</p>
-<h3 id="表格">表格</h3>
-<figure class="highlight markdown"><table><tbody><tr><td class="code"><pre><span class="line">| 姓名 | 性别 |   年龄 |</span><br><span class="line">| :--: | :--- | -----: |</span><br><span class="line">| 张三 | 未知 | 约30岁 |</span><br><span class="line">| 李四 | 男   | 约20岁 |</span><br></pre></td></tr></tbody></table></figure>
-<p>将显示为</p>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">姓名</th>
-<th style="text-align:left">性别</th>
-<th style="text-align:right">年龄</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">法外狂徒・张三</td>
-<td style="text-align:left">未知</td>
-<td style="text-align:right">约 30 岁</td>
-</tr>
-<tr>
-<td style="text-align:center">李四</td>
-<td style="text-align:left">男</td>
-<td style="text-align:right"> 20 岁左右</td>
-</tr>
-</tbody>
-</table>
-<p>通过 <code>|</code> 来划分每一列，而构成表格的要素则是第二行的一串符号（这一行代码是必须的）。其实很直观很好理解，<code>:-:</code> 代表居中，<code>:-</code> 代表左对齐，<code>-:</code> 代表右对齐，从这个示例表格的样式里也可以观察出来。</p>
-<h3 id="列表">列表</h3>
-<p>使用 <code>-</code> 开启无序列表，注意必须要有这个空格使用 <code>1.</code>，即数字加英文句点和空格来开启有序列表，空格也是必须的</p>
-<h2 id="怎样存图片">怎样存图片</h2>
-<p>这个问题相当复杂，也很重要，关于图床的话题单独写一篇文章吧。（希望我能尽快填坑）</p>
-<!-- cSpell:ignore imgur -->
-<blockquote>
-<p>Remark：“图床” 的英文并非是 "Figure Bed"，也跟 "bed" 没有关系 Remark：此前提到的
-Markdown Preview Enhanced 插件支持 imgur，<a href="http://SM.MS">SM.MS</a>，七牛这几款图床</p>
-</blockquote>
-<h2 id="其他参考文档">其他参考文档</h2>
-<p>这些文档都很有价值，可以一看（每次上网搜文档都极其感激博主们）</p>
-<ul>
-<li><a href="https://www.zhihu.com/question/21420126">在 Markdown 语言中，如何实现段首空格的显示？</a></li>
-<li><a href="https://juejin.im/entry/5c4ec5aaf265da614420689f">PicGo+GitHub 图床，让 Markdown 飞</a></li>
-<li><a href="https://www.appinn.com/markdown/">Markdown 语法说明 (简体中文版)</a></li>
-<li><a href="https://juejin.im/post/5dd92cddf265da7dcb76aafb">我的 gitee 图床，自动上传、压缩、获取图片 url</a>（真的很羡慕，我试了，没成功，还是再多多学习下吧）</li>
-<li><a href="https://www.cnblogs.com/focksor/p/12402471.html">Gitee 图床 + PicGo+Typora 便捷在博客中使用图片</a></li>
-<li><a href="https://www.zybuluo.com/codeep/note/163962">Cmd Markdown 公式指导手册</a></li>
-<li><a href="https://www.jianshu.com/p/25f0139637b7">markdown 中公式编辑教程</a></li>
-</ul>
-]]></content>
-      <tags>
-        <tag>markdown</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>General Physics II Review</title>
     <url>//physics/</url>
     <content><![CDATA[<!-- cSpell:words Biot Savart Lenz Poynting -->
@@ -3535,6 +4598,103 @@ $$</p>
       </tags>
   </entry>
   <entry>
+    <title>YOLO-v5 网络在华为 Atlas 200DK 开发板上的部署</title>
+    <url>//atlas/</url>
+    <content><![CDATA[<!-- cSpell:words YOLO, Yanshee -->
+<blockquote>
+<p>在目前的调试中，选择了最新的 <code>YOLO-v5</code> 网络，但不排除后期根据需求进行替换。</p>
+<p>华为的 Atlas 200DK 开发板，其功能极不全面，文档极不完善，其前后端、代码、文档、环境，甚至于简单的版本号等都极为混乱，软硬件兼容性、泛用性都极差，其广告语 "30 分钟快速搭建 AI 开发环境" 恐有所失实，我们极其不建议使用这款产品进行 AI
+开发。</p>
+</blockquote>
+<span id="more"></span>
+<h2 id="网络部署">网络部署</h2>
+<p>在进行网络部署的过程中，我们注意到由于华为 Atlas 200DK 上的部署具有高度的耦合性、内聚性，且其文档又极不完善，我们从着手之初就彻底排除了自行设计网络、将其转化等的可能性，而只有可能是基于已经完成的例程进行二次开发。</p>
+<h3 id="基于-TensorFlow-的网络"><s>基于 TensorFlow 的网络</s></h3>
+<blockquote>
+<p>该方案证实为不可行的。</p>
+</blockquote>
+<!-- cSpell:words Caffe -->
+<p>依据华为官方文档
+<a href="https://support.huaweicloud.com/mcg-atlas200app/atlasmcg_05_c30_0002.html">Atlas 应用 / 模型转化 / 简介</a>一节的介绍，转化过程中所支持的网络框架仅有 TensorFlow 与 Caffe 两种，因此，我们首先尝试寻找这类例程。</p>
+<blockquote>
+<p>官方文档：</p>
+<p>本文介绍如何将开源框架的网络模型，例如 Caffe、TensorFlow 等框架训练好的模型，通过 OMG（Offline Model Generator：离线模型生成器）将其转换成昇腾 AI 处理器支持的离线模型，模型转换过程中可以实现算子调度的优化、权值数据重排、量化压缩、内存使用优化等，可以脱离设备完成模型的预处理。</p>
+</blockquote>
+<!-- cSpell:ignore YOLOV3 -->
+<p>在华为给出的例程仓库
+<a href="https://gitee.com/ascend/samples/tree/master">Ascend/samples</a> 中，提供了大量的样例，涵盖 C++ 与 Python 两种语言，以及各类不同等级的计算机视觉应用。例如，<a href="https://gitee.com/ascend/samples/tree/master/python/level2_simple_inference/2_object_detection/YOLOV3_coco_detection_picture"><code>YOLOV3_coco_detection_picture</code></a>中就给出了使用 YOLOv3 网络对 COCO 数据集进行图像检测的样例。但是，其中的 <code>src</code>
+目录中仅包含 <code>object_detect.py</code> 一个文件，只能基于 Ascend 开发板的 ACL 包利用既有的转化完成的 <code>.om</code> 模型进行推理，且其文档语焉不详，代码前后处理十分抽象，没有原始的网络定义，找不到训练的入口和数据集的组织形式，因此无法进行在 COCO 数据集上进行测试以外的用途。</p>
+<p>在 GitHub 上检索基于 TensorFlow 的 YOLOv3 网络，我们发现了由
+<a href="https://github.com/YunYang1994">@YunYang1994</a> 所贡献的
+<a href="https://github.com/YunYang1994/TensorFlow2.0-Examples">TensorFlow <code>2.x</code> 功能展示</a>以及<a href="https://github.com/YunYang1994/tensorflow-yolov3">基于 TensorFlow <code>1.x</code> 的 YOLOv3 网络</a>，作者的代码质量十分之高，因此我们决定在这一项目的基础上进行开发。但是，在
+TensorFlow 的使用中我们发现，相较于 PyTorch 框架，TensorFlow 对用户更不友好，其对于环境的要求极为苛刻，特别是要启用对其的 GPU 支持更需要 NVIDIA 驱动、CUDA 工具包、Python、cuDNN、TensorFlow 等多个软硬件环境的完美匹配。在尝试了虚拟机、WSL、Docker 等方案后，我们放弃了在本地对 TensorFlow 网络进行训练的尝试。同时，将基于 TensorFlow 框架的网络利用 ModelArts 进行云端训练也已被排除。综上，我们也意识到基于 TensorFlow 的网络部署方案或根本不具有可行性。</p>
+<p>总而言之，在互联网上所能够检索到的 YOLO 网络在 Atlas 200DK 上的部署的有关介绍只有以下几类：</p>
+<ul>
+<li>只给出了训练好的 <code>.om</code> 模型，以及基于 ACL 的推理文件</li>
+<li>只给出了网络源码，而没有模型的转换过程</li>
+<li>给出了网络源码，但高度耦合，文档不详，基本无法用以进行训练</li>
+</ul>
+<p>而没有一个工程能够涵盖前处理、模型训练、模型转化、在 Atlas 200DK 上的推理、后处理的全流程，而自行开发又几乎不具有可行性。</p>
+<h3 id="基于-PyTorch-与-ATC-转化工具的网络">基于 PyTorch 与 ATC 转化工具的网络</h3>
+<blockquote>
+<p>“Life is short, I use PyTorch.”</p>
+</blockquote>
+<p>在 ModelArts 平台的使用中，我们发现，华为将大量内置的算法集成在<a href="https://www.hiascend.com/">昇腾社区</a>中的
+<a href="https://www.hiascend.com/software/modelzoo">ModelZoo</a> 这一平台中，经检索，其中提供了基于 PyTorch 框架的 YOLO 网络的 <code>v3</code>、<code>v4</code>、<code>v5</code> 版本，且在标题中注明了
+ATC。我们选用目前下载量最大的 <a href="https://www.hiascend.com/zh/software/modelzoo/detail/1/f7338e43cf024ea1851fb46041be1dea"><code>ATC YoloV5 (FP16)</code></a>网络进行测试。该例程包含了完整的</p>
+<!-- cSpell:ignore yolov -->
+<p>下载源代码包，解压，并将其重命名为 <code>yolov5-hw</code> 以示区分。</p>
+<blockquote>
+<p>下载的代码包中包含的自述文件较为详细地介绍了部署方法，除算子包升级替换外，以下内容大多为对其的复述。</p>
+</blockquote>
+<p>拉取网络源码仓库，下称 <code>yolov5</code>。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> -b v2.0 https://github.com/ultralytics/yolov5.git</span><br></pre></td></tr></tbody></table></figure>
+<p>利用 <code>yolov5</code> 中的 <code>export.py</code> 脚本，对 <code>yolov5-hw</code> 中的 <code>yolov5s.pt</code> 模型文件进行转换，得到 <code>ONNX</code> 模型文件 <code>yolov5s.onnx</code>。</p>
+<blockquote>
+<p>可选择复制模型文件到 <code>yolov5</code> 中，也可以手动指定模型文件路径。</p>
+</blockquote>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">python models/export.py --weights ./yolov5s.pt --img 640 --batch 1</span><br></pre></td></tr></tbody></table></figure>
+<p>对导出的 <code>ONNX</code> 模型使用 <code>onnx-simplifier</code> 工具进行简化。</p>
+<!-- cSpell:words onnxsim -->
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip install onnx-simplifier</span><br><span class="line">python -m onnxsim --skip-optimization yolov5s.onnx yolov5s_sim.onnx</span><br></pre></td></tr></tbody></table></figure>
+<p>运行 <code>yolov5-hw</code> 中的 <code>model_yolov5.py</code> 对生成的 <code>ONNX</code> 模型进行修改，得到 <code>yolov5s_sim_t.onnx</code>。</p>
+<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">python modify_yolov5.py yolov5s_sim.onnx</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>直接运行该命令，Python 将有可能抛出错误。在测试过程中，错误出现在 <code>53</code> 及 <code>54</code>
+行：</p>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">model.graph.node.remove(get_node_by_name(model.graph.node, <span class="string">"Slice_24"</span>))</span><br><span class="line">model.graph.node.remove(get_node_by_name(model.graph.node, <span class="string">"Slice_34"</span>))</span><br></pre></td></tr></tbody></table></figure>
+<p>此时将此两行代码注释即可继续进行模型修改。</p>
+</blockquote>
+<p>在 MindStudio 环境下即可利用 ATC 工具进行转换。</p>
+<!-- cSpell:words NCHW -->
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">atc --model=yolov5s_sim_t.onnx --framework=5 --output=yolov5s_bs1 --input_format=NCHW --<span class="built_in">log</span>=error --soc_version=Ascend310 --input_shape=<span class="string">"images:1,3,640,640"</span> --enable_small_channel=1 --input_fp16_nodes=<span class="string">"images"</span> --output_type=FP16</span><br></pre></td></tr></tbody></table></figure>
+<p>若直接运行指令，将会出现报错：</p>
+<!-- cSpell:words bsdgames -->
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">Command <span class="string">'atc'</span> not found, but can be installed with:</span><br><span class="line">sudo apt install bsdgames</span><br></pre></td></tr></tbody></table></figure>
+<p>显然，<code>atc</code> 命令的目录未被正确加载。根据文章<a href="https://gitee.com/caoliang0601/samples/blob/master/cplusplus/environment/prepare_ENV/README_300_CN.md">基础环境配置</a>中的介绍，在运行转化前执行命令或通过修改 <code>.bashrc</code> 文件添加环境变量，即可解决该问题。</p>
+<p>此时，转化过程仍然不成功，在测试中，提示错误</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">ModuleNotFoundError: No module named <span class="string">'te.platform'</span></span><br></pre></td></tr></tbody></table></figure>
+<!-- cSpell:words CANN -->
+<p>参考其他与该报错相同或不同的贴文，推测这一问题与算子包兼容性有关系。访问
+<a href="https://www.hiascend.com/zh/software/mindstudio/download">MindStudio 下载页面</a>，换用 2021/04/27 发布的 <code>2.0.0 (release)</code> 版本 MindStudio，以及与之相对应的
+<a href="https://www.hiascend.com/software/cann/commercial">CANN 算子包</a>，即实现成功转化，得到 <code>.om</code> 模型。</p>
+<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">...</span><br><span class="line">ATC run success, welcome to the next use.</span><br></pre></td></tr></tbody></table></figure>
+<blockquote>
+<p>华为对算子包的版本号进行了重构，因此其处在极为混乱的状况，<code>2.0.0 (release)</code> 版本 MindStudio 虽然要求的算子包为 <code>3.2.0</code>，即原 <code>20.2.0</code> 版本，但实测 <code>3.3.0</code>
+版本亦可用。</p>
+</blockquote>
+]]></content>
+      <tags>
+        <tag>python</tag>
+        <tag>ml</tag>
+        <tag>pytorch</tag>
+        <tag>yolo</tag>
+        <tag>huawei</tag>
+        <tag>cv</tag>
+        <tag>tensorflow</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>从新冠肺炎疫情中看人民中心性</title>
     <url>/%E4%BB%8E%E6%96%B0%E5%86%A0%E8%82%BA%E7%82%8E%E7%96%AB%E6%83%85%E7%9C%8B%E4%BA%BA%E6%B0%91%E4%B8%AD%E5%BF%83%E6%80%A7/</url>
     <content><![CDATA[<h2 id="前言">前言</h2>
@@ -3679,100 +4839,95 @@ Gilbert 的教材，而 SUSTech 一开始就是全部用的国外教材）MIT �
       </tags>
   </entry>
   <entry>
-    <title>YOLO-v5 网络在华为 Atlas 200DK 开发板上的部署</title>
-    <url>//atlas/</url>
-    <content><![CDATA[<!-- cSpell:words YOLO, Yanshee -->
-<blockquote>
-<p>在目前的调试中，选择了最新的 <code>YOLO-v5</code> 网络，但不排除后期根据需求进行替换。</p>
-<p>华为的 Atlas 200DK 开发板，其功能极不全面，文档极不完善，其前后端、代码、文档、环境，甚至于简单的版本号等都极为混乱，软硬件兼容性、泛用性都极差，其广告语 "30 分钟快速搭建 AI 开发环境" 恐有所失实，我们极其不建议使用这款产品进行 AI
-开发。</p>
-</blockquote>
+    <title>高等数学（下）期末复习：14.10 含有 Constrained 变量的偏导数</title>
+    <url>/14.10%20Partial%20Derivatives%20with%20Constrained%20Variables/</url>
+    <content><![CDATA[<p>之前讨论的多元函数的偏导数问题都是关于独立变量的，但是变量之间也可能相互约束。例如，气体的内能表达式为 $U = f (P,V,T)$，但是变量之间又受制于理想气体定律 $PV=nRT$。</p>
 <span id="more"></span>
-<h2 id="网络部署">网络部署</h2>
-<p>在进行网络部署的过程中，我们注意到由于华为 Atlas 200DK 上的部署具有高度的耦合性、内聚性，且其文档又极不完善，我们从着手之初就彻底排除了自行设计网络、将其转化等的可能性，而只有可能是基于已经完成的例程进行二次开发。</p>
-<h3 id="基于-TensorFlow-的网络"><s>基于 TensorFlow 的网络</s></h3>
-<blockquote>
-<p>该方案证实为不可行的。</p>
-</blockquote>
-<!-- cSpell:words Caffe -->
-<p>依据华为官方文档
-<a href="https://support.huaweicloud.com/mcg-atlas200app/atlasmcg_05_c30_0002.html">Atlas 应用 / 模型转化 / 简介</a>一节的介绍，转化过程中所支持的网络框架仅有 TensorFlow 与 Caffe 两种，因此，我们首先尝试寻找这类例程。</p>
-<blockquote>
-<p>官方文档：</p>
-<p>本文介绍如何将开源框架的网络模型，例如 Caffe、TensorFlow 等框架训练好的模型，通过 OMG（Offline Model Generator：离线模型生成器）将其转换成昇腾 AI 处理器支持的离线模型，模型转换过程中可以实现算子调度的优化、权值数据重排、量化压缩、内存使用优化等，可以脱离设备完成模型的预处理。</p>
-</blockquote>
-<!-- cSpell:ignore YOLOV3 -->
-<p>在华为给出的例程仓库
-<a href="https://gitee.com/ascend/samples/tree/master">Ascend/samples</a> 中，提供了大量的样例，涵盖 C++ 与 Python 两种语言，以及各类不同等级的计算机视觉应用。例如，<a href="https://gitee.com/ascend/samples/tree/master/python/level2_simple_inference/2_object_detection/YOLOV3_coco_detection_picture"><code>YOLOV3_coco_detection_picture</code></a>中就给出了使用 YOLOv3 网络对 COCO 数据集进行图像检测的样例。但是，其中的 <code>src</code>
-目录中仅包含 <code>object_detect.py</code> 一个文件，只能基于 Ascend 开发板的 ACL 包利用既有的转化完成的 <code>.om</code> 模型进行推理，且其文档语焉不详，代码前后处理十分抽象，没有原始的网络定义，找不到训练的入口和数据集的组织形式，因此无法进行在 COCO 数据集上进行测试以外的用途。</p>
-<p>在 GitHub 上检索基于 TensorFlow 的 YOLOv3 网络，我们发现了由
-<a href="https://github.com/YunYang1994">@YunYang1994</a> 所贡献的
-<a href="https://github.com/YunYang1994/TensorFlow2.0-Examples">TensorFlow <code>2.x</code> 功能展示</a>以及<a href="https://github.com/YunYang1994/tensorflow-yolov3">基于 TensorFlow <code>1.x</code> 的 YOLOv3 网络</a>，作者的代码质量十分之高，因此我们决定在这一项目的基础上进行开发。但是，在
-TensorFlow 的使用中我们发现，相较于 PyTorch 框架，TensorFlow 对用户更不友好，其对于环境的要求极为苛刻，特别是要启用对其的 GPU 支持更需要 NVIDIA 驱动、CUDA 工具包、Python、cuDNN、TensorFlow 等多个软硬件环境的完美匹配。在尝试了虚拟机、WSL、Docker 等方案后，我们放弃了在本地对 TensorFlow 网络进行训练的尝试。同时，将基于 TensorFlow 框架的网络利用 ModelArts 进行云端训练也已被排除。综上，我们也意识到基于 TensorFlow 的网络部署方案或根本不具有可行性。</p>
-<p>总而言之，在互联网上所能够检索到的 YOLO 网络在 Atlas 200DK 上的部署的有关介绍只有以下几类：</p>
-<ul>
-<li>只给出了训练好的 <code>.om</code> 模型，以及基于 ACL 的推理文件</li>
-<li>只给出了网络源码，而没有模型的转换过程</li>
-<li>给出了网络源码，但高度耦合，文档不详，基本无法用以进行训练</li>
-</ul>
-<p>而没有一个工程能够涵盖前处理、模型训练、模型转化、在 Atlas 200DK 上的推理、后处理的全流程，而自行开发又几乎不具有可行性。</p>
-<h3 id="基于-PyTorch-与-ATC-转化工具的网络">基于 PyTorch 与 ATC 转化工具的网络</h3>
-<blockquote>
-<p>“Life is short, I use PyTorch.”</p>
-</blockquote>
-<p>在 ModelArts 平台的使用中，我们发现，华为将大量内置的算法集成在<a href="https://www.hiascend.com/">昇腾社区</a>中的
-<a href="https://www.hiascend.com/software/modelzoo">ModelZoo</a> 这一平台中，经检索，其中提供了基于 PyTorch 框架的 YOLO 网络的 <code>v3</code>、<code>v4</code>、<code>v5</code> 版本，且在标题中注明了
-ATC。我们选用目前下载量最大的 <a href="https://www.hiascend.com/zh/software/modelzoo/detail/1/f7338e43cf024ea1851fb46041be1dea"><code>ATC YoloV5 (FP16)</code></a>网络进行测试。该例程包含了完整的</p>
-<!-- cSpell:ignore yolov -->
-<p>下载源代码包，解压，并将其重命名为 <code>yolov5-hw</code> 以示区分。</p>
-<blockquote>
-<p>下载的代码包中包含的自述文件较为详细地介绍了部署方法，除算子包升级替换外，以下内容大多为对其的复述。</p>
-</blockquote>
-<p>拉取网络源码仓库，下称 <code>yolov5</code>。</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">git <span class="built_in">clone</span> -b v2.0 https://github.com/ultralytics/yolov5.git</span><br></pre></td></tr></tbody></table></figure>
-<p>利用 <code>yolov5</code> 中的 <code>export.py</code> 脚本，对 <code>yolov5-hw</code> 中的 <code>yolov5s.pt</code> 模型文件进行转换，得到 <code>ONNX</code> 模型文件 <code>yolov5s.onnx</code>。</p>
-<blockquote>
-<p>可选择复制模型文件到 <code>yolov5</code> 中，也可以手动指定模型文件路径。</p>
-</blockquote>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">python models/export.py --weights ./yolov5s.pt --img 640 --batch 1</span><br></pre></td></tr></tbody></table></figure>
-<p>对导出的 <code>ONNX</code> 模型使用 <code>onnx-simplifier</code> 工具进行简化。</p>
-<!-- cSpell:words onnxsim -->
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">pip install onnx-simplifier</span><br><span class="line">python -m onnxsim --skip-optimization yolov5s.onnx yolov5s_sim.onnx</span><br></pre></td></tr></tbody></table></figure>
-<p>运行 <code>yolov5-hw</code> 中的 <code>model_yolov5.py</code> 对生成的 <code>ONNX</code> 模型进行修改，得到 <code>yolov5s_sim_t.onnx</code>。</p>
-<figure class="highlight shell"><table><tbody><tr><td class="code"><pre><span class="line">python modify_yolov5.py yolov5s_sim.onnx</span><br></pre></td></tr></tbody></table></figure>
-<blockquote>
-<p>直接运行该命令，Python 将有可能抛出错误。在测试过程中，错误出现在 <code>53</code> 及 <code>54</code>
-行：</p>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">model.graph.node.remove(get_node_by_name(model.graph.node, <span class="string">"Slice_24"</span>))</span><br><span class="line">model.graph.node.remove(get_node_by_name(model.graph.node, <span class="string">"Slice_34"</span>))</span><br></pre></td></tr></tbody></table></figure>
-<p>此时将此两行代码注释即可继续进行模型修改。</p>
-</blockquote>
-<p>在 MindStudio 环境下即可利用 ATC 工具进行转换。</p>
-<!-- cSpell:words NCHW -->
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">atc --model=yolov5s_sim_t.onnx --framework=5 --output=yolov5s_bs1 --input_format=NCHW --<span class="built_in">log</span>=error --soc_version=Ascend310 --input_shape=<span class="string">"images:1,3,640,640"</span> --enable_small_channel=1 --input_fp16_nodes=<span class="string">"images"</span> --output_type=FP16</span><br></pre></td></tr></tbody></table></figure>
-<p>若直接运行指令，将会出现报错：</p>
-<!-- cSpell:words bsdgames -->
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">Command <span class="string">'atc'</span> not found, but can be installed with:</span><br><span class="line">sudo apt install bsdgames</span><br></pre></td></tr></tbody></table></figure>
-<p>显然，<code>atc</code> 命令的目录未被正确加载。根据文章<a href="https://gitee.com/caoliang0601/samples/blob/master/cplusplus/environment/prepare_ENV/README_300_CN.md">基础环境配置</a>中的介绍，在运行转化前执行命令或通过修改 <code>.bashrc</code> 文件添加环境变量，即可解决该问题。</p>
-<p>此时，转化过程仍然不成功，在测试中，提示错误</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">ModuleNotFoundError: No module named <span class="string">'te.platform'</span></span><br></pre></td></tr></tbody></table></figure>
-<!-- cSpell:words CANN -->
-<p>参考其他与该报错相同或不同的贴文，推测这一问题与算子包兼容性有关系。访问
-<a href="https://www.hiascend.com/zh/software/mindstudio/download">MindStudio 下载页面</a>，换用 2021/04/27 发布的 <code>2.0.0 (release)</code> 版本 MindStudio，以及与之相对应的
-<a href="https://www.hiascend.com/software/cann/commercial">CANN 算子包</a>，即实现成功转化，得到 <code>.om</code> 模型。</p>
-<figure class="highlight bash"><table><tbody><tr><td class="code"><pre><span class="line">...</span><br><span class="line">ATC run success, welcome to the next use.</span><br></pre></td></tr></tbody></table></figure>
-<blockquote>
-<p>华为对算子包的版本号进行了重构，因此其处在极为混乱的状况，<code>2.0.0 (release)</code> 版本 MindStudio 虽然要求的算子包为 <code>3.2.0</code>，即原 <code>20.2.0</code> 版本，但实测 <code>3.3.0</code>
-版本亦可用。</p>
-</blockquote>
+<hr>
+<h2 id="求解有限制条件的多元函数的偏导数">求解有限制条件的多元函数的偏导数</h2>
+<p>求偏导数的一个问题是，确定哪些变量是独立的，哪些变量是依赖于其他变量的。例如，有
+4 个变量，2 个限制条件的式子，就只能解出用两个独立变量表达另外两个受制变量的式子，进而求偏导数。独立变量不同，求出的结果具有完全不同的含义。</p>
+<p>确定独立变量之后，便进行消元，将因变量用自变量表示出来，然后求导。</p>
+<p>如果直接进行代换消元比较难，可以先在约束条件式子两侧同时取微分，然后再求解所需要的偏导数。</p>
+<hr>
+<h2 id="记法">记法 <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></h2>
+<p>$y$ 为独立变量，$w$ 对 $x$ 偏导数可以表示为</p>
+<p>$$
+\left(\frac{\partial w}{\partial x}\right)_y
+$$</p>
+<hr>
+<h2 id="箭头图">箭头图 <sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></h2>
+<p>求解含限制条件的多元函数的偏导数，比较 format 的方法是用箭头图。例如，现在已知</p>
+<p>$$
+\begin{cases}
+w = x^2 + y^2 + z^2 + \sin t \
+x + y =t
+\end{cases}
+$$</p>
+<p>$x$, $y$, $z$ 为独立变量，要求 $w$ 对 $x$ 的偏导数，可以画出箭头图</p>
+<p>$$
+\begin{matrix}
+\begin{pmatrix}
+x \ y \ z
+\end{pmatrix} &amp; \rightarrow &amp;
+\begin{pmatrix}
+x \ y \ z \ t
+\end{pmatrix} &amp; \rightarrow &amp; w \
+\color{blue}{\begin{matrix}
+\text{Independent} \ \text{variables}
+\end{matrix}} &amp;&amp;
+\color{blue}{\begin{matrix}
+\text{Intermediate} \ \text{variables}
+\end{matrix}} &amp;&amp;
+\color{blue}{\begin{matrix}
+\text{Dependent} \ \text{variable}
+\end{matrix}}
+\end{matrix}
+$$</p>
+<p>中间这一块有点 tricky，想起教授说的一句很经典的话，“Always use Chain Rule”，其实也可以改成</p>
+<p>$$
+\begin{matrix}
+\begin{pmatrix}
+x \ y \ z
+\end{pmatrix} &amp; \rightarrow &amp;
+\begin{pmatrix}
+x \ y \ z \ t
+\end{pmatrix} &amp; \rightarrow &amp; w \
+\color{blue}{\begin{matrix}
+\text{Independent} \ \text{variables}
+\end{matrix}} &amp;&amp;
+\color{blue}{\begin{matrix}
+\text{Intermediate} \ \text{variables}
+\end{matrix}} &amp;&amp;
+\color{blue}{\begin{matrix}
+\text{Dependent} \ \text{variable}
+\end{matrix}} \ &amp;&amp;
+\color{blue}{\begin{cases}
+u = x \ v = y \ s = z \ t = x + y
+\end{cases}} &amp;&amp;
+\end{matrix}
+$$</p>
+<p>最后的结果就相当于求全偏导数，即</p>
+<p>$$
+\frac{\partial w}{\partial x} =
+\frac{\partial w}{\partial u} \frac{\partial u}{\partial x} +
+\frac{\partial w}{\partial v} \frac{\partial v}{\partial x} +
+\frac{\partial w}{\partial s} \frac{\partial s}{\partial x} +
+\frac{\partial w}{\partial t} \frac{\partial t}{\partial x}
+$$</p>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>Notation <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>Arrow Diagram <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
 ]]></content>
       <tags>
-        <tag>python</tag>
-        <tag>ml</tag>
-        <tag>pytorch</tag>
-        <tag>yolo</tag>
-        <tag>huawei</tag>
-        <tag>cv</tag>
-        <tag>tensorflow</tag>
+        <tag>note</tag>
+        <tag>calculus</tag>
       </tags>
   </entry>
   <entry>
@@ -4210,1082 +5365,6 @@ ATC。我们选用目前下载量最大的 <a href="https://www.hiascend.com/zh/
       </tags>
   </entry>
   <entry>
-    <title>Image Steganography with Hamming Code Error Correction</title>
-    <url>//stegano/</url>
-    <content><![CDATA[<!-- cSpell:words stegano -->
-<p>This course project for Digital Image Processing integrates LSB steganography in
-images with Hamming Code error correction. I chose this topic because I was
-fascinated by the video made by 3Blue1Brown explaining Hamming Code, and I have
-a strong interest in bit operations.</p>
-<style>svg:not(:root).svg-inline--fa {
-  overflow: visible;
-}
-
-.svg-inline--fa {
-  display: inline-block;
-  font-size: inherit;
-  height: 1em;
-  overflow: visible;
-  vertical-align: -0.125em;
-}
-.svg-inline--fa.fa-lg {
-  vertical-align: -0.225em;
-}
-.svg-inline--fa.fa-w-1 {
-  width: 0.0625em;
-}
-.svg-inline--fa.fa-w-2 {
-  width: 0.125em;
-}
-.svg-inline--fa.fa-w-3 {
-  width: 0.1875em;
-}
-.svg-inline--fa.fa-w-4 {
-  width: 0.25em;
-}
-.svg-inline--fa.fa-w-5 {
-  width: 0.3125em;
-}
-.svg-inline--fa.fa-w-6 {
-  width: 0.375em;
-}
-.svg-inline--fa.fa-w-7 {
-  width: 0.4375em;
-}
-.svg-inline--fa.fa-w-8 {
-  width: 0.5em;
-}
-.svg-inline--fa.fa-w-9 {
-  width: 0.5625em;
-}
-.svg-inline--fa.fa-w-10 {
-  width: 0.625em;
-}
-.svg-inline--fa.fa-w-11 {
-  width: 0.6875em;
-}
-.svg-inline--fa.fa-w-12 {
-  width: 0.75em;
-}
-.svg-inline--fa.fa-w-13 {
-  width: 0.8125em;
-}
-.svg-inline--fa.fa-w-14 {
-  width: 0.875em;
-}
-.svg-inline--fa.fa-w-15 {
-  width: 0.9375em;
-}
-.svg-inline--fa.fa-w-16 {
-  width: 1em;
-}
-.svg-inline--fa.fa-w-17 {
-  width: 1.0625em;
-}
-.svg-inline--fa.fa-w-18 {
-  width: 1.125em;
-}
-.svg-inline--fa.fa-w-19 {
-  width: 1.1875em;
-}
-.svg-inline--fa.fa-w-20 {
-  width: 1.25em;
-}
-.svg-inline--fa.fa-pull-left {
-  margin-right: 0.3em;
-  width: auto;
-}
-.svg-inline--fa.fa-pull-right {
-  margin-left: 0.3em;
-  width: auto;
-}
-.svg-inline--fa.fa-border {
-  height: 1.5em;
-}
-.svg-inline--fa.fa-li {
-  width: 2em;
-}
-.svg-inline--fa.fa-fw {
-  width: 1.25em;
-}
-
-.fa-layers svg.svg-inline--fa {
-  bottom: 0;
-  left: 0;
-  margin: auto;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-
-.fa-layers {
-  display: inline-block;
-  height: 1em;
-  position: relative;
-  text-align: center;
-  vertical-align: -0.125em;
-  width: 1em;
-}
-.fa-layers svg.svg-inline--fa {
-  -webkit-transform-origin: center center;
-          transform-origin: center center;
-}
-
-.fa-layers-counter, .fa-layers-text {
-  display: inline-block;
-  position: absolute;
-  text-align: center;
-}
-
-.fa-layers-text {
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  -webkit-transform-origin: center center;
-          transform-origin: center center;
-}
-
-.fa-layers-counter {
-  background-color: #ff253a;
-  border-radius: 1em;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  color: #fff;
-  height: 1.5em;
-  line-height: 1;
-  max-width: 5em;
-  min-width: 1.5em;
-  overflow: hidden;
-  padding: 0.25em;
-  right: 0;
-  text-overflow: ellipsis;
-  top: 0;
-  -webkit-transform: scale(0.25);
-          transform: scale(0.25);
-  -webkit-transform-origin: top right;
-          transform-origin: top right;
-}
-
-.fa-layers-bottom-right {
-  bottom: 0;
-  right: 0;
-  top: auto;
-  -webkit-transform: scale(0.25);
-          transform: scale(0.25);
-  -webkit-transform-origin: bottom right;
-          transform-origin: bottom right;
-}
-
-.fa-layers-bottom-left {
-  bottom: 0;
-  left: 0;
-  right: auto;
-  top: auto;
-  -webkit-transform: scale(0.25);
-          transform: scale(0.25);
-  -webkit-transform-origin: bottom left;
-          transform-origin: bottom left;
-}
-
-.fa-layers-top-right {
-  right: 0;
-  top: 0;
-  -webkit-transform: scale(0.25);
-          transform: scale(0.25);
-  -webkit-transform-origin: top right;
-          transform-origin: top right;
-}
-
-.fa-layers-top-left {
-  left: 0;
-  right: auto;
-  top: 0;
-  -webkit-transform: scale(0.25);
-          transform: scale(0.25);
-  -webkit-transform-origin: top left;
-          transform-origin: top left;
-}
-
-.fa-lg {
-  font-size: 1.3333333333em;
-  line-height: 0.75em;
-  vertical-align: -0.0667em;
-}
-
-.fa-xs {
-  font-size: 0.75em;
-}
-
-.fa-sm {
-  font-size: 0.875em;
-}
-
-.fa-1x {
-  font-size: 1em;
-}
-
-.fa-2x {
-  font-size: 2em;
-}
-
-.fa-3x {
-  font-size: 3em;
-}
-
-.fa-4x {
-  font-size: 4em;
-}
-
-.fa-5x {
-  font-size: 5em;
-}
-
-.fa-6x {
-  font-size: 6em;
-}
-
-.fa-7x {
-  font-size: 7em;
-}
-
-.fa-8x {
-  font-size: 8em;
-}
-
-.fa-9x {
-  font-size: 9em;
-}
-
-.fa-10x {
-  font-size: 10em;
-}
-
-.fa-fw {
-  text-align: center;
-  width: 1.25em;
-}
-
-.fa-ul {
-  list-style-type: none;
-  margin-left: 2.5em;
-  padding-left: 0;
-}
-.fa-ul > li {
-  position: relative;
-}
-
-.fa-li {
-  left: -2em;
-  position: absolute;
-  text-align: center;
-  width: 2em;
-  line-height: inherit;
-}
-
-.fa-border {
-  border: solid 0.08em #eee;
-  border-radius: 0.1em;
-  padding: 0.2em 0.25em 0.15em;
-}
-
-.fa-pull-left {
-  float: left;
-}
-
-.fa-pull-right {
-  float: right;
-}
-
-.fa.fa-pull-left,
-.fas.fa-pull-left,
-.far.fa-pull-left,
-.fal.fa-pull-left,
-.fab.fa-pull-left {
-  margin-right: 0.3em;
-}
-.fa.fa-pull-right,
-.fas.fa-pull-right,
-.far.fa-pull-right,
-.fal.fa-pull-right,
-.fab.fa-pull-right {
-  margin-left: 0.3em;
-}
-
-.fa-spin {
-  -webkit-animation: fa-spin 2s infinite linear;
-          animation: fa-spin 2s infinite linear;
-}
-
-.fa-pulse {
-  -webkit-animation: fa-spin 1s infinite steps(8);
-          animation: fa-spin 1s infinite steps(8);
-}
-
-@-webkit-keyframes fa-spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
-}
-
-@keyframes fa-spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
-}
-.fa-rotate-90 {
-  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-}
-
-.fa-rotate-180 {
-  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
-}
-
-.fa-rotate-270 {
-  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";
-  -webkit-transform: rotate(270deg);
-          transform: rotate(270deg);
-}
-
-.fa-flip-horizontal {
-  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)";
-  -webkit-transform: scale(-1, 1);
-          transform: scale(-1, 1);
-}
-
-.fa-flip-vertical {
-  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
-  -webkit-transform: scale(1, -1);
-          transform: scale(1, -1);
-}
-
-.fa-flip-both, .fa-flip-horizontal.fa-flip-vertical {
-  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
-  -webkit-transform: scale(-1, -1);
-          transform: scale(-1, -1);
-}
-
-:root .fa-rotate-90,
-:root .fa-rotate-180,
-:root .fa-rotate-270,
-:root .fa-flip-horizontal,
-:root .fa-flip-vertical,
-:root .fa-flip-both {
-  -webkit-filter: none;
-          filter: none;
-}
-
-.fa-stack {
-  display: inline-block;
-  height: 2em;
-  position: relative;
-  width: 2.5em;
-}
-
-.fa-stack-1x,
-.fa-stack-2x {
-  bottom: 0;
-  left: 0;
-  margin: auto;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-
-.svg-inline--fa.fa-stack-1x {
-  height: 1em;
-  width: 1.25em;
-}
-.svg-inline--fa.fa-stack-2x {
-  height: 2em;
-  width: 2.5em;
-}
-
-.fa-inverse {
-  color: #fff;
-}
-
-.sr-only {
-  border: 0;
-  clip: rect(0, 0, 0, 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-
-.sr-only-focusable:active, .sr-only-focusable:focus {
-  clip: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  position: static;
-  width: auto;
-}
-
-.svg-inline--fa .fa-primary {
-  fill: var(--fa-primary-color, currentColor);
-  opacity: 1;
-  opacity: var(--fa-primary-opacity, 1);
-}
-
-.svg-inline--fa .fa-secondary {
-  fill: var(--fa-secondary-color, currentColor);
-  opacity: 0.4;
-  opacity: var(--fa-secondary-opacity, 0.4);
-}
-
-.svg-inline--fa.fa-swap-opacity .fa-primary {
-  opacity: 0.4;
-  opacity: var(--fa-secondary-opacity, 0.4);
-}
-
-.svg-inline--fa.fa-swap-opacity .fa-secondary {
-  opacity: 1;
-  opacity: var(--fa-primary-opacity, 1);
-}
-
-.svg-inline--fa mask .fa-primary,
-.svg-inline--fa mask .fa-secondary {
-  fill: black;
-}
-
-.fad.fa-inverse {
-  color: #fff;
-}</style>
-<p>You can learn more about this project by reading the comprehensive
-<a href="https://github.com/sghuang19/dip-project-stegano/blob/main/README.md"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="file" class="svg-inline--fa fa-file fa-w-12" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512"><path fill="currentColor" d="M224 136V0H24C10.7 0 0 10.7 0 24v464c0 13.3 10.7 24 24 24h336c13.3 0 24-10.7 24-24V160H248c-13.2 0-24-10.8-24-24zm160-14.1v6.1H256V0h6.1c6.4 0 12.5 2.5 17 7l97.9 98c4.5 4.5 7 10.6 7 16.9z"></path></svg> project report</a>.</p>
-<h2 id="Challenges-Encountered">Challenges Encountered</h2>
-<p><img src="https://raw.githubusercontent.com/sghuang19/dip-project-stegano/main/fig/acc.svg" alt="accuracy"></p>
-<ul>
-<li>Hamming Code cannot recover from excessive bit errors caused by significant
-damage to the image file.</li>
-<li>I wasn’t familiar with Git at the time, the commit history was unclear.</li>
-</ul>
-<h2 id="Successes-Achieved">Successes Achieved</h2>
-<ul>
-<li>Several elegant code snippets were developed, which I’m proud of.</li>
-<li>The code is fairly Pythonic, many builtin features are utilized.</li>
-<li>The code is well documented with docstrings.</li>
-<li>The final report is comprehensive.</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>python</tag>
-        <tag>project</tag>
-        <tag>hamming</tag>
-        <tag>ecc</tag>
-        <tag>dip</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Compiler for B-Minor 2023</title>
-    <url>//compiler/</url>
-    <content><![CDATA[<h2 id="Background">Background</h2>
-<style>svg:not(:root).svg-inline--fa {
-  overflow: visible;
-}
-
-.svg-inline--fa {
-  display: inline-block;
-  font-size: inherit;
-  height: 1em;
-  overflow: visible;
-  vertical-align: -0.125em;
-}
-.svg-inline--fa.fa-lg {
-  vertical-align: -0.225em;
-}
-.svg-inline--fa.fa-w-1 {
-  width: 0.0625em;
-}
-.svg-inline--fa.fa-w-2 {
-  width: 0.125em;
-}
-.svg-inline--fa.fa-w-3 {
-  width: 0.1875em;
-}
-.svg-inline--fa.fa-w-4 {
-  width: 0.25em;
-}
-.svg-inline--fa.fa-w-5 {
-  width: 0.3125em;
-}
-.svg-inline--fa.fa-w-6 {
-  width: 0.375em;
-}
-.svg-inline--fa.fa-w-7 {
-  width: 0.4375em;
-}
-.svg-inline--fa.fa-w-8 {
-  width: 0.5em;
-}
-.svg-inline--fa.fa-w-9 {
-  width: 0.5625em;
-}
-.svg-inline--fa.fa-w-10 {
-  width: 0.625em;
-}
-.svg-inline--fa.fa-w-11 {
-  width: 0.6875em;
-}
-.svg-inline--fa.fa-w-12 {
-  width: 0.75em;
-}
-.svg-inline--fa.fa-w-13 {
-  width: 0.8125em;
-}
-.svg-inline--fa.fa-w-14 {
-  width: 0.875em;
-}
-.svg-inline--fa.fa-w-15 {
-  width: 0.9375em;
-}
-.svg-inline--fa.fa-w-16 {
-  width: 1em;
-}
-.svg-inline--fa.fa-w-17 {
-  width: 1.0625em;
-}
-.svg-inline--fa.fa-w-18 {
-  width: 1.125em;
-}
-.svg-inline--fa.fa-w-19 {
-  width: 1.1875em;
-}
-.svg-inline--fa.fa-w-20 {
-  width: 1.25em;
-}
-.svg-inline--fa.fa-pull-left {
-  margin-right: 0.3em;
-  width: auto;
-}
-.svg-inline--fa.fa-pull-right {
-  margin-left: 0.3em;
-  width: auto;
-}
-.svg-inline--fa.fa-border {
-  height: 1.5em;
-}
-.svg-inline--fa.fa-li {
-  width: 2em;
-}
-.svg-inline--fa.fa-fw {
-  width: 1.25em;
-}
-
-.fa-layers svg.svg-inline--fa {
-  bottom: 0;
-  left: 0;
-  margin: auto;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-
-.fa-layers {
-  display: inline-block;
-  height: 1em;
-  position: relative;
-  text-align: center;
-  vertical-align: -0.125em;
-  width: 1em;
-}
-.fa-layers svg.svg-inline--fa {
-  -webkit-transform-origin: center center;
-          transform-origin: center center;
-}
-
-.fa-layers-counter, .fa-layers-text {
-  display: inline-block;
-  position: absolute;
-  text-align: center;
-}
-
-.fa-layers-text {
-  left: 50%;
-  top: 50%;
-  -webkit-transform: translate(-50%, -50%);
-          transform: translate(-50%, -50%);
-  -webkit-transform-origin: center center;
-          transform-origin: center center;
-}
-
-.fa-layers-counter {
-  background-color: #ff253a;
-  border-radius: 1em;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  color: #fff;
-  height: 1.5em;
-  line-height: 1;
-  max-width: 5em;
-  min-width: 1.5em;
-  overflow: hidden;
-  padding: 0.25em;
-  right: 0;
-  text-overflow: ellipsis;
-  top: 0;
-  -webkit-transform: scale(0.25);
-          transform: scale(0.25);
-  -webkit-transform-origin: top right;
-          transform-origin: top right;
-}
-
-.fa-layers-bottom-right {
-  bottom: 0;
-  right: 0;
-  top: auto;
-  -webkit-transform: scale(0.25);
-          transform: scale(0.25);
-  -webkit-transform-origin: bottom right;
-          transform-origin: bottom right;
-}
-
-.fa-layers-bottom-left {
-  bottom: 0;
-  left: 0;
-  right: auto;
-  top: auto;
-  -webkit-transform: scale(0.25);
-          transform: scale(0.25);
-  -webkit-transform-origin: bottom left;
-          transform-origin: bottom left;
-}
-
-.fa-layers-top-right {
-  right: 0;
-  top: 0;
-  -webkit-transform: scale(0.25);
-          transform: scale(0.25);
-  -webkit-transform-origin: top right;
-          transform-origin: top right;
-}
-
-.fa-layers-top-left {
-  left: 0;
-  right: auto;
-  top: 0;
-  -webkit-transform: scale(0.25);
-          transform: scale(0.25);
-  -webkit-transform-origin: top left;
-          transform-origin: top left;
-}
-
-.fa-lg {
-  font-size: 1.3333333333em;
-  line-height: 0.75em;
-  vertical-align: -0.0667em;
-}
-
-.fa-xs {
-  font-size: 0.75em;
-}
-
-.fa-sm {
-  font-size: 0.875em;
-}
-
-.fa-1x {
-  font-size: 1em;
-}
-
-.fa-2x {
-  font-size: 2em;
-}
-
-.fa-3x {
-  font-size: 3em;
-}
-
-.fa-4x {
-  font-size: 4em;
-}
-
-.fa-5x {
-  font-size: 5em;
-}
-
-.fa-6x {
-  font-size: 6em;
-}
-
-.fa-7x {
-  font-size: 7em;
-}
-
-.fa-8x {
-  font-size: 8em;
-}
-
-.fa-9x {
-  font-size: 9em;
-}
-
-.fa-10x {
-  font-size: 10em;
-}
-
-.fa-fw {
-  text-align: center;
-  width: 1.25em;
-}
-
-.fa-ul {
-  list-style-type: none;
-  margin-left: 2.5em;
-  padding-left: 0;
-}
-.fa-ul > li {
-  position: relative;
-}
-
-.fa-li {
-  left: -2em;
-  position: absolute;
-  text-align: center;
-  width: 2em;
-  line-height: inherit;
-}
-
-.fa-border {
-  border: solid 0.08em #eee;
-  border-radius: 0.1em;
-  padding: 0.2em 0.25em 0.15em;
-}
-
-.fa-pull-left {
-  float: left;
-}
-
-.fa-pull-right {
-  float: right;
-}
-
-.fa.fa-pull-left,
-.fas.fa-pull-left,
-.far.fa-pull-left,
-.fal.fa-pull-left,
-.fab.fa-pull-left {
-  margin-right: 0.3em;
-}
-.fa.fa-pull-right,
-.fas.fa-pull-right,
-.far.fa-pull-right,
-.fal.fa-pull-right,
-.fab.fa-pull-right {
-  margin-left: 0.3em;
-}
-
-.fa-spin {
-  -webkit-animation: fa-spin 2s infinite linear;
-          animation: fa-spin 2s infinite linear;
-}
-
-.fa-pulse {
-  -webkit-animation: fa-spin 1s infinite steps(8);
-          animation: fa-spin 1s infinite steps(8);
-}
-
-@-webkit-keyframes fa-spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
-}
-
-@keyframes fa-spin {
-  0% {
-    -webkit-transform: rotate(0deg);
-            transform: rotate(0deg);
-  }
-  100% {
-    -webkit-transform: rotate(360deg);
-            transform: rotate(360deg);
-  }
-}
-.fa-rotate-90 {
-  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=1)";
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-}
-
-.fa-rotate-180 {
-  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2)";
-  -webkit-transform: rotate(180deg);
-          transform: rotate(180deg);
-}
-
-.fa-rotate-270 {
-  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=3)";
-  -webkit-transform: rotate(270deg);
-          transform: rotate(270deg);
-}
-
-.fa-flip-horizontal {
-  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=0, mirror=1)";
-  -webkit-transform: scale(-1, 1);
-          transform: scale(-1, 1);
-}
-
-.fa-flip-vertical {
-  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
-  -webkit-transform: scale(1, -1);
-          transform: scale(1, -1);
-}
-
-.fa-flip-both, .fa-flip-horizontal.fa-flip-vertical {
-  -ms-filter: "progid:DXImageTransform.Microsoft.BasicImage(rotation=2, mirror=1)";
-  -webkit-transform: scale(-1, -1);
-          transform: scale(-1, -1);
-}
-
-:root .fa-rotate-90,
-:root .fa-rotate-180,
-:root .fa-rotate-270,
-:root .fa-flip-horizontal,
-:root .fa-flip-vertical,
-:root .fa-flip-both {
-  -webkit-filter: none;
-          filter: none;
-}
-
-.fa-stack {
-  display: inline-block;
-  height: 2em;
-  position: relative;
-  width: 2.5em;
-}
-
-.fa-stack-1x,
-.fa-stack-2x {
-  bottom: 0;
-  left: 0;
-  margin: auto;
-  position: absolute;
-  right: 0;
-  top: 0;
-}
-
-.svg-inline--fa.fa-stack-1x {
-  height: 1em;
-  width: 1.25em;
-}
-.svg-inline--fa.fa-stack-2x {
-  height: 2em;
-  width: 2.5em;
-}
-
-.fa-inverse {
-  color: #fff;
-}
-
-.sr-only {
-  border: 0;
-  clip: rect(0, 0, 0, 0);
-  height: 1px;
-  margin: -1px;
-  overflow: hidden;
-  padding: 0;
-  position: absolute;
-  width: 1px;
-}
-
-.sr-only-focusable:active, .sr-only-focusable:focus {
-  clip: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  position: static;
-  width: auto;
-}
-
-.svg-inline--fa .fa-primary {
-  fill: var(--fa-primary-color, currentColor);
-  opacity: 1;
-  opacity: var(--fa-primary-opacity, 1);
-}
-
-.svg-inline--fa .fa-secondary {
-  fill: var(--fa-secondary-color, currentColor);
-  opacity: 0.4;
-  opacity: var(--fa-secondary-opacity, 0.4);
-}
-
-.svg-inline--fa.fa-swap-opacity .fa-primary {
-  opacity: 0.4;
-  opacity: var(--fa-secondary-opacity, 0.4);
-}
-
-.svg-inline--fa.fa-swap-opacity .fa-secondary {
-  opacity: 1;
-  opacity: var(--fa-primary-opacity, 1);
-}
-
-.svg-inline--fa mask .fa-primary,
-.svg-inline--fa mask .fa-secondary {
-  fill: black;
-}
-
-.fad.fa-inverse {
-  color: #fff;
-}</style>
-<p>The source code of this project can be found on
-<a href="https://github.com/sghuang19/ghuang3-compiler"><svg aria-hidden="true" focusable="false" data-prefix="fab" data-icon="github" class="svg-inline--fa fa-github fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 496 512"><path fill="currentColor" d="M165.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6zm-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3zm44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9zM244.8 8C106.1 8 0 113.3 0 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C428.2 457.8 496 362.9 496 252 496 113.3 383.5 8 244.8 8zM97.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1zm-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7zm32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1zm-11.4-14.7c-1.6 1-1.6 3.6 0 5.9 1.6 2.3 4.3 3.3 5.6 2.3 1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2z"></path></svg> GitHub</a>.</p>
-<p>This course project for CSE 40243
-<a href="https://dthain.github.io/compilers-fa23/"><em>Compilers and Language Design</em></a>,
-offered in Fall 2023 at the University of Notre Dame, was taught by Prof.
-Douglas Thain. I also had the privilege of working with Dr. Thain during the
-summer of 2022.</p>
-<p>As a side “note”, the notes I took for this course can be found <a href="https://notes.sghuang.com/compilers-and-language-design"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pen" class="svg-inline--fa fa-pen fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M290.74 93.24l128.02 128.02-277.99 277.99-114.14 12.6C11.35 513.54-1.56 500.62.14 485.34l12.7-114.22 277.9-277.88zm207.2-19.06l-60.11-60.11c-18.75-18.75-49.16-18.75-67.91 0l-56.55 56.55 128.02 128.02 56.55-56.55c18.75-18.76 18.75-49.16 0-67.91z"></path></svg> here</a>.</p>
-<h2 id="Specification">Specification</h2>
-<p>B-Minor is a language designed by Dr. Thain for teaching this compiler course.
-The specification of this language is tweaked slightly each year. The complete
-specs of B-Minor 2023 can be found on the
-<a href="https://dthain.github.io/compilers-fa23/bminor">course website</a>.</p>
-<p>In short, it supports:</p>
-<ul>
-<li>Primitive types, arrays, and strings</li>
-<li><code>for</code>, <code>if</code>, and <code>while</code> control logic</li>
-<li><code>print</code> as a statement instead of a function</li>
-<li>Function calls, including recursion. I decided to implement stack calling
-implemented instead of register calling</li>
-</ul>
-<div class="note primary no-icon"><p>This language is named <code>B-Minor</code> because <code>C</code>, <code>C-Sharp</code>, <code>C-Major</code>, <code>C-Minor</code>
-and <code>B</code> are all taken, and Dr. Thain prefers minor keys over major.</p>
-</div>
-<h2 id="How-I-Wrote-It">How I Wrote It</h2>
-<ul>
-<li>Encoder, Resolver, Typechecker, Code Generator: Handwritten in C.</li>
-<li>Scanner: Implemented with RegEx and <a href="https://github.com/westes/flex">Flex</a>.</li>
-<li>Parser: Implemented with <a href="https://gnu.org/software/bison/">Bison</a>.</li>
-</ul>
-<p>The Context Free Grammar for this project is pretty elegant in my opinion:</p>
-<figure class="highlight plaintext"><figcaption><span>grammar.y</span><a href="https://github.com/sghuang19/ghuang3-compiler/blob/main/grammar.y">link</a></figcaption><table><tbody><tr><td class="code"><pre><span class="line">prog : decl_list TOKEN_EOF { $$ = $1; root = $$; YYACCEPT; }</span><br><span class="line">     ;</span><br><span class="line"></span><br><span class="line">/* Declarations */</span><br><span class="line"></span><br><span class="line">decl_list : /* epsilon */  { $$ = NULL; }</span><br><span class="line">          | decl decl_list { $$ = $1; $$-&gt;next = $2; }</span><br><span class="line">          ;</span><br><span class="line"></span><br><span class="line">decl : TOKEN_ID TOKEN_COLON type_simple TOKEN_SEMICOLON</span><br><span class="line">       { $$ = decl_create($1, $3, NULL, NULL, NULL); }</span><br><span class="line">     | TOKEN_ID TOKEN_COLON type_array_sized TOKEN_SEMICOLON</span><br><span class="line">       { $$ = decl_create($1, $3, NULL, NULL, NULL); }</span><br><span class="line">     | TOKEN_ID TOKEN_COLON type_func TOKEN_SEMICOLON</span><br><span class="line">       { $$ = decl_create($1, $3, NULL, NULL, NULL); }</span><br><span class="line">     | decl_init</span><br><span class="line">     ;</span><br><span class="line"></span><br><span class="line">decl_init : TOKEN_ID TOKEN_COLON type_simple TOKEN_ASSIGN expr TOKEN_SEMICOLON</span><br><span class="line">            { $$ = decl_create($1, $3, $5, NULL, NULL); }</span><br><span class="line">          | TOKEN_ID TOKEN_COLON type_array_sized TOKEN_ASSIGN</span><br><span class="line">            TOKEN_LBRACE opt_expr_list TOKEN_RBRACE TOKEN_SEMICOLON</span><br><span class="line">            { $$ = decl_create($1, $3, $6, NULL, NULL); }</span><br><span class="line">          | TOKEN_ID TOKEN_COLON type_func TOKEN_ASSIGN</span><br><span class="line">            TOKEN_LBRACE opt_stmt_list TOKEN_RBRACE</span><br><span class="line">            { $$ = decl_create($1, $3, NULL, $6, NULL); }</span><br><span class="line">          ;</span><br><span class="line"></span><br><span class="line">/* Statements */</span><br><span class="line"></span><br><span class="line">opt_stmt_list : /* epsilon */ { $$ = NULL; }</span><br><span class="line">              | stmt_list</span><br><span class="line">              ;</span><br><span class="line"></span><br><span class="line">stmt_list : stmt</span><br><span class="line">          | stmt stmt_list { $$ = $1; $$-&gt;next = $2; }</span><br><span class="line">          ;</span><br><span class="line"></span><br><span class="line">stmt : open_stmt</span><br><span class="line">     | closed_stmt</span><br><span class="line">     ;</span><br><span class="line"></span><br><span class="line">closed_stmt : if_stmt_closed</span><br><span class="line">            | for_stmt_closed</span><br><span class="line">            | simple_stmt</span><br><span class="line">            ;</span><br><span class="line"></span><br><span class="line">open_stmt : if_stmt_open</span><br><span class="line">          | for_stmt_open</span><br><span class="line">          ;</span><br><span class="line"></span><br><span class="line">if_cond : TOKEN_IF TOKEN_LPAREN opt_expr TOKEN_RPAREN</span><br><span class="line">          { $$ = stmt_create_empty(STMT_IF_ELSE); $$-&gt;expr = $3; }</span><br><span class="line">        ;</span><br><span class="line"></span><br><span class="line">if_stmt_closed : if_cond closed_stmt TOKEN_ELSE closed_stmt</span><br><span class="line">                 { $$ = $1; $$-&gt;body = $2; $$-&gt;else_body = $4; }</span><br><span class="line">               ;</span><br><span class="line"></span><br><span class="line">if_stmt_open : if_cond stmt</span><br><span class="line">               { $$ = $1; $$-&gt;body = $2; }</span><br><span class="line">             | if_cond closed_stmt TOKEN_ELSE if_stmt_open</span><br><span class="line">               { $$ = $1; $$-&gt;body = $2; $$-&gt;else_body = $4;}</span><br><span class="line">             ;</span><br><span class="line"></span><br><span class="line">for_header : TOKEN_FOR TOKEN_LPAREN</span><br><span class="line">             opt_expr TOKEN_SEMICOLON opt_expr TOKEN_SEMICOLON opt_expr</span><br><span class="line">             TOKEN_RPAREN</span><br><span class="line">             { $$ = stmt_create(STMT_FOR, NULL, $3, $5, $7, NULL, NULL, NULL); }</span><br><span class="line"></span><br><span class="line">for_stmt_open : for_header open_stmt { $$ = $1; $$-&gt;body = $2; }</span><br><span class="line">              ;</span><br><span class="line"></span><br><span class="line">for_stmt_closed : for_header closed_stmt { $$ = $1; $$-&gt;body = $2; }</span><br><span class="line">                ;</span><br><span class="line"></span><br><span class="line">/* Simple statements are not recursive */</span><br><span class="line">simple_stmt : print_stmt</span><br><span class="line">            | return_stmt</span><br><span class="line">            | block_stmt</span><br><span class="line">            | decl                 { $$ = stmt_create_empty(STMT_DECL), $$-&gt;decl = $1; }</span><br><span class="line">            | expr TOKEN_SEMICOLON { $$ = stmt_create_empty(STMT_EXPR), $$-&gt;expr = $1; }</span><br><span class="line">            ;</span><br><span class="line"></span><br><span class="line">print_stmt : TOKEN_PRINT opt_expr_list TOKEN_SEMICOLON</span><br><span class="line">             { $$ = stmt_create_empty(STMT_PRINT); $$-&gt;expr = $2; }</span><br><span class="line">           ;</span><br><span class="line"></span><br><span class="line">return_stmt : TOKEN_RETURN opt_expr TOKEN_SEMICOLON</span><br><span class="line">              { $$ = stmt_create_empty(STMT_RETURN); $$-&gt;expr = $2; }</span><br><span class="line">            ;</span><br><span class="line"></span><br><span class="line">block_stmt : TOKEN_LBRACE stmt_list TOKEN_RBRACE</span><br><span class="line">             { $$ = stmt_create_empty(STMT_BLOCK); $$-&gt;body = $2; }</span><br><span class="line">           ;</span><br><span class="line"></span><br><span class="line">/* Expressions */</span><br><span class="line"></span><br><span class="line">opt_expr_list : /* epsilon */ { $$ = NULL; }</span><br><span class="line">              | expr_list</span><br><span class="line">              ;</span><br><span class="line"></span><br><span class="line">expr_list : expr</span><br><span class="line">            { $$ = expr_create(EXPR_LIST, $1, NULL); }</span><br><span class="line">          | expr TOKEN_COMMA expr_list</span><br><span class="line">            { $$ = expr_create(EXPR_LIST, $1, $3); }</span><br><span class="line">          ;</span><br><span class="line"></span><br><span class="line">opt_expr : /* epsilon */ { $$ = NULL; }</span><br><span class="line">         | expr</span><br><span class="line">         ;</span><br><span class="line"></span><br><span class="line">expr : expr1</span><br><span class="line">     ;</span><br><span class="line"></span><br><span class="line">expr1 : lval TOKEN_ASSIGN expr1 { $$ = expr_create(EXPR_ASSIGN, $1, $3); }</span><br><span class="line">      | expr2</span><br><span class="line">      ;</span><br><span class="line"></span><br><span class="line">lval : TOKEN_ID       { $$ = expr_create_name($1); }</span><br><span class="line">     | TOKEN_ID index { $$ = expr_create(EXPR_INDEX, expr_create_name($1), $2); }</span><br><span class="line">     ;</span><br><span class="line"></span><br><span class="line">expr2 : expr2 TOKEN_LOGICAL_OR expr3 { $$ = expr_create(EXPR_OR, $1, $3); }</span><br><span class="line">      | expr3</span><br><span class="line">      ;</span><br><span class="line"></span><br><span class="line">expr3 : expr3 TOKEN_LOGICAL_AND expr4 { $$ = expr_create(EXPR_AND, $1, $3); }</span><br><span class="line">      | expr4</span><br><span class="line">      ;</span><br><span class="line"></span><br><span class="line">expr4 : expr4 TOKEN_EQUAL            expr5 { $$ = expr_create(EXPR_EQ,  $1, $3); }</span><br><span class="line">      | expr4 TOKEN_NOT_EQUAL        expr5 { $$ = expr_create(EXPR_NEQ, $1, $3); }</span><br><span class="line">      | expr4 TOKEN_LESS             expr5 { $$ = expr_create(EXPR_LT,  $1, $3); }</span><br><span class="line">      | expr4 TOKEN_LESS_OR_EQUAL    expr5 { $$ = expr_create(EXPR_LEQ, $1, $3); }</span><br><span class="line">      | expr4 TOKEN_GREATER          expr5 { $$ = expr_create(EXPR_GT,  $1, $3); }</span><br><span class="line">      | expr4 TOKEN_GREATER_OR_EQUAL expr5 { $$ = expr_create(EXPR_GEQ, $1, $3); }</span><br><span class="line">      | expr5</span><br><span class="line">      ;</span><br><span class="line"></span><br><span class="line">expr5 : expr5 TOKEN_ADD   expr6 { $$ = expr_create(EXPR_ADD, $1, $3); }</span><br><span class="line">      | expr5 TOKEN_MINUS expr6 { $$ = expr_create(EXPR_SUB, $1, $3); }</span><br><span class="line">      | expr6</span><br><span class="line">      ;</span><br><span class="line"></span><br><span class="line">expr6 : expr6 TOKEN_MULTIPLY expr7 { $$ = expr_create(EXPR_MUL, $1, $3); }</span><br><span class="line">      | expr6 TOKEN_DIVIDE   expr7 { $$ = expr_create(EXPR_DIV, $1, $3); }</span><br><span class="line">      | expr6 TOKEN_MODULO   expr7 { $$ = expr_create(EXPR_MOD, $1, $3); }</span><br><span class="line">      | expr7</span><br><span class="line">      ;</span><br><span class="line"></span><br><span class="line">expr7 : expr7 TOKEN_EXPONENT expr8 { $$ = expr_create(EXPR_EXP, $1, $3); }</span><br><span class="line">      | expr8</span><br><span class="line">      ;</span><br><span class="line"></span><br><span class="line">expr8 : TOKEN_MINUS       expr8 { $$ = expr_create_unary(EXPR_NEG, $2); }</span><br><span class="line">      | TOKEN_LOGICAL_NOT expr8 { $$ = expr_create_unary(EXPR_NOT, $2); }</span><br><span class="line">      | expr9</span><br><span class="line">      ;</span><br><span class="line"></span><br><span class="line">expr9 : expr9 TOKEN_INCREMENT { $$ = expr_create_unary(EXPR_INCREMENT, $1); }</span><br><span class="line">      | expr9 TOKEN_DECREMENT { $$ = expr_create_unary(EXPR_DECREMENT, $1); }</span><br><span class="line">      | group</span><br><span class="line">      ;</span><br><span class="line"></span><br><span class="line">group : TOKEN_LPAREN expr TOKEN_RPAREN { $$ = $2; }</span><br><span class="line">      | TOKEN_ID TOKEN_LPAREN opt_expr_list TOKEN_RPAREN</span><br><span class="line">        { $$ = expr_create(EXPR_CALL, expr_create_name($1), $3); }</span><br><span class="line">      | TOKEN_ID index</span><br><span class="line">        { $$ = expr_create(EXPR_INDEX, expr_create_name($1), $2); }</span><br><span class="line">      | factor</span><br><span class="line">      ;</span><br><span class="line"></span><br><span class="line">index : TOKEN_LBRACKET expr TOKEN_RBRACKET { $$ = $2; }</span><br><span class="line">      ;</span><br><span class="line"></span><br><span class="line">factor : TOKEN_ID             { $$ = expr_create_name($1); }</span><br><span class="line">       | TOKEN_INT_LITERAL    { $$ = expr_create_integer_literal($1); }</span><br><span class="line">       | TOKEN_FLOAT_LITERAL  { $$ = expr_create_float_literal($1); }</span><br><span class="line">       | TOKEN_CHAR_LITERAL   { $$ = expr_create_char_literal($1); }</span><br><span class="line">       | TOKEN_STRING_LITERAL { $$ = expr_create_string_literal($1); }</span><br><span class="line">       | TOKEN_TRUE           { $$ = expr_create_boolean_literal(1); }</span><br><span class="line">       | TOKEN_FALSE          { $$ = expr_create_boolean_literal(0); }</span><br><span class="line">       ;</span><br><span class="line"></span><br><span class="line">/* Types */</span><br><span class="line"></span><br><span class="line">type_simple : TOKEN_INTEGER { $$ = type_create(TYPE_INTEGER); }</span><br><span class="line">            | TOKEN_FLOAT   { $$ = type_create(TYPE_FLOAT); }</span><br><span class="line">            | TOKEN_BOOLEAN { $$ = type_create(TYPE_BOOLEAN); }</span><br><span class="line">            | TOKEN_CHAR    { $$ = type_create(TYPE_CHAR); }</span><br><span class="line">            | TOKEN_STRING  { $$ = type_create(TYPE_STRING); }</span><br><span class="line">            | TOKEN_VOID    { $$ = type_create(TYPE_VOID); }</span><br><span class="line">            ;</span><br><span class="line"></span><br><span class="line">type_array : TOKEN_ARRAY TOKEN_LBRACKET TOKEN_RBRACKET type_simple</span><br><span class="line">             { $$ = type_create_array($4, NULL); }</span><br><span class="line">           | TOKEN_ARRAY TOKEN_LBRACKET TOKEN_RBRACKET type_array</span><br><span class="line">             { $$ = type_create_array($4, NULL); }</span><br><span class="line">           ;</span><br><span class="line"></span><br><span class="line">type_array_sized : TOKEN_ARRAY index type_simple</span><br><span class="line">                   { $$ = type_create_array($3, $2); }</span><br><span class="line">                 | TOKEN_ARRAY index type_array_sized</span><br><span class="line">                   { $$ = type_create_array($3, $2); }</span><br><span class="line">                 ;</span><br><span class="line"></span><br><span class="line">type_func : TOKEN_FUNCTION type_simple TOKEN_LPAREN opt_param_list TOKEN_RPAREN</span><br><span class="line">            { $$ = type_create_func($2, $4); }</span><br><span class="line">          | TOKEN_FUNCTION type_array_sized TOKEN_LPAREN opt_param_list TOKEN_RPAREN</span><br><span class="line">            { $$ = type_create_func($2, $4); }</span><br><span class="line">          ;</span><br><span class="line"></span><br><span class="line">opt_param_list : /* epsilon */ { $$ = NULL; }</span><br><span class="line">               | param_list</span><br><span class="line">               ;</span><br><span class="line"></span><br><span class="line">param_list : param</span><br><span class="line">           | param_list TOKEN_COMMA param { $$ = $1; $1-&gt;next = $3; }</span><br><span class="line">           ;</span><br><span class="line"></span><br><span class="line">param : TOKEN_ID TOKEN_COLON type_simple      { $$ = param_list_create($1, $3, NULL); }</span><br><span class="line">      | TOKEN_ID TOKEN_COLON type_array       { $$ = param_list_create($1, $3, NULL); }</span><br><span class="line">      | TOKEN_ID TOKEN_COLON type_array_sized { $$ = param_list_create($1, $3, NULL); }</span><br><span class="line">      ;</span><br></pre></td></tr></tbody></table></figure>
-]]></content>
-      <tags>
-        <tag>project</tag>
-        <tag>cse</tag>
-        <tag>compiler</tag>
-        <tag>system</tag>
-        <tag>c</tag>
-        <tag>pl</tag>
-        <tag>sde</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>高等数学（下）期末复习：14.10 含有 Constrained 变量的偏导数</title>
-    <url>/14.10%20Partial%20Derivatives%20with%20Constrained%20Variables/</url>
-    <content><![CDATA[<p>之前讨论的多元函数的偏导数问题都是关于独立变量的，但是变量之间也可能相互约束。例如，气体的内能表达式为 $U = f (P,V,T)$，但是变量之间又受制于理想气体定律 $PV=nRT$。</p>
-<span id="more"></span>
-<hr>
-<h2 id="求解有限制条件的多元函数的偏导数">求解有限制条件的多元函数的偏导数</h2>
-<p>求偏导数的一个问题是，确定哪些变量是独立的，哪些变量是依赖于其他变量的。例如，有
-4 个变量，2 个限制条件的式子，就只能解出用两个独立变量表达另外两个受制变量的式子，进而求偏导数。独立变量不同，求出的结果具有完全不同的含义。</p>
-<p>确定独立变量之后，便进行消元，将因变量用自变量表示出来，然后求导。</p>
-<p>如果直接进行代换消元比较难，可以先在约束条件式子两侧同时取微分，然后再求解所需要的偏导数。</p>
-<hr>
-<h2 id="记法">记法 <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup></h2>
-<p>$y$ 为独立变量，$w$ 对 $x$ 偏导数可以表示为</p>
-<p>$$
-\left(\frac{\partial w}{\partial x}\right)_y
-$$</p>
-<hr>
-<h2 id="箭头图">箭头图 <sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></h2>
-<p>求解含限制条件的多元函数的偏导数，比较 format 的方法是用箭头图。例如，现在已知</p>
-<p>$$
-\begin{cases}
-w = x^2 + y^2 + z^2 + \sin t \
-x + y =t
-\end{cases}
-$$</p>
-<p>$x$, $y$, $z$ 为独立变量，要求 $w$ 对 $x$ 的偏导数，可以画出箭头图</p>
-<p>$$
-\begin{matrix}
-\begin{pmatrix}
-x \ y \ z
-\end{pmatrix} &amp; \rightarrow &amp;
-\begin{pmatrix}
-x \ y \ z \ t
-\end{pmatrix} &amp; \rightarrow &amp; w \
-\color{blue}{\begin{matrix}
-\text{Independent} \ \text{variables}
-\end{matrix}} &amp;&amp;
-\color{blue}{\begin{matrix}
-\text{Intermediate} \ \text{variables}
-\end{matrix}} &amp;&amp;
-\color{blue}{\begin{matrix}
-\text{Dependent} \ \text{variable}
-\end{matrix}}
-\end{matrix}
-$$</p>
-<p>中间这一块有点 tricky，想起教授说的一句很经典的话，“Always use Chain Rule”，其实也可以改成</p>
-<p>$$
-\begin{matrix}
-\begin{pmatrix}
-x \ y \ z
-\end{pmatrix} &amp; \rightarrow &amp;
-\begin{pmatrix}
-x \ y \ z \ t
-\end{pmatrix} &amp; \rightarrow &amp; w \
-\color{blue}{\begin{matrix}
-\text{Independent} \ \text{variables}
-\end{matrix}} &amp;&amp;
-\color{blue}{\begin{matrix}
-\text{Intermediate} \ \text{variables}
-\end{matrix}} &amp;&amp;
-\color{blue}{\begin{matrix}
-\text{Dependent} \ \text{variable}
-\end{matrix}} \ &amp;&amp;
-\color{blue}{\begin{cases}
-u = x \ v = y \ s = z \ t = x + y
-\end{cases}} &amp;&amp;
-\end{matrix}
-$$</p>
-<p>最后的结果就相当于求全偏导数，即</p>
-<p>$$
-\frac{\partial w}{\partial x} =
-\frac{\partial w}{\partial u} \frac{\partial u}{\partial x} +
-\frac{\partial w}{\partial v} \frac{\partial v}{\partial x} +
-\frac{\partial w}{\partial s} \frac{\partial s}{\partial x} +
-\frac{\partial w}{\partial t} \frac{\partial t}{\partial x}
-$$</p>
-<hr class="footnotes-sep">
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p>Notation <a href="#fnref1" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn2" class="footnote-item"><p>Arrow Diagram <a href="#fnref2" class="footnote-backref">↩︎</a></p>
-</li>
-</ol>
-</section>
-]]></content>
-      <tags>
-        <tag>note</tag>
-        <tag>calculus</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>高等数学（下）期末复习：14.5 方向导数与梯度向量</title>
     <url>/14.5%20Directional%20Derivatives%20and%20Gradient%20Vectors/</url>
     <content><![CDATA[<!-- markdownlint-disable single-h1 -->
@@ -5535,96 +5614,6 @@ $$</p>
       </tags>
   </entry>
   <entry>
-    <title>高等数学（下）期末复习：14.7 极值与鞍点</title>
-    <url>/14.7%20Extreme%20Values%20and%20Saddle%20Points/</url>
-    <content><![CDATA[<!-- markdownlint-disable single-h1 -->
-<h1>14.7 极值 <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> 与鞍点 <sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></h1>
-<h2 id="区域极值的导数判别">区域极值 <sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup> 的导数判别</h2>
-<p>在一元函数中，通过水平切线来找到区域最大值 <sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup>、区域最小值 <sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup> 和 inflection 点；对应在多元函数中，通过水平切面来找到区域最大值、区域最小值和鞍点。</p>
-<blockquote>
-<p><strong>定义</strong></p>
-<p>若对于以 $(a,b)$ 为中心的一个 open disk 内的任意定义域内的点 $(x,y)$，都有 $f (a,b)\ge f (x,y)$，则称 $(a,b)$ 为 $f$ 的区域最大值反之为区域最小值</p>
-</blockquote>
-<span id="more"></span>
-<p><img src="https://gitee.com/SamuelHuang2019/figure-bed/raw/master/img/20200621172452_Figure14.41.png" alt="image-20200621172450321"></p>
-<p>此时切平面如果存在，就是水平的。区域极值也称作相对极值 <sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup>。</p>
-<p><img src="https://gitee.com/SamuelHuang2019/figure-bed/raw/master/img/20200621175006_Figure14.43.png" alt="image-20200621175004924"></p>
-<blockquote>
-<p><strong>定理 10：区域极值的一阶导数判别</strong></p>
-<p>如果 $f (x,y)$ 在定义域的内点 <sup class="footnote-ref"><a href="#fn7" id="fnref7">[7]</a></sup>$(a,b)$ 处有区域最大值或最小值，，并且一阶偏导数存在，则 $f_x (a,b)=0$ 且 $f_y (a,b)=0$</p>
-</blockquote>
-<blockquote>
-<p><strong>REMARK</strong>：同一元函数的极值一样，导数为 0 是极值的必要而非充分条件，即使必要也是在存在导数的情况下</p>
-</blockquote>
-<p>和偏导数的定义类似，定理 10 通过先 “固定” 一个变量，再应用一元函数中的性质来证明。</p>
-<blockquote>
-<p><strong>定义</strong></p>
-<p>使得 $f_x$ 和 $f_y$ 均为 0 或至少有一个不存在的定义域的内点称为 <strong>critical 点</strong>。</p>
-</blockquote>
-<p>Critical 点不一定就是极值点。</p>
-<blockquote>
-<p><strong>定义</strong></p>
-<p>可微函数 $f (x,y)$ 定义域上的一点 $(a,b)$，若在以 $(a,b)$ 为中心的任意 open disk 上，都既有 $f (x,y)&gt;f (a,b)$，又有 $f (x,y)&lt;f (a,b)$，则称 $(a,b,f (a,b))$ 为 $f$ 的<strong>鞍点</strong>。</p>
-</blockquote>
-<p><img src="https://gitee.com/SamuelHuang2019/figure-bed/raw/master/img/20200621191805_Figure14.45.png" alt="Figure 14.45"></p>
-<blockquote>
-<p><strong>定理 11：区域极值的二阶导数判别</strong></p>
-<ul>
-<li>若 $f_{xx} &lt; 0$ 且 $f_{xx} f_{yy} - f_{xy}^2 &gt; 0$，则在此处 $f$ 有<strong>区域最大值</strong></li>
-<li>若 $f_{xx} &gt; 0$ 且 $f_{xx} f_{yy} - f_{xy}^2 &gt; 0$，则在此处 $f$ 有<strong>区域最小值</strong></li>
-<li>若 $f_{xx} f_{yy} - f_{xy}^2 &lt; 0$，则在此处 $f$ 有<strong>鞍点</strong></li>
-<li>若 $f_{xx} f_{yy} - f_{xy}^2 = 0$，则二阶导数判别<strong>不能得出结论 </strong><sup class="footnote-ref"><a href="#fn8" id="fnref8">[8]</a></sup>。</li>
-</ul>
-</blockquote>
-<p>表达式 $f_{xx} f_{yy}-f_{xy}^2$ 称为 $f$ 的<strong>判别式 </strong><sup class="footnote-ref"><a href="#fn9" id="fnref9">[9]</a></sup> 或 <strong>Hessian</strong>，也可以写成行列式形式：</p>
-<p>$$
-f_{xx}f_{yy} - f_{xy}^2 =
-\left |
-\begin{array}{c}
-f_{xx} &amp; f_{xy} \
-f_{xy} &amp; f_{yy} \
-\end{array}
-\right |
-$$</p>
-<p>二阶导数判别的证明会在 14.9 中提到</p>
-<hr>
-<h2 id="Closed-Bounded-Regions上的绝对最大值与最小值">Closed Bounded Regions 上的绝对最大值与最小值</h2>
-<ul>
-<li>列出 critical points</li>
-<li> 列出边界点 <sup class="footnote-ref"><a href="#fn10" id="fnref10">[10]</a></sup></li>
-<li> 对比这些点的函数值</li>
-</ul>
-<hr class="footnotes-sep">
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p> extreme values <a href="#fnref1" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn2" class="footnote-item"><p>saddle points <a href="#fnref2" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn3" class="footnote-item"><p>local extreme values <a href="#fnref3" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn4" class="footnote-item"><p>local maxima <a href="#fnref4" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn5" class="footnote-item"><p>local minima <a href="#fnref5" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn6" class="footnote-item"><p>relative extrema <a href="#fnref6" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn7" class="footnote-item"><p>interior point <a href="#fnref7" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn8" class="footnote-item"><p>inconclusive <a href="#fnref8" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn9" class="footnote-item"><p>discriminant <a href="#fnref9" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn10" class="footnote-item"><p>boundary points <a href="#fnref10" class="footnote-backref">↩︎</a></p>
-</li>
-</ol>
-</section>
-]]></content>
-      <tags>
-        <tag>calculus</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>高等数学（下）期末复习：14.8 拉格朗日乘子</title>
     <url>/14.8%20Lagrange%20Multipliers/</url>
     <content><![CDATA[<!-- markdownlint-disable single-h1 -->
@@ -5757,6 +5746,96 @@ $$</p>
 ]]></content>
       <tags>
         <tag>note</tag>
+        <tag>calculus</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>高等数学（下）期末复习：14.7 极值与鞍点</title>
+    <url>/14.7%20Extreme%20Values%20and%20Saddle%20Points/</url>
+    <content><![CDATA[<!-- markdownlint-disable single-h1 -->
+<h1>14.7 极值 <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup> 与鞍点 <sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup></h1>
+<h2 id="区域极值的导数判别">区域极值 <sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup> 的导数判别</h2>
+<p>在一元函数中，通过水平切线来找到区域最大值 <sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup>、区域最小值 <sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup> 和 inflection 点；对应在多元函数中，通过水平切面来找到区域最大值、区域最小值和鞍点。</p>
+<blockquote>
+<p><strong>定义</strong></p>
+<p>若对于以 $(a,b)$ 为中心的一个 open disk 内的任意定义域内的点 $(x,y)$，都有 $f (a,b)\ge f (x,y)$，则称 $(a,b)$ 为 $f$ 的区域最大值反之为区域最小值</p>
+</blockquote>
+<span id="more"></span>
+<p><img src="https://gitee.com/SamuelHuang2019/figure-bed/raw/master/img/20200621172452_Figure14.41.png" alt="image-20200621172450321"></p>
+<p>此时切平面如果存在，就是水平的。区域极值也称作相对极值 <sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup>。</p>
+<p><img src="https://gitee.com/SamuelHuang2019/figure-bed/raw/master/img/20200621175006_Figure14.43.png" alt="image-20200621175004924"></p>
+<blockquote>
+<p><strong>定理 10：区域极值的一阶导数判别</strong></p>
+<p>如果 $f (x,y)$ 在定义域的内点 <sup class="footnote-ref"><a href="#fn7" id="fnref7">[7]</a></sup>$(a,b)$ 处有区域最大值或最小值，，并且一阶偏导数存在，则 $f_x (a,b)=0$ 且 $f_y (a,b)=0$</p>
+</blockquote>
+<blockquote>
+<p><strong>REMARK</strong>：同一元函数的极值一样，导数为 0 是极值的必要而非充分条件，即使必要也是在存在导数的情况下</p>
+</blockquote>
+<p>和偏导数的定义类似，定理 10 通过先 “固定” 一个变量，再应用一元函数中的性质来证明。</p>
+<blockquote>
+<p><strong>定义</strong></p>
+<p>使得 $f_x$ 和 $f_y$ 均为 0 或至少有一个不存在的定义域的内点称为 <strong>critical 点</strong>。</p>
+</blockquote>
+<p>Critical 点不一定就是极值点。</p>
+<blockquote>
+<p><strong>定义</strong></p>
+<p>可微函数 $f (x,y)$ 定义域上的一点 $(a,b)$，若在以 $(a,b)$ 为中心的任意 open disk 上，都既有 $f (x,y)&gt;f (a,b)$，又有 $f (x,y)&lt;f (a,b)$，则称 $(a,b,f (a,b))$ 为 $f$ 的<strong>鞍点</strong>。</p>
+</blockquote>
+<p><img src="https://gitee.com/SamuelHuang2019/figure-bed/raw/master/img/20200621191805_Figure14.45.png" alt="Figure 14.45"></p>
+<blockquote>
+<p><strong>定理 11：区域极值的二阶导数判别</strong></p>
+<ul>
+<li>若 $f_{xx} &lt; 0$ 且 $f_{xx} f_{yy} - f_{xy}^2 &gt; 0$，则在此处 $f$ 有<strong>区域最大值</strong></li>
+<li>若 $f_{xx} &gt; 0$ 且 $f_{xx} f_{yy} - f_{xy}^2 &gt; 0$，则在此处 $f$ 有<strong>区域最小值</strong></li>
+<li>若 $f_{xx} f_{yy} - f_{xy}^2 &lt; 0$，则在此处 $f$ 有<strong>鞍点</strong></li>
+<li>若 $f_{xx} f_{yy} - f_{xy}^2 = 0$，则二阶导数判别<strong>不能得出结论 </strong><sup class="footnote-ref"><a href="#fn8" id="fnref8">[8]</a></sup>。</li>
+</ul>
+</blockquote>
+<p>表达式 $f_{xx} f_{yy}-f_{xy}^2$ 称为 $f$ 的<strong>判别式 </strong><sup class="footnote-ref"><a href="#fn9" id="fnref9">[9]</a></sup> 或 <strong>Hessian</strong>，也可以写成行列式形式：</p>
+<p>$$
+f_{xx}f_{yy} - f_{xy}^2 =
+\left |
+\begin{array}{c}
+f_{xx} &amp; f_{xy} \
+f_{xy} &amp; f_{yy} \
+\end{array}
+\right |
+$$</p>
+<p>二阶导数判别的证明会在 14.9 中提到</p>
+<hr>
+<h2 id="Closed-Bounded-Regions上的绝对最大值与最小值">Closed Bounded Regions 上的绝对最大值与最小值</h2>
+<ul>
+<li>列出 critical points</li>
+<li> 列出边界点 <sup class="footnote-ref"><a href="#fn10" id="fnref10">[10]</a></sup></li>
+<li> 对比这些点的函数值</li>
+</ul>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p> extreme values <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>saddle points <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>local extreme values <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p>local maxima <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn5" class="footnote-item"><p>local minima <a href="#fnref5" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn6" class="footnote-item"><p>relative extrema <a href="#fnref6" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn7" class="footnote-item"><p>interior point <a href="#fnref7" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn8" class="footnote-item"><p>inconclusive <a href="#fnref8" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn9" class="footnote-item"><p>discriminant <a href="#fnref9" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn10" class="footnote-item"><p>boundary points <a href="#fnref10" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+]]></content>
+      <tags>
         <tag>calculus</tag>
       </tags>
   </entry>
@@ -6675,6 +6754,137 @@ $$</p>
       </tags>
   </entry>
   <entry>
+    <title>高等数学（下）期末复习：16.1 线积分</title>
+    <url>/16.1%20Line%20Integral/</url>
+    <content><![CDATA[<!-- cSpell:enableCompoundWords -->
+<p>有时为了计算出空间中一条曲线形状的线条的质量，或者是计算变力沿着某条曲线的做工，需要对这条曲线而非某个区间进行积分。于是我们引入线积分的概念（实际上路径积分这个词更准确）。</p>
+<span id="more"></span>
+<p>假设我们需要将实值函数 $f (x, y, z)$ 沿曲线 $C$ 进行积分，$C$ 处在 $f$ 的定义域内，且可被参数化为
+$\mathbf r (t) = g (t)\mathbf i + h (t)\mathbf j + k (t)\mathbf k, a \le t \le b$。
+$f$ 在路径上的函数值可以表达为 $f (g (t), h (t), k (t))$，现在需要将这个复合函数的根据从 $t=a$ 到 $t=b$ 的 arc length 进行求和。</p>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200809124211-Fig-16.1.png" alt="Fig. 16.1"></p>
+<p>首先，将曲线 $C$ 从 $t=a$ 到 $t=b$ 划分成 $n$ 条 subarcs，某一条 subarc 的长度为
+$\Delta s_k$。在每一条 subarc 里选择一个点 $(x_k, y_k,z_k)$，则对应的黎曼和为</p>
+<p>$$
+S_n = \sum_{k=1}^n f(x_k, y_k, z_k)\Delta s_k.
+$$</p>
+<blockquote>
+<p><strong>定义</strong>：若 $f$ 为定义在可参数化为
+$\mathbf r (t) = g (t)\mathbf i + h (t)\mathbf j + k (t)\mathbf k, a\le t\le b$ 的曲线 $C$ 上的函数，则 $f$ <strong>在</strong> $C$ <strong>上的线积分</strong>为</p>
+<p>$$
+\int_C f(x, y, z)\mathop{ds} =
+\lim_{n\rightarrow\infty}
+\sum_{k=1}^n f(x_k, y_k, z_k)\Delta s_k
+$$</p>
+</blockquote>
+<p>如果曲线 $C$ 在定义域上都是 smooth 的，也即
+$\mathbf v  = \mathop {d\mathbf r}/\mathop {dt}$ 连续且不为 $\mathbf 0$，并且函数
+$f$ 在 $C$ 上也是连续的，那么可以证明上述的积分存在。可以通过运用微积分基本定理对 arc length 微分</p>
+<p>$$
+s(t) = \int_a^t |\mathbf{v}(\tau)|\mathop{d\tau}
+$$</p>
+<p>重新代入积分式中，可以变形得到</p>
+<p>$$
+\int_C f(x, y, z)\mathop{ds} =
+\int_a^b f(g(t), h(t), k(t))|\mathbf v(t)|\mathop{dt}.
+$$</p>
+<blockquote>
+<p>如何 evaluate 一个线积分</p>
+<ul>
+<li>找到曲线 $C$ 的一个 smooth 参数化</li>
+</ul>
+<p>$$
+\mathbf r(t) =
+g(t)\mathbf i +
+h(t)\mathbf j +
+k(t)\mathbf k, \quad
+a \le t \le b.
+$$</p>
+<ul>
+<li>根据下式 evaluate 线积分</li>
+</ul>
+<p>$$
+\int_C f(x, y, z)\mathop{ds} =
+\int_a^b f(g(t), h(t), k(t))|\mathbf{v}(t)|\mathop{dt}.
+$$</p>
+</blockquote>
+<p>$f (g (t), h (t), k (t))$ 也可以写作 $f (\mathbf r (t))$。</p>
+<h2 id="可加性">可加性</h2>
+<p>如果一条曲线 $C$ 是 piecewise smooth 的，那么可以将不同区间上的积分相加</p>
+<p>$$
+\int_C f\mathop{ds} =
+\int_{C_1} f\mathop{ds} +
+\int_{C_2} f\mathop{ds} + \cdots +
+\int_{C_n} f\mathop{ds}.
+$$</p>
+<blockquote>
+<p>两点之间的线积分可能随积分路径的改变而改变</p>
+</blockquote>
+<h2 id="质量与-moment-计算">质量与 moment 计算</h2>
+<p>假设一条螺旋型弹簧或是线的质量是随着一条空间中的 smooth 曲线均匀分布的，单位 arc
+length 上的质量可以连续地表达为 $\delta (x, y, z)$。曲线 $C$ 可以表达为连续的参数化
+$\mathbf r (t) =
+g (t)\mathbf {i} + h (t)\mathbf j + k (t)\mathbf k, \quad a \le t \le b$，那么 arc length 微分可以由下式给出</p>
+<p>$$
+\mathop{ds} = \sqrt{
+\left(\frac{\mathop{dx}}{\mathop{dt}}\right)^2 +
+\left(\frac{\mathop{dy}}{\mathop{dt}}\right)^2 +
+\left(\frac{\mathop{dz}}{\mathop{dt}}\right)^2
+} \mathop{dt}.
+$$</p>
+<p>这样一来质量就可以利用线积分来计算</p>
+<p>$$
+M = \int_a^b \delta (x(t),y(t),z(t))\sqrt{
+\left(\frac{\mathop{dx}}{\mathop{dt}}\right)^2 +
+\left(\frac{\mathop{dy}}{\mathop{dt}}\right)^2 +
+\left(\frac{\mathop{dz}}{\mathop{dt}}\right)^2
+} \mathop{dt}.
+$$</p>
+<blockquote>
+<p>空间中 smooth 曲线 $C$ 上的螺旋弹簧、线与细杆的质量和 moment 公式</p>
+<p><strong>质量</strong>：$\displaystyle M = \int_C \delta\mathop{ds}$</p>
+<p><strong>关于坐标平面的 first moments</strong>：</p>
+<p>$$
+M_{yz} = \int_C x\delta\mathop{ds},\quad
+M_{xz} = \int_C y\delta\mathop{ds},\quad
+M_{xy} = \int_C z\delta\mathop{ds}
+$$</p>
+<p><strong>质心坐标</strong>：</p>
+<p>$$
+\bar x = M_{yz}/M, \quad
+\bar y = M_{xz}/M, \quad
+\bar z = M_{xy}/M
+$$</p>
+<p><strong>关于坐标轴和其他直线的转动惯量</strong>：</p>
+<p>$$
+\begin{aligned} &amp;
+I_x \int_C (y^2 + z^2)\delta\mathop{ds}, \quad
+I_y \int_C (x^2 + z^2)\delta\mathop{ds}, \quad
+I_z \int_C (x^2 + y^2)\delta\mathop{ds}, \ \ &amp;
+I_x \int_C r^2\delta\mathop{ds} \qquad
+r(x,y,z) =
+\text{distance from the point } (x,y,z) \text{ to line } L
+\end{aligned}
+$$</p>
+</blockquote>
+<h2 id="平面上的线积分">平面上的线积分</h2>
+<p>对于一个平面上的曲线的线积分，有一种很巧妙的几何 interpretation。如果 $C$ 是一条
+$xy$- 平面上的可以被参数化为
+$\mathbf r (t) = x (t)\mathbf i + y (ts)\mathbf j, a\le t\le b$ 的 smooth 曲线，通过沿着 $C$ 移动一条垂直于 $xy$ 平面的线段，我们可以由此生成一个 cylindrical 曲面 —— 线段的长度应当为 $f (x, y)$。</p>
+<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200809221833-Fig-16.5.png" alt="Fig. 16.5"></p>
+<p>这样生成的图形有点类似于篱笆，这些「篱笆」的面积之和即为 $f$ 对曲线 $C$ 的线积分。</p>
+<p>$$
+\int_C f\mathop{ds} =
+\lim_{n\rightarrow\infty}
+\sum_{k=1}^n f(x_k, y_k)\Delta s_k
+$$</p>
+]]></content>
+      <tags>
+        <tag>note</tag>
+        <tag>calculus</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>高等数学（下）期末复习：16.2 矢量场与线积分：功、环流和通量</title>
     <url>/16.2%20Vector%20Fields%20and%20Line%20Integrals%20Work,%20Circulation,%20and%20Flux/</url>
     <content><![CDATA[<!-- markdownlint-disable single-h1 -->
@@ -6857,137 +7067,6 @@ $$</p>
 </li>
 </ol>
 </section>
-]]></content>
-      <tags>
-        <tag>note</tag>
-        <tag>calculus</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>高等数学（下）期末复习：16.1 线积分</title>
-    <url>/16.1%20Line%20Integral/</url>
-    <content><![CDATA[<!-- cSpell:enableCompoundWords -->
-<p>有时为了计算出空间中一条曲线形状的线条的质量，或者是计算变力沿着某条曲线的做工，需要对这条曲线而非某个区间进行积分。于是我们引入线积分的概念（实际上路径积分这个词更准确）。</p>
-<span id="more"></span>
-<p>假设我们需要将实值函数 $f (x, y, z)$ 沿曲线 $C$ 进行积分，$C$ 处在 $f$ 的定义域内，且可被参数化为
-$\mathbf r (t) = g (t)\mathbf i + h (t)\mathbf j + k (t)\mathbf k, a \le t \le b$。
-$f$ 在路径上的函数值可以表达为 $f (g (t), h (t), k (t))$，现在需要将这个复合函数的根据从 $t=a$ 到 $t=b$ 的 arc length 进行求和。</p>
-<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200809124211-Fig-16.1.png" alt="Fig. 16.1"></p>
-<p>首先，将曲线 $C$ 从 $t=a$ 到 $t=b$ 划分成 $n$ 条 subarcs，某一条 subarc 的长度为
-$\Delta s_k$。在每一条 subarc 里选择一个点 $(x_k, y_k,z_k)$，则对应的黎曼和为</p>
-<p>$$
-S_n = \sum_{k=1}^n f(x_k, y_k, z_k)\Delta s_k.
-$$</p>
-<blockquote>
-<p><strong>定义</strong>：若 $f$ 为定义在可参数化为
-$\mathbf r (t) = g (t)\mathbf i + h (t)\mathbf j + k (t)\mathbf k, a\le t\le b$ 的曲线 $C$ 上的函数，则 $f$ <strong>在</strong> $C$ <strong>上的线积分</strong>为</p>
-<p>$$
-\int_C f(x, y, z)\mathop{ds} =
-\lim_{n\rightarrow\infty}
-\sum_{k=1}^n f(x_k, y_k, z_k)\Delta s_k
-$$</p>
-</blockquote>
-<p>如果曲线 $C$ 在定义域上都是 smooth 的，也即
-$\mathbf v  = \mathop {d\mathbf r}/\mathop {dt}$ 连续且不为 $\mathbf 0$，并且函数
-$f$ 在 $C$ 上也是连续的，那么可以证明上述的积分存在。可以通过运用微积分基本定理对 arc length 微分</p>
-<p>$$
-s(t) = \int_a^t |\mathbf{v}(\tau)|\mathop{d\tau}
-$$</p>
-<p>重新代入积分式中，可以变形得到</p>
-<p>$$
-\int_C f(x, y, z)\mathop{ds} =
-\int_a^b f(g(t), h(t), k(t))|\mathbf v(t)|\mathop{dt}.
-$$</p>
-<blockquote>
-<p>如何 evaluate 一个线积分</p>
-<ul>
-<li>找到曲线 $C$ 的一个 smooth 参数化</li>
-</ul>
-<p>$$
-\mathbf r(t) =
-g(t)\mathbf i +
-h(t)\mathbf j +
-k(t)\mathbf k, \quad
-a \le t \le b.
-$$</p>
-<ul>
-<li>根据下式 evaluate 线积分</li>
-</ul>
-<p>$$
-\int_C f(x, y, z)\mathop{ds} =
-\int_a^b f(g(t), h(t), k(t))|\mathbf{v}(t)|\mathop{dt}.
-$$</p>
-</blockquote>
-<p>$f (g (t), h (t), k (t))$ 也可以写作 $f (\mathbf r (t))$。</p>
-<h2 id="可加性">可加性</h2>
-<p>如果一条曲线 $C$ 是 piecewise smooth 的，那么可以将不同区间上的积分相加</p>
-<p>$$
-\int_C f\mathop{ds} =
-\int_{C_1} f\mathop{ds} +
-\int_{C_2} f\mathop{ds} + \cdots +
-\int_{C_n} f\mathop{ds}.
-$$</p>
-<blockquote>
-<p>两点之间的线积分可能随积分路径的改变而改变</p>
-</blockquote>
-<h2 id="质量与-moment-计算">质量与 moment 计算</h2>
-<p>假设一条螺旋型弹簧或是线的质量是随着一条空间中的 smooth 曲线均匀分布的，单位 arc
-length 上的质量可以连续地表达为 $\delta (x, y, z)$。曲线 $C$ 可以表达为连续的参数化
-$\mathbf r (t) =
-g (t)\mathbf {i} + h (t)\mathbf j + k (t)\mathbf k, \quad a \le t \le b$，那么 arc length 微分可以由下式给出</p>
-<p>$$
-\mathop{ds} = \sqrt{
-\left(\frac{\mathop{dx}}{\mathop{dt}}\right)^2 +
-\left(\frac{\mathop{dy}}{\mathop{dt}}\right)^2 +
-\left(\frac{\mathop{dz}}{\mathop{dt}}\right)^2
-} \mathop{dt}.
-$$</p>
-<p>这样一来质量就可以利用线积分来计算</p>
-<p>$$
-M = \int_a^b \delta (x(t),y(t),z(t))\sqrt{
-\left(\frac{\mathop{dx}}{\mathop{dt}}\right)^2 +
-\left(\frac{\mathop{dy}}{\mathop{dt}}\right)^2 +
-\left(\frac{\mathop{dz}}{\mathop{dt}}\right)^2
-} \mathop{dt}.
-$$</p>
-<blockquote>
-<p>空间中 smooth 曲线 $C$ 上的螺旋弹簧、线与细杆的质量和 moment 公式</p>
-<p><strong>质量</strong>：$\displaystyle M = \int_C \delta\mathop{ds}$</p>
-<p><strong>关于坐标平面的 first moments</strong>：</p>
-<p>$$
-M_{yz} = \int_C x\delta\mathop{ds},\quad
-M_{xz} = \int_C y\delta\mathop{ds},\quad
-M_{xy} = \int_C z\delta\mathop{ds}
-$$</p>
-<p><strong>质心坐标</strong>：</p>
-<p>$$
-\bar x = M_{yz}/M, \quad
-\bar y = M_{xz}/M, \quad
-\bar z = M_{xy}/M
-$$</p>
-<p><strong>关于坐标轴和其他直线的转动惯量</strong>：</p>
-<p>$$
-\begin{aligned} &amp;
-I_x \int_C (y^2 + z^2)\delta\mathop{ds}, \quad
-I_y \int_C (x^2 + z^2)\delta\mathop{ds}, \quad
-I_z \int_C (x^2 + y^2)\delta\mathop{ds}, \ \ &amp;
-I_x \int_C r^2\delta\mathop{ds} \qquad
-r(x,y,z) =
-\text{distance from the point } (x,y,z) \text{ to line } L
-\end{aligned}
-$$</p>
-</blockquote>
-<h2 id="平面上的线积分">平面上的线积分</h2>
-<p>对于一个平面上的曲线的线积分，有一种很巧妙的几何 interpretation。如果 $C$ 是一条
-$xy$- 平面上的可以被参数化为
-$\mathbf r (t) = x (t)\mathbf i + y (ts)\mathbf j, a\le t\le b$ 的 smooth 曲线，通过沿着 $C$ 移动一条垂直于 $xy$ 平面的线段，我们可以由此生成一个 cylindrical 曲面 —— 线段的长度应当为 $f (x, y)$。</p>
-<p><img src="https://gitee.com/sghuang19/assets/raw/master/img/20200809221833-Fig-16.5.png" alt="Fig. 16.5"></p>
-<p>这样生成的图形有点类似于篱笆，这些「篱笆」的面积之和即为 $f$ 对曲线 $C$ 的线积分。</p>
-<p>$$
-\int_C f\mathop{ds} =
-\lim_{n\rightarrow\infty}
-\sum_{k=1}^n f(x_k, y_k)\Delta s_k
-$$</p>
 ]]></content>
       <tags>
         <tag>note</tag>
@@ -8103,6 +8182,226 @@ $$</p>
       </tags>
   </entry>
   <entry>
+    <title>政治学概论第三讲：国家理论</title>
+    <url>//politics-l3/</url>
+    <content><![CDATA[<h2 id="民族国家形成史">民族国家形成史</h2>
+<h3 id="城邦">城邦</h3>
+<p>从氏族部落到政治社会</p>
+<h3 id="封建国家">封建国家</h3>
+<ul>
+<li>领主制 “我的附庸的附庸不是我的附庸”</li>
+<li> 双层架构：封建国家与基督教会</li>
+</ul>
+<h4 id="封建等级制国家">封建等级制国家</h4>
+<ul>
+<li>城市自治</li>
+<li>市民自由：购买自由，摆脱依附</li>
+<li>以特许状的形式获得司法权</li>
+<li>三级会议：高级教师、贵族、市民</li>
+</ul>
+<h4 id="绝对君主制国家">绝对君主制国家</h4>
+<ul>
+<li>背景：资产阶级与王权的冲突</li>
+<li>宗教改革：民族教会</li>
+<li> “朕即国家”</li>
+<li> 为现代民族国家建构准备了条件</li>
+</ul>
+<h4 id="民族国家">民族国家</h4>
+<ul>
+<li>民族国家的两个轮子：<strong>民族</strong>与<strong>民主</strong></li>
+<li>三大要件：<strong>领土、人口、主权</strong></li>
+<li><strong>文化认同与政治认同</strong></li>
+</ul>
+<h2 id="国家起源理论">国家起源理论</h2>
+<h3 id="暴力起源说">暴力起源说</h3>
+<p>诺斯 <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>《暴力与社会秩序》——“丛林法则”</p>
+<h4 id="暴力潜能分配理论">暴力潜能分配理论</h4>
+<p><strong>国家具有契约和掠夺的双重属性</strong>。若暴力潜能在公民之间进行平等分配，便产生<strong>契约型国家</strong>；若这种分配不平等，便产生了<strong>掠夺型国家</strong>，出现统治者与被统治者。<strong>暴力潜能分配决定国家的性质</strong>。</p>
+<blockquote>
+<p>“国家可视为在暴力方面具有比较优势的组织，在扩大地理范围时，国家的界限要受其对选民征税权力的限制。”</p>
+</blockquote>
+<h4 id="政府悖论">政府悖论</h4>
+<p>国家的基本作用是<strong>界定和行使产权</strong>，且具有天然的<strong>垄断性</strong>，又是<strong>追求自身垄断租金的最大化</strong>的行动集团。而使统治集团租金最大化的所有权结构与降低交易费用和促进经济增长的有效体制之间，存在着持久的矛盾。（生产力与生产关系的矛盾）</p>
+<p>这种基本矛盾是使社会不能实现经济持续增长的根源。为后者计，统治者往往维持一种无效率的产权制度。</p>
+<h3 id="神权说">神权说</h3>
+<p>@阿奎那 <sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>，@董仲舒</p>
+<h3 id="社会契约论">社会契约论</h3>
+<ul>
+<li>自然状态</li>
+<li>社会契约</li>
+<li>政治社会</li>
+</ul>
+<h3 id="功利说">功利说</h3>
+<ul>
+<li>最大多数的最大幸福</li>
+<li>国家和法律的起源：功利和习惯</li>
+<li>政府干预</li>
+<li> @杰里米・边沁 <sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></li>
+</ul>
+<h3 id="马克思主义国家理论">马克思主义国家理论</h3>
+<ul>
+<li>暴力工具</li>
+<li>上层建筑与经济基础</li>
+<li>双重职能</li>
+</ul>
+<h2 id="国家形式：政权组织与国家结构">国家形式：政权组织与国家结构</h2>
+<h3 id="君主制">君主制</h3>
+<ul>
+<li>专制君主制</li>
+<li>等级君主制（议会 + 税收，具有过渡性质）</li>
+<li>立宪君主制，包含二元君主制与议会君主制</li>
+</ul>
+<h3 id="共和制">共和制</h3>
+<p>国家最高权力机关和国家元首由选举产生、并有一定任期的政权组织形式</p>
+<ul>
+<li>议会共和制</li>
+<li>总统共和制</li>
+<li>委员会共和制</li>
+<li>社会主义国家共和制：巴黎公社、苏维埃、人民代表大会</li>
+</ul>
+<h3 id="单一制">单一制</h3>
+<ul>
+<li>整体与部分，中央与地方</li>
+<li>一部宪法、一个最高机关、一个过会</li>
+<li>地方隶属中央，地方权力没有宪法保障，来自中央政府以法律形式的授权</li>
+<li>一个国家法主体，地方无外交权</li>
+</ul>
+<h3 id="联邦制">联邦制</h3>
+<p>由若干相对独立的地区作为成员单位联盟组成的国家。联邦和地方共享主权，各自权限以宪法明确界定，各自在宪法规定的权限范围内行使权力，任何一方不能随意干预另一方的权力。</p>
+<p>注意：否决退出权</p>
+<h3 id="邦联制">邦联制</h3>
+<p>若干各自保留独立主权的国家为了实现某种共同的利益而建立起来的一种<strong>松散的国家联盟</strong>。</p>
+<blockquote>
+<p>总的发展趋势：国家结构形式的融合</p>
+</blockquote>
+<h2 id="国家与社会的关系">国家与社会的关系</h2>
+<h3 id="历史演变">历史演变</h3>
+<ul>
+<li>
+<p>古希腊贡斯当 <sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup>《古典人的自由和现代人的自由》，“城邦即社会”</p>
+</li>
+<li>
+<p>希腊化时期</p>
+<ul>
+<li>个人意识的萌芽</li>
+<li>教会与封建国家的双层架构为城市社会的形成创造了条件</li>
+<li>市民：契约、平等、自由、守法</li>
+</ul>
+</li>
+<li>
+<p>近代市民社会的形成</p>
+<ul>
+<li>真正意义上的市民社会是伴随民族国家建设和市民社会自主性而建立起来的</li>
+<li>资产阶级利用议会向君主提出权力和权利要求，确立资产阶级立宪国家，限制王权</li>
+<li>国家成为公共利益的代表，市民社会与国家相互对立制衡</li>
+</ul>
+</li>
+</ul>
+<h3 id="市民社会理论的演变">市民社会理论的演变</h3>
+<h4 id="古典公民社会理论">古典公民社会理论</h4>
+<p>亚里士多德：人是政治的动物</p>
+<p>希腊化时期开始出现个人与政府的分野。</p>
+<p>伊壁鸠鲁学派：从公共生活退隐到私人生活，从政治的崇高回归到世俗追求，个人先于国家的契约观开始出现。</p>
+<blockquote>
+<p>快乐就是有福的生活的开端和归宿。</p>
+<p>如果抽调了嗜好的快乐，抽调了爱情的快乐以及听觉和视觉的快乐，我就不知道我还怎么能够想象善。</p>
+</blockquote>
+<h4 id="近代市民社会理论">近代市民社会理论</h4>
+<ul>
+<li>基本架构：自然状态 — 社会契约 — 政治社会</li>
+<li>洛克：部分让渡权力，保留革命权</li>
+<li>孟德斯鸠：限制国家权力，保护社会权力</li>
+<li>相对自然状态而言的社会，自然与社会的对峙，市民社会与政治国家尚未明确区分</li>
+</ul>
+<h4 id="现代公民社会理论">现代公民社会理论</h4>
+<ul>
+<li>弗格森 <sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup>：国家与社会的二分法 —— 近代国家向以前属于私人领域的社会领域不断扩张，进而侵蚀公民美德而忧心忡忡，市民社会与国家是相对的，必须保卫社会。</li>
+<li>黑格尔 <sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup>《法哲学原理》</li>
+<li>市场：需求的体系</li>
+<li>社会：伦理精神发展的中介</li>
+<li>国家：伦理精神发展的最高阶段</li>
+</ul>
+<h3 id="国家与社会关系模式">国家与社会关系模式</h3>
+<h4 id="最小国家">最小国家</h4>
+<p>古典自由主义</p>
+<ul>
+<li>国家的作用仅限于消极地保护个人权利和自由，“守夜人”</li>
+<li> 社会可由自由市场这只看不见的手调节，密封的语言</li>
+<li>国家职能：独立、秩序和公共物品</li>
+<li>国家不应提供社会服务，也不应该试图实现社会正义（社会达尔文主义）</li>
+</ul>
+<h4 id="福利国家">福利国家</h4>
+<ul>
+<li>国家以社会总体利益代表身份，通过国民收入的再分配，矫正社会自身所固有的不平等与不公正的趋向，并以此作为保证经济持续增长的一种手段的结果。</li>
+<li>社会：私人利益与公共利益的综合，需要市场与政府。</li>
+<li>政府必须无差别地保护权利，公民通过它来集体地追求无法由个人实现的目标。</li>
+</ul>
+<p>福利国家的三种类型：</p>
+<ul>
+<li>有限的福利国家：急需帮助的人、不超过安全网的福利（美国、澳大利亚）</li>
+<li>全民福利国家：范围更广，个人缴纳，利益与工作（德国）</li>
+<li>贝弗里奇福利国家：普遍的利益体系并以国民保险和充分就业为基础（瑞典和英国）</li>
+</ul>
+<h4 id="发展型国家">发展型国家</h4>
+<ul>
+<li>国家力量渗透到社会来推动经济发展，制定发展战略，提升国家经济实力</li>
+<li>经济官僚机构是经济成长的重要动力</li>
+<li>政商合作</li>
+<li>快速工业化</li>
+</ul>
+<p>思考：发展型国家成立的条件和面临的困难？</p>
+<h4 id="全能国家">全能国家</h4>
+<ul>
+<li>一种分析国家与社会关系的分析框架，国家将权力渗透到社会的角角落落</li>
+<li>国家权力无限扩大，并最终完全控制了社会，方式是意识形态、组织结构和干部队伍</li>
+<li>国家与社会合二为一，没有界限</li>
+</ul>
+<h4 id="极权国家">极权国家</h4>
+<ul>
+<li>政治权力实行无孔不入的政治统治</li>
+<li>国家和社会界限被彻底取消</li>
+<li>社会、文化、宗教等一切领域被权力所支配</li>
+<li>社会秩序完全由政治权力达成</li>
+<li>个人不再有任何私人空间或自由</li>
+</ul>
+<p>—— 法西斯主义</p>
+<blockquote>
+<p>卡尔・弗里德里希、布热津斯基《集权主义专制与独裁》：</p>
+<ul>
+<li>官方意识形态</li>
+<li>一党制国家（领袖专政）</li>
+<li>恐怖的治安系统</li>
+<li>垄断大众传媒</li>
+<li>垄断以军队为基础的暴力工具</li>
+<li>对经济生活全面控制</li>
+</ul>
+</blockquote>
+<hr class="footnotes-sep">
+<section class="footnotes">
+<ol class="footnotes-list">
+<li id="fn1" class="footnote-item"><p>道格拉斯・诺斯（Douglass C. North，1920-2015），美国经济学家、历史学家 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn2" class="footnote-item"><p>托马斯・阿奎纳（Thomas Aquinas，约 1225-1274），意大利中世纪经院哲学家、神学家 <a href="#fnref2" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn3" class="footnote-item"><p>杰里米・边沁（Jeremy Bentham，1748 年 - 1832 年），英国法理学家、功利主义哲学家、经济学家、社会改革者 <a href="#fnref3" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn4" class="footnote-item"><p>本杰明・贡斯当（Benjamin Constant，1767-1830），法国文学家和政治思想家，近代自由主义的奠基者之一 <a href="#fnref4" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn5" class="footnote-item"><p>亚当・弗格森（Adam Ferguson，1723-1816） ，18 世纪苏格兰启蒙运动主要思想家之一 <a href="#fnref5" class="footnote-backref">↩︎</a></p>
+</li>
+<li id="fn6" class="footnote-item"><p>格奥尔格・威廉・弗里德里希・黑格尔（Georg Wilhelm Friedrich Hegel，G. W. F.
+Hegel，1770-1831），德国哲学家 <a href="#fnref6" class="footnote-backref">↩︎</a></p>
+</li>
+</ol>
+</section>
+]]></content>
+      <tags>
+        <tag>social science</tag>
+        <tag>note</tag>
+        <tag>politics</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>政治学概论第九讲：当代世界主要意识形态</title>
     <url>//politics-l9/</url>
     <content><![CDATA[<h2 id="自由主义">自由主义</h2>
@@ -8354,226 +8653,6 @@ $$</p>
 <li id="fn8" class="footnote-item"><p>詹姆斯・布坎南（James M. Buchanan, Jr.），美国经济学家、公共选择学派代表人物、1986 年诺贝尔经济学奖得主 <a href="#fnref8" class="footnote-backref">↩︎</a></p>
 </li>
 <li id="fn9" class="footnote-item"><p>戈登・塔洛克（Gordon Tullock），乔治梅森大学经济与法律教授、詹姆斯 J. 布坎南政治经济学研究中心研究员 <a href="#fnref9" class="footnote-backref">↩︎</a></p>
-</li>
-</ol>
-</section>
-]]></content>
-      <tags>
-        <tag>social science</tag>
-        <tag>note</tag>
-        <tag>politics</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>政治学概论第三讲：国家理论</title>
-    <url>//politics-l3/</url>
-    <content><![CDATA[<h2 id="民族国家形成史">民族国家形成史</h2>
-<h3 id="城邦">城邦</h3>
-<p>从氏族部落到政治社会</p>
-<h3 id="封建国家">封建国家</h3>
-<ul>
-<li>领主制 “我的附庸的附庸不是我的附庸”</li>
-<li> 双层架构：封建国家与基督教会</li>
-</ul>
-<h4 id="封建等级制国家">封建等级制国家</h4>
-<ul>
-<li>城市自治</li>
-<li>市民自由：购买自由，摆脱依附</li>
-<li>以特许状的形式获得司法权</li>
-<li>三级会议：高级教师、贵族、市民</li>
-</ul>
-<h4 id="绝对君主制国家">绝对君主制国家</h4>
-<ul>
-<li>背景：资产阶级与王权的冲突</li>
-<li>宗教改革：民族教会</li>
-<li> “朕即国家”</li>
-<li> 为现代民族国家建构准备了条件</li>
-</ul>
-<h4 id="民族国家">民族国家</h4>
-<ul>
-<li>民族国家的两个轮子：<strong>民族</strong>与<strong>民主</strong></li>
-<li>三大要件：<strong>领土、人口、主权</strong></li>
-<li><strong>文化认同与政治认同</strong></li>
-</ul>
-<h2 id="国家起源理论">国家起源理论</h2>
-<h3 id="暴力起源说">暴力起源说</h3>
-<p>诺斯 <sup class="footnote-ref"><a href="#fn1" id="fnref1">[1]</a></sup>《暴力与社会秩序》——“丛林法则”</p>
-<h4 id="暴力潜能分配理论">暴力潜能分配理论</h4>
-<p><strong>国家具有契约和掠夺的双重属性</strong>。若暴力潜能在公民之间进行平等分配，便产生<strong>契约型国家</strong>；若这种分配不平等，便产生了<strong>掠夺型国家</strong>，出现统治者与被统治者。<strong>暴力潜能分配决定国家的性质</strong>。</p>
-<blockquote>
-<p>“国家可视为在暴力方面具有比较优势的组织，在扩大地理范围时，国家的界限要受其对选民征税权力的限制。”</p>
-</blockquote>
-<h4 id="政府悖论">政府悖论</h4>
-<p>国家的基本作用是<strong>界定和行使产权</strong>，且具有天然的<strong>垄断性</strong>，又是<strong>追求自身垄断租金的最大化</strong>的行动集团。而使统治集团租金最大化的所有权结构与降低交易费用和促进经济增长的有效体制之间，存在着持久的矛盾。（生产力与生产关系的矛盾）</p>
-<p>这种基本矛盾是使社会不能实现经济持续增长的根源。为后者计，统治者往往维持一种无效率的产权制度。</p>
-<h3 id="神权说">神权说</h3>
-<p>@阿奎那 <sup class="footnote-ref"><a href="#fn2" id="fnref2">[2]</a></sup>，@董仲舒</p>
-<h3 id="社会契约论">社会契约论</h3>
-<ul>
-<li>自然状态</li>
-<li>社会契约</li>
-<li>政治社会</li>
-</ul>
-<h3 id="功利说">功利说</h3>
-<ul>
-<li>最大多数的最大幸福</li>
-<li>国家和法律的起源：功利和习惯</li>
-<li>政府干预</li>
-<li> @杰里米・边沁 <sup class="footnote-ref"><a href="#fn3" id="fnref3">[3]</a></sup></li>
-</ul>
-<h3 id="马克思主义国家理论">马克思主义国家理论</h3>
-<ul>
-<li>暴力工具</li>
-<li>上层建筑与经济基础</li>
-<li>双重职能</li>
-</ul>
-<h2 id="国家形式：政权组织与国家结构">国家形式：政权组织与国家结构</h2>
-<h3 id="君主制">君主制</h3>
-<ul>
-<li>专制君主制</li>
-<li>等级君主制（议会 + 税收，具有过渡性质）</li>
-<li>立宪君主制，包含二元君主制与议会君主制</li>
-</ul>
-<h3 id="共和制">共和制</h3>
-<p>国家最高权力机关和国家元首由选举产生、并有一定任期的政权组织形式</p>
-<ul>
-<li>议会共和制</li>
-<li>总统共和制</li>
-<li>委员会共和制</li>
-<li>社会主义国家共和制：巴黎公社、苏维埃、人民代表大会</li>
-</ul>
-<h3 id="单一制">单一制</h3>
-<ul>
-<li>整体与部分，中央与地方</li>
-<li>一部宪法、一个最高机关、一个过会</li>
-<li>地方隶属中央，地方权力没有宪法保障，来自中央政府以法律形式的授权</li>
-<li>一个国家法主体，地方无外交权</li>
-</ul>
-<h3 id="联邦制">联邦制</h3>
-<p>由若干相对独立的地区作为成员单位联盟组成的国家。联邦和地方共享主权，各自权限以宪法明确界定，各自在宪法规定的权限范围内行使权力，任何一方不能随意干预另一方的权力。</p>
-<p>注意：否决退出权</p>
-<h3 id="邦联制">邦联制</h3>
-<p>若干各自保留独立主权的国家为了实现某种共同的利益而建立起来的一种<strong>松散的国家联盟</strong>。</p>
-<blockquote>
-<p>总的发展趋势：国家结构形式的融合</p>
-</blockquote>
-<h2 id="国家与社会的关系">国家与社会的关系</h2>
-<h3 id="历史演变">历史演变</h3>
-<ul>
-<li>
-<p>古希腊贡斯当 <sup class="footnote-ref"><a href="#fn4" id="fnref4">[4]</a></sup>《古典人的自由和现代人的自由》，“城邦即社会”</p>
-</li>
-<li>
-<p>希腊化时期</p>
-<ul>
-<li>个人意识的萌芽</li>
-<li>教会与封建国家的双层架构为城市社会的形成创造了条件</li>
-<li>市民：契约、平等、自由、守法</li>
-</ul>
-</li>
-<li>
-<p>近代市民社会的形成</p>
-<ul>
-<li>真正意义上的市民社会是伴随民族国家建设和市民社会自主性而建立起来的</li>
-<li>资产阶级利用议会向君主提出权力和权利要求，确立资产阶级立宪国家，限制王权</li>
-<li>国家成为公共利益的代表，市民社会与国家相互对立制衡</li>
-</ul>
-</li>
-</ul>
-<h3 id="市民社会理论的演变">市民社会理论的演变</h3>
-<h4 id="古典公民社会理论">古典公民社会理论</h4>
-<p>亚里士多德：人是政治的动物</p>
-<p>希腊化时期开始出现个人与政府的分野。</p>
-<p>伊壁鸠鲁学派：从公共生活退隐到私人生活，从政治的崇高回归到世俗追求，个人先于国家的契约观开始出现。</p>
-<blockquote>
-<p>快乐就是有福的生活的开端和归宿。</p>
-<p>如果抽调了嗜好的快乐，抽调了爱情的快乐以及听觉和视觉的快乐，我就不知道我还怎么能够想象善。</p>
-</blockquote>
-<h4 id="近代市民社会理论">近代市民社会理论</h4>
-<ul>
-<li>基本架构：自然状态 — 社会契约 — 政治社会</li>
-<li>洛克：部分让渡权力，保留革命权</li>
-<li>孟德斯鸠：限制国家权力，保护社会权力</li>
-<li>相对自然状态而言的社会，自然与社会的对峙，市民社会与政治国家尚未明确区分</li>
-</ul>
-<h4 id="现代公民社会理论">现代公民社会理论</h4>
-<ul>
-<li>弗格森 <sup class="footnote-ref"><a href="#fn5" id="fnref5">[5]</a></sup>：国家与社会的二分法 —— 近代国家向以前属于私人领域的社会领域不断扩张，进而侵蚀公民美德而忧心忡忡，市民社会与国家是相对的，必须保卫社会。</li>
-<li>黑格尔 <sup class="footnote-ref"><a href="#fn6" id="fnref6">[6]</a></sup>《法哲学原理》</li>
-<li>市场：需求的体系</li>
-<li>社会：伦理精神发展的中介</li>
-<li>国家：伦理精神发展的最高阶段</li>
-</ul>
-<h3 id="国家与社会关系模式">国家与社会关系模式</h3>
-<h4 id="最小国家">最小国家</h4>
-<p>古典自由主义</p>
-<ul>
-<li>国家的作用仅限于消极地保护个人权利和自由，“守夜人”</li>
-<li> 社会可由自由市场这只看不见的手调节，密封的语言</li>
-<li>国家职能：独立、秩序和公共物品</li>
-<li>国家不应提供社会服务，也不应该试图实现社会正义（社会达尔文主义）</li>
-</ul>
-<h4 id="福利国家">福利国家</h4>
-<ul>
-<li>国家以社会总体利益代表身份，通过国民收入的再分配，矫正社会自身所固有的不平等与不公正的趋向，并以此作为保证经济持续增长的一种手段的结果。</li>
-<li>社会：私人利益与公共利益的综合，需要市场与政府。</li>
-<li>政府必须无差别地保护权利，公民通过它来集体地追求无法由个人实现的目标。</li>
-</ul>
-<p>福利国家的三种类型：</p>
-<ul>
-<li>有限的福利国家：急需帮助的人、不超过安全网的福利（美国、澳大利亚）</li>
-<li>全民福利国家：范围更广，个人缴纳，利益与工作（德国）</li>
-<li>贝弗里奇福利国家：普遍的利益体系并以国民保险和充分就业为基础（瑞典和英国）</li>
-</ul>
-<h4 id="发展型国家">发展型国家</h4>
-<ul>
-<li>国家力量渗透到社会来推动经济发展，制定发展战略，提升国家经济实力</li>
-<li>经济官僚机构是经济成长的重要动力</li>
-<li>政商合作</li>
-<li>快速工业化</li>
-</ul>
-<p>思考：发展型国家成立的条件和面临的困难？</p>
-<h4 id="全能国家">全能国家</h4>
-<ul>
-<li>一种分析国家与社会关系的分析框架，国家将权力渗透到社会的角角落落</li>
-<li>国家权力无限扩大，并最终完全控制了社会，方式是意识形态、组织结构和干部队伍</li>
-<li>国家与社会合二为一，没有界限</li>
-</ul>
-<h4 id="极权国家">极权国家</h4>
-<ul>
-<li>政治权力实行无孔不入的政治统治</li>
-<li>国家和社会界限被彻底取消</li>
-<li>社会、文化、宗教等一切领域被权力所支配</li>
-<li>社会秩序完全由政治权力达成</li>
-<li>个人不再有任何私人空间或自由</li>
-</ul>
-<p>—— 法西斯主义</p>
-<blockquote>
-<p>卡尔・弗里德里希、布热津斯基《集权主义专制与独裁》：</p>
-<ul>
-<li>官方意识形态</li>
-<li>一党制国家（领袖专政）</li>
-<li>恐怖的治安系统</li>
-<li>垄断大众传媒</li>
-<li>垄断以军队为基础的暴力工具</li>
-<li>对经济生活全面控制</li>
-</ul>
-</blockquote>
-<hr class="footnotes-sep">
-<section class="footnotes">
-<ol class="footnotes-list">
-<li id="fn1" class="footnote-item"><p>道格拉斯・诺斯（Douglass C. North，1920-2015），美国经济学家、历史学家 <a href="#fnref1" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn2" class="footnote-item"><p>托马斯・阿奎纳（Thomas Aquinas，约 1225-1274），意大利中世纪经院哲学家、神学家 <a href="#fnref2" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn3" class="footnote-item"><p>杰里米・边沁（Jeremy Bentham，1748 年 - 1832 年），英国法理学家、功利主义哲学家、经济学家、社会改革者 <a href="#fnref3" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn4" class="footnote-item"><p>本杰明・贡斯当（Benjamin Constant，1767-1830），法国文学家和政治思想家，近代自由主义的奠基者之一 <a href="#fnref4" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn5" class="footnote-item"><p>亚当・弗格森（Adam Ferguson，1723-1816） ，18 世纪苏格兰启蒙运动主要思想家之一 <a href="#fnref5" class="footnote-backref">↩︎</a></p>
-</li>
-<li id="fn6" class="footnote-item"><p>格奥尔格・威廉・弗里德里希・黑格尔（Georg Wilhelm Friedrich Hegel，G. W. F.
-Hegel，1770-1831），德国哲学家 <a href="#fnref6" class="footnote-backref">↩︎</a></p>
 </li>
 </ol>
 </section>
@@ -9374,6 +9453,79 @@ Hegel，1770-1831），德国哲学家 <a href="#fnref6" class="footnote-backref
       </tags>
   </entry>
   <entry>
+    <title>政治学概论第十四讲：民主与民主化</title>
+    <url>//politics-l14/</url>
+    <content><![CDATA[<h2 id="民主：概念与模式">民主：概念与模式</h2>
+<h3 id="民主概念">民主概念</h3>
+<p>目的论定义：根据权威的来源和目的（来自人民的同意）程序性定义：权威产生的方式和程序（选举）</p>
+<p>两者都是对民主的界定。</p>
+<ul>
+<li>民主必须有制度的保障，符合民主的程序</li>
+<li>民主本身必须有限制，得到制约</li>
+<li>民主的程序要符合民主的目的，反之则是民粹</li>
+</ul>
+<span id="more"></span>
+<blockquote>
+<p>“不管对民主的定义多么复杂或多么精确，所有定义的根本之中存在一个人民的权力的观念，或者指一种权力也许还有权威依赖于人民的情况。那种权力或者权威通常被认为是政治性的，因此它常以人民主权的形式体现出来 — 人民作为最终的政治权威。”</p>
+</blockquote>
+<p>权力和权威并不是一回事，现代国家最根本的权威是人民</p>
+<h3 id="罗伯特·达尔的观点">罗伯特・达尔的观点</h3>
+<p>理想的民主：</p>
+<ul>
+<li>有效的参与</li>
+<li>平等的投票</li>
+<li>充分的知青</li>
+<li>对议程有最终的控制</li>
+<li>容纳所有的成年人</li>
+</ul>
+<p>现实的民主：民主是关于政治的制度安排，某些人通过竞选人民的选票获得决策权。</p>
+<h3 id="戴蒙德：自由民主">戴蒙德：自由民主</h3>
+<p>“民主就是自由民主，民主必须使人民自由，而不是一批人压迫另一批人的手段”</p>
+<p>民主是保障自由的手段 —— 自由民主制度</p>
+<ul>
+<li>不存在不对选举的官员负责的各方或其他人员保留的权力领域</li>
+<li>除了统治者垂直地对被统治者负责（经选举）外，还要求官职拥有者对其他平行的部分负责任，以保证宪政、自由和法治；</li>
+<li>它包容广泛的条款以保障政治上的和市民的多元主义以及个人自由。</li>
+</ul>
+<h3 id="民主的模式">民主的模式</h3>
+<ul>
+<li>古典民主</li>
+<li>自由民主：代议制</li>
+<li>一党制民主</li>
+</ul>
+<h2 id="民主转型">民主转型</h2>
+<p>第一波民主化：1828-1926，33 个国家建立民主制度第一次回潮：1922-1942，22 个国家的民主制度被颠覆第二波民主化：1943-1962，40 个国家建立民主制度第二次回潮：1958-1975，22 个被颠覆第三波民主化：1974-1990 年代，33 个国家建立民主制度</p>
+<p>转型：从威权制度向民主制度转变的过程</p>
+<p>转型是以威权制度开始解体而启动的，其结果是某种形式的民主制度建立、或某种形式的威权统治回归，或革命。</p>
+<p>新旧转换中规则不确定，必定是艰难的过程。</p>
+<h3 id="过程一：自由化">过程一：自由化</h3>
+<p>当现任威权统治者，不管是为了什么理由，必须为了向个人与集体的权利提供更安全的保障从而不得不修改自己定下来的规矩的时候，自由化就开始了。其诱因可能是民众的反抗，也可能是统治阶级的自我觉醒。</p>
+<p>自由化：对于个人或集体而言，不受国家或第三方随意或非法侵犯的有效保护的逐渐承认的过程。</p>
+<h3 id="过程二：民主化">过程二：民主化</h3>
+<p>公民权的规则与程序应用到从前被其他规则统治着的政治制度中（暴力统治、传统习俗、精英统治或官僚陋习），或者扩展至从前无法享受此种权利与义务的人们（不交税的人、文盲、女人、未成年人、少数民族、外国）或者扩展到从前公民无法参与的领域与机构中（国家机关、军事机构、政治组织、利益集团、企业、教育组织等等）。</p>
+<h3 id="民主化的条件">民主化的条件</h3>
+<p>李普塞特：民主化与经济发展水平具有相关性而非因果性</p>
+<p>民主制度一旦确立，几乎所有人的人均收入增长很快。人均收入 4000 美元以上的国家，民主制度几乎肯定会存活下来。</p>
+<h2 id="民主巩固">民主巩固</h2>
+<p>亨廷顿：二次轮替考验，衡量民主制度是否能稳固的标准</p>
+<ul>
+<li>威权统治者能否和平地将权力移交给反对派</li>
+<li>反对派能否和平地将权力移交给旧威权统治者</li>
+</ul>
+<p>民主巩固的条件</p>
+<ul>
+<li>在行为上，没有任何明显的政治集团尝试推翻民主政体，或者通过国内外的暴力来寻求国家分裂</li>
+<li>在态度上，即使面临严峻的政治经济危机，多数民众的主流舆论仍坚持民主是唯一的规则，任何政治变革都应该依据民主程序来进行</li>
+<li>在宪政上，所有政治行为者都习惯依循既有的规则框架来处理国内的政治冲突</li>
+</ul>
+]]></content>
+      <tags>
+        <tag>social science</tag>
+        <tag>note</tag>
+        <tag>politics</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>政治学概论第十讲：政治文化与社会资本</title>
     <url>//politics-l10/</url>
     <content><![CDATA[<h2 id="政治文化与政治学研究">政治文化与政治学研究</h2>
@@ -9661,79 +9813,6 @@ Hegel，1770-1831），德国哲学家 <a href="#fnref6" class="footnote-backref
 <ul>
 <li>准行政权国家条约，议会批准才能生效，以及人事任免权</li>
 <li>准司法权：弹劾权</li>
-</ul>
-]]></content>
-      <tags>
-        <tag>social science</tag>
-        <tag>note</tag>
-        <tag>politics</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>政治学概论第十四讲：民主与民主化</title>
-    <url>//politics-l14/</url>
-    <content><![CDATA[<h2 id="民主：概念与模式">民主：概念与模式</h2>
-<h3 id="民主概念">民主概念</h3>
-<p>目的论定义：根据权威的来源和目的（来自人民的同意）程序性定义：权威产生的方式和程序（选举）</p>
-<p>两者都是对民主的界定。</p>
-<ul>
-<li>民主必须有制度的保障，符合民主的程序</li>
-<li>民主本身必须有限制，得到制约</li>
-<li>民主的程序要符合民主的目的，反之则是民粹</li>
-</ul>
-<span id="more"></span>
-<blockquote>
-<p>“不管对民主的定义多么复杂或多么精确，所有定义的根本之中存在一个人民的权力的观念，或者指一种权力也许还有权威依赖于人民的情况。那种权力或者权威通常被认为是政治性的，因此它常以人民主权的形式体现出来 — 人民作为最终的政治权威。”</p>
-</blockquote>
-<p>权力和权威并不是一回事，现代国家最根本的权威是人民</p>
-<h3 id="罗伯特·达尔的观点">罗伯特・达尔的观点</h3>
-<p>理想的民主：</p>
-<ul>
-<li>有效的参与</li>
-<li>平等的投票</li>
-<li>充分的知青</li>
-<li>对议程有最终的控制</li>
-<li>容纳所有的成年人</li>
-</ul>
-<p>现实的民主：民主是关于政治的制度安排，某些人通过竞选人民的选票获得决策权。</p>
-<h3 id="戴蒙德：自由民主">戴蒙德：自由民主</h3>
-<p>“民主就是自由民主，民主必须使人民自由，而不是一批人压迫另一批人的手段”</p>
-<p>民主是保障自由的手段 —— 自由民主制度</p>
-<ul>
-<li>不存在不对选举的官员负责的各方或其他人员保留的权力领域</li>
-<li>除了统治者垂直地对被统治者负责（经选举）外，还要求官职拥有者对其他平行的部分负责任，以保证宪政、自由和法治；</li>
-<li>它包容广泛的条款以保障政治上的和市民的多元主义以及个人自由。</li>
-</ul>
-<h3 id="民主的模式">民主的模式</h3>
-<ul>
-<li>古典民主</li>
-<li>自由民主：代议制</li>
-<li>一党制民主</li>
-</ul>
-<h2 id="民主转型">民主转型</h2>
-<p>第一波民主化：1828-1926，33 个国家建立民主制度第一次回潮：1922-1942，22 个国家的民主制度被颠覆第二波民主化：1943-1962，40 个国家建立民主制度第二次回潮：1958-1975，22 个被颠覆第三波民主化：1974-1990 年代，33 个国家建立民主制度</p>
-<p>转型：从威权制度向民主制度转变的过程</p>
-<p>转型是以威权制度开始解体而启动的，其结果是某种形式的民主制度建立、或某种形式的威权统治回归，或革命。</p>
-<p>新旧转换中规则不确定，必定是艰难的过程。</p>
-<h3 id="过程一：自由化">过程一：自由化</h3>
-<p>当现任威权统治者，不管是为了什么理由，必须为了向个人与集体的权利提供更安全的保障从而不得不修改自己定下来的规矩的时候，自由化就开始了。其诱因可能是民众的反抗，也可能是统治阶级的自我觉醒。</p>
-<p>自由化：对于个人或集体而言，不受国家或第三方随意或非法侵犯的有效保护的逐渐承认的过程。</p>
-<h3 id="过程二：民主化">过程二：民主化</h3>
-<p>公民权的规则与程序应用到从前被其他规则统治着的政治制度中（暴力统治、传统习俗、精英统治或官僚陋习），或者扩展至从前无法享受此种权利与义务的人们（不交税的人、文盲、女人、未成年人、少数民族、外国）或者扩展到从前公民无法参与的领域与机构中（国家机关、军事机构、政治组织、利益集团、企业、教育组织等等）。</p>
-<h3 id="民主化的条件">民主化的条件</h3>
-<p>李普塞特：民主化与经济发展水平具有相关性而非因果性</p>
-<p>民主制度一旦确立，几乎所有人的人均收入增长很快。人均收入 4000 美元以上的国家，民主制度几乎肯定会存活下来。</p>
-<h2 id="民主巩固">民主巩固</h2>
-<p>亨廷顿：二次轮替考验，衡量民主制度是否能稳固的标准</p>
-<ul>
-<li>威权统治者能否和平地将权力移交给反对派</li>
-<li>反对派能否和平地将权力移交给旧威权统治者</li>
-</ul>
-<p>民主巩固的条件</p>
-<ul>
-<li>在行为上，没有任何明显的政治集团尝试推翻民主政体，或者通过国内外的暴力来寻求国家分裂</li>
-<li>在态度上，即使面临严峻的政治经济危机，多数民众的主流舆论仍坚持民主是唯一的规则，任何政治变革都应该依据民主程序来进行</li>
-<li>在宪政上，所有政治行为者都习惯依循既有的规则框架来处理国内的政治冲突</li>
 </ul>
 ]]></content>
       <tags>
