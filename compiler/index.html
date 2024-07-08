@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#177CB0" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#177CB0" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.2.0">
+<meta name="theme-color" content="#177CB0" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
@@ -30,13 +30,13 @@
 <meta property="og:description" content="A compiler handwritten in C.">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2023-12-07T05:00:00.000Z">
-<meta property="article:modified_time" content="2024-06-26T15:20:44.695Z">
+<meta property="article:modified_time" content="2024-07-07T23:56:43.196Z">
 <meta property="article:author" content="Samuel Huang">
 <meta property="article:tag" content="project">
-<meta property="article:tag" content="cse">
-<meta property="article:tag" content="compiler">
-<meta property="article:tag" content="system">
 <meta property="article:tag" content="c">
+<meta property="article:tag" content="compiler">
+<meta property="article:tag" content="cse">
+<meta property="article:tag" content="system">
 <meta property="article:tag" content="pl">
 <meta property="article:tag" content="sde">
 <meta name="twitter:card" content="summary">
@@ -98,7 +98,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-posts"><a href="/posts" rel="section"><i class="fa fa-signs-post fa-fw"></i>Posts</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">67</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">63</span></a></li><li class="menu-item menu-item-projects"><a href="/tags/project" rel="section"><i class="fa fa-cogs fa-fw"></i>Projects</a></li><li class="menu-item menu-item-experience"><a href="/experience/" rel="section"><i class="fa fa-briefcase fa-fw"></i>Experience</a></li><li class="menu-item menu-item-education"><a href="/education" rel="section"><i class="fa fa-graduation-cap fa-fw"></i>Education</a></li><li class="menu-item menu-item-courses"><a href="https://sghuang.notion.site/e242d6a39cf74dada55828ffe7cdb83f" rel="section" target="_blank"><i class="fa fa-book fa-fw"></i>Courses</a></li><li class="menu-item menu-item-notes"><a href="https://notes.sghuang.com/" rel="section" target="_blank"><i class="fa fa-file-pen fa-fw"></i>Notes</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-posts"><a href="/posts" rel="section"><i class="fa fa-signs-post fa-fw"></i>Posts</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">86</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">70</span></a></li><li class="menu-item menu-item-projects"><a href="/tags/project" rel="section"><i class="fa fa-cogs fa-fw"></i>Projects</a></li><li class="menu-item menu-item-experience"><a href="/experience/" rel="section"><i class="fa fa-briefcase fa-fw"></i>Experience</a></li><li class="menu-item menu-item-education"><a href="/education" rel="section"><i class="fa fa-graduation-cap fa-fw"></i>Education</a></li><li class="menu-item menu-item-courses"><a href="https://sghuang.notion.site/e242d6a39cf74dada55828ffe7cdb83f" rel="section" target="_blank"><i class="fa fa-book fa-fw"></i>Courses</a></li><li class="menu-item menu-item-notes"><a href="https://notes.sghuang.com/" rel="section" target="_blank"><i class="fa fa-file-pen fa-fw"></i>Notes</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
         </a>
@@ -156,7 +156,7 @@
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="Samuel Huang"
-      src="/uploads/avatar.png">
+      src="/images/avatar.png">
   <p class="site-author-name" itemprop="name">Samuel Huang</p>
   <div class="site-description" itemprop="description"></div>
 </div>
@@ -164,13 +164,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">70</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">67</span>
+        <span class="site-state-item-count">86</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -234,10 +234,38 @@
   </div>
   <ul class="popular-posts">
     <li class="popular-posts-item">
-      <a class="popular-posts-link" href="/stegano/" rel="bookmark">
-        <time class="popular-posts-time">2021-06-05</time>
+      <a class="popular-posts-link" href="/processor/" rel="bookmark">
+        <time class="popular-posts-time">2022-01-08</time>
         <br>
-      Image Steganography with Hamming Code Error Correction
+      ARMv3 Processor with Multiplier
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/utm/" rel="bookmark">
+        <time class="popular-posts-time">2022-05-02</time>
+        <br>
+      UniTuring: a Universal Turing Machine (UTM) Emulator
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/matrix/" rel="bookmark">
+        <time class="popular-posts-time">2020-12-25</time>
+        <br>
+      Matrix Arithmetic Library and Strassen Algorithm Implementation
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/amp/" rel="bookmark">
+        <time class="popular-posts-time">2022-01-02</time>
+        <br>
+      180nm Differential Input Single-Ended Output OpAmp Design
+      </a>
+    </li>
+    <li class="popular-posts-item">
+      <a class="popular-posts-link" href="/reddit/" rel="bookmark">
+        <time class="popular-posts-time">2024-05-02</time>
+        <br>
+      Reddit Climate Change Comments Sentiment Analysis
       </a>
     </li>
   </ul>
@@ -264,7 +292,7 @@
     <link itemprop="mainEntityOfPage" href="https://sghuang.com/compiler/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="image" content="/images/avatar.png">
       <meta itemprop="name" content="Samuel Huang">
     </span>
 
@@ -279,7 +307,7 @@
     </span>
       <header class="post-header">
         <h1 class="post-title" itemprop="name headline">
-          Compiler for B-Minor 2023<a href="https://github.com/sghuang19/sghuang19.github.io/tree/main/source/_posts/projects/2023-12-07-compiler.md" class="post-edit-link" title="Edit this post" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
+          Compiler for B-Minor 2023<a href="https://github.com/sghuang19/sghuang19.github.io/tree/main/source/_posts/projects/compiler.md" class="post-edit-link" title="Edit this post" rel="noopener" target="_blank"><i class="fa fa-pen-nib"></i></a>
         </h1>
 
         <div class="post-meta-container">
@@ -297,7 +325,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-06-26 11:20:44" itemprop="dateModified" datetime="2024-06-26T11:20:44-04:00">2024-06-26</time>
+      <time title="Modified: 2024-07-07 19:56:43" itemprop="dateModified" datetime="2024-07-07T19:56:43-04:00">2024-07-07</time>
     </span>
 
   
@@ -307,7 +335,7 @@
         <i class="far fa-file-word"></i>
       </span>
       <span class="post-meta-item-text">Word count in article: </span>
-      <span>231</span>
+      <span>232</span>
     </span>
     <span class="post-meta-item" title="Reading time">
       <span class="post-meta-item-icon">
@@ -786,6 +814,7 @@ offered in Fall 2023 at the University of Notre Dame, was taught by Prof.
 Douglas Thain. I also had the privilege of working with Dr. Thain during the
 summer of 2022.</p>
 <p>As a side “note”, the notes I took for this course can be found <a target="_blank" rel="noopener" href="https://notes.sghuang.com/compilers-and-language-design"><svg aria-hidden="true" focusable="false" data-prefix="fas" data-icon="pen" class="svg-inline--fa fa-pen fa-w-16" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="currentColor" d="M290.74 93.24l128.02 128.02-277.99 277.99-114.14 12.6C11.35 513.54-1.56 500.62.14 485.34l12.7-114.22 277.9-277.88zm207.2-19.06l-60.11-60.11c-18.75-18.75-49.16-18.75-67.91 0l-56.55 56.55 128.02 128.02 56.55-56.55c18.75-18.76 18.75-49.16 0-67.91z"></path></svg> here</a>.</p>
+<span id="more"></span>
 <h2 id="Specification">Specification</h2>
 <p>B-Minor is a language designed by Dr. Thain for teaching this compiler course.
 The specification of this language is tweaked slightly each year. The complete
@@ -869,10 +898,10 @@ and <code>B</code> are all taken, and Dr. Thain prefers minor keys over major.</
 
           <div class="post-tags">
               <a href="/tags/project/" rel="tag"># project</a>
-              <a href="/tags/cse/" rel="tag"># cse</a>
-              <a href="/tags/compiler/" rel="tag"># compiler</a>
-              <a href="/tags/system/" rel="tag"># system</a>
               <a href="/tags/c/" rel="tag"># c</a>
+              <a href="/tags/compiler/" rel="tag"># compiler</a>
+              <a href="/tags/cse/" rel="tag"># cse</a>
+              <a href="/tags/system/" rel="tag"># system</a>
               <a href="/tags/pl/" rel="tag"># pl</a>
               <a href="/tags/sde/" rel="tag"># sde</a>
           </div>
@@ -881,13 +910,13 @@ and <code>B</code> are all taken, and Dr. Thain prefers minor keys over major.</
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/2021-12-31-%E8%B5%B4%E7%BE%8E%E5%89%8D%E5%86%99%E7%BB%992121%E7%8F%AD%E5%90%8C%E5%AD%A6%E4%BB%AC/" rel="prev" title="在赴美之际写给 2121 班同学">
-                  <i class="fa fa-angle-left"></i> 在赴美之际写给 2121 班同学
+                <a href="/cctools/" rel="prev" title="Cooperative Computing Tools (CCTools)">
+                  <i class="fa fa-angle-left"></i> Cooperative Computing Tools (CCTools)
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/hello-world/" rel="next" title="Hello World">
-                  Hello World <i class="fa fa-angle-right"></i>
+                <a href="/dreamlike-person-and-story" rel="next" title="如梦的人和如梦的故事">
+                  如梦的人和如梦的故事 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -919,13 +948,13 @@ and <code>B</code> are all taken, and Dr. Thain prefers minor keys over major.</
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Word count total">106k</span>
+    <span title="Word count total">108k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">6:24</span>
+    <span title="Reading time total">6:33</span>
   </span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>

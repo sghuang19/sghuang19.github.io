@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width">
 <meta name="theme-color" content="#177CB0" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#177CB0" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.2.0">
+<meta name="theme-color" content="#177CB0" media="(prefers-color-scheme: dark)"><meta name="generator" content="Hexo 7.3.0">
 <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
 <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
   <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
@@ -104,7 +104,7 @@
 
 
 <nav class="site-nav">
-  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-posts"><a href="/posts" rel="section"><i class="fa fa-signs-post fa-fw"></i>Posts</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">67</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">63</span></a></li><li class="menu-item menu-item-projects"><a href="/tags/project" rel="section"><i class="fa fa-cogs fa-fw"></i>Projects</a></li><li class="menu-item menu-item-experience"><a href="/experience/" rel="section"><i class="fa fa-briefcase fa-fw"></i>Experience</a></li><li class="menu-item menu-item-education"><a href="/education" rel="section"><i class="fa fa-graduation-cap fa-fw"></i>Education</a></li><li class="menu-item menu-item-courses"><a href="https://sghuang.notion.site/e242d6a39cf74dada55828ffe7cdb83f" rel="section" target="_blank"><i class="fa fa-book fa-fw"></i>Courses</a></li><li class="menu-item menu-item-notes"><a href="https://notes.sghuang.com/" rel="section" target="_blank"><i class="fa fa-file-pen fa-fw"></i>Notes</a></li>
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-posts"><a href="/posts" rel="section"><i class="fa fa-signs-post fa-fw"></i>Posts</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags<span class="badge">86</span></a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives<span class="badge">70</span></a></li><li class="menu-item menu-item-projects"><a href="/tags/project" rel="section"><i class="fa fa-cogs fa-fw"></i>Projects</a></li><li class="menu-item menu-item-experience"><a href="/experience/" rel="section"><i class="fa fa-briefcase fa-fw"></i>Experience</a></li><li class="menu-item menu-item-education"><a href="/education" rel="section"><i class="fa fa-graduation-cap fa-fw"></i>Education</a></li><li class="menu-item menu-item-courses"><a href="https://sghuang.notion.site/e242d6a39cf74dada55828ffe7cdb83f" rel="section" target="_blank"><i class="fa fa-book fa-fw"></i>Courses</a></li><li class="menu-item menu-item-notes"><a href="https://notes.sghuang.com/" rel="section" target="_blank"><i class="fa fa-file-pen fa-fw"></i>Notes</a></li>
       <li class="menu-item menu-item-search">
         <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>Search
         </a>
@@ -162,7 +162,7 @@
         <div class="site-overview-wrap sidebar-panel">
           <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
     <img class="site-author-image" itemprop="image" alt="Samuel Huang"
-      src="/uploads/avatar.png">
+      src="/images/avatar.png">
   <p class="site-author-name" itemprop="name">Samuel Huang</p>
   <div class="site-description" itemprop="description"></div>
 </div>
@@ -170,13 +170,13 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">63</span>
+          <span class="site-state-item-count">70</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">67</span>
+        <span class="site-state-item-count">86</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -253,7 +253,7 @@
     <link itemprop="mainEntityOfPage" href="https://sghuang.com/yolo-v1/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/uploads/avatar.png">
+      <meta itemprop="image" content="/images/avatar.png">
       <meta itemprop="name" content="Samuel Huang">
     </span>
 
@@ -357,12 +357,12 @@
 <p>或</p>
 <figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line">...</span><br><span class="line"></span><br><span class="line">  File <span class="string">"C:/Users/Guanc/Documents/GitHub/machine-learning-lab/src/YOLO-v1/dataset.py"</span>, line <span class="number">205</span>, <span class="keyword">in</span> randomCrop</span><br><span class="line">    height, width, c = bgr.shape</span><br><span class="line">AttributeError: <span class="string">'NoneType'</span> object has no attribute <span class="string">'shape'</span></span><br></pre></td></tr></tbody></table></figure>
 <p>等等。以上错误均出现在数据预处理环节，因各预处理执行与否为随机，因此错误也将随机出现。以上两个问题均是由图片路径为空造成，为此，在调用数据预处理方法代码前设置断点：</p>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">&gt;&gt; &gt; <span class="keyword">if</span> self.train:</span><br><span class="line">  img, boxes = random_flip(img, boxes)</span><br><span class="line">  img, boxes = randomScale(img, boxes)</span><br><span class="line">  img = randomBlur(img)</span><br><span class="line">  img = RandomBrightness(img)</span><br><span class="line">  img = RandomHue(img)</span><br><span class="line">  img = RandomSaturation(img)</span><br><span class="line">  img, boxes, labels = randomShift(img, boxes, labels)</span><br><span class="line">  img, boxes, labels = randomCrop(img, boxes, labels)</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">&gt;&gt; &gt; <span class="keyword">if</span> <span class="variable language_">self</span>.train:</span><br><span class="line">  img, boxes = random_flip(img, boxes)</span><br><span class="line">  img, boxes = randomScale(img, boxes)</span><br><span class="line">  img = randomBlur(img)</span><br><span class="line">  img = RandomBrightness(img)</span><br><span class="line">  img = RandomHue(img)</span><br><span class="line">  img = RandomSaturation(img)</span><br><span class="line">  img, boxes, labels = randomShift(img, boxes, labels)</span><br><span class="line">  img, boxes, labels = randomCrop(img, boxes, labels)</span><br></pre></td></tr></tbody></table></figure>
 <!-- cSpell:ignore fnames -->
 <p>通过 debugger 观察到，此时，图片文件名变量 <code>fname</code> 值为 <code>{str} '0'</code>，且 <code>yoloDataset</code> 对象成员变量 <code>fnames</code> 值为 <code>{list: 180} ['0', ..., '0']</code>，读取到的图片 <code>image</code> 也为 <code>None</code>。在对象的初始化方法中，<code>fnames</code> 被初始化为</p>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">self.fnames = []</span><br><span class="line">...</span><br><span class="line">self.fnames.append(split[<span class="number">0</span>])</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="variable language_">self</span>.fnames = []</span><br><span class="line">...</span><br><span class="line"><span class="variable language_">self</span>.fnames.append(split[<span class="number">0</span>])</span><br></pre></td></tr></tbody></table></figure>
 <p>可见，原作者设计的数据集读取方式与我们所指定的有所不同，图片文件名本应出现在标注数据的第一列。重新定义 <code>fnames</code> 列表如下：</p>
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">idx = <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> lines:</span><br><span class="line">    split = line.strip().split()</span><br><span class="line">    self.fnames.append(<span class="built_in">str</span>(idx).rjust(<span class="number">7</span>, <span class="string">'0'</span>) + <span class="string">'.jpg'</span>)</span><br><span class="line">    idx += <span class="number">1</span></span><br><span class="line">    ...</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">idx = <span class="number">1</span></span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> lines:</span><br><span class="line">    split = line.strip().split()</span><br><span class="line">    <span class="variable language_">self</span>.fnames.append(<span class="built_in">str</span>(idx).rjust(<span class="number">7</span>, <span class="string">'0'</span>) + <span class="string">'.jpg'</span>)</span><br><span class="line">    idx += <span class="number">1</span></span><br><span class="line">    ...</span><br></pre></td></tr></tbody></table></figure>
 <p>即解决了图片文件无法读取的问题。</p>
 <h3 id="解决部分-PyTorch-语法被废弃所引起的用户警告">解决部分 <code>PyTorch</code> 语法被废弃所引起的用户警告</h3>
 <p>运行 <code>train.py</code>，终端输出大量错误警告，需要一一解决。</p>
@@ -387,7 +387,7 @@
 <figure class="highlight powershell"><table><tbody><tr><td class="code"><pre><span class="line">Epoch [<span class="number">1</span>/<span class="number">10</span>], Iter [<span class="number">5</span>/<span class="number">180</span>] Loss: nan, average_loss: nan</span><br><span class="line">Epoch [<span class="number">1</span>/<span class="number">10</span>], Iter [<span class="number">10</span>/<span class="number">180</span>] Loss: nan, average_loss: nan</span><br><span class="line">Epoch [<span class="number">1</span>/<span class="number">10</span>], Iter [<span class="number">15</span>/<span class="number">180</span>] Loss: nan, average_loss: nan</span><br><span class="line">Epoch [<span class="number">1</span>/<span class="number">10</span>], Iter [<span class="number">20</span>/<span class="number">180</span>] Loss: nan, average_loss: nan</span><br><span class="line">...</span><br></pre></td></tr></tbody></table></figure>
 <p>在 <code>yoloLoss.forward()</code> 的末尾设置断点：</p>
 <!-- cSpell:ignore noobj -->
-<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">return</span> (self.l_coord * loc_loss +</span><br><span class="line">            <span class="number">2</span> * contain_loss + not_contain_loss +</span><br><span class="line">            self.l_noobj * noobj_loss +</span><br><span class="line">            class_loss) / N</span><br></pre></td></tr></tbody></table></figure>
+<figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line"><span class="meta">&gt;&gt;&gt; </span><span class="keyword">return</span> (<span class="variable language_">self</span>.l_coord * loc_loss +</span><br><span class="line">            <span class="number">2</span> * contain_loss + not_contain_loss +</span><br><span class="line">            <span class="variable language_">self</span>.l_noobj * noobj_loss +</span><br><span class="line">            class_loss) / N</span><br></pre></td></tr></tbody></table></figure>
 <p>通过 debugger 观察到，损失函数的组成部分中，<code>loc_loss</code> 为 <code>{Tensor} tensor(nan, grad_fn=&lt;AddBackward0&gt;)</code>，导致最终的损失函数为 <code>nan</code>。注意到 <code>loc_loss</code> 由两部分构成，将其分离进行调试。</p>
 <figure class="highlight python"><table><tbody><tr><td class="code"><pre><span class="line">loc_loss_1 = F.mse_loss(box_pred_response[:, :<span class="number">2</span>],</span><br><span class="line">                        box_target_response[:, :<span class="number">2</span>],</span><br><span class="line">                        reduction=<span class="string">'sum'</span>)</span><br><span class="line">loc_loss_2 = F.mse_loss(torch.sqrt(box_pred_response[:, <span class="number">2</span>:<span class="number">4</span>]),</span><br><span class="line">                        torch.sqrt(box_target_response[:, <span class="number">2</span>:<span class="number">4</span>]),</span><br><span class="line">                        reduction=<span class="string">'sum'</span>)</span><br><span class="line">loc_loss = loc_loss_1 + loc_loss_2</span><br><span class="line"><span class="comment"># loc_loss = F.mse_loss(box_pred_response[:, :2],</span></span><br><span class="line"><span class="comment">#                       box_target_response[:, :2],</span></span><br><span class="line"><span class="comment">#                       reduction='sum') + \</span></span><br><span class="line"><span class="comment">#            F.mse_loss(torch.sqrt(box_pred_response[:, 2:4]),</span></span><br><span class="line"><span class="comment">#                       torch.sqrt(box_target_response[:, 2:4]),</span></span><br><span class="line"><span class="comment">#                       reduction='sum')</span></span><br></pre></td></tr></tbody></table></figure>
 <p>观察到，<code>loc_loss_1</code> 正常，而 <code>loc_loss_2</code> 值为 <code>nan</code>，而用以计算 <code>loc_loss_2</code> 的张量 <code>box_target_response</code> 中出现了小于零的值，其作为 <code>torch.sqrt()</code> 的入参时自然会产生数值计算错误。虽然这部分负值出现的原因未知，但注意到其绝对值都极小，可以直接化为 0 处理。则代码对应修改为：</p>
@@ -631,13 +631,13 @@
     <span class="post-meta-item-icon">
       <i class="fa fa-chart-line"></i>
     </span>
-    <span title="Word count total">106k</span>
+    <span title="Word count total">108k</span>
   </span>
   <span class="post-meta-item">
     <span class="post-meta-item-icon">
       <i class="fa fa-coffee"></i>
     </span>
-    <span title="Reading time total">6:24</span>
+    <span title="Reading time total">6:33</span>
   </span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a>
