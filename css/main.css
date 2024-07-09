@@ -1558,7 +1558,7 @@ pre code {
     vertical-align: middle;
   }
   .links-of-author a::before {
-    background: #fffff9;
+    background: #abff52;
     display: inline-block;
     margin-right: 3px;
     transform: translateY(-2px);
@@ -1982,6 +1982,12 @@ pre code {
   display: inline-block;
   margin: 0 5px;
   animation: icon-animate 1.33s ease-in-out infinite;
+}
+.busuanzi-count #busuanzi_container_site_uv {
+  display: none;
+}
+.busuanzi-count #busuanzi_container_site_pv {
+  display: none;
 }
 @keyframes icon-animate {
   0%, 100% {
@@ -2409,6 +2415,9 @@ pre code {
 .post-meta-break {
   flex-basis: 100%;
   height: 0;
+}
+#busuanzi_container_page_pv {
+  display: none;
 }
 .post-nav {
   border-top: 1px solid #eee;
