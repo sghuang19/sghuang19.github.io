@@ -305,12 +305,12 @@
     </span>
 
   
-    <span class="post-meta-item" title="Views" id="busuanzi_container_page_pv">
+    <span class="post-meta-item" title="Views">
       <span class="post-meta-item-icon">
         <i class="far fa-eye"></i>
       </span>
       <span class="post-meta-item-text">Views: </span>
-      <span id="busuanzi_value_page_pv"></span>
+      <span class="firestore-visitors-count"></span>
     </span>
     <span class="post-meta-break"></span>
     <span class="post-meta-item" title="Word count in article">
@@ -489,13 +489,13 @@ $$</p>
 
           <div class="post-nav">
             <div class="post-nav-item">
-                <a href="/14.5%20Directional%20Derivatives%20and%20Gradient%20Vectors/" rel="prev" title="高等数学（下）期末复习：14.5 方向导数与梯度向量">
-                  <i class="fa fa-angle-left"></i> 高等数学（下）期末复习：14.5 方向导数与梯度向量
+                <a href="/14.6%20Tangent%20Planes%20and%20Differentials/" rel="prev" title="高等数学（下）期末复习：14.6 切平面与 Differential">
+                  <i class="fa fa-angle-left"></i> 高等数学（下）期末复习：14.6 切平面与 Differential
                 </a>
             </div>
             <div class="post-nav-item">
-                <a href="/14.6%20Tangent%20Planes%20and%20Differentials/" rel="next" title="高等数学（下）期末复习：14.6 切平面与 Differential">
-                  高等数学（下）期末复习：14.6 切平面与 Differential <i class="fa fa-angle-right"></i>
+                <a href="/14.8%20Lagrange%20Multipliers/" rel="next" title="高等数学（下）期末复习：14.8 拉格朗日乘子">
+                  高等数学（下）期末复习：14.8 拉格朗日乘子 <i class="fa fa-angle-right"></i>
                 </a>
             </div>
           </div>
@@ -535,24 +535,6 @@ $$</p>
     </span>
     <span title="Reading time total">6:33</span>
   </span>
-</div>
-<div class="busuanzi-count">
-    <span class="post-meta-item" id="busuanzi_container_site_uv">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-user"></i>
-      </span>
-      <span class="site-uv" title="Total Visitors">
-        <span id="busuanzi_value_site_uv"></span>
-      </span>
-    </span>
-    <span class="post-meta-item" id="busuanzi_container_site_pv">
-      <span class="post-meta-item-icon">
-        <i class="fa fa-eye"></i>
-      </span>
-      <span class="site-pv" title="Total Views">
-        <span id="busuanzi_value_site_pv"></span>
-      </span>
-    </span>
 </div>
   <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener external nofollow noreferrer" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener external nofollow noreferrer" target="_blank">NexT.Gemini</a>
   </div><div class="footer-custom">
@@ -600,8 +582,11 @@ $$</p>
   <script src="/js/third-party/addtoany.js"></script>
 
   
-  <script data-pjax async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/10.11.1/firebase-app-compat.js" integrity="sha256-GNS0PNk7BKL3ESum0TEubZtkybvbBMfkV3uZr7137Mk=" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/firebase/10.11.1/firebase-firestore-compat.js" integrity="sha256-e8eevSHRq9ExY9rGvp5MoYeiGniYwJq0djypMLEqCjs=" crossorigin="anonymous"></script>
+  <script class="next-config" data-name="firestore" type="application/json">{"enable":true,"collection":"articles","apiKey":"AIzaSyCLVZ-gvrnX0t4iPCTzMi07RDutSANfwEs","projectId":null,"projectID":"sghuang-portfolio"}</script>
+  <script src="/js/third-party/statistics/firestore.js"></script>
 
 
 
